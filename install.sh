@@ -1,18 +1,22 @@
 #!/bin/bash
 # Install complete skill directories into an Agent Skills root.
-# Usage: ./install.sh [target] [--flat]
+# Usage: ./install.sh [target] [--flat] [--force]
 #   nested (default): <target>/<category>/<skill>/SKILL.md
 #   --flat:           <target>/<skill>/SKILL.md
 set -euo pipefail
 
 TARGET=""
 FLAT=0
+FORCE=0
 for arg in "$@"; do
   case "$arg" in
     --flat) FLAT=1 ;;
+    --force) FORCE=1 ;;
     --help|-h)
-      echo "Usage: ./install.sh [target] [--flat]"
+      echo "Usage: ./install.sh [target] [--flat] [--force]"
       echo "Default target: ~/.claude/skills"
+      echo "--flat  install skills directly under the target root"
+      echo "--force replace an existing unmarked destination skill"
       exit 0
       ;;
     --*) echo "Unknown option: $arg" >&2; exit 2 ;;
@@ -44,18 +48,30 @@ for category in design security process multiplayer wordpress marketing qa; do
     fi
 
     skill_name="$(basename "$skill_dir")"
+    source_key="$category/$skill_name"
     if [ "$FLAT" -eq 1 ]; then
       dest="$TARGET/$skill_name"
-      if [ -e "$dest" ] && [ ! -f "$dest/SKILL.md" ]; then
-        echo "Refusing to overwrite non-skill path: $dest" >&2
-        exit 1
-      fi
     else
       dest="$TARGET/$category/$skill_name"
+    fi
+    marker="$dest/.agent-skill-bundle-source"
+
+    if [ -e "$dest" ]; then
+      owned=0
+      if [ -f "$marker" ] && [ "$(cat "$marker")" = "$source_key" ]; then
+        owned=1
+      fi
+      if [ "$owned" -eq 0 ] && [ "$FORCE" -ne 1 ]; then
+        echo "Refusing to replace existing unmarked skill: $dest" >&2
+        echo "Use --force only after reviewing that destination." >&2
+        exit 1
+      fi
+      rm -rf "$dest"
     fi
 
     mkdir -p "$dest"
     cp -r "$skill_dir"/. "$dest"/
+    printf '%s\n' "$source_key" > "$marker"
     count=$((count + 1))
   done
 done
