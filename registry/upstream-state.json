@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "checked_at": "2026-09-03",
+  "sources": [
+    {
+      "id": "anthropic-skills",
+      "repository": "anthropics/skills",
+      "branch": "main",
+      "commit": "53048666b05b4799081517d00e09e0a2dd688678"
+    },
+    {
+      "id": "daymade-claude-code-skills",
+      "repository": "daymade/claude-code-skills",
+      "branch": "main",
+      "commit": "3717e0fbbafa336fa0b85fce920231d81f87b344"
+    },
+    {
+      "id": "google-design-md",
+      "repository": "google-labs-code/design.md",
+      "branch": "main",
+      "commit": "9bf8eae67128b6cc55ad9bf86665767deb4c11cd"
+    },
+    {
+      "id": "voltagent-awesome-design-md",
+      "repository": "VoltAgent/awesome-design-md",
+      "branch": "main",
+      "commit": "8147538b4226ae41e2487a9179e3bcc1f68e8554"
+    },
+    {
+      "id": "obra-superpowers",
+      "repository": "obra/superpowers",
+      "branch": "main",
+      "commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797"
+    },
+    {
+      "id": "rivet-skills",
+      "repository": "rivet-dev/skills",
+      "branch": "main",
+      "commit": "c8a40a7f3f29fb04a091a42660b4c973f38540f6"
+    },
+    {
+      "id": "wordpress-agent-skills",
+      "repository": "WordPress/agent-skills",
+      "branch": "trunk",
+      "commit": "d87ee6916e740c7960b6959220c0481a41b320c7"
+    },
+    {
+      "id": "coreyhaines-marketingskills",
+      "repository": "coreyhaines31/marketingskills",
+      "branch": "main",
+      "commit": "d4ff28a9c8d56c06809860bf2800d4f5224b52db"
+    }
+  ]
+}
