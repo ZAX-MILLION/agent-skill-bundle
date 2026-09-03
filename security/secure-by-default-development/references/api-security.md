@@ -8,6 +8,7 @@ Use this reference whenever a change adds or modifies an API route, RPC, Server 
 - Authentication and authorization are separate checks.
 - Never trust IDs, tenant identifiers, roles, prices, ownership claims, or permission flags supplied by the client.
 - Reject ambiguous identity or scope. Fail closed.
+- Keep an inventory of externally reachable endpoints; old/debug/deprecated routes remain attack surface even if the UI no longer calls them.
 
 ## Required controls
 
@@ -41,6 +42,12 @@ Use this reference whenever a change adds or modifies an API route, RPC, Server 
    - Do not expose stack traces, SQL errors, internal paths, secrets, token parsing details, or tenant existence.
    - Log enough to investigate while keeping sensitive values redacted.
 
+8. **Endpoint lifecycle / inventory**
+   - Identify public vs authenticated vs privileged endpoints explicitly.
+   - Remove or disable obsolete debug, test, legacy, temporary, or superseded API routes rather than relying on nobody knowing them.
+   - Apply the same controls to old API versions until they are actually retired.
+   - Do not expose framework-generated admin/introspection/debug endpoints unintentionally.
+
 ## Adversarial checks
 
 When relevant, verify:
@@ -52,7 +59,8 @@ When relevant, verify:
 - request adds privileged fields such as `role`, `isAdmin`, `verified`, `balance`, `ownerId`, or `tenantId` -> rejected/ignored according to an explicit allowlist;
 - oversized body/batch/page size -> rejected;
 - malformed method/content-type/schema -> rejected;
-- repeated sensitive action hits an abuse control.
+- repeated sensitive action hits an abuse control;
+- deprecated/debug/old-version endpoints are either protected equivalently or no longer reachable.
 
 ## Release blockers
 
@@ -64,4 +72,5 @@ Do not mark production-ready if any of these are true:
 - privileged properties can be mass-assigned;
 - secrets or private data are returned unnecessarily;
 - a sensitive/expensive endpoint has no reasonable abuse bound;
-- credentialed/sensitive APIs are opened with permissive CORS as a convenience fix.
+- credentialed/sensitive APIs are opened with permissive CORS as a convenience fix;
+- forgotten debug/legacy endpoint exposes privileged behavior or data.
