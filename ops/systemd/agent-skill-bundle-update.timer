@@ -1,0 +1,11 @@
+[Unit]
+Description=Check Agent Skill Bundle upstreams daily
+
+[Timer]
+OnCalendar=daily
+RandomizedDelaySec=45m
+Persistent=true
+Unit=agent-skill-bundle-update.service
+
+[Install]
+WantedBy=timers.target
