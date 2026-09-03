@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "bundle": "ZAX-MILLION/agent-skill-bundle",
+  "policy": {
+    "upstream_is_source_of_truth": true,
+    "preserve_upstream_files": true,
+    "preserve_attribution": true,
+    "automatic_merge": false,
+    "review_updates_before_merge": true,
+    "allow_local_edits_to_upstream_skills": false
+  },
+  "sources": [
+    {
+      "id": "anthropic-skills",
+      "name": "Anthropic Skills",
+      "repository": "anthropics/skills",
+      "url": "https://github.com/anthropics/skills",
+      "default_branch": "main",
+      "categories": ["design"],
+      "type": "upstream"
+    },
+    {
+      "id": "daymade-claude-code-skills",
+      "name": "daymade Claude Code Skills",
+      "repository": "daymade/claude-code-skills",
+      "url": "https://github.com/daymade/claude-code-skills",
+      "default_branch": "main",
+      "categories": ["design"],
+      "type": "upstream"
+    },
+    {
+      "id": "google-design-md",
+      "name": "Google Labs design.md",
+      "repository": "google-labs-code/design.md",
+      "url": "https://github.com/google-labs-code/design.md",
+      "default_branch": "main",
+      "categories": ["design"],
+      "type": "upstream"
+    },
+    {
+      "id": "voltagent-awesome-design-md",
+      "name": "VoltAgent awesome-design-md",
+      "repository": "VoltAgent/awesome-design-md",
+      "url": "https://github.com/VoltAgent/awesome-design-md",
+      "default_branch": "main",
+      "categories": ["design"],
+      "type": "upstream"
+    },
+    {
+      "id": "obra-superpowers",
+      "name": "Superpowers",
+      "repository": "obra/superpowers",
+      "url": "https://github.com/obra/superpowers",
+      "default_branch": "main",
+      "categories": ["process"],
+      "type": "upstream"
+    },
+    {
+      "id": "rivet-skills",
+      "name": "Rivet Skills",
+      "repository": "rivet-dev/skills",
+      "url": "https://github.com/rivet-dev/skills",
+      "default_branch": "main",
+      "categories": ["multiplayer"],
+      "type": "upstream"
+    },
+    {
+      "id": "wordpress-agent-skills",
+      "name": "WordPress Agent Skills",
+      "repository": "WordPress/agent-skills",
+      "url": "https://github.com/WordPress/agent-skills",
+      "default_branch": "trunk",
+      "categories": ["wordpress", "security"],
+      "type": "upstream"
+    },
+    {
+      "id": "coreyhaines-marketingskills",
+      "name": "Marketing Skills",
+      "repository": "coreyhaines31/marketingskills",
+      "url": "https://github.com/coreyhaines31/marketingskills",
+      "default_branch": "main",
+      "categories": ["marketing"],
+      "type": "upstream"
+    },
+    {
+      "id": "zax-custom",
+      "name": "ZAX custom skills",
+      "repository": "ZAX-MILLION/agent-skill-bundle",
+      "url": "https://github.com/ZAX-MILLION/agent-skill-bundle",
+      "default_branch": "main",
+      "categories": ["security", "qa"],
+      "type": "local"
+    }
+  ]
+}
