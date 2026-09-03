@@ -49,6 +49,20 @@ Automation must fail closed when:
 - license review is required;
 - provenance cannot be established.
 
+`scripts/sync_reviewed.py` is deliberately local/review-branch only: it may copy reviewed upstream content into an `upstream-sync/...` branch, but it must not push or merge automatically.
+
+## Repository controls
+
+For a trusted distribution repository, the default branch should be protected before unattended update automation is enabled. Recommended controls:
+
+- require pull requests for changes to `main`;
+- block force pushes and branch deletion;
+- require at least one review for upstream-sync changes;
+- require provenance/audit checks before merge when those checks are available;
+- keep administrator bypass exceptional rather than routine.
+
+As of the 2026-09-03 review, GitHub reports this repository's `main` branch as **not protected**. This is an operational hardening item, not evidence that bundled skill content is unsafe.
+
 ## AI agents
 
 An AI agent using this bundle must not assume that a skill grants permissions or tools that the host does not actually provide. A skill also cannot authorize bypassing platform security, access controls or user confirmation requirements.
