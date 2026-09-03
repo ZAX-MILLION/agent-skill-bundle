@@ -15,6 +15,7 @@ Agent Skill Bundle aims to make distribution safer and easier by providing:
 - one installable collection;
 - explicit upstream source tracking;
 - preserved licenses and attribution;
+- Git-tree provenance for mapped skills;
 - a review-first update policy;
 - host-neutral compatibility guidance without silently rewriting third-party skills.
 
@@ -29,7 +30,7 @@ Agent Skill Bundle aims to make distribution safer and easier by providing:
 | Automatic upstream → `main` merge | **Disabled** |
 | Host-specific compatibility changes | Kept in `adapters/` |
 
-See [`registry/`](registry/README.md), [`CREDITS.md`](CREDITS.md), and [`SYNC_STATUS.md`](SYNC_STATUS.md) for the current provenance and sync state.
+See [`registry/`](registry/README.md), [`CREDITS.md`](CREDITS.md), [`SECURITY.md`](SECURITY.md), and [`SYNC_STATUS.md`](SYNC_STATUS.md) for the current trust and provenance state.
 
 ## What's inside
 
@@ -47,7 +48,7 @@ The bundle currently contains roughly **116 skills**. The number is not the trus
 
 ## Install
 
-The existing installer copies each skill's **complete directory**, including `SKILL.md`, scripts, references, examples and assets.
+The installer copies each skill's **complete directory**, including `SKILL.md`, scripts, references, examples and assets.
 
 ### Claude Code
 
@@ -80,35 +81,46 @@ For agents without a native skills directory, start with [`adapters/generic/READ
 
 The project intentionally avoids claiming universal *native* support. Different AI hosts expose different tools, permissions and instruction mechanisms.
 
-## Upstream checking
+## Provenance & upstream checking
 
-Registered upstream collections live in [`registry/sources.json`](registry/sources.json).
+The canonical upstream collection registry is [`registry/sources.json`](registry/sources.json), while [`registry/upstream-state.json`](registry/upstream-state.json) records verified source revisions.
 
-Check their current branch revisions with no third-party Python dependencies:
+Check current upstream branch revisions:
 
 ```bash
 python3 scripts/check_upstreams.py
 ```
 
-Write a revision snapshot only after every source check succeeds:
+Audit every **mapped** skill directory using Git tree SHAs:
 
 ```bash
-python3 scripts/check_upstreams.py --write
+python3 scripts/audit_skills.py
 ```
 
-This **does not automatically replace skills**. Exact per-skill source paths and commit provenance are being recorded before automatic copying is enabled. Upstream changes will remain review-first rather than auto-merged into `main`.
+Both tools are dependency-free Python scripts. Their `--write` modes refresh registry metadata only; they do **not** overwrite skill content.
+
+### First verified result
+
+`process/` is now fully mapped to `obra/superpowers`. At the recorded 2026-09-03 audit:
+
+- **7 skill directories were `EXACT`**;
+- **7 had `UPDATE_AVAILABLE`**.
+
+That result is recorded in [`registry/skills.json`](registry/skills.json). No skill was replaced automatically.
 
 ## Repository layout
 
 ```text
 agent-skill-bundle/
 ├── design/ security/ process/ multiplayer/ wordpress/ marketing/ qa/
-│   └── original skill directories
-├── registry/          # upstream sources + provenance policy
+│   └── skill directories
+├── registry/          # sources, revisions, per-skill provenance
 ├── adapters/          # host compatibility without rewriting skills
-├── scripts/           # source checking / future safe sync tooling
+├── scripts/           # source and Git-tree audits
 ├── CREDITS.md
+├── SECURITY.md
 ├── SYNC_STATUS.md
+├── CONTRIBUTING.md
 └── install.sh
 ```
 
@@ -122,4 +134,6 @@ Each bundled skill must retain the license/notice requirements of its upstream s
 
 ## Current status
 
-The trust layer and upstream collection registry are in place. Exact per-skill provenance mapping and safe reviewed sync are the next steps. See [`SYNC_STATUS.md`](SYNC_STATUS.md) for what is complete versus intentionally not yet enabled.
+The trust layer is live: upstream repositories have a recorded revision snapshot, `process/` has exact per-skill provenance, and the auditing tools are in place. Remaining mixed categories still need exact source-path mapping before safe reviewed syncing can be enabled for them.
+
+See [`SYNC_STATUS.md`](SYNC_STATUS.md) for what is verified versus intentionally not yet enabled.
