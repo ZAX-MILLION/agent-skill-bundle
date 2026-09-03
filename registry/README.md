@@ -14,18 +14,41 @@ This directory is the trust layer for Agent Skill Bundle.
 ## Files
 
 - `sources.json` — canonical list of upstream collections and bundle policy.
-- `upstream-state.json` — generated snapshot of checked upstream revisions. It may be absent until the checker is run with `--write`.
-- Future `skills.json` — per-skill provenance mapping. Automatic sync must not be enabled for a skill until its exact upstream repository and path are recorded.
+- `upstream-state.json` — verified snapshot of upstream branch revisions at the last recorded check.
+- `skills.json` — per-skill provenance/status for categories that have been mapped. `process/` is the first fully mapped upstream category.
 
-## Provenance target
+## Provenance fields
 
-Every upstream-backed skill should ultimately have these fields recorded:
+A mapped upstream skill records:
 
-- local path
-- source repository
-- source path
-- upstream commit SHA
-- license / notice location
-- last reviewed sync revision
+- local path;
+- source ID/repository;
+- exact upstream source path;
+- checked upstream commit SHA;
+- local directory Git tree SHA;
+- upstream directory Git tree SHA;
+- explicit state (`EXACT`, `UPDATE_AVAILABLE`, etc.).
 
-The source registry is intentionally separate from skill content so compatibility metadata never changes upstream-authored files.
+Git tree SHAs are used so the comparison covers the complete tracked directory, not only `SKILL.md`.
+
+## Auditing
+
+Check source branch revisions:
+
+```bash
+python3 scripts/check_upstreams.py
+```
+
+Audit mapped skills against their current upstream Git trees:
+
+```bash
+python3 scripts/audit_skills.py
+```
+
+Use `--write` only when you intentionally want to refresh registry metadata. Neither checker modifies skill directories.
+
+## Sync gate
+
+Automatic copying must not be enabled for a skill until its exact source path and provenance are mapped. A changed upstream tree is a review signal, not permission to overwrite local files.
+
+The registry is intentionally separate from skill content so compatibility/provenance metadata never changes upstream-authored files.
