@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """Review-first whole-directory upstream skill synchronization.
 
-Default mode is dry-run. Applying a sync requires both --apply and --reviewed.
-The tool creates a local review branch, replaces each selected skill directory
-with an exact copy from its registered upstream source, audits provenance, and
-runs git diff --check. It never pushes or merges.
+Default mode is dry-run. Applying requires both --apply and --reviewed.
+The tool creates a local review branch, replaces selected skill directories
+with exact canonical upstream copies, audits provenance, and runs git diff
+--check. It never pushes or merges.
 """
 from __future__ import annotations
 
@@ -20,8 +20,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 REGISTRY = ROOT / "registry"
 SOURCES_FILE = REGISTRY / "sources.json"
-SKILLS_FILE = REGISTRY / "skills.json"
-MAPPINGS_FILE = REGISTRY / "category-mappings.json"
+MAPPINGS_FILE = REGISTRY / "mappings.json"
 
 
 def load_json(path: Path) -> dict:
@@ -29,92 +28,67 @@ def load_json(path: Path) -> dict:
 
 
 def run(*args: str, cwd: Path = ROOT, capture: bool = False) -> subprocess.CompletedProcess[str]:
-    return subprocess.run(
-        list(args),
-        cwd=cwd,
-        check=True,
-        text=True,
-        capture_output=capture,
-    )
+    return subprocess.run(list(args), cwd=cwd, check=True, text=True, capture_output=capture)
 
 
 def ensure_clean_tree() -> None:
-    status = run("git", "status", "--porcelain", capture=True).stdout.strip()
-    if status:
-        raise RuntimeError("Working tree is not clean; commit or stash changes before applying sync.")
+    if run("git", "status", "--porcelain", capture=True).stdout.strip():
+        raise RuntimeError("Working tree is not clean; commit or stash changes first.")
 
 
 def source_lookup() -> dict[str, dict]:
     return {
         item["id"]: item
         for item in load_json(SOURCES_FILE)["sources"]
-        if item.get("type") == "upstream"
+        if item.get("type") == "upstream" and item.get("syncable", True)
     }
 
 
-def explicit_lookup() -> dict[str, dict]:
-    return {
-        item["local_path"]: item
-        for item in load_json(SKILLS_FILE).get("skills", [])
-    }
+def mapping_lookup() -> dict[str, dict]:
+    data = load_json(MAPPINGS_FILE)
+    result: dict[str, dict] = {}
 
+    for convention in data.get("conventions", []):
+        root = ROOT / convention["local_category"]
+        if not root.is_dir():
+            continue
+        for item in root.iterdir():
+            if item.is_dir() and (item / "SKILL.md").is_file():
+                local_path = f"{convention['local_category']}/{item.name}"
+                result[local_path] = {
+                    "source_id": convention["source_id"],
+                    "source_path": convention["source_path_template"].format(name=item.name),
+                    "kind": convention.get("kind", "skill"),
+                }
 
-def convention_lookup() -> dict[str, dict]:
-    result = {}
-    for item in load_json(MAPPINGS_FILE).get("mappings", []):
-        if item.get("enabled", True):
-            result[item["local_category"]] = item
+    for name in data.get("anthropic_design_skills", []):
+        result[f"design/{name}"] = {
+            "source_id": "anthropic-skills",
+            "source_path": f"skills/{name}",
+            "kind": "skill",
+        }
+
+    for override in data.get("overrides", []):
+        result[override["local_path"]] = dict(override)
+
     return result
-
-
-def resolve(local_path: str, explicit: dict[str, dict], conventions: dict[str, dict]) -> tuple[str, str]:
-    if local_path in explicit:
-        entry = explicit[local_path]
-        return entry["source_id"], entry["source_path"]
-
-    parts = Path(local_path).parts
-    if len(parts) != 2:
-        raise RuntimeError(f"Unsupported local skill path: {local_path}")
-    category, name = parts
-    mapping = conventions.get(category)
-    if not mapping:
-        raise RuntimeError(
-            f"No reviewed provenance mapping for {local_path}. Run scripts/discover_provenance.py first."
-        )
-    source_path = "/".join(
-        part for part in (mapping.get("source_prefix", ""), name) if part
-    )
-    return mapping["source_id"], source_path
 
 
 def clone_source(source: dict, destination: Path) -> None:
     run(
-        "git",
-        "clone",
-        "--depth",
-        "1",
-        "--single-branch",
-        "--branch",
-        source["default_branch"],
-        source["url"],
-        str(destination),
+        "git", "clone", "--depth", "1", "--single-branch",
+        "--branch", source["default_branch"], source["url"], str(destination),
         cwd=destination.parent,
     )
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(
-        description="Safely mirror selected skills from reviewed upstream sources."
-    )
+    parser = argparse.ArgumentParser(description="Safely mirror reviewed canonical upstream skills.")
     parser.add_argument("skills", nargs="+", help="Local paths, e.g. process/writing-skills")
-    parser.add_argument("--apply", action="store_true", help="Apply exact upstream copies locally.")
-    parser.add_argument(
-        "--reviewed",
-        action="store_true",
-        help="Confirm provenance/source selection has been reviewed.",
-    )
-    parser.add_argument("--commit", action="store_true", help="Commit the reviewed sync locally.")
-    parser.add_argument("--branch", help="Review branch name. Defaults to upstream-sync/<timestamp>.")
+    parser.add_argument("--apply", action="store_true")
+    parser.add_argument("--reviewed", action="store_true")
+    parser.add_argument("--commit", action="store_true")
+    parser.add_argument("--branch", help="Defaults to upstream-sync/<timestamp>.")
     args = parser.parse_args()
 
     if args.apply and not args.reviewed:
@@ -123,23 +97,26 @@ def main() -> int:
         parser.error("--commit requires --apply")
 
     sources = source_lookup()
-    explicit = explicit_lookup()
-    conventions = convention_lookup()
+    mappings = mapping_lookup()
     planned = []
 
     for local_path in args.skills:
         destination = ROOT / local_path
         if not destination.is_dir() or not (destination / "SKILL.md").is_file():
             raise RuntimeError(f"Not a bundled skill directory: {local_path}")
-        source_id, source_path = resolve(local_path, explicit, conventions)
-        source = sources.get(source_id)
+        mapping = mappings.get(local_path)
+        if not mapping:
+            raise RuntimeError(f"No canonical reviewed mapping for {local_path}")
+        if mapping.get("kind") != "skill" or mapping.get("sync") == "manual-review":
+            raise RuntimeError(f"{local_path} is not eligible for exact automatic skill sync")
+        source = sources.get(mapping["source_id"])
         if not source:
-            raise RuntimeError(f"Unknown or non-upstream source: {source_id}")
-        planned.append((local_path, source_id, source_path, source))
-        print(f"PLAN  {local_path} <- {source['repository']}:{source_path}@{source['default_branch']}")
+            raise RuntimeError(f"Source is not syncable: {mapping['source_id']}")
+        planned.append((local_path, mapping["source_id"], mapping["source_path"], source))
+        print(f"PLAN  {local_path} <- {source['repository']}:{mapping['source_path']}@{source['default_branch']}")
 
     if not args.apply:
-        print("\nDry run only. Re-run with --apply --reviewed after reviewing the provenance above.")
+        print("\nDry run only. Re-run with --apply --reviewed after inspecting provenance and upstream diffs.")
         return 0
 
     ensure_clean_tree()
@@ -155,13 +132,9 @@ def main() -> int:
                     clone_dir = tmpdir / source_id
                     clone_source(source, clone_dir)
                     clones[source_id] = clone_dir
-
                 upstream_dir = clones[source_id] / source_path
                 if not upstream_dir.is_dir() or not (upstream_dir / "SKILL.md").is_file():
-                    raise RuntimeError(
-                        f"Registered upstream path is not a skill directory: {source['repository']}:{source_path}"
-                    )
-
+                    raise RuntimeError(f"Canonical path is not a skill directory: {source['repository']}:{source_path}")
                 destination = ROOT / local_path
                 shutil.rmtree(destination)
                 shutil.copytree(upstream_dir, destination, symlinks=True)
@@ -182,10 +155,7 @@ def main() -> int:
         print("Nothing was pushed or merged. Review the diff before integrating it.")
         return 0
     except Exception:
-        print(
-            f"\nSync stopped on review branch {branch}. Nothing was pushed or merged.",
-            file=sys.stderr,
-        )
+        print(f"\nSync stopped on review branch {branch}. Nothing was pushed or merged.", file=sys.stderr)
         raise
 
 
