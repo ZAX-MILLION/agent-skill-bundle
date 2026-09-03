@@ -16,7 +16,7 @@ Agent Skill Bundle aims to make distribution safer and easier by providing:
 - explicit upstream source tracking;
 - preserved licenses and attribution;
 - Git-tree provenance for mapped skills;
-- a review-first update policy;
+- review-first exact upstream syncing;
 - host-neutral compatibility guidance without silently rewriting third-party skills.
 
 ## Trust model
@@ -26,7 +26,7 @@ Agent Skill Bundle aims to make distribution safer and easier by providing:
 | Third-party source of truth | Original upstream repository |
 | Silent edits to upstream skills | **Not allowed** |
 | Original license / notices / credits | **Preserved** |
-| Upstream updates | **Review before merge** |
+| Upstream updates | **Review before integration** |
 | Automatic upstream → `main` merge | **Disabled** |
 | Host-specific compatibility changes | Kept in `adapters/` |
 
@@ -91,22 +91,60 @@ Check current upstream branch revisions:
 python3 scripts/check_upstreams.py
 ```
 
-Audit every **mapped** skill directory using Git tree SHAs:
+Audit mapped skill directories using Git tree SHAs:
 
 ```bash
 python3 scripts/audit_skills.py
 ```
 
-Both tools are dependency-free Python scripts. Their `--write` modes refresh registry metadata only; they do **not** overwrite skill content.
+Discover provenance candidates for mixed-source categories without accepting name-only matches:
 
-### First verified result
+```bash
+python3 scripts/discover_provenance.py
+```
 
-`process/` is now fully mapped to `obra/superpowers`. At the recorded 2026-09-03 audit:
+`process/`, `wordpress/`, and `marketing/` use reviewed same-directory-name mapping conventions. Mixed-source categories remain explicit/manual until provenance is proven.
 
-- **7 skill directories were `EXACT`**;
-- **7 had `UPDATE_AVAILABLE`**.
+## Review-first upstream sync
 
-That result is recorded in [`registry/skills.json`](registry/skills.json). No skill was replaced automatically.
+Preview the source that would be used for a skill:
+
+```bash
+python3 scripts/sync_reviewed.py process/writing-skills
+```
+
+After provenance and the upstream diff have been reviewed, create a local review branch and copy the **entire upstream skill directory** exactly:
+
+```bash
+python3 scripts/sync_reviewed.py process/writing-skills --apply --reviewed
+```
+
+Optionally create a local commit on that review branch:
+
+```bash
+python3 scripts/sync_reviewed.py process/writing-skills --apply --reviewed --commit
+```
+
+The sync tool:
+
+1. refuses a dirty working tree;
+2. creates an `upstream-sync/...` review branch;
+3. shallow-clones the registered upstream repository;
+4. replaces the selected skill with the complete upstream directory;
+5. re-runs provenance auditing;
+6. runs `git diff --check`;
+7. **never pushes and never merges**.
+
+This deliberately separates *discovering an upstream update* from *trusting and integrating it*.
+
+## Verified `process/` status
+
+Against `obra/superpowers` at the recorded 2026-09-03 revision:
+
+- **12 of 14 skill directories are `EXACT`**;
+- **2 have `UPDATE_AVAILABLE`**: `subagent-driven-development` and `writing-skills`.
+
+Five previously stale process skills were refreshed as exact upstream copies and verified by directory-tree SHA. Exact state is recorded in [`registry/skills.json`](registry/skills.json).
 
 ## Repository layout
 
@@ -114,9 +152,9 @@ That result is recorded in [`registry/skills.json`](registry/skills.json). No sk
 agent-skill-bundle/
 ├── design/ security/ process/ multiplayer/ wordpress/ marketing/ qa/
 │   └── skill directories
-├── registry/          # sources, revisions, per-skill provenance
+├── registry/          # sources, revisions, mapping rules, provenance
 ├── adapters/          # host compatibility without rewriting skills
-├── scripts/           # source and Git-tree audits
+├── scripts/           # discovery, audits, reviewed sync tooling
 ├── CREDITS.md
 ├── SECURITY.md
 ├── SYNC_STATUS.md
@@ -134,6 +172,6 @@ Each bundled skill must retain the license/notice requirements of its upstream s
 
 ## Current status
 
-The trust layer is live: upstream repositories have a recorded revision snapshot, `process/` has exact per-skill provenance, and the auditing tools are in place. Remaining mixed categories still need exact source-path mapping before safe reviewed syncing can be enabled for them.
+The trust layer, upstream revision tracking, Git-tree auditing, provenance discovery, convention mappings, and review-first full-directory sync tooling are in place. Mixed-source categories (`design`, `security`, `multiplayer`) still require exact source-path discovery before they can use reviewed sync safely.
 
 See [`SYNC_STATUS.md`](SYNC_STATUS.md) for what is verified versus intentionally not yet enabled.
