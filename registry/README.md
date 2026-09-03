@@ -4,51 +4,54 @@ This directory is the trust layer for Agent Skill Bundle.
 
 ## Rules
 
-1. Upstream repositories are the source of truth for third-party skills.
-2. Upstream skill contents must not be silently modified in this bundle.
-3. Original authorship, repository links, license files, notices, and credits must be preserved.
-4. Upstream updates are reviewed before merge. Automatic upstream-to-main merges are not allowed.
-5. If an upstream skill needs host-specific compatibility, add an adapter outside the skill directory instead of patching the skill.
-6. Custom skills owned by this repository are explicitly marked as `local`.
+1. Canonical author repositories are the source of truth for mirrored third-party skills.
+2. A downstream mirror with identical content does not replace the original author as the attribution source.
+3. Upstream skill contents must not be silently modified in this bundle.
+4. Original authorship, repository links, licenses and notices must be preserved.
+5. Upstream changes may be prepared on review branches, but automatic upstream-to-`main` merge is forbidden.
+6. Host-specific compatibility belongs in `adapters/`, not inside upstream copies.
+7. Local/custom material is explicitly marked `local`.
+8. Legacy/derived material is not called `EXACT` unless an exact original directory can be proven.
 
 ## Files
 
-- `sources.json` — canonical list of upstream collections and bundle policy.
-- `upstream-state.json` — verified snapshot of upstream branch revisions at the last recorded check.
-- `skills.json` — per-skill provenance/status for categories that have been mapped. `process/` is the first fully mapped upstream category.
+- `sources.json` — source registry, source roles, sync eligibility and attribution priority.
+- `mappings.json` — canonical local-path → upstream-path conventions and explicit overrides.
+- `upstream-state.json` — snapshot of checked upstream repository revisions.
+- `skills.json` — last written per-directory Git-tree audit snapshot.
 
-## Provenance fields
+## Source roles
 
-A mapped upstream skill records:
-
-- local path;
-- source ID/repository;
-- exact upstream source path;
-- checked upstream commit SHA;
-- local directory Git tree SHA;
-- upstream directory Git tree SHA;
-- explicit state (`EXACT`, `UPDATE_AVAILABLE`, etc.).
-
-Git tree SHAs are used so the comparison covers the complete tracked directory, not only `SKILL.md`.
+- `skill_upstream` — canonical source for exact skill syncing.
+- `collection_upstream` — canonical source for a non-skill collection.
+- `reference_spec` / `reference_docs` — authoritative reference material, but not an exact skill mirror.
+- `related_upstream` — related current project where legacy exact provenance no longer exists.
+- `local` — maintained by this bundle.
 
 ## Auditing
 
-Check source branch revisions:
-
 ```bash
 python3 scripts/check_upstreams.py
+python3 scripts/audit_skills.py
+python3 scripts/discover_provenance.py
 ```
 
-Audit mapped skills against their current upstream Git trees:
+`audit_skills.py --write` refreshes metadata only. It never changes a bundled skill.
+
+## Syncing
+
+Preview an exact canonical source:
 
 ```bash
-python3 scripts/audit_skills.py
+python3 scripts/sync_reviewed.py process/writing-skills
 ```
 
-Use `--write` only when you intentionally want to refresh registry metadata. Neither checker modifies skill directories.
+Prepare a review branch only after provenance/source selection is reviewed:
 
-## Sync gate
+```bash
+python3 scripts/sync_reviewed.py process/writing-skills --apply --reviewed --commit
+```
 
-Automatic copying must not be enabled for a skill until its exact source path and provenance are mapped. A changed upstream tree is a review signal, not permission to overwrite local files.
+For recurring server-side checks, `scripts/prepare_updates.py` selects only known `UPDATE_AVAILABLE` entries and prepares a separate review branch. It never merges to `main`.
 
-The registry is intentionally separate from skill content so compatibility/provenance metadata never changes upstream-authored files.
+Git tree SHAs cover the complete tracked directory, not only `SKILL.md`.
