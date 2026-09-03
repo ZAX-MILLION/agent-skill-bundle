@@ -15,6 +15,8 @@ Load only the references relevant to the changed surface. `SKILL.md` remains the
 | Packages, plugins, SDKs, containers, CI actions | `supply-chain.md` |
 | Payments, credits, rewards, quotas, workflow/state transitions | `business-logic.md` |
 | Secrets, logs, analytics, privacy, backups, exports | `secrets-logging-privacy.md` |
+| Encryption, hashing, signatures, random tokens, TLS integrity | `cryptography-integrity.md` |
+| Security logging, abuse visibility, alerts, revocation/incident readiness | `monitoring-incident.md` |
 | Docker, nginx, server/cloud/CI/deployment config | `infra-deployment.md` |
 | React / Next.js / WordPress / general stack audit overlay | `stack-checklists.md` |
 | Production-ready/completion claim | `release-gate.md` |
@@ -27,7 +29,8 @@ When a task crosses multiple trust boundaries, load multiple references. For exa
 
 - Next.js authenticated upload -> `api-security.md` + `authorization-tenancy.md` + `uploads-storage.md` + `browser-security.md` + `stack-checklists.md`.
 - Supabase multi-tenant feature -> `authorization-tenancy.md` + `database-rls.md` + `api-security.md`.
-- Stripe-style webhook -> `webhooks-ssrf.md` + `business-logic.md` + `secrets-logging-privacy.md`.
-- Production Docker/nginx deployment -> `infra-deployment.md` + `secrets-logging-privacy.md` + `supply-chain.md`.
+- Stripe-style webhook -> `webhooks-ssrf.md` + `business-logic.md` + `cryptography-integrity.md` + `secrets-logging-privacy.md`.
+- Authentication/security-token work -> `auth-session.md` + `cryptography-integrity.md` + `monitoring-incident.md`.
+- Production Docker/nginx deployment -> `infra-deployment.md` + `secrets-logging-privacy.md` + `supply-chain.md` + `monitoring-incident.md`.
 
 Before a production-ready claim, always apply `release-gate.md` to the changed surfaces.
