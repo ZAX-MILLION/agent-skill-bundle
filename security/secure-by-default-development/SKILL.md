@@ -7,173 +7,193 @@ description: Mandatory security baseline for any task that creates, modifies, re
 
 Security is a cross-cutting implementation constraint, not a final checklist.
 
-Use this skill for **every code- or configuration-changing task**. It does not replace specialist security skills; it is the baseline that should remain active while other skills are used.
+Use this skill for **every code-, configuration-, database-, dependency-, or infrastructure-changing task**. Keep it active while using narrower specialist skills.
 
 ## Core rule
 
-Do not make a feature work by weakening a security boundary.
+**Never make a feature work by weakening a security boundary.**
 
-If the quickest functional fix requires disabling or broadening authentication, authorization, RLS, CSP, CORS, TLS, input validation, rate limiting, sandboxing, file restrictions, permission checks, secret handling, or another security control, stop and choose a safer implementation.
+If the quickest fix requires disabling or broadly weakening authentication, authorization, RLS, CSP, CORS, TLS, validation, rate limiting, sandboxing, file restrictions, secret handling, least privilege, or another security control, stop and choose a safer design.
 
-## Non-negotiable security invariants
+## Non-negotiable invariants
 
-1. **The client is never the authority.** UI hiding, disabled buttons, route guards, JavaScript checks, client claims, tenant IDs, user IDs, roles, prices, permissions, or ownership values supplied by the browser are untrusted until verified server-side.
-2. **Authentication is not authorization.** Every protected server boundary must verify both who the caller is and whether that caller may perform the requested action on the requested resource.
-3. **Deny by default.** Missing identity, missing ownership, ambiguous tenant scope, malformed input, unknown permissions, failed verification, or unavailable security dependencies must fail closed.
-4. **Validate at trust boundaries.** Validate and normalize untrusted input in the server/API/action that consumes it. Client-side validation is UX, not a security boundary.
-5. **Secrets stay server-side.** Never place private keys, service-role keys, database passwords, signing secrets, privileged API keys, session secrets, or equivalent credentials in browser code, public environment variables, logs, URLs, examples, source control, or error messages.
-6. **Use least privilege.** Grant only the minimum database, filesystem, API, cloud, runtime, and user permissions required for the operation.
-7. **Sensitive data has a lifecycle.** Minimize collection, avoid unnecessary copies, encrypt where appropriate, keep backups protected, set retention deliberately, and provide deletion/export behavior when the product requires it.
-8. **Sessions must resist theft and replay.** Prefer secure server-managed sessions or `HttpOnly`, `Secure`, appropriately `SameSite` cookies. Do not move sensitive session tokens to `localStorage` merely because it is convenient.
-9. **Logs are data exfiltration surfaces.** Do not log passwords, cookies, bearer tokens, reset links, secret headers, private keys, full payment data, sensitive personal data, or unrestricted request bodies.
-10. **Uploads are hostile input.** Enforce size and type allowlists, validate server-side, generate safe filenames/paths, keep uploaded content outside executable locations where possible, and prevent path traversal or script execution.
-11. **Dependencies are supply-chain decisions.** Before adding a package/plugin/SDK, confirm it is necessary, reasonably maintained, appropriately licensed, and not asking for excessive permissions. Preserve lockfiles and run the ecosystem's vulnerability tooling where available.
-12. **Security claims require evidence.** Never say a change is secure because the happy path works or because a checklist was read. Verify negative cases and report what was not tested.
+1. **The client is never the authority.** Browser/mobile/client values such as IDs, roles, tenant IDs, ownership, prices, balances, permissions, verification status, and workflow state are untrusted until server-verified.
+2. **Authentication is not authorization.** Every protected server/data boundary verifies both identity and permission for the exact resource/action.
+3. **Deny by default.** Missing identity, ambiguous tenant scope, malformed input, failed verification, unknown permission, or unavailable security dependency fails closed.
+4. **Validate at trust boundaries.** Client validation is UX; server/API/action/database boundaries enforce security validation.
+5. **Secrets stay server-side.** Private/service/admin credentials never enter public env variables, browser bundles, logs, URLs, examples, source control, or public artifacts.
+6. **Least privilege is the default.** Do not solve permission problems with root, admin, service-role, wildcard policies, `777`, privileged containers, or broad IAM unless the design genuinely requires it.
+7. **Uploads and URLs are hostile input.** Files, paths, archives, callbacks, redirects, and outbound URLs require explicit constraints.
+8. **Dependencies are executable trust decisions.** Package/plugin/SDK provenance, permissions, install scripts, vulnerabilities, and data collection matter.
+9. **Business rules are security rules.** Money, credits, rewards, quotas, state transitions, one-time actions, and concurrency must be server-authoritative and abuse-resistant.
+10. **Logs/backups/exports are data surfaces.** Protect them like production data and redact reusable credentials.
+11. **Fail securely on exceptional conditions.** Timeouts, parse errors, unavailable auth providers, failed policy checks, or missing configuration must not silently become allow paths.
+12. **Security claims require evidence.** Happy-path success is never sufficient evidence of security.
 
-## Before changing code: security pre-flight
+## Security pre-flight before changes
 
-For the requested change, identify only the relevant items:
+Scale depth to risk; do not create a giant threat model for trivial text changes.
 
-- trust boundaries: browser, server, database, third-party service, admin surface, file system, queue, webhook, CLI, deployment host;
-- sensitive assets: credentials, sessions, personal data, money/credits, privileged actions, private files, tenant data;
-- identities and roles involved;
-- resources whose ownership or tenant scope matters;
+For the changed surface identify:
+
+- trust boundaries: client, server, database, file/object storage, third party, webhook, queue, admin surface, deployment host;
+- sensitive assets: credentials, sessions, personal data, private files, money/credits, privileged actions, tenant data;
+- caller identities/roles;
+- resource ownership/tenant rules;
 - attacker-controlled inputs;
-- outbound destinations and third parties;
-- new dependencies, permissions, public endpoints, uploads, webhooks, background jobs, or configuration changes.
+- public endpoints or network destinations;
+- new dependencies, permissions, secrets, uploads, callbacks, caches, jobs, or deployment exposure.
 
-Then state the security invariants that must remain true. Examples:
+Write the security invariants that must remain true. Examples:
 
-- a student can only read their own progress;
-- changing a URL ID cannot reveal another tenant's record;
-- a normal user cannot call an admin action directly;
-- a webhook without a valid signature cannot mutate state;
-- browser JavaScript never receives the service-role key;
-- an uploaded file can never execute as server code.
+- user A cannot read user B's record by changing an ID;
+- tenant A cannot enumerate tenant B's data;
+- a normal user cannot invoke an admin mutation directly;
+- an invalid webhook cannot mutate trusted state;
+- a service-role key never reaches browser code;
+- an upload cannot execute as server/trusted-origin code;
+- a user-controlled URL cannot reach localhost/private/cloud-metadata services;
+- the same redemption/payment event cannot create value twice.
 
-Do not over-engineer a threat model for trivial text-only changes. Scale the depth to the risk.
+## Progressive security references
+
+Read `references/README.md` and load **only the references relevant to the changed surface**.
+
+### Mandatory routing
+
+- API / Route Handler / RPC / Server Action -> `references/api-security.md`
+- login / session / reset / MFA -> `references/auth-session.md`
+- roles / admin / ownership / multi-tenant -> `references/authorization-tenancy.md`
+- database / Supabase / Postgres / RLS -> `references/database-rls.md`
+- untrusted data reaches SQL/shell/HTML/path/template/redirect -> `references/input-injection.md`
+- uploads / files / object storage / archives -> `references/uploads-storage.md`
+- webhooks / callbacks / URL fetch/import -> `references/webhooks-ssrf.md`
+- React / Next.js / browser / CSP / CORS / cache -> `references/browser-security.md`
+- packages / plugins / SDKs / containers / CI actions -> `references/supply-chain.md`
+- payments / credits / quotas / workflow state -> `references/business-logic.md`
+- secrets / logs / analytics / privacy / backups / exports -> `references/secrets-logging-privacy.md`
+- Docker / nginx / server / cloud / CI/CD / deployment -> `references/infra-deployment.md`
+- React / Next.js / WordPress / general checklist overlay -> `references/stack-checklists.md`
+
+A task can require several references. Do not load every reference by default.
 
 ## During implementation
 
-### Authentication and authorization
+### Access control
 
-- Verify identity at the server boundary that performs the action.
-- Verify role/capability and resource ownership/tenant membership there as well.
-- Query with the authorized scope whenever possible instead of loading broadly and filtering later.
-- Treat middleware and UI guards as defense-in-depth, not the only authorization check.
-- For multi-tenant systems, bind every sensitive query/mutation to the authenticated tenant context.
-- Never trust `userId`, `role`, `tenantId`, `isAdmin`, ownership, or price from the client without server verification.
+- Verify identity at the server boundary performing the action.
+- Verify role/capability plus resource ownership/tenant membership there as well.
+- Prefer queries scoped by trusted identity/tenant instead of broad fetch-then-filter.
+- Treat middleware, route guards, hidden buttons, UUID unpredictability, and obscure URLs as defense-in-depth only.
+- Explicitly allowlist mutable fields; do not blindly spread request objects into privileged records.
 
-### APIs, actions, webhooks, and forms
+### APIs and abuse resistance
 
-- Validate method, content type, schema, ranges, lengths, enum values, IDs, and business invariants.
-- Apply rate limits to authentication, password/reset flows, invitations, expensive actions, uploads, public forms, and abuse-prone endpoints.
-- Protect state-changing browser requests against CSRF when the session model requires it.
-- Verify webhook signatures using the raw payload when required by the provider; reject stale/replayed events when the protocol supports timestamps or event IDs.
-- Return minimal errors to clients; keep sensitive diagnostic details in protected server logs.
-- Do not send sensitive data in query strings when headers/body are appropriate.
+- Validate method, content type, schema, ranges, lengths, IDs, enums, and business invariants.
+- Bound request body, page/batch size, query complexity, upload cost, export size, and expensive operations.
+- Rate-limit authentication/recovery, invitations, messaging, public forms, expensive APIs, and abuse-prone business actions.
+- Return minimal data and minimal public error detail.
 
 ### Database and storage
 
-- Enforce authorization in the application and, where supported, add database-level policies such as RLS as defense-in-depth.
-- Do not disable RLS or widen a database policy simply to make a query pass.
-- Parameterize database queries; do not concatenate untrusted input into SQL or query languages.
-- Keep privileged database/service credentials out of client code.
-- Encrypt sensitive data and backups where the platform/threat model requires it.
-- Make destructive operations explicit and scoped; protect bulk delete/update paths.
+- Parameterize queries and strictly allowlist dynamic identifiers/operators.
+- Keep RLS/policy protections intact. Never disable/widen them solely to make a request succeed.
+- If privileged/service credentials bypass database policy, recreate equivalent authorization before every operation.
+- Protect destructive operations with explicit scope and protect concurrency-sensitive invariants with transactions/constraints/atomic operations when appropriate.
 
-### Browser / frontend
+### Browser
 
-- Escape output by default and avoid raw HTML injection. If user-controlled HTML is genuinely required, sanitize it with a maintained sanitizer and a restrictive policy.
-- Encode untrusted values before placing them in URLs/attributes where the framework does not handle it safely.
-- Do not put secrets in frontend bundles or public environment variables.
-- Use CSP and other response headers as defense-in-depth where applicable.
-- Do not rely on source-map hiding, minification, or obscurity to protect secrets.
+- Use framework escaping by default; sanitize genuinely required user-controlled HTML.
+- Keep secrets/server-only data out of client components and serialized client payloads.
+- Do not weaken CSP/CORS as a convenience fix.
+- Review authenticated/private caching so one user's response cannot be served to another.
+- Prefer secure server-managed sessions or `HttpOnly` cookies for sensitive authentication state when architecture permits.
 
-### Filesystem and uploads
+### Files and outbound network
 
-- Block traversal (`../`, encoded variants, absolute paths) by resolving against an allowed root and verifying the final path.
-- Do not trust filename extensions or client MIME headers alone.
-- Restrict file size, count, type, and processing cost.
-- Keep uploads non-executable and serve them with safe content disposition/type policies as appropriate.
+- Bound upload types/sizes/counts/processing; keep uploads non-executable and authorization-protected.
+- Contain filesystem paths inside an allowed root and block traversal/archive escape.
+- Do not perform unrestricted `fetch(userUrl)` from a privileged server. Restrict/isolate outbound requests and block internal/private/metadata destinations.
+- Verify webhook authenticity before side effects and apply replay/idempotency protection where the provider/workflow supports it.
 
-### Dependencies, SDKs, plugins, and third parties
+### Dependencies and deployment
 
-- Prefer existing project/framework capabilities over adding a new dependency for a small task.
-- Review package/plugin provenance and maintenance before installation.
-- Check what telemetry/data a third-party SDK sends and whether it needs access to sensitive data.
-- Do not install nulled/cracked packages, themes, or plugins.
-- Run dependency vulnerability checks when supported; do not blindly auto-fix breaking upgrades without review.
+- Prefer existing project/framework capabilities before adding dependencies.
+- Verify dependency identity, maintenance, license, install scripts, permissions, vulnerabilities, and telemetry/data access.
+- Keep production secrets outside source/client/image artifacts.
+- Do not expose databases, caches, admin/debug consoles, or unnecessary ports publicly.
+- Do not use root/privileged containers/wildcard permissions as unexplained functional fixes.
 
-### Configuration and deployment
+## Mandatory adversarial verification
 
-- Enforce HTTPS in production and avoid mixed content.
-- Configure CORS to the required origins/methods/headers; do not use a broad `*` as a convenience fix for credentialed or sensitive APIs.
-- Configure CSP deliberately; do not add broad `unsafe-inline`, `unsafe-eval`, or wildcard sources just to silence errors unless the risk is understood and explicitly accepted.
-- Keep production debug output and sensitive stack traces disabled from public responses.
-- Use least-privilege runtime users, filesystem permissions, cloud roles, and deployment credentials.
-- Never commit `.env` files or secrets.
+Security verification must include relevant **negative cases**, not only happy-path tests.
 
-## Stack overlays
+Common required checks:
 
-Read `references/stack-checklists.md` only for the stack being changed.
+- unauthenticated caller rejected;
+- authenticated wrong-role caller rejected;
+- user A cannot access user B's resource;
+- tenant A cannot access tenant B;
+- client-tampered role/owner/tenant/price/balance/status rejected or ignored by explicit policy;
+- malformed/oversized/out-of-range input rejected;
+- invalid/replayed webhook rejected or idempotent;
+- disallowed upload/traversal rejected;
+- unsafe internal SSRF destination blocked;
+- service/admin secrets absent from client bundle/logs/repository;
+- duplicate/concurrent business action preserves invariants;
+- newly introduced dependency has reviewed provenance and no ignored known critical/high issue without explanation.
 
-- **General application:** data storage, authentication, API/server authorization, privacy, permissions, third parties, logs, dependencies, notifications.
-- **React:** XSS, `dangerouslySetInnerHTML`, browser secrets, token storage, server-side protected-resource checks, CORS, CSP, production debug/source-map exposure.
-- **Next.js:** Server/Client boundaries, Route Handlers, Server Actions, `NEXT_PUBLIC_`, middleware as defense-in-depth, uploads/images, CSP and deployment headers.
-- **WordPress:** core/plugin/theme maintenance, capabilities/nonces, sanitization/escaping, prepared queries, uploads, filesystem/admin hardening, plugin trust, login protection, backups, WAF, XML-RPC when unused.
+Use behavioral tests/requests/policy tests where tools permit. Text search alone is not evidence that the boundary works.
 
-Some WordPress hardening measures based on obscurity (for example changing the login URL or database prefix) can be defense-in-depth but are **not substitutes** for strong authentication, authorization, updates, least privilege, rate limiting, and secure code.
+## Mandatory release gate
 
-## Verification gate before completion
+Before saying **production-ready**, **secure**, **done**, **hardened**, or equivalent for a security-relevant change, read and apply:
 
-Run the smallest meaningful security verification for the changed surface. Prefer behavioral tests over text searches.
+`references/release-gate.md`
 
-### Required negative checks when relevant
+The final security verdict must be one of:
 
-- unauthenticated caller is rejected;
-- authenticated but unauthorized caller is rejected;
-- user A cannot access user B's resource by changing an ID;
-- tenant A cannot access tenant B data;
-- invalid/malformed/out-of-range input is rejected;
-- missing/invalid webhook signature is rejected;
-- oversized/disallowed upload is rejected;
-- path traversal is rejected;
-- secret values are absent from client bundles/logs/source control;
-- security headers/CORS/CSP behave as intended;
-- dependency audit does not reveal an introduced known critical/high issue that is being ignored without explanation.
+- **SECURITY PASS**
+- **SECURITY WARNING**
+- **SECURITY BLOCKER**
 
-### Completion questions
+Do not upgrade WARNING/BLOCKER to PASS because the feature works.
 
-Before claiming completion, answer:
+### Examples of automatic BLOCKERs
 
-1. What trust boundary changed?
-2. What authorization rule protects it?
-3. What attacker-controlled input is validated and where?
-4. Did any secret, permission, dependency, public endpoint, upload, or third party change?
-5. What negative/security test was run?
-6. What security-relevant item remains unverified?
-
-If a relevant question cannot be answered, the task is not security-complete.
+- private API works without authentication;
+- cross-user/cross-tenant access;
+- admin action callable by normal user;
+- private/service secret exposed client-side or publicly;
+- RLS/auth/CSP/CORS/TLS/validation broadly disabled to make functionality work;
+- attacker-controlled SQL/shell/template/dynamic-code injection;
+- unsigned trusted webhook mutates sensitive state;
+- arbitrary server-side URL fetch reaches private/internal/metadata networks;
+- unrestricted executable upload/path traversal/private-file bypass;
+- public unauthenticated database/cache/admin/debug service;
+- obvious replay/double-spend/business-logic flaw on valuable state;
+- cracked/nulled/suspicious dependency used without trusted provenance;
+- root/privileged/`777`-style access used as an unexplained fix.
 
 ## Stop conditions
 
-Stop and surface the issue instead of silently weakening security when:
+Stop and surface the issue instead of weakening security when:
 
 - required identity/ownership/tenant information is unavailable;
-- a requested implementation would expose a secret to the client;
-- a fix requires disabling auth, authorization, RLS, TLS, CSP, validation, rate limiting, or another security control without an explicit risk decision;
-- a dependency/plugin is suspicious, abandoned, opaque, or requests excessive privilege and no safe alternative has been evaluated;
-- production credentials or private data appear in source control or logs;
-- verification demonstrates cross-user/cross-tenant access;
-- the agent lacks the tool/access needed to verify a critical security assumption.
+- implementation would expose a secret to an untrusted client;
+- functionality appears to require disabling a security control without an explicit authorized risk decision;
+- a dependency/plugin is suspicious, abandoned, opaque, or over-privileged and a safer alternative has not been evaluated;
+- production credentials/private data appear in source control, logs, artifacts, or client code;
+- verification demonstrates cross-user/cross-tenant/privilege escalation;
+- the agent lacks access/tools required to verify a critical assumption.
 
 ## Reporting
 
-For security-relevant code changes, keep the report compact:
+For security-relevant changes report compactly:
 
-- **Protected:** security invariants preserved/added.
+- **Protected:** invariants/boundaries preserved or added.
 - **Verified:** negative/security checks actually run.
-- **Residual:** anything important not verified or requiring operator configuration.
+- **Residual:** important unverified assumptions/operator configuration.
+- **Verdict:** SECURITY PASS / WARNING / BLOCKER.
 
-Do not claim perfect security. The goal is to avoid preventable mistakes, preserve explicit trust boundaries, and make residual risk visible.
+Do not claim perfect security. The purpose is to prevent avoidable security mistakes, fail closed, and make residual risk visible.
