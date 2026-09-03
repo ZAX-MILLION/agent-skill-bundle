@@ -94,7 +94,20 @@
       "role": "related_upstream",
       "syncable": false,
       "priority": 20,
-      "note": "Current Rivet skills no longer expose the legacy chat-room/live-cursors/multiplayer-game skill paths; legacy provenance is tracked separately."
+      "note": "Current Rivet skills no longer expose the legacy chat-room/live-cursors/multiplayer-game skill paths."
+    },
+    {
+      "id": "rivet-actors-docs",
+      "name": "Rivet Actors documentation and examples",
+      "repository": "rivet-dev/actors",
+      "url": "https://github.com/rivet-dev/actors",
+      "default_branch": "main",
+      "categories": ["multiplayer"],
+      "type": "upstream",
+      "role": "reference_docs",
+      "syncable": false,
+      "priority": 90,
+      "note": "Canonical current documentation/examples underlying legacy multiplayer skills; not an exact skill-directory mirror."
     },
     {
       "id": "wordpress-agent-skills",
