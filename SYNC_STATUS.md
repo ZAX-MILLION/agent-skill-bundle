@@ -2,79 +2,85 @@
 
 Last registry review: **2026-09-03**
 
-This file reports what the bundle can prove today. It deliberately separates update detection from reviewed integration.
+This file reports what the bundle can prove and deliberately separates provenance, update detection, review-branch preparation, and integration.
 
 | Capability | Status | Notes |
 |---|---|---|
-| Upstream source registry | ✅ Ready | Sources are recorded in `registry/sources.json`. |
-| Upstream repository verification | ✅ Ready | Registered public repositories and default branches were verified. |
-| Original credits preserved | ✅ Ready | See `CREDITS.md`; upstream attribution remains required. |
-| Upstream revision checker | ✅ Ready | `scripts/check_upstreams.py` checks current upstream branch revisions. |
-| Git-tree skill auditor | ✅ Ready | `scripts/audit_skills.py` compares mapped local/upstream directories. |
-| Provenance discovery | ✅ Ready | `scripts/discover_provenance.py` finds exact candidates; name-only matches require review. |
-| Convention mapping | ✅ Ready | `process/`, `wordpress/`, and `marketing/` have reviewed path conventions. |
-| Reviewed whole-skill sync | ✅ Ready | `scripts/sync_reviewed.py` copies complete upstream directories on a review branch. |
-| Automatic merge to `main` | 🚫 Disabled by policy | No sync tool pushes or merges automatically. |
-| Generic AI compatibility guidance | ✅ Ready | See `adapters/generic/README.md`. |
-| Host-specific adapters | 🟡 Incremental | Add only where a host actually needs one; avoid duplicating skill content. |
+| Canonical source registry | ✅ Ready | Source roles/priorities are in `registry/sources.json`. |
+| Canonical path mappings | ✅ Ready | Conventions and explicit overrides are in `registry/mappings.json`. |
+| Credits / canonical attribution | ✅ Ready | Mirrors do not replace original authors. See `CREDITS.md`. |
+| Upstream revision checker | ✅ Ready | `scripts/check_upstreams.py`. |
+| Git-tree auditor | ✅ Ready | `scripts/audit_skills.py`; metadata-only `--write`. |
+| Canonical provenance discovery | ✅ Ready | `scripts/discover_provenance.py`; reference/mirror repos cannot steal attribution. |
+| Reviewed exact skill sync | ✅ Ready | `scripts/sync_reviewed.py`; whole directory, review branch, no merge. |
+| Known-update branch preparer | ✅ Ready | `scripts/prepare_updates.py`; selects only `UPDATE_AVAILABLE`. |
+| Server-local scheduled checks | ✅ Ready | systemd units under `ops/`; no GitHub Actions required. |
+| Automatic upstream → `main` merge | 🚫 Forbidden | Review/integration stays explicit. |
+| ChatGPT / Codex adapters | ✅ Ready | Portable Agent Skills guidance. |
+| Cursor / Claude Code adapters | ✅ Ready | File-based installation guidance. |
+| Generic AI adapter | ✅ Ready | Capability-aware fallback. |
+| `main` branch protection | ⚠️ External setting | Must be enabled in GitHub repository settings/rulesets. |
 
-## Verified category: `process/`
+## Verified `process/`
 
-Compared against `obra/superpowers` at upstream commit:
+Canonical upstream: `obra/superpowers`
+
+Checked revision:
 
 `b36e0829c6d0140e93cfef2ca599b1b07d4a7797`
 
-Current directory-tree status:
+**14 / 14 process skill directory trees are EXACT.**
 
-- **12 EXACT** — local directory matches the tracked upstream tree.
-- **2 UPDATE_AVAILABLE** — `subagent-driven-development` and `writing-skills`.
-
-Five previously stale skills were refreshed from upstream and then verified by complete directory-tree SHA:
-
-- `brainstorming`
-- `finishing-a-development-branch`
-- `requesting-code-review`
-- `using-superpowers`
-- `writing-plans`
-
-Exact per-skill results are stored in `registry/skills.json`.
+The complete snapshot is in `registry/skills.json`.
 
 ## Provenance coverage
 
-| Category | Status |
+| Category | Classification |
 |---|---|
-| `process/` | ✅ Exact source paths / convention mapped; audited |
-| `wordpress/` | ✅ Source-path convention mapped; full audit/update review pending |
-| `marketing/` | ✅ Source-path convention mapped; full audit/update review pending |
+| `process/` | ✅ Canonical mapped + 14/14 verified exact |
+| `wordpress/` | ✅ Canonical same-name mapping to `WordPress/agent-skills/skills/<name>` |
+| `marketing/` | ✅ Canonical same-name mapping to `coreyhaines31/marketingskills/skills/<name>` |
+| `design/` | ✅ Canonical mapping model established: Anthropic, daymade, Hermes/NousResearch + VoltAgent collection; Google design.md correctly tracked as a reference spec |
+| `security/` | ✅ Local/custom — not falsely attributed to WordPress or another upstream |
 | `qa/` | ✅ Local/custom |
-| `design/` | 🟡 Mixed upstream sources — exact discovery pending |
-| `security/` | 🟡 Local + upstream mix — exact discovery pending |
-| `multiplayer/` | 🟡 Source relationship requires explicit verification |
+| `multiplayer/` | ⚠️ Legacy Rivet-derived — tracked against current Rivet docs/examples, intentionally excluded from exact automatic syncing until an exact historical skill source can be proven |
 
-## Safe sync workflow
+## Baseline vs update
 
-Dry-run provenance preview:
+A newly mapped directory that differs from current upstream may initially be `DIFFERS_FROM_UPSTREAM`. That is **not** auto-selected for replacement. A maintainer reviews the baseline first.
 
-```bash
-python3 scripts/sync_reviewed.py process/writing-skills
-```
+After a known baseline exists, a later upstream tree change becomes `UPDATE_AVAILABLE`, which may be prepared automatically on a review branch.
 
-Reviewed local sync:
+## Safe update workflow
 
 ```bash
-python3 scripts/sync_reviewed.py process/writing-skills --apply --reviewed --commit
+python3 scripts/check_upstreams.py
+python3 scripts/audit_skills.py
+python3 scripts/prepare_updates.py
 ```
 
-The command creates an `upstream-sync/...` branch and never pushes or merges it. Review the resulting diff, licenses/notices, executable scripts, network behavior, and prompt instructions before integration.
+Prepare known updates locally:
 
-## Update states
+```bash
+python3 scripts/prepare_updates.py --apply
+```
 
-- `EXACT` — local copy matches the tracked upstream directory tree at the checked revision.
-- `UPDATE_AVAILABLE` — upstream directory tree differs from the local copy.
-- `MODIFIED` — local third-party skill is known to contain bundle-side changes.
-- `DIFFERS_FROM_UPSTREAM` — a difference exists but provenance history is insufficient to classify it further.
-- `LICENSE_CHANGED` — upstream licensing changed and requires review.
-- `UPSTREAM_REMOVED` — the tracked source path no longer exists upstream.
-- `QUARANTINED` — update requires security/manual inspection before use.
+Optionally publish the review branch:
 
-No state should be marked `EXACT` unless the source repository, source path, checked upstream revision and directory-tree comparison are known.
+```bash
+python3 scripts/prepare_updates.py --apply --push
+```
+
+Neither command merges to `main`.
+
+## States
+
+- `EXACT` — local directory tree equals the canonical upstream tree at the checked revision.
+- `UPDATE_AVAILABLE` — a previously baselined canonical upstream tree changed.
+- `MODIFIED` — local mirrored third-party content changed after the recorded baseline.
+- `DIFFERS_FROM_UPSTREAM` — a difference exists but history is insufficient to safely call it an upstream update.
+- `UPSTREAM_REMOVED` — canonical mapped path disappeared.
+- `LICENSE_CHANGED` — license review is required before integration.
+- `QUARANTINED` — security/manual review required.
+
+No item is marked `EXACT` without a known canonical source, path, revision, and directory-tree comparison.
