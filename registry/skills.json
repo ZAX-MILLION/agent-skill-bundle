@@ -1,141 +1,29 @@
 {
-  "schema_version": 1,
-  "checked_at": "2026-09-03T16:07:00+00:00",
+  "schema_version": 2,
+  "checked_at": "2026-09-03T16:50:00+00:00",
   "coverage": {
-    "process": "complete-by-convention",
-    "design": "pending",
-    "security": "pending",
-    "multiplayer": "pending",
-    "wordpress": "complete-by-convention",
-    "marketing": "complete-by-convention",
+    "process": "verified-exact",
+    "design": "canonical-mapped",
+    "security": "local",
+    "multiplayer": "legacy-derived-manual-review",
+    "wordpress": "canonical-mapped",
+    "marketing": "canonical-mapped",
     "qa": "local"
   },
   "skills": [
-    {
-      "local_path": "process/brainstorming",
-      "source_id": "obra-superpowers",
-      "source_path": "skills/brainstorming",
-      "checked_upstream_commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
-      "local_tree_sha": "881fc4ac82a25e61a58d332426b5673efe060da0",
-      "upstream_tree_sha": "881fc4ac82a25e61a58d332426b5673efe060da0",
-      "state": "EXACT"
-    },
-    {
-      "local_path": "process/dispatching-parallel-agents",
-      "source_id": "obra-superpowers",
-      "source_path": "skills/dispatching-parallel-agents",
-      "checked_upstream_commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
-      "local_tree_sha": "15697cb0726c26a66bff737494e8b5266667ba0c",
-      "upstream_tree_sha": "15697cb0726c26a66bff737494e8b5266667ba0c",
-      "state": "EXACT"
-    },
-    {
-      "local_path": "process/executing-plans",
-      "source_id": "obra-superpowers",
-      "source_path": "skills/executing-plans",
-      "checked_upstream_commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
-      "local_tree_sha": "1484ffb29998ba1db2a7b6bf0e641081eb8612e9",
-      "upstream_tree_sha": "1484ffb29998ba1db2a7b6bf0e641081eb8612e9",
-      "state": "EXACT"
-    },
-    {
-      "local_path": "process/finishing-a-development-branch",
-      "source_id": "obra-superpowers",
-      "source_path": "skills/finishing-a-development-branch",
-      "checked_upstream_commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
-      "local_tree_sha": "3b1205aa5038c71946077dd63b9e71b447729e70",
-      "upstream_tree_sha": "3b1205aa5038c71946077dd63b9e71b447729e70",
-      "state": "EXACT"
-    },
-    {
-      "local_path": "process/receiving-code-review",
-      "source_id": "obra-superpowers",
-      "source_path": "skills/receiving-code-review",
-      "checked_upstream_commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
-      "local_tree_sha": "b5e154fc3ec7a6a0b1e710eebacc2168620cc428",
-      "upstream_tree_sha": "b5e154fc3ec7a6a0b1e710eebacc2168620cc428",
-      "state": "EXACT"
-    },
-    {
-      "local_path": "process/requesting-code-review",
-      "source_id": "obra-superpowers",
-      "source_path": "skills/requesting-code-review",
-      "checked_upstream_commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
-      "local_tree_sha": "2ef6b5734813e7504d9866a7ec1ae89b505bfe70",
-      "upstream_tree_sha": "2ef6b5734813e7504d9866a7ec1ae89b505bfe70",
-      "state": "EXACT"
-    },
-    {
-      "local_path": "process/subagent-driven-development",
-      "source_id": "obra-superpowers",
-      "source_path": "skills/subagent-driven-development",
-      "checked_upstream_commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
-      "local_tree_sha": "b54e8179ba48b0d96f4639d387f90a0a885eb8c6",
-      "upstream_tree_sha": "8133f2b10d4e71e73d867f2e2e365e0778ff0e4e",
-      "state": "UPDATE_AVAILABLE"
-    },
-    {
-      "local_path": "process/systematic-debugging",
-      "source_id": "obra-superpowers",
-      "source_path": "skills/systematic-debugging",
-      "checked_upstream_commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
-      "local_tree_sha": "ab83fc82f82582e047d96fc516bac9bc03095ee0",
-      "upstream_tree_sha": "ab83fc82f82582e047d96fc516bac9bc03095ee0",
-      "state": "EXACT"
-    },
-    {
-      "local_path": "process/test-driven-development",
-      "source_id": "obra-superpowers",
-      "source_path": "skills/test-driven-development",
-      "checked_upstream_commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
-      "local_tree_sha": "a82cf8b413600c6bd7c4b482272d7990e9588cf1",
-      "upstream_tree_sha": "a82cf8b413600c6bd7c4b482272d7990e9588cf1",
-      "state": "EXACT"
-    },
-    {
-      "local_path": "process/using-git-worktrees",
-      "source_id": "obra-superpowers",
-      "source_path": "skills/using-git-worktrees",
-      "checked_upstream_commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
-      "local_tree_sha": "d2b8357b922667a091bfe967840abf5ae84ce99c",
-      "upstream_tree_sha": "d2b8357b922667a091bfe967840abf5ae84ce99c",
-      "state": "EXACT"
-    },
-    {
-      "local_path": "process/using-superpowers",
-      "source_id": "obra-superpowers",
-      "source_path": "skills/using-superpowers",
-      "checked_upstream_commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
-      "local_tree_sha": "e8e3b9ddf73018fdc48d188b12ba654e7363de9f",
-      "upstream_tree_sha": "e8e3b9ddf73018fdc48d188b12ba654e7363de9f",
-      "state": "EXACT"
-    },
-    {
-      "local_path": "process/verification-before-completion",
-      "source_id": "obra-superpowers",
-      "source_path": "skills/verification-before-completion",
-      "checked_upstream_commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
-      "local_tree_sha": "a4cb0b69aaefeab540947a7f1642bdaad810e37a",
-      "upstream_tree_sha": "a4cb0b69aaefeab540947a7f1642bdaad810e37a",
-      "state": "EXACT"
-    },
-    {
-      "local_path": "process/writing-plans",
-      "source_id": "obra-superpowers",
-      "source_path": "skills/writing-plans",
-      "checked_upstream_commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
-      "local_tree_sha": "e4d3c3faf3853a453016cece5de2ca0581807742",
-      "upstream_tree_sha": "e4d3c3faf3853a453016cece5de2ca0581807742",
-      "state": "EXACT"
-    },
-    {
-      "local_path": "process/writing-skills",
-      "source_id": "obra-superpowers",
-      "source_path": "skills/writing-skills",
-      "checked_upstream_commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
-      "local_tree_sha": "611ae23b2390aef2d90463b79dbcef3997adc5f4",
-      "upstream_tree_sha": "1768f7552ec98fc6b06aeea747a0c4ef6bde0473",
-      "state": "UPDATE_AVAILABLE"
-    }
+    {"local_path":"process/brainstorming","source_id":"obra-superpowers","source_path":"skills/brainstorming","checked_upstream_commit":"b36e0829c6d0140e93cfef2ca599b1b07d4a7797","local_tree_sha":"881fc4ac82a25e61a58d332426b5673efe060da0","upstream_tree_sha":"881fc4ac82a25e61a58d332426b5673efe060da0","state":"EXACT"},
+    {"local_path":"process/dispatching-parallel-agents","source_id":"obra-superpowers","source_path":"skills/dispatching-parallel-agents","checked_upstream_commit":"b36e0829c6d0140e93cfef2ca599b1b07d4a7797","local_tree_sha":"15697cb0726c26a66bff737494e8b5266667ba0c","upstream_tree_sha":"15697cb0726c26a66bff737494e8b5266667ba0c","state":"EXACT"},
+    {"local_path":"process/executing-plans","source_id":"obra-superpowers","source_path":"skills/executing-plans","checked_upstream_commit":"b36e0829c6d0140e93cfef2ca599b1b07d4a7797","local_tree_sha":"1484ffb29998ba1db2a7b6bf0e641081eb8612e9","upstream_tree_sha":"1484ffb29998ba1db2a7b6bf0e641081eb8612e9","state":"EXACT"},
+    {"local_path":"process/finishing-a-development-branch","source_id":"obra-superpowers","source_path":"skills/finishing-a-development-branch","checked_upstream_commit":"b36e0829c6d0140e93cfef2ca599b1b07d4a7797","local_tree_sha":"3b1205aa5038c71946077dd63b9e71b447729e70","upstream_tree_sha":"3b1205aa5038c71946077dd63b9e71b447729e70","state":"EXACT"},
+    {"local_path":"process/receiving-code-review","source_id":"obra-superpowers","source_path":"skills/receiving-code-review","checked_upstream_commit":"b36e0829c6d0140e93cfef2ca599b1b07d4a7797","local_tree_sha":"b5e154fc3ec7a6a0b1e710eebacc2168620cc428","upstream_tree_sha":"b5e154fc3ec7a6a0b1e710eebacc2168620cc428","state":"EXACT"},
+    {"local_path":"process/requesting-code-review","source_id":"obra-superpowers","source_path":"skills/requesting-code-review","checked_upstream_commit":"b36e0829c6d0140e93cfef2ca599b1b07d4a7797","local_tree_sha":"2ef6b5734813e7504d9866a7ec1ae89b505bfe70","upstream_tree_sha":"2ef6b5734813e7504d9866a7ec1ae89b505bfe70","state":"EXACT"},
+    {"local_path":"process/subagent-driven-development","source_id":"obra-superpowers","source_path":"skills/subagent-driven-development","checked_upstream_commit":"b36e0829c6d0140e93cfef2ca599b1b07d4a7797","local_tree_sha":"8133f2b10d4e71e73d867f2e2e365e0778ff0e4e","upstream_tree_sha":"8133f2b10d4e71e73d867f2e2e365e0778ff0e4e","state":"EXACT"},
+    {"local_path":"process/systematic-debugging","source_id":"obra-superpowers","source_path":"skills/systematic-debugging","checked_upstream_commit":"b36e0829c6d0140e93cfef2ca599b1b07d4a7797","local_tree_sha":"ab83fc82f82582e047d96fc516bac9bc03095ee0","upstream_tree_sha":"ab83fc82f82582e047d96fc516bac9bc03095ee0","state":"EXACT"},
+    {"local_path":"process/test-driven-development","source_id":"obra-superpowers","source_path":"skills/test-driven-development","checked_upstream_commit":"b36e0829c6d0140e93cfef2ca599b1b07d4a7797","local_tree_sha":"a82cf8b413600c6bd7c4b482272d7990e9588cf1","upstream_tree_sha":"a82cf8b413600c6bd7c4b482272d7990e9588cf1","state":"EXACT"},
+    {"local_path":"process/using-git-worktrees","source_id":"obra-superpowers","source_path":"skills/using-git-worktrees","checked_upstream_commit":"b36e0829c6d0140e93cfef2ca599b1b07d4a7797","local_tree_sha":"d2b8357b922667a091bfe967840abf5ae84ce99c","upstream_tree_sha":"d2b8357b922667a091bfe967840abf5ae84ce99c","state":"EXACT"},
+    {"local_path":"process/using-superpowers","source_id":"obra-superpowers","source_path":"skills/using-superpowers","checked_upstream_commit":"b36e0829c6d0140e93cfef2ca599b1b07d4a7797","local_tree_sha":"e8e3b9ddf73018fdc48d188b12ba654e7363de9f","upstream_tree_sha":"e8e3b9ddf73018fdc48d188b12ba654e7363de9f","state":"EXACT"},
+    {"local_path":"process/verification-before-completion","source_id":"obra-superpowers","source_path":"skills/verification-before-completion","checked_upstream_commit":"b36e0829c6d0140e93cfef2ca599b1b07d4a7797","local_tree_sha":"a4cb0b69aaefeab540947a7f1642bdaad810e37a","upstream_tree_sha":"a4cb0b69aaefeab540947a7f1642bdaad810e37a","state":"EXACT"},
+    {"local_path":"process/writing-plans","source_id":"obra-superpowers","source_path":"skills/writing-plans","checked_upstream_commit":"b36e0829c6d0140e93cfef2ca599b1b07d4a7797","local_tree_sha":"e4d3c3faf3853a453016cece5de2ca0581807742","upstream_tree_sha":"e4d3c3faf3853a453016cece5de2ca0581807742","state":"EXACT"},
+    {"local_path":"process/writing-skills","source_id":"obra-superpowers","source_path":"skills/writing-skills","checked_upstream_commit":"b36e0829c6d0140e93cfef2ca599b1b07d4a7797","local_tree_sha":"1768f7552ec98fc6b06aeea747a0c4ef6bde0473","upstream_tree_sha":"1768f7552ec98fc6b06aeea747a0c4ef6bde0473","state":"EXACT"}
   ]
 }
