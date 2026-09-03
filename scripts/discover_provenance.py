@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-"""Discover provenance candidates without altering bundled skills.
+"""Discover canonical provenance candidates without altering bundled content.
 
-Unique exact Git-tree matches can be emitted as registry candidates. Name-only
-matches are reported for manual review and are never auto-accepted.
+Only syncable canonical skill/collection upstreams participate. Reference specs,
+related repos and mirrors cannot steal attribution. Exact Git-tree matches are
+preferred; name-only matches are always manual-review candidates.
 """
 from __future__ import annotations
 
@@ -51,11 +52,8 @@ def local_skills() -> list[tuple[str, str, str]]:
                 continue
             local_path = f"{category}/{skill.name}"
             sha = subprocess.run(
-                ["git", "rev-parse", f"HEAD:{local_path}"],
-                cwd=ROOT,
-                check=True,
-                capture_output=True,
-                text=True,
+                ["git", "rev-parse", f"HEAD:{local_path}"], cwd=ROOT,
+                check=True, capture_output=True, text=True,
             ).stdout.strip()
             result.append((local_path, skill.name, sha))
     return result
@@ -68,16 +66,27 @@ def upstream_trees(source: dict) -> tuple[str, list[dict]]:
     tree = github_json(f"/repos/{repo}/git/trees/{commit}?recursive=1")
     if tree.get("truncated"):
         raise RuntimeError(f"Truncated Git tree for {repo}")
-    dirs = [item for item in tree.get("tree", []) if item.get("type") == "tree"]
-    return commit, dirs
+    return commit, [item for item in tree.get("tree", []) if item.get("type") == "tree"]
+
+
+def best(candidates: list[dict]) -> list[dict]:
+    if not candidates:
+        return []
+    maximum = max(item["priority"] for item in candidates)
+    return [item for item in candidates if item["priority"] == maximum]
 
 
 def main() -> int:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--json", action="store_true", help="Emit machine-readable JSON.")
+    parser.add_argument("--json", action="store_true")
     args = parser.parse_args()
 
-    sources = [s for s in load_json(SOURCES_FILE)["sources"] if s.get("type") == "upstream"]
+    sources = [
+        s for s in load_json(SOURCES_FILE)["sources"]
+        if s.get("type") == "upstream"
+        and s.get("syncable", True)
+        and s.get("role", "skill_upstream") in {"skill_upstream", "collection_upstream"}
+    ]
     by_sha: dict[str, list[dict]] = defaultdict(list)
     by_name: dict[str, list[dict]] = defaultdict(list)
 
@@ -90,19 +99,20 @@ def main() -> int:
                 "source_path": item["path"],
                 "tree_sha": item["sha"],
                 "commit": commit,
+                "priority": source.get("priority", 50),
             }
             by_sha[item["sha"]].append(record)
             by_name[Path(item["path"]).name].append(record)
 
     results = []
     for local_path, name, sha in local_skills():
-        exact = by_sha.get(sha, [])
+        exact = best(by_sha.get(sha, []))
         if len(exact) == 1:
-            state, candidates = "UNIQUE_EXACT_MATCH", exact
+            state, candidates = "CANONICAL_EXACT_MATCH", exact
         elif len(exact) > 1:
-            state, candidates = "AMBIGUOUS_EXACT_MATCH", exact
+            state, candidates = "AMBIGUOUS_CANONICAL_MATCH", exact
         else:
-            same_name = by_name.get(name, [])
+            same_name = best(by_name.get(name, []))
             state = "NAME_MATCH_REVIEW" if same_name else "UNMAPPED"
             candidates = same_name
         results.append({
@@ -120,10 +130,10 @@ def main() -> int:
             counts[item["state"]] += 1
             candidate = item["candidates"][0] if len(item["candidates"]) == 1 else None
             suffix = f" -> {candidate['repository']}:{candidate['source_path']}" if candidate else ""
-            print(f"{item['state']:<24} {item['local_path']}{suffix}")
+            print(f"{item['state']:<28} {item['local_path']}{suffix}")
         print("\nSummary:")
         for state in sorted(counts):
-            print(f"  {state:<24} {counts[state]}")
+            print(f"  {state:<28} {counts[state]}")
     return 0
 
 
