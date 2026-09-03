@@ -18,6 +18,22 @@ Treat third-party skills like third-party code when they contain or request:
 
 Provenance proves where content came from; it does not prove that the upstream content is safe for every environment.
 
+## Secure-by-default execution baseline
+
+For tasks that create or modify application code, configuration, infrastructure, authentication, APIs, data access, dependencies, or deployment, agents should use `security/secure-by-default-development` as the cross-cutting baseline alongside the narrow task-specific skill.
+
+This baseline exists to prevent security regressions during implementation rather than relying only on a final audit. In particular:
+
+- functional fixes must not silently weaken authentication, authorization, RLS, validation, CSP, CORS, TLS, secret handling, rate limiting, sandboxing, upload restrictions, or other security boundaries;
+- UI/client checks are not substitutes for server-side authorization;
+- protected server boundaries must verify both identity and permission/ownership;
+- secrets remain server-side and out of logs, URLs, public environment variables, examples, and source control;
+- untrusted input is validated at the consuming trust boundary;
+- security-sensitive work should include relevant negative verification, not only happy-path success;
+- when a critical security assumption cannot be verified with the available tools/access, the agent must report that limitation instead of claiming the work secure.
+
+The baseline is not a claim of perfect security and does not replace specialist audits such as API, web, or WordPress security reviews.
+
 ## Upstream update review
 
 Before accepting an upstream update, inspect changes for:
