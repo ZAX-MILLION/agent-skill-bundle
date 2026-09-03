@@ -1,54 +1,56 @@
 # Agent Skill Bundle
 
-**A source-preserving distribution layer for AI agent skills.**
+**A source-preserving distribution layer for portable AI Agent Skills.**
 
-Use curated skills from established upstream projects in Cursor, Claude Code, and other file-based agents without losing the original authors, licenses, or source history.
+One repository for reusable `SKILL.md` workflows across ChatGPT, Codex, Cursor, Claude Code, and other Agent Skills-compatible/file-based AI systems — while keeping original authorship, licenses, source paths, and upstream history traceable.
 
-> **Upstream authors keep the credit. Upstream repositories remain the source of truth. Host compatibility belongs outside the original skill.**
+> **Upstream authors keep the credit. Canonical upstream repositories remain the source of truth. Host compatibility stays outside original skills.**
 
 ## Why this exists
 
-AI skill ecosystems are fragmented: useful skills live across many repositories, different agents install them differently, and copied skills quickly become stale or lose provenance.
+Useful AI skills are spread across many repositories. Copies become stale, attribution gets lost, and different AI hosts expose different tools. This bundle focuses on distribution rather than claiming ownership:
 
-Agent Skill Bundle aims to make distribution safer and easier by providing:
-
-- one installable collection;
-- explicit upstream source tracking;
-- preserved licenses and attribution;
-- Git-tree provenance for mapped skills;
+- complete skill directories, not stripped `SKILL.md` copies;
+- canonical upstream source tracking;
+- preserved licenses, notices, and credits;
+- Git-tree provenance/auditing;
 - review-first exact upstream syncing;
-- host-neutral compatibility guidance without silently rewriting third-party skills.
+- safe handling of local, legacy-derived, reference, and collection content;
+- thin host adapters instead of rewritten forks;
+- server-side update monitoring without GitHub Actions.
 
 ## Trust model
 
 | Rule | Policy |
 |---|---|
-| Third-party source of truth | Original upstream repository |
-| Silent edits to upstream skills | **Not allowed** |
-| Original license / notices / credits | **Preserved** |
-| Upstream updates | **Review before integration** |
-| Automatic upstream → `main` merge | **Disabled** |
-| Host-specific compatibility changes | Kept in `adapters/` |
+| Canonical third-party source | Original author/project repository |
+| Silent edits to mirrored upstream skills | **Not allowed** |
+| Original licenses / notices / credits | **Preserved** |
+| Mirror beats original author for attribution | **Never** |
+| Upstream change → review branch | Allowed |
+| Upstream change → automatic `main` merge | **Forbidden** |
+| Host-specific changes | `adapters/`, never upstream copies |
+| Legacy-derived content | Clearly labeled; never falsely marked `EXACT` |
 
-See [`registry/`](registry/README.md), [`CREDITS.md`](CREDITS.md), [`SECURITY.md`](SECURITY.md), and [`SYNC_STATUS.md`](SYNC_STATUS.md) for the current trust and provenance state.
+See [`registry/`](registry/README.md), [`CREDITS.md`](CREDITS.md), [`SECURITY.md`](SECURITY.md), and [`SYNC_STATUS.md`](SYNC_STATUS.md).
 
-## What's inside
+## Sources
 
-| Category | Skills | Primary sources |
-|---|---|---|
-| `design/` | UI/UX, frontend, documents, design systems and visual tooling | [Anthropic Skills](https://github.com/anthropics/skills), [daymade](https://github.com/daymade/claude-code-skills), [Google Labs design.md](https://github.com/google-labs-code/design.md), [VoltAgent](https://github.com/VoltAgent/awesome-design-md) |
-| `security/` | Web/API/WordPress security auditing | Local + [WordPress Agent Skills](https://github.com/WordPress/agent-skills) |
-| `process/` | Planning, TDD, debugging, code review and verification | [obra/superpowers](https://github.com/obra/superpowers) |
-| `multiplayer/` | Multiplayer state, chat-room and live-cursor patterns | [Rivet Skills](https://github.com/rivet-dev/skills) |
-| `wordpress/` | Plugin, theme, block, REST API, performance and CLI workflows | [WordPress Agent Skills](https://github.com/WordPress/agent-skills) |
-| `marketing/` | SEO, copywriting, CRO, pricing, social and outreach | [Marketing Skills](https://github.com/coreyhaines31/marketingskills) |
-| `qa/` | Browser QA, visual polish and silent-failure detection | Local |
+| Area | Canonical relationship |
+|---|---|
+| `process/` | `obra/superpowers` — **14/14 verified EXACT** at the recorded audit revision |
+| `wordpress/` | `WordPress/agent-skills` via `skills/<name>` mappings |
+| `marketing/` | `coreyhaines31/marketingskills` via `skills/<name>` mappings |
+| `design/` | Anthropic + daymade + Hermes/NousResearch; VoltAgent for the design-system collection; Google design.md is a reference spec, not falsely credited as the Hermes skill author |
+| `security/` | Local/custom bundle skills |
+| `qa/` | Local/custom bundle skills |
+| `multiplayer/` | Legacy Rivet-derived skills tracked against current Rivet docs/examples; not claimed as current exact `rivet-dev/skills` mirrors |
 
-The bundle currently contains roughly **116 skills**. The number is not the trust signal; provenance and correct usage are.
+Canonical roles live in [`registry/sources.json`](registry/sources.json), and local/upstream path relationships live in [`registry/mappings.json`](registry/mappings.json).
 
 ## Install
 
-The installer copies each skill's **complete directory**, including `SKILL.md`, scripts, references, examples and assets.
+The installer copies **only directories containing `SKILL.md`**, along with all scripts, references, examples, templates, and assets. Non-skill collections are skipped.
 
 ### Claude Code
 
@@ -62,99 +64,85 @@ The installer copies each skill's **complete directory**, including `SKILL.md`, 
 ./install.sh ~/.cursor/skills
 ```
 
-### Any file-based agent
+### Generic/file-based host
 
 ```bash
-./install.sh /path/to/agent/skills
+./install.sh /path/to/skills
 ```
 
-For agents without a native skills directory, start with [`adapters/generic/README.md`](adapters/generic/README.md).
+### Host requires skills directly under its skills root
 
-## Compatibility
+```bash
+./install.sh /path/to/skills --flat
+```
 
-| Host | Current support |
-|---|---|
-| Claude Code | ✅ Install to its skills directory |
-| Cursor | ✅ Install to its skills directory |
-| File-based / custom agents | ✅ Custom install path + generic adapter |
-| Other hosted AI systems | 🟡 Use a host-specific integration when available; do not assume local filesystem access |
+Repeated installs replace only destinations previously marked as installed by this bundle. Use `--force` only after reviewing an existing unmarked destination.
 
-The project intentionally avoids claiming universal *native* support. Different AI hosts expose different tools, permissions and instruction mechanisms.
+## AI compatibility
 
-## Provenance & upstream checking
+- [`adapters/chatgpt/`](adapters/chatgpt/README.md)
+- [`adapters/codex/`](adapters/codex/README.md)
+- [`adapters/cursor/`](adapters/cursor/README.md)
+- [`adapters/claude-code/`](adapters/claude-code/README.md)
+- [`adapters/generic/`](adapters/generic/README.md)
 
-The canonical upstream collection registry is [`registry/sources.json`](registry/sources.json), while [`registry/upstream-state.json`](registry/upstream-state.json) records verified source revisions.
+The bundle targets the portable Agent Skills pattern (`SKILL.md` + optional scripts/references/assets). It does **not** pretend every host exposes the same browser, shell, subagent, GitHub, database, or filesystem capabilities.
 
-Check current upstream branch revisions:
+## Audit provenance
 
 ```bash
 python3 scripts/check_upstreams.py
-```
-
-Audit mapped skill directories using Git tree SHAs:
-
-```bash
 python3 scripts/audit_skills.py
-```
-
-Discover provenance candidates for mixed-source categories without accepting name-only matches:
-
-```bash
 python3 scripts/discover_provenance.py
 ```
 
-`process/`, `wordpress/`, and `marketing/` use reviewed same-directory-name mapping conventions. Mixed-source categories remain explicit/manual until provenance is proven.
+Refresh registry metadata intentionally with:
 
-## Review-first upstream sync
+```bash
+python3 scripts/check_upstreams.py --write
+python3 scripts/audit_skills.py --write
+```
 
-Preview the source that would be used for a skill:
+Metadata writes never replace skill content.
+
+## Review-first exact sync
+
+Preview a canonical source:
 
 ```bash
 python3 scripts/sync_reviewed.py process/writing-skills
 ```
 
-After provenance and the upstream diff have been reviewed, create a local review branch and copy the **entire upstream skill directory** exactly:
-
-```bash
-python3 scripts/sync_reviewed.py process/writing-skills --apply --reviewed
-```
-
-Optionally create a local commit on that review branch:
+Prepare and commit an exact upstream copy on a new local review branch:
 
 ```bash
 python3 scripts/sync_reviewed.py process/writing-skills --apply --reviewed --commit
 ```
 
-The sync tool:
+Nothing is pushed or merged by that command.
 
-1. refuses a dirty working tree;
-2. creates an `upstream-sync/...` review branch;
-3. shallow-clones the registered upstream repository;
-4. replaces the selected skill with the complete upstream directory;
-5. re-runs provenance auditing;
-6. runs `git diff --check`;
-7. **never pushes and never merges**.
+To detect known upstream updates and prepare a review branch automatically:
 
-This deliberately separates *discovering an upstream update* from *trusting and integrating it*.
+```bash
+python3 scripts/prepare_updates.py
+python3 scripts/prepare_updates.py --apply
+```
 
-## Verified `process/` status
+`--push` may publish the review branch, but still never merges it.
 
-Against `obra/superpowers` at the recorded 2026-09-03 revision:
+## No GitHub Actions required
 
-- **12 of 14 skill directories are `EXACT`**;
-- **2 have `UPDATE_AVAILABLE`**: `subagent-driven-development` and `writing-skills`.
-
-Five previously stale process skills were refreshed as exact upstream copies and verified by directory-tree SHA. Exact state is recorded in [`registry/skills.json`](registry/skills.json).
+[`ops/`](ops/README.md) includes a hardened systemd service/timer for server-local daily checks. The default prepares local review branches; publishing them is explicit opt-in after repository credentials are configured outside the repo.
 
 ## Repository layout
 
 ```text
 agent-skill-bundle/
 ├── design/ security/ process/ multiplayer/ wordpress/ marketing/ qa/
-│   └── skill directories
-├── registry/          # sources, revisions, mapping rules, provenance
-├── adapters/          # host compatibility without rewriting skills
-├── scripts/           # discovery, audits, reviewed sync tooling
+├── registry/          # source roles, mappings, revision/audit state
+├── adapters/          # host-specific compatibility only
+├── scripts/           # audit, provenance, sync, update preparation
+├── ops/               # server-side timer/service guidance
 ├── CREDITS.md
 ├── SECURITY.md
 ├── SYNC_STATUS.md
@@ -162,16 +150,14 @@ agent-skill-bundle/
 └── install.sh
 ```
 
-## Credits & licensing
+## Licensing and attribution
 
-This repository is an aggregation/distribution project. It does **not** claim authorship of third-party skills.
+This repository does **not** claim authorship of third-party skills. Each redistributed item remains subject to its upstream license/notice requirements. A license change is a review event, not an automatic update.
 
-Original upstream projects include Anthropic, daymade, Google Labs, VoltAgent, obra, Rivet, WordPress, and Corey Haines' Marketing Skills. See [`CREDITS.md`](CREDITS.md) for direct source links and the attribution policy.
+See [`CREDITS.md`](CREDITS.md) for canonical sources and attribution rules.
 
-Each bundled skill must retain the license/notice requirements of its upstream source. A change in upstream licensing is a review event, not an automatic update.
+## Current state
 
-## Current status
+The v2 distribution/trust layer is implemented. `process/` is verified 14/14 exact; canonical mappings cover WordPress, Marketing, and known Design sources; Security/QA are explicitly local; legacy Rivet-derived material is explicitly separated from exact syncing; reviewed sync/update tooling and server-local scheduling are included.
 
-The trust layer, upstream revision tracking, Git-tree auditing, provenance discovery, convention mappings, and review-first full-directory sync tooling are in place. Mixed-source categories (`design`, `security`, `multiplayer`) still require exact source-path discovery before they can use reviewed sync safely.
-
-See [`SYNC_STATUS.md`](SYNC_STATUS.md) for what is verified versus intentionally not yet enabled.
+Repository-level branch protection is still a GitHub setting and must be enabled on `main`; see [`ops/README.md`](ops/README.md).
