@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "conventions": [
+    {
+      "local_category": "process",
+      "source_id": "obra-superpowers",
+      "source_path_template": "skills/{name}",
+      "kind": "skill"
+    },
+    {
+      "local_category": "wordpress",
+      "source_id": "wordpress-agent-skills",
+      "source_path_template": "skills/{name}",
+      "kind": "skill"
+    },
+    {
+      "local_category": "marketing",
+      "source_id": "coreyhaines-marketingskills",
+      "source_path_template": "skills/{name}",
+      "kind": "skill"
+    }
+  ],
+  "overrides": [
+    {
+      "local_path": "design/design-md",
+      "source_id": "nous-hermes-agent",
+      "source_path": "skills/creative/design-md",
+      "kind": "skill",
+      "attribution": "Hermes Agent / NousResearch",
+      "related_sources": ["google-design-md"]
+    },
+    {
+      "local_path": "design/design-style-picker",
+      "source_id": "daymade-claude-code-skills",
+      "source_path": "daymade-codex/design-style-picker",
+      "kind": "skill"
+    },
+    {
+      "local_path": "design/ui-designer",
+      "source_id": "daymade-claude-code-skills",
+      "source_path": "ui-designer",
+      "kind": "skill"
+    },
+    {
+      "local_path": "design/design-systems",
+      "source_id": "voltagent-awesome-design-md",
+      "source_path": "design-md",
+      "kind": "collection"
+    },
+    {
+      "local_path": "multiplayer/chat-room",
+      "source_id": "rivet-actors-docs",
+      "source_path": "docs/content/learn/chat-room.mdx",
+      "kind": "legacy-derived-skill",
+      "sync": "manual-review",
+      "note": "The historical standalone skill path is no longer present in the current Rivet skills repository. Track current canonical documentation without pretending it is an exact directory mirror."
+    },
+    {
+      "local_path": "multiplayer/live-cursors",
+      "source_id": "rivet-actors-docs",
+      "source_path": null,
+      "kind": "legacy-derived-skill",
+      "sync": "manual-review",
+      "note": "Legacy Rivet-derived skill; exact historical upstream path must not be guessed."
+    },
+    {
+      "local_path": "multiplayer/multiplayer-game",
+      "source_id": "rivet-actors-docs",
+      "source_path": null,
+      "kind": "legacy-derived-skill",
+      "sync": "manual-review",
+      "note": "Legacy Rivet-derived skill; exact historical upstream path must not be guessed."
+    }
+  ],
+  "anthropic_design_skills": [
+    "algorithmic-art",
+    "brand-guidelines",
+    "canvas-design",
+    "claude-api",
+    "doc-coauthoring",
+    "docx",
+    "frontend-design",
+    "internal-comms",
+    "mcp-builder",
+    "pdf",
+    "pptx",
+    "skill-creator",
+    "slack-gif-creator",
+    "theme-factory",
+    "web-artifacts-builder",
+    "webapp-testing",
+    "xlsx"
+  ],
+  "local_categories": ["security", "qa"]
+}
