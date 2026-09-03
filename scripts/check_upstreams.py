@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Check registered upstream repositories and optionally write a revision snapshot.
 
-No third-party Python packages are required.
+No third-party Python packages are required. The written state preserves
+canonical source roles so refreshing it never downgrades the registry model.
 """
 from __future__ import annotations
 
@@ -10,6 +11,7 @@ import json
 import os
 import sys
 import urllib.error
+import urllib.parse
 import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
@@ -21,8 +23,7 @@ API = "https://api.github.com"
 
 
 def load_sources() -> dict:
-    with REGISTRY.open("r", encoding="utf-8") as handle:
-        return json.load(handle)
+    return json.loads(REGISTRY.read_text(encoding="utf-8"))
 
 
 def github_json(path: str) -> dict:
@@ -34,7 +35,6 @@ def github_json(path: str) -> dict:
     token = os.getenv("GITHUB_TOKEN")
     if token:
         headers["Authorization"] = f"Bearer {token}"
-
     request = urllib.request.Request(f"{API}{path}", headers=headers)
     with urllib.request.urlopen(request, timeout=20) as response:
         return json.load(response)
@@ -45,7 +45,7 @@ def main() -> int:
     parser.add_argument(
         "--write",
         action="store_true",
-        help="Write registry/upstream-state.json after all upstream checks succeed.",
+        help="Write registry/upstream-state.json only after every upstream check succeeds.",
     )
     args = parser.parse_args()
 
@@ -56,17 +56,18 @@ def main() -> int:
     for source in registry["sources"]:
         if source.get("type") != "upstream":
             continue
-
         repo = source["repository"]
         branch = source["default_branch"]
         try:
-            commit = github_json(f"/repos/{repo}/commits/{branch}")
+            ref = urllib.parse.quote(branch, safe="")
+            commit = github_json(f"/repos/{repo}/commits/{ref}")
             sha = commit["sha"]
             results.append(
                 {
                     "id": source["id"],
                     "repository": repo,
                     "branch": branch,
+                    "role": source.get("role", "skill_upstream"),
                     "commit": sha,
                 }
             )
@@ -81,7 +82,7 @@ def main() -> int:
 
     if args.write:
         payload = {
-            "schema_version": 1,
+            "schema_version": 2,
             "checked_at": datetime.now(timezone.utc).isoformat(),
             "sources": results,
         }
