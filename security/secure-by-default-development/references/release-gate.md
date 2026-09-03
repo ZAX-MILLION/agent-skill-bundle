@@ -23,13 +23,18 @@ Mark `SECURITY BLOCKER` when any relevant condition is known to exist:
 - user A can read/write/delete user B's private resource by changing an ID;
 - tenant A can access/infer tenant B's private data;
 - normal user can invoke privileged/admin mutation;
-- client-controlled `role`, `isAdmin`, `ownerId`, `tenantId`, permission, price, credit, or security state is trusted as authoritative.
+- client-controlled `role`, `isAdmin`, `ownerId`, `tenantId`, permission, price, credit, or security state is trusted as authoritative;
+- forgotten legacy/debug/old-version endpoint exposes protected data or privileged behavior.
 
-### Secrets / sessions
+### Secrets / sessions / cryptography
 
-- private credential/service-role key/database password/signing key is exposed in client code, public env, repository, public logs, or artifacts;
+- private credential/service-role key/database password/signing/encryption key is exposed in client code, public env, repository, public logs, or artifacts;
 - passwords are stored plain-text or with an unsuitable fast/general-purpose hash;
-- reusable sensitive session/reset credentials are exposed without an explicit unavoidable design.
+- reusable sensitive session/reset credentials are exposed without an explicit unavoidable design;
+- predictable security/session/reset tokens are used;
+- signature/authentication token is accepted without required cryptographic verification/issuer/audience/purpose validation;
+- production TLS/certificate validation is disabled as a workaround;
+- sensitive production cryptography relies on an unreviewed home-grown scheme.
 
 ### Database / injection
 
@@ -54,13 +59,30 @@ Mark `SECURITY BLOCKER` when any relevant condition is known to exist:
 - trusted webhook can mutate sensitive state without authenticity verification;
 - replayable sensitive webhook/event has no provider-appropriate idempotency/replay defense.
 
+### Business logic
+
+- client is authoritative for money, credits, rewards, scores, security state, ownership, or privileged workflow state;
+- one-time high-value action can be replayed for repeated effect;
+- obvious double-submit/race condition allows duplicate value or bypasses quotas/state rules;
+- final/internal workflow endpoint can be called directly to skip required security/business steps.
+
 ### Supply chain / infrastructure
 
 - cracked/nulled dependency/plugin/theme;
 - suspicious dependency/install script gets privileged secrets/host access without review;
 - public unauthenticated database/cache/admin/debug service;
 - production secret baked into image/public build artifact;
-- application/deployment is made to work by granting unexplained root/privileged/777-style access.
+- application/deployment is made to work by granting unexplained root/privileged/777-style access;
+- untrusted build/PR code can access production write credentials/secrets without an explicit isolated design.
+
+### Monitoring / incident readiness
+
+Use a blocker for high-risk systems when:
+
+- a critical auth/policy/security dependency failure silently fails open;
+- logs contain reusable passwords/tokens/session secrets;
+- newly introduced long-lived privileged credentials cannot be revoked/rotated safely;
+- privileged/high-value mutations are intentionally untraceable and there is no compensating control.
 
 ## Minimum negative verification matrix
 
@@ -68,16 +90,18 @@ Run only relevant tests, but do not skip an applicable category because the happ
 
 | Surface changed | Minimum negative checks |
 |---|---|
-| Protected API/action | no-auth; wrong-role; cross-user/cross-tenant; malformed input |
-| Auth/session | bad credential; expired/revoked session; replay/reuse where applicable; rate limit |
+| Protected API/action | no-auth; wrong-role; cross-user/cross-tenant; malformed input; legacy/debug route exposure |
+| Auth/session/OAuth | bad credential; expired/revoked session; replay/reuse where applicable; rate limit; wrong state/issuer/audience/redirect where relevant |
 | Database/RLS | different users/tenants; unauthorized SELECT/INSERT/UPDATE/DELETE paths used by app |
 | Upload/storage | oversize; disallowed/mismatched type; traversal; unauthorized download |
 | Webhook | invalid signature; stale/replay where supported; duplicate idempotency |
 | Outbound fetch | localhost/private/link-local/metadata destination; redirect to blocked destination |
 | Business workflow | duplicate/concurrent request; skipped step; client-tampered authoritative values |
 | Browser/private data | secret absent from bundle; XSS/raw HTML path; cache isolation; CSP/CORS as relevant |
+| Cryptography/token | unpredictability; expiry/purpose; modified signature; wrong key/issuer/audience; TLS verification |
 | Deployment | public ports/services; runtime privilege; TLS; secret exposure; admin/debug exposure |
 | Dependency | provenance; lockfile; vulnerability tooling; install-script/permissions review |
+| Monitoring/incident | safe denied-event log; no secret leakage; revocation/rotation path for new privileged credentials |
 
 ## Evidence standard
 
