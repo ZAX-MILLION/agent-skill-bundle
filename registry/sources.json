@@ -397,6 +397,26 @@
       "syncable": false,
       "priority": 50,
       "note": "Separate community MCP runtime, not official n8n instance-level MCP; no code or credentials bundled."
+    },
+    {
+      "id": "affaan-m-ecc",
+      "name": "Everything Claude Code (ECC)",
+      "repository": "affaan-m/ECC",
+      "url": "https://github.com/affaan-m/ECC",
+      "default_branch": "main",
+      "categories": [
+        "coding",
+        "process",
+        "qa",
+        "productivity",
+        "operations",
+        "research"
+      ],
+      "type": "upstream",
+      "role": "skill_upstream",
+      "syncable": false,
+      "priority": 100,
+      "note": "Eight exact original SKILL.md file bodies with MIT license overlays; manually reviewed. Original 292 source names indexed as metadata only; ECC's plugins, hooks, rules, agents, commands, memory runtime and MCP configuration not copied. Host adapters separate. Do not bulk install or overwrite existing Superpowers."
     }
   ]
 }

@@ -55,6 +55,14 @@ See [registry/vendor-second-wave.json](registry/vendor-second-wave.json) for sou
 
 [Source commits and 100 pinned original/license Git blob hashes](registry/vendor-third-wave.json).
 
+## Everything Claude Code source selection (2026-09-27)
+
+| Original project | Relationship |
+|---|---|
+| [ECC — Everything Claude Code, Affaan Mustafa](https://github.com/affaan-m/ECC) | Eight unchanged original `SKILL.md` files from `skills/`, each with a copy of upstream MIT root license; reviewed commit `e482e579415fde18357cafce70f177ae19fd7f03`. The other 284 canonical skill names are tracked in a metadata-only source index; plugin, rules, hooks, agents, commands, memory, executables and GitHub App are not redistributed or installed. |
+
+See [ECC pinned original blob hashes](registry/vendor-ecc.json) and [ECC catalog guidance](research/agent-skills/references/ecc-catalog.md). Upstream remains the source of truth; per-host notes are outside the unchanged copied skills.
+
 ## External references (not redistributed)
 
 | Project | Source | Relationship |
