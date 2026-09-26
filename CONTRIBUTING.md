@@ -48,7 +48,7 @@ Do not auto-merge an upstream change directly into `main`.
 
 ## Custom skills
 
-Bundle-owned custom skills must be clearly distinguishable from third-party upstream skills. Current local/custom categories include parts of `security/` and `qa/`.
+Bundle-owned custom skills must be clearly distinguishable from third-party upstream skills. Current local/custom categories include parts of `security/`, `qa/`, and `operations/`.
 
 ## Adapters
 
