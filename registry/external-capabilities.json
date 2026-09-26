@@ -18,6 +18,18 @@
       "code_redistributed": false,
       "installation_in_bundle": false,
       "credentials_in_bundle": false
+    },
+    {
+      "name": "Skill Retrieval MCP",
+      "repository": "JayCheng113/skill-retrieval-mcp",
+      "checked_commit": "7d034a2af4ac26ff7a69522ee4a3e22b865d586e",
+      "upstream_license": "MIT",
+      "relationship": "optional_local_mcp_with_original_antigravity_adapter",
+      "code_redistributed": false,
+      "installation_in_bundle": false,
+      "external_corpus_in_bundle": false,
+      "credentials_in_bundle": false,
+      "note": "Directory importer indexes SKILL.md text only. Original reference files, scripts and per-source licenses remain in the source checkout."
     }
   ]
 }

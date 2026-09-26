@@ -57,3 +57,5 @@ python3 scripts/sync_reviewed.py process/writing-skills --apply --reviewed --com
 For recurring server-side checks, `scripts/prepare_updates.py` selects only known `UPDATE_AVAILABLE` entries and prepares a separate review branch. It never merges to `main`.
 
 Git tree SHAs cover the complete tracked directory, not only `SKILL.md`.
+
+Optional external retrieval tooling is recorded as a non-mirrored related source in `sources.json` and `external-capabilities.json`; it is never part of exact upstream skill syncing.

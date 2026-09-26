@@ -92,6 +92,12 @@ The installer copies **only directories containing `SKILL.md`**, along with all 
 
 Repeated installs replace only destinations previously marked as installed by this bundle. Use `--force` only after reviewing an existing unmarked destination.
 
+### Optional local skill search
+
+[Skill Retrieval MCP](https://github.com/JayCheng113/skill-retrieval-mcp) is a **separate, optional MCP service**. The original `skill-retrieval-routing` adapter can help Antigravity search this reviewed bundle by need and read one skill at a time. Its executable runtime, model, prebuilt 374-skill corpus, local SQLite database and MCP configuration are **not** included here. See [Antigravity setup](adapters/antigravity/skill-retrieval-mcp.md).
+
+The `i-have-adhd` communication preference remains the primary output rule; retrieval changes how skills are found, not how the agent talks to the owner or what permissions it has.
+
 ## AI compatibility
 
 - [`adapters/chatgpt/`](adapters/chatgpt/README.md)
