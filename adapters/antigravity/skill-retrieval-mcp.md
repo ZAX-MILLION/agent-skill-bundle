@@ -6,6 +6,8 @@
 
 The external MCP server offers `search_skills` (semantic), `keyword_search` (exact), `get_skill` (full text) and `list_categories`. Search results are summaries; read the description and fetch full instructions only for a relevant match. A similarity score is **not** a confidence measure. Do not claim retrieval creates an executable tool or grants permission.
 
+For the strict on-demand setup, install **only** the two bootstrap skills using `./install.sh "$HOME/.gemini/config/skills" --flat --on-demand`. The source repository stays available locally for MCP indexing; do not flat-install all 136 into global native discovery. If the previous full bundle is present, review it, then explicitly use `--prune-managed` to remove only the old bundle-owned native copies.
+
 The directory importer reads `SKILL.md` files. It does **not** install or mirror the accompanying scripts, references, assets or full upstream license/provenance metadata into its database. The original bundle checkout remains authoritative; open a referenced support file from its installed skill directory rather than relying on the MCP response alone. Its import count may be below the bundle count for files lacking parseable frontmatter or for deduplicated content.
 
 ## Setup boundary
@@ -25,7 +27,7 @@ skill-mcp --data-dir "$HOME/.skill-mcp" search "verify a safe release" --k 5
 
 Package version alone does not pin dependency wheels; enforce package hashes / a lockfile if reproducibility is required. The source commit above is for provenance, not proof that every distribution artifact matches. `init --no-register` is deliberate: running bare `init` can modify several agent/editor MCP configurations. This bundle does not run it.
 
-**Do not run `pull` by default.** It downloads a remote prebuilt skill database from Hugging Face; `pull --include-index` downloads an index as well. The advertised 374 skills are an optional, separate third-party dataset, not included in the 135 bundled skills. Do not run `--replace` on an existing database. Review licenses and contents before any optional corpus import.
+**Do not run `pull` by default.** It downloads a remote prebuilt skill database from Hugging Face; `pull --include-index` downloads an index as well. The advertised 374 skills are an optional, separate third-party dataset, not included in this 136-skill bundle. Do not run `--replace` on an existing database. Review licenses and contents before any optional corpus import.
 
 ## Configure the one Antigravity MCP server
 
@@ -50,9 +52,11 @@ The argument order matters: `--data-dir` precedes `serve`. On Windows use your a
 
 ## Verify
 
-1. Run `status` and inspect the actual imported count; do not assume 135 were all indexed.
+1. Run `status` and inspect the actual imported count; do not assume all 136 were indexed.
 2. Reload the MCP server in Antigravity and use `list_categories`, `keyword_search`, `search_skills`, then `get_skill`.
 3. For a retrieved support-file reference, open that file in the original bundle and validate its contents and license.
-4. Keep `i-have-adhd` as the primary communication style and the bundle's verification/security rules for actual execution.
+4. Confirm native discovery lists only the two bundle bootstraps (plus any unrelated personal skills). Keep `i-have-adhd` as the primary communication style and the bundle's verification/security rules for actual execution.
 
 The upstream author's measured retrieval benchmark is not an independently verified speed or relevance guarantee on the user's device or projects.
+
+**Two distinct checks:** the GitHub bundle's `--on-demand` installer never installs the Python MCP service; the separately configured MCP never copies skill support files into native discovery. Do both steps and confirm a relevant search returns a source skill before claiming this is operational on the actual workstation.

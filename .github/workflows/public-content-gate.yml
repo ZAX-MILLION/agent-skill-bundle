@@ -15,3 +15,5 @@ jobs:
           persist-credentials: false
       - name: Check public repository contents
         run: python3 scripts/public_repo_gate.py .
+      - name: Verify complete and on-demand installations
+        run: bash tests/on-demand-install.sh

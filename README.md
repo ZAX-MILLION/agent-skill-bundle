@@ -84,6 +84,16 @@ The installer copies **only directories containing `SKILL.md`**, along with all 
 ./install.sh /path/to/skills
 ```
 
+### Antigravity: two-skill on-demand mode (preferred)
+
+```bash
+./install.sh "$HOME/.gemini/config/skills" --flat --on-demand
+```
+
+This installs only `i-have-adhd` and `skill-retrieval-routing` natively, so this bundle contributes only two skill descriptions to startup discovery. The remaining 134 stay in the source checkout and can be searched by the separate local Skill Retrieval MCP. See [the two-stage Antigravity setup](adapters/antigravity/skill-retrieval-mcp.md). Merely running the two-skill installer **does not** install or connect the external MCP runtime.
+
+If all 136 bundle skills are already installed natively, the command stops rather than misleadingly claiming minimal mode. After reviewing the existing installation, run the same command with `--prune-managed` to remove **only other marker-identified bundle copies**. It does not delete unmarked personal or third-party skills.
+
 ### Host requires skills directly under its skills root
 
 ```bash
