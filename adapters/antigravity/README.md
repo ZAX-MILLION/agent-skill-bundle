@@ -5,7 +5,7 @@
 For Antigravity IDE / Antigravity 2.0 use the official global skills root `~/.gemini/config/skills/`; workspace skills live at `<workspace>/.agents/skills/`. Antigravity CLI may use `~/.gemini/antigravity-cli/skills/` instead. Use the installed product's current documentation.
 
 1. Review `SECURITY.md` and `install.sh` before running bundled code.
-2. Clone the repository locally. For the **on-demand setup**, in Bash run `./install.sh "$HOME/.gemini/config/skills" --flat --on-demand`. This installs only the two native bootstrap skills. On Windows, ensure the shell's HOME points to the correct user profile. Install all 136 natively only if you explicitly prefer having all their descriptions visible.
+2. Clone the repository locally. For the **on-demand setup**, in Bash run `./install.sh "$HOME/.gemini/config/skills" --flat --on-demand`. This installs only the two native bootstrap skills. On Windows, ensure the shell's HOME points to the correct user profile. Install all 143 natively only if you explicitly prefer having all their descriptions visible.
 3. Do not use `--force` on unmarked preexisting destinations. If previously installed bundle skills remain, the two-skill mode will refuse to claim success. After review, `--prune-managed` removes only the other marked bundle copies; unrelated skills remain untouched.
 4. Open Antigravity Customizations → Skills and confirm `project-inventory`, `server-triage`, `safe-deployment` and `secure-server-access` are discovered.
 5. Merge `global-rule.example.md` into your existing personal `~/.gemini/AGENTS.md` or `GEMINI.md`, rather than overwriting any current rules. Keep each project's detailed instructions and private infrastructure inventory in its private workspace.

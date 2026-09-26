@@ -6,7 +6,7 @@
 
 The external MCP server offers `search_skills` (semantic), `keyword_search` (exact), `get_skill` (full text) and `list_categories`. Search results are summaries; read the description and fetch full instructions only for a relevant match. A similarity score is **not** a confidence measure. Do not claim retrieval creates an executable tool or grants permission.
 
-For the strict on-demand setup, install **only** the two bootstrap skills using `./install.sh "$HOME/.gemini/config/skills" --flat --on-demand`. The source repository stays available locally for MCP indexing; do not flat-install all 136 into global native discovery. If the previous full bundle is present, review it, then explicitly use `--prune-managed` to remove only the old bundle-owned native copies.
+For the strict on-demand setup, install **only** the two bootstrap skills using `./install.sh "$HOME/.gemini/config/skills" --flat --on-demand`. The source repository stays available locally for MCP indexing; do not flat-install all 143 into global native discovery. If the previous full bundle is present, review it, then explicitly use `--prune-managed` to remove only the old bundle-owned native copies.
 
 The directory importer reads `SKILL.md` files. It does **not** install or mirror the accompanying scripts, references, assets or full upstream license/provenance metadata into its database. The original bundle checkout remains authoritative; open a referenced support file from its installed skill directory rather than relying on the MCP response alone. Its import count may be below the bundle count for files lacking parseable frontmatter or for deduplicated content.
 
