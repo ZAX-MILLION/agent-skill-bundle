@@ -44,10 +44,15 @@ See [`registry/`](registry/README.md), [`CREDITS.md`](CREDITS.md), [`SECURITY.md
 | `design/` | Anthropic + daymade + Hermes/NousResearch; VoltAgent for the design-system collection; Google design.md is a reference spec, not falsely credited as the Hermes skill author |
 | `security/` | Local/custom bundle skills |
 | `qa/` | Local/custom bundle skills |
+| `research/` | Original reference-only agent catalog and optional Agent Reach routing; no external runtime bundled |
 | `coding/` | [Ponytail](https://github.com/DietrichGebert/ponytail) by Dietrich Gebert: six MIT-licensed coding skills, review-first |
 | `multiplayer/` | Legacy Rivet-derived skills tracked against current Rivet docs/examples; not claimed as current exact `rivet-dev/skills` mirrors |
 
 Canonical roles live in [`registry/sources.json`](registry/sources.json), and local/upstream path relationships live in [`registry/mappings.json`](registry/mappings.json).
+
+## Public content safety
+
+Run `python3 scripts/public_repo_gate.py .` before publishing. This checks current tracked content, not past Git history. See [Public Repository Policy](docs/PUBLIC_REPOSITORY_POLICY.md). External research repositories remain references, not automatically installed code.
 
 ## Install
 
@@ -143,7 +148,7 @@ python3 scripts/prepare_updates.py --apply
 
 ```text
 agent-skill-bundle/
-├── design/ security/ process/ multiplayer/ wordpress/ marketing/ qa/ operations/ coding/
+├── design/ security/ process/ multiplayer/ wordpress/ marketing/ qa/ operations/ coding/ research/
 ├── registry/          # source roles, mappings, revision/audit state
 ├── adapters/          # host-specific compatibility only
 ├── scripts/           # audit, provenance, sync, update preparation

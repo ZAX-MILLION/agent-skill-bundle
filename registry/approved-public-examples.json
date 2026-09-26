@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "policy": "Only reviewed upstream documentation placeholder examples, pinned by exact Git blob SHA. A changed blob requires re-review. Never approve owner-specific data.",
+  "approved_blobs": {
+    "design/claude-api/shared/managed-agents-self-hosted-sandboxes.md": {
+      "sha": "497b103b0847200cfed4e4a573f10d4b1a63c282",
+      "reason": "Reviewed external docs examples; exact file only."
+    },
+    "design/mcp-builder/reference/python_mcp_server.md": {
+      "sha": "cf7ec996d2e6e3655bc75ff6902738d03a37334e",
+      "reason": "Reviewed external docs examples; exact file only."
+    },
+    "multiplayer/chat-room/reference/actors/debugging.md": {
+      "sha": "409b381242b4670fa36a1fe16aed113beca32055",
+      "reason": "Reviewed external docs examples; exact file only."
+    },
+    "multiplayer/chat-room/reference/actors/destroy.md": {
+      "sha": "87e1b7675e69453293e8a7ade7bd505ce135bda3",
+      "reason": "Reviewed external docs examples; exact file only."
+    },
+    "multiplayer/chat-room/reference/clients/swift.md": {
+      "sha": "c760645d7f1e002d6239315e9fe2b8658c45c6bf",
+      "reason": "Reviewed external docs examples; exact file only."
+    },
+    "multiplayer/chat-room/reference/clients/swiftui.md": {
+      "sha": "4ae65d8f08fdcc0512e8083da6cd67eaed9e1527",
+      "reason": "Reviewed external docs examples; exact file only."
+    },
+    "multiplayer/chat-room/reference/cookbook/vpc-air-gapped.md": {
+      "sha": "f7d87a3d875b30be2fc487d9d45fa0dd174a45ee",
+      "reason": "Reviewed external docs examples; exact file only."
+    },
+    "multiplayer/chat-room/reference/deploy/cloudflare.md": {
+      "sha": "970078ed23bbfbd39122a0dee470cdbc8be3ef0e",
+      "reason": "Reviewed external docs examples; exact file only."
+    },
+    "multiplayer/chat-room/reference/deploy/supabase.md": {
+      "sha": "fa984368959735b3cdf112327d59f6d0678bb763",
+      "reason": "Reviewed external docs examples; exact file only."
+    },
+    "multiplayer/chat-room/reference/deploy/vercel.md": {
+      "sha": "e8b5ba30b26e42035fa604656d0acbca7e6e1b14",
+      "reason": "Reviewed external docs examples; exact file only."
+    },
+    "multiplayer/chat-room/reference/general/endpoints.md": {
+      "sha": "b2dc95c36275114f3674583614ccbc7e671cc001",
+      "reason": "Reviewed external docs examples; exact file only."
+    },
+    "multiplayer/chat-room/reference/self-hosting/docker-compose.md": {
+      "sha": "1b4148d429c47a4b21cd2752f820fb12b74ea6ae",
+      "reason": "Reviewed external docs examples; exact file only."
+    },
+    "multiplayer/chat-room/reference/self-hosting/docker-container.md": {
+      "sha": "ecd1172f99e02885ee5a7d2e4b1b26f8eeae63dc",
+      "reason": "Reviewed external docs examples; exact file only."
+    },
+    "multiplayer/live-cursors/reference/actors/debugging.md": {
+      "sha": "409b381242b4670fa36a1fe16aed113beca32055",
+      "reason": "Reviewed external docs examples; exact file only."
+    },
+    "multiplayer/live-cursors/reference/actors/destroy.md": {
+      "sha": "87e1b7675e69453293e8a7ade7bd505ce135bda3",
+      "reason": "Reviewed external docs examples; exact file only."
+    },
+    "multiplayer/live-cursors/reference/clients/swift.md": {
+      "sha": "c760645d7f1e002d6239315e9fe2b8658c45c6bf",
+      "reason": "Reviewed external docs examples; exact file only."
+    },
+    "multiplayer/live-cursors/reference/clients/swiftui.md": {
+      "sha": "4ae65d8f08fdcc0512e8083da6cd67eaed9e1527",
+      "reason": "Reviewed external docs examples; exact file only."
+    },
+    "multiplayer/live-cursors/reference/cookbook/vpc-air-gapped.md": {
+      "sha": "f7d87a3d875b30be2fc487d9d45fa0dd174a45ee",
+      "reason": "Reviewed external docs examples; exact file only."
+    },
+    "multiplayer/live-cursors/reference/deploy/cloudflare.md": {
+      "sha": "970078ed23bbfbd39122a0dee470cdbc8be3ef0e",
+      "reason": "Reviewed external docs examples; exact file only."
+    },
+    "multiplayer/live-cursors/reference/deploy/supabase.md": {
+      "sha": "fa984368959735b3cdf112327d59f6d0678bb763",
+      "reason": "Reviewed external docs examples; exact file only."
+    },
+    "multiplayer/live-cursors/reference/deploy/vercel.md": {
+      "sha": "e8b5ba30b26e42035fa604656d0acbca7e6e1b14",
+      "reason": "Reviewed external docs examples; exact file only."
+    },
+    "multiplayer/live-cursors/reference/general/endpoints.md": {
+      "sha": "b2dc95c36275114f3674583614ccbc7e671cc001",
+      "reason": "Reviewed external docs examples; exact file only."
+    },
+    "multiplayer/live-cursors/reference/self-hosting/docker-compose.md": {
+      "sha": "1b4148d429c47a4b21cd2752f820fb12b74ea6ae",
+      "reason": "Reviewed external docs examples; exact file only."
+    },
+    "multiplayer/live-cursors/reference/self-hosting/docker-container.md": {
+      "sha": "ecd1172f99e02885ee5a7d2e4b1b26f8eeae63dc",
+      "reason": "Reviewed external docs examples; exact file only."
+    },
+    "multiplayer/multiplayer-game/reference/actors/debugging.md": {
+      "sha": "409b381242b4670fa36a1fe16aed113beca32055",
+      "reason": "Reviewed external docs examples; exact file only."
+    },
+    "multiplayer/multiplayer-game/reference/actors/destroy.md": {
+      "sha": "87e1b7675e69453293e8a7ade7bd505ce135bda3",
+      "reason": "Reviewed external docs examples; exact file only."
+    },
+    "multiplayer/multiplayer-game/reference/clients/swift.md": {
+      "sha": "c760645d7f1e002d6239315e9fe2b8658c45c6bf",
+      "reason": "Reviewed external docs examples; exact file only."
+    },
+    "multiplayer/multiplayer-game/reference/clients/swiftui.md": {
+      "sha": "4ae65d8f08fdcc0512e8083da6cd67eaed9e1527",
+      "reason": "Reviewed external docs examples; exact file only."
+    },
+    "multiplayer/multiplayer-game/reference/cookbook/vpc-air-gapped.md": {
+      "sha": "f7d87a3d875b30be2fc487d9d45fa0dd174a45ee",
+      "reason": "Reviewed external docs examples; exact file only."
+    },
+    "multiplayer/multiplayer-game/reference/deploy/cloudflare.md": {
+      "sha": "970078ed23bbfbd39122a0dee470cdbc8be3ef0e",
+      "reason": "Reviewed external docs examples; exact file only."
+    },
+    "multiplayer/multiplayer-game/reference/deploy/supabase.md": {
+      "sha": "fa984368959735b3cdf112327d59f6d0678bb763",
+      "reason": "Reviewed external docs examples; exact file only."
+    },
+    "multiplayer/multiplayer-game/reference/deploy/vercel.md": {
+      "sha": "e8b5ba30b26e42035fa604656d0acbca7e6e1b14",
+      "reason": "Reviewed external docs examples; exact file only."
+    },
+    "multiplayer/multiplayer-game/reference/general/endpoints.md": {
+      "sha": "b2dc95c36275114f3674583614ccbc7e671cc001",
+      "reason": "Reviewed external docs examples; exact file only."
+    },
+    "multiplayer/multiplayer-game/reference/self-hosting/docker-compose.md": {
+      "sha": "1b4148d429c47a4b21cd2752f820fb12b74ea6ae",
+      "reason": "Reviewed external docs examples; exact file only."
+    },
+    "multiplayer/multiplayer-game/reference/self-hosting/docker-container.md": {
+      "sha": "ecd1172f99e02885ee5a7d2e4b1b26f8eeae63dc",
+      "reason": "Reviewed external docs examples; exact file only."
+    }
+  }
+}

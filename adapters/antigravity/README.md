@@ -27,3 +27,7 @@ The bundle installs the six original [Ponytail](https://github.com/DietrichGeber
 - `ponytail-gain` contains historical **upstream benchmark** figures, not independently validated gains on Antigravity or ADMIN's projects.
 
 Verification: after installation/reload, invoke `/ponytail-help`, and run `/ponytail-review` against a harmless test diff.
+
+## Optional research
+
+See external-research.md for the linked AI agent catalog and optional Agent Reach runtime. Neither is executed by the bundle installer. Keep private credentials outside this public repository.
