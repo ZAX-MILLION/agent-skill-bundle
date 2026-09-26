@@ -1,6 +1,6 @@
 # One reviewed vault — Antigravity, Codex, Claude Code and other agents
 
-**Design:** one authoritative source checkout, two native bootstrap skills per host, one reviewed local Skill Retrieval MCP index, and explicit optional executables. Do not put all 147 instructions in a global prompt. Native skill registries typically expose names/descriptions before loading bodies; this strict mode exposes only two of this bundle's native descriptions.
+**Design:** one authoritative source checkout, two native bootstrap skills per host, one reviewed local Skill Retrieval MCP index, and explicit optional executables. Do not put all 166 instructions in a global prompt. Native skill registries typically expose names/descriptions before loading bodies; this strict mode exposes only two of this bundle's native descriptions.
 
 | Host | Native global skill target | On-demand install |
 |---|---|---|
@@ -50,3 +50,11 @@ Caveman and Humanizer remain on-demand, not native always-on skills. Existing `i
 Claude-Mem is a separate memory plugin/worker. Upstream documents Claude Code, Codex and Antigravity **CLI** workflows; the Antigravity desktop IDE is a distinct host and its automatic capture must be verified independently. Installation may alter global hooks, rules, and MCP registration. Inspect backups and privacy settings first, and distinguish local storage from third-party extraction or cloud sync. Do not store private project history or credentials in this public skill bundle or the public skills index.
 
 Marketing's `events` skill is installed with full references and evals. Keep the per-project marketing context file private; don't publish it with the shared skill repository.
+
+## n8n, PAUL and media sources
+
+The 14 **official n8n skills** are included in the one source vault with their references. The local `n8n-instance` adapter describes *separate* official instance-level MCP authorization. Antigravity, Codex and Claude Code can load the same skill text after local Skill Retrieval MCP is configured, but the actual n8n connection is not installed by the bundle. Review the official host MCP setup and avoid duplicated plugin connections; never enable workflow triggers or expose credentials without permission.
+
+`paul` is a portable loop adaptation, not PAUL's installed Claude Code slash commands; don't mix its project-state management with an already running Superpowers orchestrator by default. `diagnosing-superpowers` is now the 15th source-preserved Superpowers skill; the first 14 remain pinned at their earlier reviewed revision. `openmontage` and `shuohao-skills` are local, non-executing routers to separate creative software/full source packages; [Pixel Agents](../../research/external-tooling.md) is optional visual tooling, not a skill or model upgrade.
+
+All new package bodies remain outside native startup discovery in strict on-demand mode. Keep private n8n credentials, source media, story manuscripts, agent transcripts and provider keys out of the public Git repository and public retrieval index.

@@ -45,6 +45,8 @@ See [`registry/`](registry/README.md), [`CREDITS.md`](CREDITS.md), [`SECURITY.md
 | `security/` | Local/custom bundle skills |
 | `qa/` | Local/custom bundle skills |
 | `research/` | Original reference-only agent catalog and optional Agent Reach routing; no external runtime bundled |
+| `automation/` | 14 original official n8n skill packages and original n8n instance-level MCP connection guide; runtime and authorization separate |
+| `creative/` | Original local OpenMontage and shuohao-skills source-routing adapters; external apps/assets not bundled |
 | `productivity/` | [i-have-adhd](https://github.com/ayghri/i-have-adhd) by Ayoub Ghriss: action-first communication skill, MIT, original source retained |
 | `coding/` | [Ponytail](https://github.com/DietrichGebert/ponytail) by Dietrich Gebert: six MIT-licensed coding skills, review-first |
 | `multiplayer/` | Legacy Rivet-derived skills tracked against current Rivet docs/examples; not claimed as current exact `rivet-dev/skills` mirrors |
@@ -67,7 +69,7 @@ The original Taste Skill is named **`design-taste-frontend`** in its own frontma
 
 ## Additional skill discovery catalog
 
-[VoltAgent Awesome Agent Skills](https://github.com/VoltAgent/awesome-agent-skills) is indexed as a **reference-only directory** within the existing `research/agent-skills` workflow. It advertises 1,497+ links, but its Git tree contains no native `SKILL.md` packages. The curated directory is not a security audit and its MIT license does not replace linked authors' licenses. [Review the pinned reference and source-selection rules](research/agent-skills/references/voltagent-catalog.md); nothing from its external links is bulk-installed, and the bundle remains **147** skill directories with only two native bootstrap skills in strict on-demand mode.
+[VoltAgent Awesome Agent Skills](https://github.com/VoltAgent/awesome-agent-skills) is indexed as a **reference-only directory** within the existing `research/agent-skills` workflow. It advertises 1,497+ links, but its Git tree contains no native `SKILL.md` packages. The curated directory is not a security audit and its MIT license does not replace linked authors' licenses. [Review the pinned reference and source-selection rules](research/agent-skills/references/voltagent-catalog.md); nothing from its external links is bulk-installed, and the bundle remains **166** skill directories with only two native bootstrap skills in strict on-demand mode.
 
 ## Caveman, Claude-Mem, Humanizer and Marketing Skills
 
@@ -78,7 +80,19 @@ The library now includes four more skill directories:
 - `productivity/humanizer`: unchanged original MIT writing skill with license; use when editing prose, not as a blanket rule for code or facts.
 - `marketing/events`: the missing Corey Haines skill, its four references and evaluation file, with a root MIT license overlay. The bundle now has all **50** upstream marketing skill names. Another **21** existing marketing SKILL.md copies differ from upstream; these remain a separate review task, not an automatic overwrite.
 
-See [reviewed source revisions and Git blob pins](registry/vendor-second-wave.json) and [multi-host usage](adapters/multi-host/README.md). Total: **147** skill directories, with only two native bootstraps in strict on-demand mode.
+See [reviewed source revisions and Git blob pins](registry/vendor-second-wave.json) and [multi-host usage](adapters/multi-host/README.md). Total: **166** skill directories, with only two native bootstraps in strict on-demand mode.
+
+## PAUL, n8n, Superpowers diagnostics and media workflows
+
+This expansion adds **19** skill directories: 14 complete original official n8n skill packages with all 65 original files plus per-directory Apache-2.0 licenses; one original upstream Superpowers diagnostic skill with its full references/templates and MIT license overlay; and four locally authored, portable adapters (`paul`, `n8n-instance`, `openmontage`, `shuohao-skills`).
+
+- [PAUL](https://github.com/ChristopherKahler/paul) is a Claude Code command/rule framework. The portable adapter captures its Plan–Apply–Unify loop, but does not install the original slash commands or compete with Superpowers by default.
+- [Official n8n skills](https://github.com/n8n-io/skills) are available on demand, with a separate `n8n-instance` guide. No n8n account, MCP connection, permissions or live instance is configured by this repository. The unrelated community `czlonkowski/n8n-mcp` remains an external alternative.
+- [OpenMontage](https://github.com/calesthio/OpenMontage) remains a separate AGPL-3.0 video-production application. Our adapter does not redistribute or install its runtime, provider dependencies or media assets.
+- [shuohao-skills](https://github.com/eternityspring/shuohao-skills) remains a linked six-skill external source: the router guides selection, but complete original script/image packages must be installed separately. No partial `SKILL.md` copies masquerade as working asset generators.
+- [Pixel Agents](https://github.com/pixel-agents-hq/pixel-agents) is an optional standalone visual office/VS Code extension, not a native skill or model upgrade. See [external tooling boundaries](research/external-tooling.md).
+
+**Full source vault: 166 skill directories. Native strict on-demand install: two bootstrap skills; other 164 discoverable via the separately configured local retrieval index.** Source revisions and exact file hashes are recorded in [registry/vendor-third-wave.json](registry/vendor-third-wave.json).
 
 ## Install
 
@@ -111,7 +125,7 @@ The installer copies **only directories containing `SKILL.md`**, along with all 
 ./install.sh "$HOME/.gemini/config/skills" --flat --on-demand
 ```
 
-This installs only `i-have-adhd` and `skill-retrieval-routing` natively, so this bundle contributes only two skill descriptions to startup discovery. The remaining 145 stay in the source checkout and can be searched by the separate local Skill Retrieval MCP. See [the two-stage Antigravity setup](adapters/antigravity/skill-retrieval-mcp.md). Merely running the two-skill installer **does not** install or connect the external MCP runtime.
+This installs only `i-have-adhd` and `skill-retrieval-routing` natively, so this bundle contributes only two skill descriptions to startup discovery. The remaining 164 stay in the source checkout and can be searched by the separate local Skill Retrieval MCP. See [the two-stage Antigravity setup](adapters/antigravity/skill-retrieval-mcp.md). Merely running the two-skill installer **does not** install or connect the external MCP runtime.
 
 If the full bundle is already installed natively, the command stops rather than misleadingly claiming minimal mode. After reviewing the existing installation, run the same command with `--prune-managed` to remove **only other marker-identified bundle copies**. It does not delete unmarked personal or third-party skills.
 
@@ -190,7 +204,7 @@ python3 scripts/prepare_updates.py --apply
 
 ```text
 agent-skill-bundle/
-├── design/ security/ process/ multiplayer/ wordpress/ marketing/ qa/ operations/ coding/ research/ productivity/
+├── design/ security/ process/ multiplayer/ wordpress/ marketing/ qa/ operations/ coding/ research/ productivity/ automation/ creative/
 ├── registry/          # source roles, mappings, revision/audit state
 ├── adapters/          # host-specific compatibility only
 ├── scripts/           # audit, provenance, sync, update preparation
