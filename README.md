@@ -69,7 +69,7 @@ The original Taste Skill is named **`design-taste-frontend`** in its own frontma
 
 ## Additional skill discovery catalog
 
-[VoltAgent Awesome Agent Skills](https://github.com/VoltAgent/awesome-agent-skills) is indexed as a **reference-only directory** within the existing `research/agent-skills` workflow. It advertises 1,497+ links, but its Git tree contains no native `SKILL.md` packages. The curated directory is not a security audit and its MIT license does not replace linked authors' licenses. [Review the pinned reference and source-selection rules](research/agent-skills/references/voltagent-catalog.md); nothing from its external links is bulk-installed, and the bundle remains **166** skill directories with only two native bootstrap skills in strict on-demand mode.
+[VoltAgent Awesome Agent Skills](https://github.com/VoltAgent/awesome-agent-skills) is indexed as a **reference-only directory** within the existing `research/agent-skills` workflow. It advertises 1,497+ links, but its Git tree contains no native `SKILL.md` packages. The curated directory is not a security audit and its MIT license does not replace linked authors' licenses. [Review the pinned reference and source-selection rules](research/agent-skills/references/voltagent-catalog.md); nothing from its external links is bulk-installed, and the bundle remains **174** skill directories with only two native bootstrap skills in strict on-demand mode.
 
 ## Caveman, Claude-Mem, Humanizer and Marketing Skills
 
@@ -80,7 +80,7 @@ The library now includes four more skill directories:
 - `productivity/humanizer`: unchanged original MIT writing skill with license; use when editing prose, not as a blanket rule for code or facts.
 - `marketing/events`: the missing Corey Haines skill, its four references and evaluation file, with a root MIT license overlay. The bundle now has all **50** upstream marketing skill names. Another **21** existing marketing SKILL.md copies differ from upstream; these remain a separate review task, not an automatic overwrite.
 
-See [reviewed source revisions and Git blob pins](registry/vendor-second-wave.json) and [multi-host usage](adapters/multi-host/README.md). Total: **166** skill directories, with only two native bootstraps in strict on-demand mode.
+See [reviewed source revisions and Git blob pins](registry/vendor-second-wave.json) and [multi-host usage](adapters/multi-host/README.md). Total: **174** skill directories, with only two native bootstraps in strict on-demand mode.
 
 ## PAUL, n8n, Superpowers diagnostics and media workflows
 
@@ -92,7 +92,17 @@ This expansion adds **19** skill directories: 14 complete original official n8n 
 - [shuohao-skills](https://github.com/eternityspring/shuohao-skills) remains a linked six-skill external source: the router guides selection, but complete original script/image packages must be installed separately. No partial `SKILL.md` copies masquerade as working asset generators.
 - [Pixel Agents](https://github.com/pixel-agents-hq/pixel-agents) is an optional standalone visual office/VS Code extension, not a native skill or model upgrade. See [external tooling boundaries](research/external-tooling.md).
 
-**Full source vault: 166 skill directories. Native strict on-demand install: two bootstrap skills; other 164 discoverable via the separately configured local retrieval index.** Source revisions and exact file hashes are recorded in [registry/vendor-third-wave.json](registry/vendor-third-wave.json).
+**Full source vault: 174 skill directories. Native strict on-demand install: two bootstrap skills; other 172 discoverable via the separately configured local retrieval index.** Source revisions and exact file hashes are recorded in [registry/vendor-third-wave.json](registry/vendor-third-wave.json).
+
+## Everything Claude Code (ECC): selective portable integration
+
+[Everything Claude Code](https://github.com/affaan-m/ECC) by Affaan Mustafa has **292 canonical source skills** in `skills/<name>/SKILL.md`; its translated and host-packaging copies are not independent new skills. This bundle includes **eight** reviewed, original `SKILL.md` bodies with per-directory root MIT license overlays: `iterative-retrieval`, `architecture-decision-records`, `agent-harness-construction`, `agent-architecture-audit`, `ai-regression-testing`, `production-audit`, `context-budget` and `codebase-onboarding`. See [pinned content hashes](registry/vendor-ecc.json) and the [metadata-only canonical catalog](registry/ecc-source-index.json).
+
+The remaining ECC entries are available as **reference names and pinned source links**, not executable or pre-approved installed skill bodies. This integrates ECC without copying its full Claude-oriented runtime, 68 agent definitions, 94 command shims, rules, hooks, memory, MCP settings, or installing its GitHub App. Existing Superpowers, security, QA, skill discovery and project handoff workflows remain authoritative; choose only the relevant narrow ECC workflow for a task. `context-budget` and `codebase-onboarding` mention Claude-specific paths in upstream text; use actual host-specific equivalents, preserving the unchanged source files.
+
+The [upstream ECC installer](https://github.com/affaan-m/ECC/blob/e482e579415fde18357cafce70f177ae19fd7f03/README.md) has its own per-host lifecycle and may modify workspace rules, workflows, agent definitions and hooks. **Do not run it on top of this bundle without reviewing its full diff and avoiding duplicate discovery.** The portable workflow subset does not claim native ECC plugin parity across Antigravity, Codex and Claude Code.
+
+**Current bundle: 174 complete skill directories; strict on-demand native install still contributes only two bootstrap skills.** The other 172 remain in the source checkout, searchable only after Skill Retrieval MCP is separately connected and its index refreshed.
 
 ## Install
 
@@ -125,7 +135,7 @@ The installer copies **only directories containing `SKILL.md`**, along with all 
 ./install.sh "$HOME/.gemini/config/skills" --flat --on-demand
 ```
 
-This installs only `i-have-adhd` and `skill-retrieval-routing` natively, so this bundle contributes only two skill descriptions to startup discovery. The remaining 164 stay in the source checkout and can be searched by the separate local Skill Retrieval MCP. See [the two-stage Antigravity setup](adapters/antigravity/skill-retrieval-mcp.md). Merely running the two-skill installer **does not** install or connect the external MCP runtime.
+This installs only `i-have-adhd` and `skill-retrieval-routing` natively, so this bundle contributes only two skill descriptions to startup discovery. The remaining 172 stay in the source checkout and can be searched by the separate local Skill Retrieval MCP. See [the two-stage Antigravity setup](adapters/antigravity/skill-retrieval-mcp.md). Merely running the two-skill installer **does not** install or connect the external MCP runtime.
 
 If the full bundle is already installed natively, the command stops rather than misleadingly claiming minimal mode. After reviewing the existing installation, run the same command with `--prune-managed` to remove **only other marker-identified bundle copies**. It does not delete unmarked personal or third-party skills.
 

@@ -132,6 +132,23 @@
       "code_redistributed": false,
       "installation_in_bundle": false,
       "credentials_in_bundle": false
+    },
+    {
+      "name": "Everything Claude Code native multi-host runtime",
+      "repository": "affaan-m/ECC",
+      "checked_commit": "e482e579415fde18357cafce70f177ae19fd7f03",
+      "upstream_license": "MIT (review all nested assets and dependencies separately)",
+      "relationship": "optional_external_native_plugin_installer_not_bundled",
+      "canonical_source_skills": 292,
+      "selected_portable_skill_bodies": 8,
+      "code_redistributed": "eight source-preserved SKILL.md files and license overlays only",
+      "runtime_bundled": false,
+      "installation_in_bundle": false,
+      "github_app_installed": false,
+      "hooks_rules_commands_agents_copied": false,
+      "mcp_config_changed": false,
+      "credentials_in_bundle": false,
+      "note": "ECC has its own installation state and host-specific feature parity. Antigravity workspace adapter copies .agents rules/workflows/skills/agents, which conflicts with blanket native installs; use standalone evaluation and review before enabling. Metadata-only source index is not a security audit."
     }
   ]
 }
