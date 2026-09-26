@@ -50,6 +50,9 @@ Canonical roles live in [`registry/sources.json`](registry/sources.json), and lo
 
 ## Install
 
+The `operations/` category adds 10 original, review-first shared-VPS and release management skills. See the [Antigravity adapter](adapters/antigravity/README.md) for native installation and permissions.
+
+
 The installer copies **only directories containing `SKILL.md`**, along with all scripts, references, examples, templates, and assets. Non-skill collections are skipped.
 
 ### Claude Code
@@ -83,6 +86,7 @@ Repeated installs replace only destinations previously marked as installed by th
 - [`adapters/chatgpt/`](adapters/chatgpt/README.md)
 - [`adapters/codex/`](adapters/codex/README.md)
 - [`adapters/cursor/`](adapters/cursor/README.md)
+- [`adapters/antigravity/`](adapters/antigravity/README.md)
 - [`adapters/claude-code/`](adapters/claude-code/README.md)
 - [`adapters/generic/`](adapters/generic/README.md)
 
@@ -138,7 +142,7 @@ python3 scripts/prepare_updates.py --apply
 
 ```text
 agent-skill-bundle/
-├── design/ security/ process/ multiplayer/ wordpress/ marketing/ qa/
+├── design/ security/ process/ multiplayer/ wordpress/ marketing/ qa/ operations/
 ├── registry/          # source roles, mappings, revision/audit state
 ├── adapters/          # host-specific compatibility only
 ├── scripts/           # audit, provenance, sync, update preparation

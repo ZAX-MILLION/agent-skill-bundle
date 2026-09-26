@@ -17,7 +17,9 @@
       "repository": "anthropics/skills",
       "url": "https://github.com/anthropics/skills",
       "default_branch": "main",
-      "categories": ["design"],
+      "categories": [
+        "design"
+      ],
       "type": "upstream",
       "role": "skill_upstream",
       "syncable": true,
@@ -29,7 +31,9 @@
       "repository": "daymade/claude-code-skills",
       "url": "https://github.com/daymade/claude-code-skills",
       "default_branch": "main",
-      "categories": ["design"],
+      "categories": [
+        "design"
+      ],
       "type": "upstream",
       "role": "skill_upstream",
       "syncable": true,
@@ -41,7 +45,9 @@
       "repository": "NousResearch/hermes-agent",
       "url": "https://github.com/NousResearch/hermes-agent",
       "default_branch": "main",
-      "categories": ["design"],
+      "categories": [
+        "design"
+      ],
       "type": "upstream",
       "role": "skill_upstream",
       "syncable": true,
@@ -53,7 +59,9 @@
       "repository": "google-labs-code/design.md",
       "url": "https://github.com/google-labs-code/design.md",
       "default_branch": "main",
-      "categories": ["design"],
+      "categories": [
+        "design"
+      ],
       "type": "upstream",
       "role": "reference_spec",
       "syncable": false,
@@ -65,7 +73,9 @@
       "repository": "VoltAgent/awesome-design-md",
       "url": "https://github.com/VoltAgent/awesome-design-md",
       "default_branch": "main",
-      "categories": ["design"],
+      "categories": [
+        "design"
+      ],
       "type": "upstream",
       "role": "collection_upstream",
       "syncable": true,
@@ -77,7 +87,9 @@
       "repository": "obra/superpowers",
       "url": "https://github.com/obra/superpowers",
       "default_branch": "main",
-      "categories": ["process"],
+      "categories": [
+        "process"
+      ],
       "type": "upstream",
       "role": "skill_upstream",
       "syncable": true,
@@ -89,7 +101,9 @@
       "repository": "rivet-dev/skills",
       "url": "https://github.com/rivet-dev/skills",
       "default_branch": "main",
-      "categories": ["multiplayer"],
+      "categories": [
+        "multiplayer"
+      ],
       "type": "upstream",
       "role": "related_upstream",
       "syncable": false,
@@ -102,7 +116,9 @@
       "repository": "rivet-dev/actors",
       "url": "https://github.com/rivet-dev/actors",
       "default_branch": "main",
-      "categories": ["multiplayer"],
+      "categories": [
+        "multiplayer"
+      ],
       "type": "upstream",
       "role": "reference_docs",
       "syncable": false,
@@ -115,7 +131,9 @@
       "repository": "WordPress/agent-skills",
       "url": "https://github.com/WordPress/agent-skills",
       "default_branch": "trunk",
-      "categories": ["wordpress"],
+      "categories": [
+        "wordpress"
+      ],
       "type": "upstream",
       "role": "skill_upstream",
       "syncable": true,
@@ -127,7 +145,9 @@
       "repository": "coreyhaines31/marketingskills",
       "url": "https://github.com/coreyhaines31/marketingskills",
       "default_branch": "main",
-      "categories": ["marketing"],
+      "categories": [
+        "marketing"
+      ],
       "type": "upstream",
       "role": "skill_upstream",
       "syncable": true,
@@ -139,7 +159,11 @@
       "repository": "ZAX-MILLION/agent-skill-bundle",
       "url": "https://github.com/ZAX-MILLION/agent-skill-bundle",
       "default_branch": "main",
-      "categories": ["security", "qa"],
+      "categories": [
+        "security",
+        "qa",
+        "operations"
+      ],
       "type": "local",
       "role": "local",
       "syncable": false,

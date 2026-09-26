@@ -9,6 +9,7 @@ A bundled third-party skill remains the canonical source material. An adapter on
 - `chatgpt/` — Agent Skills usage guidance for ChatGPT.
 - `codex/` — Agent Skills usage guidance for Codex.
 - `cursor/` — file-based Cursor installation and host configuration boundary.
+- `antigravity/` — Antigravity native skill paths, global rules and MCP permission boundary.
 - `claude-code/` — file-based Claude Code installation.
 - `generic/` — fallback contract for any AI/agent that can read `SKILL.md` and supporting files.
 
