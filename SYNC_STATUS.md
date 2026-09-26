@@ -21,6 +21,10 @@ This file reports what the bundle can prove and deliberately separates provenanc
 | Generic AI adapter | ✅ Ready | Capability-aware fallback. |
 | `main` branch protection | ⚠️ External setting | Must be enabled in GitHub repository settings/rulesets. |
 
+## Ponytail integration
+
+Six `SKILL.md` files from `DietrichGebert/ponytail` at commit `e3ba2aa6f1e6f0bc4d69eb09c9f0d0a93af56156` are copied unmodified under `coding/`. Each skill directory additionally carries the upstream MIT `LICENSE.txt`, so full directory trees differ and are **not** marked `EXACT`. Review-only updates; provenance: `registry/vendor-ponytail.json`. Claude/Codex hooks and benchmark executables are not bundled.
+
 ## Verified `process/`
 
 Canonical upstream: `obra/superpowers`

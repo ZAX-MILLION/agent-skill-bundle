@@ -14,6 +14,7 @@ Third-party work remains credited to its canonical author/project. Original lice
 | obra Superpowers | https://github.com/obra/superpowers | Process, debugging, planning, TDD, reviews and verification |
 | WordPress Agent Skills | https://github.com/WordPress/agent-skills | WordPress development skills |
 | Marketing Skills by Corey Haines | https://github.com/coreyhaines31/marketingskills | Marketing skills |
+| Ponytail by Dietrich Gebert | https://github.com/DietrichGebert/ponytail | Six portable coding skills, MIT; upstream skill text unchanged, license added inside each distributed skill |
 
 ## Collections and reference sources
 
