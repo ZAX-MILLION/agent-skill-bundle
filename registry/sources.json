@@ -229,6 +229,21 @@
       "note": "Optional local MIT-licensed MCP search server; no executable, model, remote corpus, database, credentials or MCP config mirrored. Original adapter only."
     },
     {
+      "id": "voltagent-awesome-agent-skills",
+      "name": "VoltAgent Awesome Agent Skills directory",
+      "repository": "VoltAgent/awesome-agent-skills",
+      "url": "https://github.com/VoltAgent/awesome-agent-skills",
+      "default_branch": "main",
+      "categories": [
+        "research"
+      ],
+      "type": "upstream",
+      "role": "reference_catalog",
+      "syncable": false,
+      "priority": 30,
+      "note": "MIT-licensed directory links to external author-owned skill repositories. No skill directories live in this source; exact reviewed README snapshot linked from local agent-skills reference, not bulk installed. Entries need individual review."
+    },
+    {
       "id": "zax-custom",
       "name": "ZAX custom skills",
       "repository": "ZAX-MILLION/agent-skill-bundle",

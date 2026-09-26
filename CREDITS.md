@@ -38,6 +38,7 @@ Reviewed source hashes and revisions: [registry/portable-expansion.json](registr
 | Agent Reach by Agent Eyes / Panniantong | https://github.com/Panniantong/Agent-Reach | Optional external CLI, MIT. Original local permission-scoped adapter; no runtime or credentials copied. |
 
 | Skill Retrieval MCP by Zhan Cheng | https://github.com/JayCheng113/skill-retrieval-mcp | Optional MIT-licensed external local MCP service; original, reviewed usage adapter only. Runtime, index, embedding model and external corpus are not redistributed. |
+| VoltAgent Awesome Agent Skills | https://github.com/VoltAgent/awesome-agent-skills | Reviewed reference-only discovery directory integrated into the existing `agent-skills` workflow. Catalog MIT does not license external authors' linked skills. No linked skill packages or executables copied. |
 
 ## Collections and reference sources
 

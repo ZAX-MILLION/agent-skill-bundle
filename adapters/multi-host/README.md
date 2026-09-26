@@ -38,3 +38,7 @@ Both upstream Taste skills remain as originally authored, including any Codex-sp
 Never copy private project memory, API keys, SSH material or production configuration into this **public** repository or an external skill index. Review external skills before installation, keep source pins and licenses, and obtain authorization for runtime installs, destructive changes or deployment. The earlier historical Git credential exposure remains unresolved until credentials are rotated and history is remediated; the HEAD-only public-content gate does not erase it.
 
 The original `i-have-adhd` skill is marked for explicit invocation. For persistent communication, **merge** its reviewed action-first principles into the respective user-global rule rather than overwriting it: Antigravity `GEMINI.md`/host rules, Codex `AGENTS.md`, Claude Code `CLAUDE.md`. A default style is not a medical claim or a substitute for safety, security, testing or approvals.
+
+## Curated discovery source (not a package installer)
+
+The existing `agent-skills` workflow includes a [pinned VoltAgent catalog reference](../../research/agent-skills/references/voltagent-catalog.md). It is usable from all supported hosts through on-demand retrieval of that one source skill. The advertised 1,497+ entries are external links, **not** native skills, and no linked content is automatically installed or granted executable permissions.
