@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "review_date": "2026-09-26",
+  "bundle_head_before": "ab81fac21ac1479a0664a3ba9593e6b5e5f89599",
+  "notes": "Three productivity skills plus one missing Marketing Events skill. Caveman/Humanizer/Events original skill text is unchanged. Claude-Mem is a local guidance adapter, not plugin distribution. Per-directory root license overlays are recorded.",
+  "sources": [
+    {
+      "id": "juliusbrussee-caveman",
+      "repository": "JuliusBrussee/caveman",
+      "commit": "2fd153c67988e980fb0b2455c90832159a6a5a25",
+      "source_path": "skills/caveman",
+      "local_path": "productivity/caveman",
+      "license": "MIT skill; Engine-linked BSL-1.1 runtime not redistributed",
+      "type": "exact_SKILL_and_README_with_license_overlay",
+      "files": {
+        "SKILL.md": "31b0c7c8a43cbfd1998d5406f5f56dfa17b8545d",
+        "README.md": "8aedda75cad5c247701b3ee603a6b992e5a6bd7c",
+        "LICENSE.txt": "97ba9dac421b56b8403488acbd39383ce710f259"
+      }
+    },
+    {
+      "id": "blader-humanizer",
+      "repository": "blader/humanizer",
+      "commit": "9862685f575c65a8247f90369951df1b3416e3d6",
+      "source_path": "SKILL.md",
+      "local_path": "productivity/humanizer",
+      "license": "MIT",
+      "type": "exact_SKILL_with_license_overlay",
+      "files": {
+        "SKILL.md": "d375fbf3e3ee8fb047c379bced82df3713c6ed3b",
+        "LICENSE.txt": "625297fb778f32eb39d3a5b97e3e3b611b7304d6"
+      }
+    },
+    {
+      "id": "thedotmack-claude-mem",
+      "repository": "thedotmack/claude-mem",
+      "commit": "abeb0dbf0d7371752b305852835f2299794601e1",
+      "source_path": null,
+      "local_path": "productivity/claude-mem",
+      "license": "External plugin Apache-2.0",
+      "type": "local_adapter_no_plugin_worker_or_data_redistributed"
+    },
+    {
+      "id": "coreyhaines-marketingskills",
+      "repository": "coreyhaines31/marketingskills",
+      "commit": "5b2c0007766c6a1cf1d53fd8fc73e979e0821022",
+      "source_path": "skills/events",
+      "local_path": "marketing/events",
+      "license": "MIT, root license copied",
+      "type": "upstream_complete_skill_with_license_overlay",
+      "files": {
+        "SKILL.md": "ca56d1cd1edc7baf05a1cab50f8d56b262fb8f39",
+        "LICENSE.txt": "7c48dd638a9ebed49a8ef0c0c4eea90105381cdf",
+        "evals/evals.json": "4591a1fcf0c281d338c26fb44f13588c04dfd29e",
+        "references/event-portfolio-strategy.md": "995e29e50764c325d433936b84f5c867a20ce49c",
+        "references/speaking.md": "83ec5c253b5c0d47612a44f23627cfee412e1f84",
+        "references/sponsorship-roi.md": "2c6e36612b56b81bd897d4c1e364a212feb02020",
+        "references/webinar-funnel.md": "2f78b85e82068c1a2361e82aac6de69c346f673b"
+      }
+    }
+  ],
+  "marketing_comparison": {
+    "previous_local_SKILL_count": 49,
+    "reviewed_current_upstream_SKILL_count": 50,
+    "missing_added": [
+      "events"
+    ],
+    "existing_SKILL_blobs_equal": 28,
+    "existing_SKILL_blobs_differ": 21,
+    "change_policy": "Review changes in a separate PR; do not overwrite existing marketing skill bodies automatically."
+  }
+}

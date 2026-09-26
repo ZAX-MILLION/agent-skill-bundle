@@ -45,6 +45,30 @@
       "credentials_in_bundle": false,
       "execution_authorized": false,
       "note": "The source repository has zero SKILL.md files and catalogs external author-owned skills; an original, local source-reference page is used by research/agent-skills. Review each canonical linked source before acquisition."
+    },
+    {
+      "name": "Caveman compression engine",
+      "repository": "JuliusBrussee/caveman",
+      "checked_commit": "2fd153c67988e980fb0b2455c90832159a6a5a25",
+      "upstream_license": "BSL-1.1 engine-linked runtime; MIT separate skills",
+      "relationship": "optional_external_compression_runtime_not_bundled",
+      "code_redistributed": false,
+      "installation_in_bundle": false,
+      "credentials_in_bundle": false,
+      "note": "Only MIT Caveman writing skill copied, not proxy, hooks or Engine. Do not claim automatic token savings."
+    },
+    {
+      "name": "Claude-Mem",
+      "repository": "thedotmack/claude-mem",
+      "checked_commit": "abeb0dbf0d7371752b305852835f2299794601e1",
+      "upstream_license": "Apache-2.0",
+      "relationship": "optional_external_session_memory_plugin_worker",
+      "code_redistributed": false,
+      "installation_in_bundle": false,
+      "credentials_in_bundle": false,
+      "automatic_capture_enabled": false,
+      "cloud_sync_enabled": false,
+      "note": "Installer can alter global hooks/rules/MCP, start local worker, connect remote AI and optionally sync prompts/observations. Host-specific verification and explicit opt-in required."
     }
   ]
 }
