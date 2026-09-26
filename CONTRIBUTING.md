@@ -56,6 +56,10 @@ Adapters should stay thin. They may describe installation paths, capability mapp
 
 If a host lacks a required capability, report the limitation instead of inventing a fake equivalent.
 
+## Public content review
+
+Run `python3 scripts/public_repo_gate.py .` and manually inspect every diff for private account data, project topology, vulnerability disclosures, credential material, binary metadata and third-party executable behavior. Keep a private marker denylist outside Git. Never assume deleting an exposed file erases Git history. Reviewed example exceptions are exact Git blob hashes only.
+
 ## Useful checks
 
 ```bash

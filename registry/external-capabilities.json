@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "external_sources": [
+    {
+      "name": "500+ AI Agent Projects",
+      "repository": "ashishpatel26/500-AI-Agents-Projects",
+      "checked_commit": "9beeb721c2af551bacaab827a76bddaecaa0ca5e",
+      "relationship": "reference_catalog_only",
+      "code_redistributed": false,
+      "execution_authorized": false
+    },
+    {
+      "name": "Agent Reach",
+      "repository": "Panniantong/Agent-Reach",
+      "checked_commit": "a19a171fa980a0785849596492e0af4db800c82f",
+      "upstream_license": "MIT",
+      "relationship": "optional_external_cli_with_original_local_adapter",
+      "code_redistributed": false,
+      "installation_in_bundle": false,
+      "credentials_in_bundle": false
+    }
+  ]
+}

@@ -5,7 +5,7 @@ description: "Use when the user sends UI screenshots with red marks."
 
 # Screenshot-Driven Visual Polish
 
-Use when the user sends screenshots of their sites (CardNite, ZaxDoctor, site 3, portals) asking for visual changes — commonly with hand-drawn RED CIRCLES around the elements to change. The user iterates fast: screenshot → fix → screenshot, often 3-5 rounds per campaign, and judges purely by looking at the result.
+Use when a user sends screenshots of websites or portals asking for visual changes — commonly with hand-drawn RED CIRCLES around the elements to change. The user iterates fast: screenshot → fix → screenshot, often 3-5 rounds per campaign, and judges purely by looking at the result.
 
 ## The loop (never skip steps)
 

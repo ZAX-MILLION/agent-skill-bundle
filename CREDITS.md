@@ -16,6 +16,13 @@ Third-party work remains credited to its canonical author/project. Original lice
 | Marketing Skills by Corey Haines | https://github.com/coreyhaines31/marketingskills | Marketing skills |
 | Ponytail by Dietrich Gebert | https://github.com/DietrichGebert/ponytail | Six portable coding skills, MIT; upstream skill text unchanged, license added inside each distributed skill |
 
+## External references (not redistributed)
+
+| Project | Source | Relationship |
+|---|---|---|
+| 500+ AI Agent Projects by ashishpatel26 | https://github.com/ashishpatel26/500-AI-Agents-Projects | Reference catalog only; listed projects have independent licenses. |
+| Agent Reach by Agent Eyes / Panniantong | https://github.com/Panniantong/Agent-Reach | Optional external CLI, MIT. Original local permission-scoped adapter; no runtime or credentials copied. |
+
 ## Collections and reference sources
 
 These projects are important sources, but they are not falsely presented as authors of unrelated skills:

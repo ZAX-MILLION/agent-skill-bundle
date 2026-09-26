@@ -49,6 +49,12 @@ Before accepting an upstream update, inspect changes for:
 
 If an update cannot be confidently reviewed, do not merge it. Mark it for quarantine/manual review instead.
 
+## Public repository gate
+
+Never commit project QA credentials, live vulnerability reports, private server topology, internal/admin URLs, sessions or personal records. Run `python3 scripts/public_repo_gate.py .` before release. Reviewed third-party documentation exceptions are pinned to exact blob SHAs and must be re-reviewed if changed. The gate never prints matched values and is not a complete security audit.
+
+A deletion commit does not erase earlier public commits, forks, caches or copied credentials. On exposure: rotate/revoke affected secrets, assess access, notify the affected owner and coordinate a separate controlled history cleanup. See `docs/PUBLIC_REPOSITORY_POLICY.md`.
+
 ## Secrets
 
 Never commit API keys, tokens, private keys, passwords, cookies or other credentials to this bundle, its registry, examples or adapters.
