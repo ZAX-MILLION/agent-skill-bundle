@@ -253,7 +253,10 @@
         "security",
         "qa",
         "operations",
-        "research"
+        "research",
+        "automation",
+        "creative",
+        "process"
       ],
       "type": "local",
       "role": "local",
@@ -304,6 +307,96 @@
       "syncable": false,
       "priority": 60,
       "note": "Bundle-authored adapter only. Plugin, hooks, worker, hosted provider connection and account/session data external and opt-in; Antigravity CLI != desktop IDE."
+    },
+    {
+      "id": "n8n-official-skills",
+      "name": "Official n8n Skills",
+      "repository": "n8n-io/skills",
+      "url": "https://github.com/n8n-io/skills",
+      "default_branch": "main",
+      "categories": [
+        "automation"
+      ],
+      "type": "upstream",
+      "role": "skill_upstream",
+      "syncable": false,
+      "priority": 100,
+      "note": "14 complete original source skill directories copied with per-directory Apache-2.0 root license overlay. Manual review only; no plugin, hooks, n8n instance or MCP credentials in bundle."
+    },
+    {
+      "id": "christopherkahler-paul",
+      "name": "PAUL Plan Apply Unify",
+      "repository": "ChristopherKahler/paul",
+      "url": "https://github.com/ChristopherKahler/paul",
+      "default_branch": "main",
+      "categories": [
+        "process"
+      ],
+      "type": "upstream",
+      "role": "related_upstream",
+      "syncable": false,
+      "priority": 60,
+      "note": "Claude Code-specific commands/rules framework; only an original local portable workflow adapter included."
+    },
+    {
+      "id": "calesthio-openmontage",
+      "name": "OpenMontage",
+      "repository": "calesthio/OpenMontage",
+      "url": "https://github.com/calesthio/OpenMontage",
+      "default_branch": "main",
+      "categories": [
+        "creative"
+      ],
+      "type": "upstream",
+      "role": "related_upstream",
+      "syncable": false,
+      "priority": 60,
+      "note": "AGPL-3.0 external media production app; local adapter only, no runtime/scripts/assets copied."
+    },
+    {
+      "id": "eternityspring-shuohao-skills",
+      "name": "shuohao-skills",
+      "repository": "eternityspring/shuohao-skills",
+      "url": "https://github.com/eternityspring/shuohao-skills",
+      "default_branch": "main",
+      "categories": [
+        "creative"
+      ],
+      "type": "upstream",
+      "role": "related_upstream",
+      "syncable": false,
+      "priority": 60,
+      "note": "Six full original external skill packages require complete refs/JS scripts/images; local router only."
+    },
+    {
+      "id": "pixel-agents",
+      "name": "Pixel Agents",
+      "repository": "pixel-agents-hq/pixel-agents",
+      "url": "https://github.com/pixel-agents-hq/pixel-agents",
+      "default_branch": "main",
+      "categories": [
+        "research"
+      ],
+      "type": "upstream",
+      "role": "related_upstream",
+      "syncable": false,
+      "priority": 30,
+      "note": "Reference-only external extension/CLI, not Agent Skill."
+    },
+    {
+      "id": "czlonkowski-n8n-mcp",
+      "name": "n8n-mcp community project",
+      "repository": "czlonkowski/n8n-mcp",
+      "url": "https://github.com/czlonkowski/n8n-mcp",
+      "default_branch": "main",
+      "categories": [
+        "automation"
+      ],
+      "type": "upstream",
+      "role": "related_upstream",
+      "syncable": false,
+      "priority": 50,
+      "note": "Separate community MCP runtime, not official n8n instance-level MCP; no code or credentials bundled."
     }
   ]
 }

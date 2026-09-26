@@ -62,7 +62,7 @@ if [ "$ON_DEMAND" -eq 1 ]; then
     [ "${source_key##*/}" = "$skill_name" ] || continue
     case "$source_key" in
       productivity/i-have-adhd|research/skill-retrieval-routing) ;;
-      design/*|security/*|process/*|multiplayer/*|wordpress/*|marketing/*|qa/*|operations/*|coding/*|research/*|productivity/*)
+      design/*|security/*|process/*|multiplayer/*|wordpress/*|marketing/*|qa/*|operations/*|coding/*|research/*|productivity/*|automation/*|creative/*)
         legacy_count=$((legacy_count + 1)) ;;
     esac
   done
@@ -78,7 +78,7 @@ echo "Installing Agent Skills → $TARGET"
 count=0
 skipped=0
 
-for category in design security process multiplayer wordpress marketing qa operations coding research productivity; do
+for category in design security process multiplayer wordpress marketing qa operations coding research productivity automation creative; do
   [ -d "$BUNDLE_DIR/$category" ] || continue
   for skill_dir in "$BUNDLE_DIR/$category"/*/; do
     [ -d "$skill_dir" ] || continue
@@ -141,7 +141,7 @@ if [ "$PRUNE_MANAGED" -eq 1 ]; then
     [ "${source_key##*/}" = "$skill_name" ] || continue
     case "$source_key" in
       productivity/i-have-adhd|research/skill-retrieval-routing) ;;
-      design/*|security/*|process/*|multiplayer/*|wordpress/*|marketing/*|qa/*|operations/*|coding/*|research/*|productivity/*)
+      design/*|security/*|process/*|multiplayer/*|wordpress/*|marketing/*|qa/*|operations/*|coding/*|research/*|productivity/*|automation/*|creative/*)
         rm -rf -- "$existing"
         pruned=$((pruned + 1)) ;;
     esac

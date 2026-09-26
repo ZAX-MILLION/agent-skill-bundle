@@ -135,6 +135,126 @@
       "sync": "manual-review",
       "attribution": "Ayoub Ghriss / i-have-adhd, MIT",
       "note": "Original SKILL.md byte-identical; LICENSE.txt copied from root. Antigravity always-on response rule maintained separately."
+    },
+    {
+      "local_path": "process/diagnosing-superpowers",
+      "source_id": "obra-superpowers",
+      "source_path": "skills/diagnosing-superpowers",
+      "kind": "skill-with-license-overlay",
+      "sync": "manual-review",
+      "note": "20 upstream skill files copied byte-identical; upstream root MIT license copied as per-package LICENSE.txt. This is not an entire unchanged Git subtree due to overlay."
+    },
+    {
+      "local_path": "automation/n8n-agents-official",
+      "source_id": "n8n-official-skills",
+      "source_path": "skills/n8n-agents-official",
+      "kind": "skill-with-license-overlay",
+      "sync": "manual-review",
+      "note": "Exact upstream files; Apache-2.0 root license overlaid per skill. No installed n8n plugin or MCP service."
+    },
+    {
+      "local_path": "automation/n8n-binary-and-data-official",
+      "source_id": "n8n-official-skills",
+      "source_path": "skills/n8n-binary-and-data-official",
+      "kind": "skill-with-license-overlay",
+      "sync": "manual-review",
+      "note": "Exact upstream files; Apache-2.0 root license overlaid per skill. No installed n8n plugin or MCP service."
+    },
+    {
+      "local_path": "automation/n8n-code-nodes-official",
+      "source_id": "n8n-official-skills",
+      "source_path": "skills/n8n-code-nodes-official",
+      "kind": "skill-with-license-overlay",
+      "sync": "manual-review",
+      "note": "Exact upstream files; Apache-2.0 root license overlaid per skill. No installed n8n plugin or MCP service."
+    },
+    {
+      "local_path": "automation/n8n-credentials-and-security-official",
+      "source_id": "n8n-official-skills",
+      "source_path": "skills/n8n-credentials-and-security-official",
+      "kind": "skill-with-license-overlay",
+      "sync": "manual-review",
+      "note": "Exact upstream files; Apache-2.0 root license overlaid per skill. No installed n8n plugin or MCP service."
+    },
+    {
+      "local_path": "automation/n8n-data-tables-official",
+      "source_id": "n8n-official-skills",
+      "source_path": "skills/n8n-data-tables-official",
+      "kind": "skill-with-license-overlay",
+      "sync": "manual-review",
+      "note": "Exact upstream files; Apache-2.0 root license overlaid per skill. No installed n8n plugin or MCP service."
+    },
+    {
+      "local_path": "automation/n8n-debugging-official",
+      "source_id": "n8n-official-skills",
+      "source_path": "skills/n8n-debugging-official",
+      "kind": "skill-with-license-overlay",
+      "sync": "manual-review",
+      "note": "Exact upstream files; Apache-2.0 root license overlaid per skill. No installed n8n plugin or MCP service."
+    },
+    {
+      "local_path": "automation/n8n-error-handling-official",
+      "source_id": "n8n-official-skills",
+      "source_path": "skills/n8n-error-handling-official",
+      "kind": "skill-with-license-overlay",
+      "sync": "manual-review",
+      "note": "Exact upstream files; Apache-2.0 root license overlaid per skill. No installed n8n plugin or MCP service."
+    },
+    {
+      "local_path": "automation/n8n-expressions-official",
+      "source_id": "n8n-official-skills",
+      "source_path": "skills/n8n-expressions-official",
+      "kind": "skill-with-license-overlay",
+      "sync": "manual-review",
+      "note": "Exact upstream files; Apache-2.0 root license overlaid per skill. No installed n8n plugin or MCP service."
+    },
+    {
+      "local_path": "automation/n8n-extending-mcp-official",
+      "source_id": "n8n-official-skills",
+      "source_path": "skills/n8n-extending-mcp-official",
+      "kind": "skill-with-license-overlay",
+      "sync": "manual-review",
+      "note": "Exact upstream files; Apache-2.0 root license overlaid per skill. No installed n8n plugin or MCP service."
+    },
+    {
+      "local_path": "automation/n8n-loops-official",
+      "source_id": "n8n-official-skills",
+      "source_path": "skills/n8n-loops-official",
+      "kind": "skill-with-license-overlay",
+      "sync": "manual-review",
+      "note": "Exact upstream files; Apache-2.0 root license overlaid per skill. No installed n8n plugin or MCP service."
+    },
+    {
+      "local_path": "automation/n8n-node-configuration-official",
+      "source_id": "n8n-official-skills",
+      "source_path": "skills/n8n-node-configuration-official",
+      "kind": "skill-with-license-overlay",
+      "sync": "manual-review",
+      "note": "Exact upstream files; Apache-2.0 root license overlaid per skill. No installed n8n plugin or MCP service."
+    },
+    {
+      "local_path": "automation/n8n-subworkflows-official",
+      "source_id": "n8n-official-skills",
+      "source_path": "skills/n8n-subworkflows-official",
+      "kind": "skill-with-license-overlay",
+      "sync": "manual-review",
+      "note": "Exact upstream files; Apache-2.0 root license overlaid per skill. No installed n8n plugin or MCP service."
+    },
+    {
+      "local_path": "automation/n8n-workflow-lifecycle-official",
+      "source_id": "n8n-official-skills",
+      "source_path": "skills/n8n-workflow-lifecycle-official",
+      "kind": "skill-with-license-overlay",
+      "sync": "manual-review",
+      "note": "Exact upstream files; Apache-2.0 root license overlaid per skill. No installed n8n plugin or MCP service."
+    },
+    {
+      "local_path": "automation/using-n8n-skills-official",
+      "source_id": "n8n-official-skills",
+      "source_path": "skills/using-n8n-skills-official",
+      "kind": "skill-with-license-overlay",
+      "sync": "manual-review",
+      "note": "Exact upstream files; Apache-2.0 root license overlaid per skill. No installed n8n plugin or MCP service."
     }
   ],
   "anthropic_design_skills": [

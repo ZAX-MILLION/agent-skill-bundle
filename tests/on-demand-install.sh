@@ -7,7 +7,7 @@ trap 'rm -rf -- "$tmp"' EXIT
 
 "$root/install.sh" "$tmp/full" --flat >/dev/null
 full="$(find "$tmp/full" -mindepth 2 -maxdepth 2 -name SKILL.md | wc -l)"
-[ "$full" -eq 147 ] || { echo "FAIL: expected 147 full skills, got $full" >&2; exit 1; }
+[ "$full" -eq 166 ] || { echo "FAIL: expected 166 full skills, got $full" >&2; exit 1; }
 for skill in graphify graft awesome-design design-taste-frontend image-to-code web-design-guidelines agent-skills; do
   [ -f "$tmp/full/$skill/SKILL.md" ] || { echo "FAIL: missing $skill" >&2; exit 1; }
 done
@@ -19,6 +19,15 @@ done
 [ -f "$tmp/full/events/LICENSE.txt" ]
 [ -f "$tmp/full/caveman/LICENSE.txt" ]
 [ -f "$tmp/full/humanizer/LICENSE.txt" ]
+for skill in paul diagnosing-superpowers openmontage shuohao-skills n8n-instance; do
+  [ -f "$tmp/full/$skill/SKILL.md" ] || { echo "FAIL: missing $skill" >&2; exit 1; }
+done
+[ -f "$tmp/full/diagnosing-superpowers/references/redaction-policy.md" ]
+[ -f "$tmp/full/n8n-agents-official/references/CHAT_AGENT_PATTERNS.md" ]
+[ -f "$tmp/full/n8n-error-handling-official/references/examples/validation-subworkflow.ts" ]
+[ -f "$tmp/full/using-n8n-skills-official/LICENSE.txt" ]
+python3 "$root/tests/verify-third-wave.py" "$root" "$tmp/full"
+
 # Integrity: complete copied upstream files must remain byte-identical to reviewed blobs.
 python3 - "$root" "$tmp/full" <<'PY'
 import json, pathlib, subprocess, sys
@@ -51,6 +60,13 @@ minimal="$(find "$tmp/minimal" -mindepth 2 -maxdepth 2 -name SKILL.md | wc -l)"
 [ ! -e "$tmp/minimal/claude-mem" ]
 [ ! -e "$tmp/minimal/humanizer" ]
 [ ! -e "$tmp/minimal/events" ]
+[ ! -e "$tmp/minimal/paul" ]
+[ ! -e "$tmp/minimal/openmontage" ]
+[ ! -e "$tmp/minimal/shuohao-skills" ]
+[ ! -e "$tmp/minimal/n8n-instance" ]
+[ ! -e "$tmp/minimal/n8n-agents-official" ]
+[ ! -e "$tmp/minimal/diagnosing-superpowers" ]
+
 
 # A previous full install must not silently masquerade as on-demand.
 if "$root/install.sh" "$tmp/full" --flat --on-demand >"$tmp/warning.log" 2>&1; then
@@ -70,4 +86,4 @@ printf '%s\n' 'personal data' > "$tmp/full/personal-skill/SKILL.md"
 
 count="$(find "$tmp/full" -mindepth 2 -maxdepth 2 -name SKILL.md | wc -l)"
 [ "$count" -eq 3 ] || { echo "FAIL: expected 2 bootstraps and personal skill, got $count" >&2; exit 1; }
-echo "PASS: 147 full packages (eleven beyond original 136), two-skill bootstrap, deliberate migration, unmarked user skill preserved."
+echo "PASS: 166 full packages (30 beyond original 136), two-skill bootstrap, deliberate migration, unmarked user skill preserved."

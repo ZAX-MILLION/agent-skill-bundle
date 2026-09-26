@@ -69,6 +69,69 @@
       "automatic_capture_enabled": false,
       "cloud_sync_enabled": false,
       "note": "Installer can alter global hooks/rules/MCP, start local worker, connect remote AI and optionally sync prompts/observations. Host-specific verification and explicit opt-in required."
+    },
+    {
+      "name": "Official n8n instance-level MCP",
+      "repository": "n8n-io/skills",
+      "checked_commit": "180b8415e3b73f78828cfa01e908e67f89f2a139",
+      "upstream_license": "Apache-2.0 official skill source",
+      "relationship": "optional_authenticated_external_n8n_instance_mcp",
+      "installation_in_bundle": false,
+      "credentials_in_bundle": false,
+      "access_granted": false,
+      "note": "Only portable original skill text and reference files in vault; connecting/authorizing a live n8n instance is a separate user action."
+    },
+    {
+      "name": "Community n8n-mcp",
+      "repository": "czlonkowski/n8n-mcp",
+      "checked_commit": "4cc0efda76f272e3b0816f215399f21599c29d34",
+      "upstream_license": "MIT",
+      "relationship": "optional_alternative_mcp_not_official_instance_level",
+      "code_redistributed": false,
+      "installation_in_bundle": false,
+      "credentials_in_bundle": false
+    },
+    {
+      "name": "PAUL framework",
+      "repository": "ChristopherKahler/paul",
+      "checked_commit": "f8552c72d0e69309a0cb61b5de5c85a06838ddcb",
+      "upstream_license": "MIT",
+      "relationship": "optional_claude_code_command_framework_with_local_portable_adapter",
+      "code_redistributed": false,
+      "installation_in_bundle": false,
+      "credentials_in_bundle": false
+    },
+    {
+      "name": "OpenMontage",
+      "repository": "calesthio/OpenMontage",
+      "checked_commit": "08e2151fa02de28a5d6a312b3d575692bf147ad7",
+      "upstream_license": "AGPL-3.0",
+      "relationship": "optional_external_media_studio_with_original_local_adapter",
+      "code_redistributed": false,
+      "installation_in_bundle": false,
+      "credentials_in_bundle": false,
+      "external_model_keys_in_bundle": false
+    },
+    {
+      "name": "shuohao-skills",
+      "repository": "eternityspring/shuohao-skills",
+      "checked_commit": "ef4ac0c313c7eeb1f918db5f0f0eb319745900bc",
+      "upstream_license": "Apache-2.0",
+      "relationship": "external_full_skill_source_with_original_local_router",
+      "code_redistributed": false,
+      "installation_in_bundle": false,
+      "skills_copied": 0,
+      "note": "Six original packages need JS scripts, refs and binary preview assets; this bundle does not ship incomplete copies."
+    },
+    {
+      "name": "Pixel Agents",
+      "repository": "pixel-agents-hq/pixel-agents",
+      "checked_commit": "3537e140c2094761beae748592aeb92ece8edfdd",
+      "upstream_license": "MIT",
+      "relationship": "reference_only_optional_visual_agent_office",
+      "code_redistributed": false,
+      "installation_in_bundle": false,
+      "credentials_in_bundle": false
     }
   ]
 }

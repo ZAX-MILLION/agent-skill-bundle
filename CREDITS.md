@@ -41,6 +41,20 @@ Reviewed source hashes and revisions: [registry/portable-expansion.json](registr
 
 See [registry/vendor-second-wave.json](registry/vendor-second-wave.json) for source pins and exact original file hashes.
 
+## More reviewed sources (2026-09-26)
+
+| Source | Actual relationship |
+|---|---|
+| [n8n Official Skills](https://github.com/n8n-io/skills) | All 14 official `SKILL.md` packages plus 51 supporting files copied byte-for-byte into `automation/`, with Apache-2.0 license overlay per package. No plugin, session hook or instance MCP server installed. |
+| [obra Superpowers](https://github.com/obra/superpowers) | Added `diagnosing-superpowers` skill's 20 original files unchanged plus upstream MIT license overlay. Existing 14 Superpowers skill copies remain under separate upstream review. |
+| [PAUL — Chris Kahler](https://github.com/ChristopherKahler/paul) | Original local portable workflow adapter only. No Claude commands/runtime copied. |
+| [OpenMontage — calesthio](https://github.com/calesthio/OpenMontage) | Original local video-workflow guide only. AGPL-3.0 runtime and creative assets not copied. |
+| [shuohao-skills — eternityspring](https://github.com/eternityspring/shuohao-skills) | Original local router to six separately installed original skill packages. No JS executables or binary assets copied. |
+| [Pixel Agents](https://github.com/pixel-agents-hq/pixel-agents) | Reference-only external MIT extension/CLI; not an upstream skill. |
+| [czlonkowski/n8n-mcp](https://github.com/czlonkowski/n8n-mcp) | Reference-only third-party MCP; distinct from official n8n instance-level MCP. |
+
+[Source commits and 100 pinned original/license Git blob hashes](registry/vendor-third-wave.json).
+
 ## External references (not redistributed)
 
 | Project | Source | Relationship |
