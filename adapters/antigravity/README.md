@@ -48,4 +48,6 @@ See [skill-retrieval-mcp.md](skill-retrieval-mcp.md) to index the reviewed bundl
 
 The default recommendation is `--on-demand --flat`, which installs only `i-have-adhd` and `skill-retrieval-routing` into native global discovery. Import the entire **source checkout** into the separately installed local Skill Retrieval MCP, keeping its scripts/references/assets available in that checkout. The native and MCP libraries serve different purposes: native bootstrap provides routing and the main communication preference; MCP searches the other skills only when needed.
 
-Do not assume enabling the MCP makes the 134 other skill bodies native or automatically executable. When a retrieved skill cites support files, read them from the source checkout. A user-global rule for `i-have-adhd` is still required for always-on communication across sessions.
+Do not assume enabling the MCP makes the 141 other skill bodies native or automatically executable. When a retrieved skill cites support files, read them from the source checkout. A user-global rule for `i-have-adhd` is still required for always-on communication across sessions.
+
+All seven expansion skills are available via source-checkout retrieval. `design-taste-frontend` is the canonical upstream skill name. See [the portable three-host guide](../multi-host/README.md).
