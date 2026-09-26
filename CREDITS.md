@@ -17,6 +17,19 @@ Third-party work remains credited to its canonical author/project. Original lice
 | Ponytail by Dietrich Gebert | https://github.com/DietrichGebert/ponytail | Six portable coding skills, MIT; upstream skill text unchanged, license added inside each distributed skill |
 | i-have-adhd by Ayoub Ghriss | https://github.com/ayghri/i-have-adhd | Original portable communication SKILL.md and MIT license. Antigravity always-on rule is a bundle-specific adapter, not the upstream plugin/hook. |
 
+## Additional portable expansion (2026-09-26)
+
+| Canonical upstream | Relationship |
+|---|---|
+| [Taste Skill — Leonxlnx](https://github.com/Leonxlnx/taste-skill) | Original `design-taste-frontend` and `image-to-code` SKILL.md files unchanged; MIT license overlaid in each directory. |
+| [Vercel Web Interface Guidelines](https://github.com/vercel-labs/web-interface-guidelines) | Exact pinned MIT-licensed `command.md` snapshot; local `web-design-guidelines` adapter deliberately does not execute mutable upstream instructions. |
+| [Awesome Design Skills — Bergside](https://github.com/bergside/awesome-design-skills) | Original catalog names referenced in local `awesome-design` router; 67 style bodies are not redistributed. |
+| [Graphify Labs](https://github.com/Graphify-Labs/graphify) | Optional external `graphifyy` runtime; local `graphify` adapter only. |
+| [Graft — Mikko-ww](https://github.com/Mikko-ww/agent-skills-graft) | Optional external manager; local `graft` adapter only. |
+| [Vercel Skills CLI](https://github.com/vercel-labs/skills) and [Agent Skills standard](https://agentskills.io/) | External discovery/installer and specification; local `agent-skills` workflow only. |
+
+Reviewed source hashes and revisions: [registry/portable-expansion.json](registry/portable-expansion.json).
+
 ## External references (not redistributed)
 
 | Project | Source | Relationship |

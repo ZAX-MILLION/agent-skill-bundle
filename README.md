@@ -59,6 +59,12 @@ Run `python3 scripts/public_repo_gate.py .` before publishing. This checks curre
 
 The bundle includes [i-have-adhd](https://github.com/ayghri/i-have-adhd), pinned to a reviewed upstream revision. For a non-developer owner, the [Antigravity default response rule](adapters/antigravity/adhd-primary-rule.md) should be merged into the user's existing global rules **after installing the bundle**. The original portable skill can also be explicitly invoked as `/i-have-adhd`. A skill file alone does not guarantee persistent activation across new sessions: the global rule supplies that behavior. Do not install the separate upstream `agy` plugin in the same discovery scope without checking duplicates. Safety, correctness and complete technical work remain mandatory despite compact presentation.
 
+## Seven additional portable skills
+
+The bundle contains seven new task skills: `graphify` (code knowledge graph, external CLI required), `graft` (optional skill-vault manager), `awesome-design` (selective style router), `design-taste-frontend` (upstream Taste Skill), `image-to-code` (upstream visual implementation), `web-design-guidelines` (reviewed, pinned local Vercel rule snapshot), and `agent-skills` (portable skill discovery and review). See [source and license pins](registry/portable-expansion.json) and [multi-host setup](adapters/multi-host/README.md).
+
+The original Taste Skill is named **`design-taste-frontend`** in its own frontmatter; retain that original name for consistent discovery. The `awesome-design` skill includes a selective catalog, not 67 bulk-installed style bodies. Neither Graphify nor Graft's executable is bundled. Source content and supporting files remain available for on-demand retrieval.
+
 ## Install
 
 The `operations/` category adds 10 original, review-first shared-VPS and release management skills. The `coding/` category includes six Ponytail skills with untouched upstream skill text and the MIT license in every installed directory. See [Antigravity adapter](adapters/antigravity/README.md#ponytail-on-antigravity). See the [Antigravity adapter](adapters/antigravity/README.md) for native installation and permissions.
@@ -90,9 +96,9 @@ The installer copies **only directories containing `SKILL.md`**, along with all 
 ./install.sh "$HOME/.gemini/config/skills" --flat --on-demand
 ```
 
-This installs only `i-have-adhd` and `skill-retrieval-routing` natively, so this bundle contributes only two skill descriptions to startup discovery. The remaining 134 stay in the source checkout and can be searched by the separate local Skill Retrieval MCP. See [the two-stage Antigravity setup](adapters/antigravity/skill-retrieval-mcp.md). Merely running the two-skill installer **does not** install or connect the external MCP runtime.
+This installs only `i-have-adhd` and `skill-retrieval-routing` natively, so this bundle contributes only two skill descriptions to startup discovery. The remaining 141 stay in the source checkout and can be searched by the separate local Skill Retrieval MCP. See [the two-stage Antigravity setup](adapters/antigravity/skill-retrieval-mcp.md). Merely running the two-skill installer **does not** install or connect the external MCP runtime.
 
-If all 136 bundle skills are already installed natively, the command stops rather than misleadingly claiming minimal mode. After reviewing the existing installation, run the same command with `--prune-managed` to remove **only other marker-identified bundle copies**. It does not delete unmarked personal or third-party skills.
+If the full bundle is already installed natively, the command stops rather than misleadingly claiming minimal mode. After reviewing the existing installation, run the same command with `--prune-managed` to remove **only other marker-identified bundle copies**. It does not delete unmarked personal or third-party skills.
 
 ### Host requires skills directly under its skills root
 
@@ -117,7 +123,7 @@ The `i-have-adhd` communication preference remains the primary output rule; retr
 - [`adapters/claude-code/`](adapters/claude-code/README.md)
 - [`adapters/generic/`](adapters/generic/README.md)
 
-The bundle targets the portable Agent Skills pattern (`SKILL.md` + optional scripts/references/assets). It does **not** pretend every host exposes the same browser, shell, subagent, GitHub, database, or filesystem capabilities.
+See [portable setup for Antigravity, Codex and Claude Code](adapters/multi-host/README.md). The bundle targets the portable Agent Skills pattern (`SKILL.md` + optional scripts/references/assets). It does **not** pretend every host exposes the same browser, shell, subagent, GitHub, database, or filesystem capabilities.
 
 ## Audit provenance
 

@@ -20,6 +20,7 @@ This directory is the trust layer for Agent Skill Bundle.
 - `upstream-state.json` — snapshot of checked upstream repository revisions.
 - `skills.json` — last written per-directory Git-tree audit snapshot.
 - `vendor-ponytail.json` — pinned upstream commit and original skill blob hashes; license-overlaid directories are manual-review, not `EXACT`.
+- `portable-expansion.json` — reviewed source revisions for seven portable skills, exact blob hashes of copied upstream SKILL.md files and pinned guidelines.
 - `vendor-i-have-adhd.json` — pinned canonical communication skill and MIT license hashes; Antigravity always-on rule is a separate local adapter.
 
 ## Source roles
