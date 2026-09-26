@@ -45,6 +45,7 @@ See [`registry/`](registry/README.md), [`CREDITS.md`](CREDITS.md), [`SECURITY.md
 | `security/` | Local/custom bundle skills |
 | `qa/` | Local/custom bundle skills |
 | `research/` | Original reference-only agent catalog and optional Agent Reach routing; no external runtime bundled |
+| `productivity/` | [i-have-adhd](https://github.com/ayghri/i-have-adhd) by Ayoub Ghriss: action-first communication skill, MIT, original source retained |
 | `coding/` | [Ponytail](https://github.com/DietrichGebert/ponytail) by Dietrich Gebert: six MIT-licensed coding skills, review-first |
 | `multiplayer/` | Legacy Rivet-derived skills tracked against current Rivet docs/examples; not claimed as current exact `rivet-dev/skills` mirrors |
 
@@ -53,6 +54,10 @@ Canonical roles live in [`registry/sources.json`](registry/sources.json), and lo
 ## Public content safety
 
 Run `python3 scripts/public_repo_gate.py .` before publishing. This checks current tracked content, not past Git history. See [Public Repository Policy](docs/PUBLIC_REPOSITORY_POLICY.md). External research repositories remain references, not automatically installed code.
+
+## Primary Antigravity communication layer
+
+The bundle includes [i-have-adhd](https://github.com/ayghri/i-have-adhd), pinned to a reviewed upstream revision. For a non-developer owner, the [Antigravity default response rule](adapters/antigravity/adhd-primary-rule.md) should be merged into the user's existing global rules **after installing the bundle**. The original portable skill can also be explicitly invoked as `/i-have-adhd`. A skill file alone does not guarantee persistent activation across new sessions: the global rule supplies that behavior. Do not install the separate upstream `agy` plugin in the same discovery scope without checking duplicates. Safety, correctness and complete technical work remain mandatory despite compact presentation.
 
 ## Install
 
@@ -148,7 +153,7 @@ python3 scripts/prepare_updates.py --apply
 
 ```text
 agent-skill-bundle/
-├── design/ security/ process/ multiplayer/ wordpress/ marketing/ qa/ operations/ coding/ research/
+├── design/ security/ process/ multiplayer/ wordpress/ marketing/ qa/ operations/ coding/ research/ productivity/
 ├── registry/          # source roles, mappings, revision/audit state
 ├── adapters/          # host-specific compatibility only
 ├── scripts/           # audit, provenance, sync, update preparation

@@ -126,6 +126,15 @@
       "sync": "manual-review",
       "attribution": "Dietrich Gebert / Ponytail, MIT",
       "note": "Original SKILL.md kept byte-for-byte; upstream root LICENSE copied into each installed skill; no automatic exact-tree sync."
+    },
+    {
+      "local_path": "productivity/i-have-adhd",
+      "source_id": "ayghri-i-have-adhd",
+      "source_path": "skills/i-have-adhd",
+      "kind": "skill-with-license-overlay",
+      "sync": "manual-review",
+      "attribution": "Ayoub Ghriss / i-have-adhd, MIT",
+      "note": "Original SKILL.md byte-identical; LICENSE.txt copied from root. Antigravity always-on response rule maintained separately."
     }
   ],
   "anthropic_design_skills": [

@@ -15,6 +15,7 @@ Third-party work remains credited to its canonical author/project. Original lice
 | WordPress Agent Skills | https://github.com/WordPress/agent-skills | WordPress development skills |
 | Marketing Skills by Corey Haines | https://github.com/coreyhaines31/marketingskills | Marketing skills |
 | Ponytail by Dietrich Gebert | https://github.com/DietrichGebert/ponytail | Six portable coding skills, MIT; upstream skill text unchanged, license added inside each distributed skill |
+| i-have-adhd by Ayoub Ghriss | https://github.com/ayghri/i-have-adhd | Original portable communication SKILL.md and MIT license. Antigravity always-on rule is a bundle-specific adapter, not the upstream plugin/hook. |
 
 ## External references (not redistributed)
 
