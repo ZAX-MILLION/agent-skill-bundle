@@ -1,6 +1,6 @@
 # One reviewed vault — Antigravity, Codex, Claude Code and other agents
 
-**Design:** one authoritative source checkout, two native bootstrap skills per host, one reviewed local Skill Retrieval MCP index, and explicit optional executables. Do not put all 143 instructions in a global prompt. Native skill registries typically expose names/descriptions before loading bodies; this strict mode exposes only two of this bundle's native descriptions.
+**Design:** one authoritative source checkout, two native bootstrap skills per host, one reviewed local Skill Retrieval MCP index, and explicit optional executables. Do not put all 147 instructions in a global prompt. Native skill registries typically expose names/descriptions before loading bodies; this strict mode exposes only two of this bundle's native descriptions.
 
 | Host | Native global skill target | On-demand install |
 |---|---|---|
@@ -42,3 +42,11 @@ The original `i-have-adhd` skill is marked for explicit invocation. For persiste
 ## Curated discovery source (not a package installer)
 
 The existing `agent-skills` workflow includes a [pinned VoltAgent catalog reference](../../research/agent-skills/references/voltagent-catalog.md). It is usable from all supported hosts through on-demand retrieval of that one source skill. The advertised 1,497+ entries are external links, **not** native skills, and no linked content is automatically installed or granted executable permissions.
+
+## Optional session memory, prose editing and marketing
+
+Caveman and Humanizer remain on-demand, not native always-on skills. Existing `i-have-adhd` global communication rules have priority. Use Caveman only when explicitly requested; use Humanizer for scoped prose edits, preserving source facts, quotes, code and data.
+
+Claude-Mem is a separate memory plugin/worker. Upstream documents Claude Code, Codex and Antigravity **CLI** workflows; the Antigravity desktop IDE is a distinct host and its automatic capture must be verified independently. Installation may alter global hooks, rules, and MCP registration. Inspect backups and privacy settings first, and distinguish local storage from third-party extraction or cloud sync. Do not store private project history or credentials in this public skill bundle or the public skills index.
+
+Marketing's `events` skill is installed with full references and evals. Keep the per-project marketing context file private; don't publish it with the shared skill repository.

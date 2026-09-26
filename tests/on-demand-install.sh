@@ -7,10 +7,18 @@ trap 'rm -rf -- "$tmp"' EXIT
 
 "$root/install.sh" "$tmp/full" --flat >/dev/null
 full="$(find "$tmp/full" -mindepth 2 -maxdepth 2 -name SKILL.md | wc -l)"
-[ "$full" -eq 143 ] || { echo "FAIL: expected 143 full skills, got $full" >&2; exit 1; }
+[ "$full" -eq 147 ] || { echo "FAIL: expected 147 full skills, got $full" >&2; exit 1; }
 for skill in graphify graft awesome-design design-taste-frontend image-to-code web-design-guidelines agent-skills; do
   [ -f "$tmp/full/$skill/SKILL.md" ] || { echo "FAIL: missing $skill" >&2; exit 1; }
 done
+for skill in caveman claude-mem humanizer events; do
+  [ -f "$tmp/full/$skill/SKILL.md" ] || { echo "FAIL: missing $skill" >&2; exit 1; }
+done
+[ -f "$tmp/full/events/references/webinar-funnel.md" ]
+[ -f "$tmp/full/events/evals/evals.json" ]
+[ -f "$tmp/full/events/LICENSE.txt" ]
+[ -f "$tmp/full/caveman/LICENSE.txt" ]
+[ -f "$tmp/full/humanizer/LICENSE.txt" ]
 [ -f "$tmp/full/web-design-guidelines/references/pinned-command.md" ]
 [ -f "$tmp/full/awesome-design/references/catalog.md" ]
 [ -f "$tmp/full/image-to-code/LICENSE.txt" ]
@@ -22,6 +30,10 @@ minimal="$(find "$tmp/minimal" -mindepth 2 -maxdepth 2 -name SKILL.md | wc -l)"
 [ -f "$tmp/minimal/i-have-adhd/SKILL.md" ]
 [ -f "$tmp/minimal/skill-retrieval-routing/SKILL.md" ]
 [ ! -e "$tmp/minimal/ponytail" ]
+[ ! -e "$tmp/minimal/caveman" ]
+[ ! -e "$tmp/minimal/claude-mem" ]
+[ ! -e "$tmp/minimal/humanizer" ]
+[ ! -e "$tmp/minimal/events" ]
 
 # A previous full install must not silently masquerade as on-demand.
 if "$root/install.sh" "$tmp/full" --flat --on-demand >"$tmp/warning.log" 2>&1; then
@@ -41,4 +53,4 @@ printf '%s\n' 'personal data' > "$tmp/full/personal-skill/SKILL.md"
 
 count="$(find "$tmp/full" -mindepth 2 -maxdepth 2 -name SKILL.md | wc -l)"
 [ "$count" -eq 3 ] || { echo "FAIL: expected 2 bootstraps and personal skill, got $count" >&2; exit 1; }
-echo "PASS: 143 full packages (seven new), two-skill bootstrap, deliberate migration, unmarked user skill preserved."
+echo "PASS: 147 full packages (seven new), two-skill bootstrap, deliberate migration, unmarked user skill preserved."
