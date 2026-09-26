@@ -30,6 +30,21 @@
       "external_corpus_in_bundle": false,
       "credentials_in_bundle": false,
       "note": "Directory importer indexes SKILL.md text only. Original reference files, scripts and per-source licenses remain in the source checkout."
+    },
+    {
+      "name": "VoltAgent Awesome Agent Skills",
+      "repository": "VoltAgent/awesome-agent-skills",
+      "checked_commit": "d9111a919d4f5be5b81135a5e71fa2770340bfc1",
+      "checked_readme_blob": "bfafec8eae9ef6f411a07c14b30d203c8ab48863",
+      "upstream_license": "MIT (catalog only, not linked skill content)",
+      "relationship": "reference_only_discovery_catalog",
+      "declared_listings": "1497+ (upstream badge; not independently audited)",
+      "skills_bundled_from_catalog": 0,
+      "code_redistributed": false,
+      "installation_in_bundle": false,
+      "credentials_in_bundle": false,
+      "execution_authorized": false,
+      "note": "The source repository has zero SKILL.md files and catalogs external author-owned skills; an original, local source-reference page is used by research/agent-skills. Review each canonical linked source before acquisition."
     }
   ]
 }

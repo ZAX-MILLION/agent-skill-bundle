@@ -65,6 +65,10 @@ The bundle contains seven new task skills: `graphify` (code knowledge graph, ext
 
 The original Taste Skill is named **`design-taste-frontend`** in its own frontmatter; retain that original name for consistent discovery. The `awesome-design` skill includes a selective catalog, not 67 bulk-installed style bodies. Neither Graphify nor Graft's executable is bundled. Source content and supporting files remain available for on-demand retrieval.
 
+## Additional skill discovery catalog
+
+[VoltAgent Awesome Agent Skills](https://github.com/VoltAgent/awesome-agent-skills) is indexed as a **reference-only directory** within the existing `research/agent-skills` workflow. It advertises 1,497+ links, but its Git tree contains no native `SKILL.md` packages. The curated directory is not a security audit and its MIT license does not replace linked authors' licenses. [Review the pinned reference and source-selection rules](research/agent-skills/references/voltagent-catalog.md); nothing from its external links is bulk-installed, and the bundle remains **143** skill directories with only two native bootstrap skills in strict on-demand mode.
+
 ## Install
 
 The `operations/` category adds 10 original, review-first shared-VPS and release management skills. The `coding/` category includes six Ponytail skills with untouched upstream skill text and the MIT license in every installed directory. See [Antigravity adapter](adapters/antigravity/README.md#ponytail-on-antigravity). See the [Antigravity adapter](adapters/antigravity/README.md) for native installation and permissions.

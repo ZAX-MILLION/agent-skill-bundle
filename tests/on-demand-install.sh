@@ -14,6 +14,7 @@ done
 [ -f "$tmp/full/web-design-guidelines/references/pinned-command.md" ]
 [ -f "$tmp/full/awesome-design/references/catalog.md" ]
 [ -f "$tmp/full/image-to-code/LICENSE.txt" ]
+[ -f "$tmp/full/agent-skills/references/voltagent-catalog.md" ]
 
 "$root/install.sh" "$tmp/minimal" --flat --on-demand >/dev/null
 minimal="$(find "$tmp/minimal" -mindepth 2 -maxdepth 2 -name SKILL.md | wc -l)"
