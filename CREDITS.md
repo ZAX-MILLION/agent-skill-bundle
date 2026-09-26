@@ -30,6 +30,17 @@ Third-party work remains credited to its canonical author/project. Original lice
 
 Reviewed source hashes and revisions: [registry/portable-expansion.json](registry/portable-expansion.json).
 
+## Additional skill sources (2026-09-26)
+
+| Original project | Used for |
+|---|---|
+| [Caveman by Julius Brussee](https://github.com/JuliusBrussee/caveman) | Original MIT `skills/caveman` SKILL.md and README unchanged, with root scoped MIT license copied to `productivity/caveman`. Separate Engine-linked runtime is BSL-1.1, not redistributed. |
+| [Humanizer by Siqi Chen](https://github.com/blader/humanizer) | Original `SKILL.md` unchanged with MIT license in `productivity/humanizer`. |
+| [Claude-Mem by Alex Newman](https://github.com/thedotmack/claude-mem) | Local review-first adapter only; separate Apache-2.0 plugin/worker and session data not copied or installed. |
+| [Marketing Skills by Corey Haines](https://github.com/coreyhaines31/marketingskills) | Added missing `events` original skill and all its references/eval, plus MIT root license overlay. Existing changed marketing skills remain under review. |
+
+See [registry/vendor-second-wave.json](registry/vendor-second-wave.json) for source pins and exact original file hashes.
+
 ## External references (not redistributed)
 
 | Project | Source | Relationship |

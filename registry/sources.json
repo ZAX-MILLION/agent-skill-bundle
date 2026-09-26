@@ -259,6 +259,51 @@
       "role": "local",
       "syncable": false,
       "priority": 100
+    },
+    {
+      "id": "juliusbrussee-caveman",
+      "name": "Caveman by Julius Brussee",
+      "repository": "JuliusBrussee/caveman",
+      "url": "https://github.com/JuliusBrussee/caveman",
+      "default_branch": "main",
+      "categories": [
+        "productivity"
+      ],
+      "type": "upstream",
+      "role": "skill_upstream",
+      "syncable": false,
+      "priority": 100,
+      "note": "Original MIT skills/caveman SKILL.md and README copied unchanged; scoped root LICENSE overlaid. Separate Engine-linked runtime is BSL-1.1. Optional, manual review only; do not override i-have-adhd global rule."
+    },
+    {
+      "id": "blader-humanizer",
+      "name": "Humanizer by Siqi Chen",
+      "repository": "blader/humanizer",
+      "url": "https://github.com/blader/humanizer",
+      "default_branch": "main",
+      "categories": [
+        "productivity"
+      ],
+      "type": "upstream",
+      "role": "skill_upstream",
+      "syncable": false,
+      "priority": 100,
+      "note": "Original SKILL.md and root MIT license copied unchanged. Manual review only."
+    },
+    {
+      "id": "thedotmack-claude-mem",
+      "name": "Claude-Mem by Alex Newman",
+      "repository": "thedotmack/claude-mem",
+      "url": "https://github.com/thedotmack/claude-mem",
+      "default_branch": "main",
+      "categories": [
+        "productivity"
+      ],
+      "type": "upstream",
+      "role": "related_upstream",
+      "syncable": false,
+      "priority": 60,
+      "note": "Bundle-authored adapter only. Plugin, hooks, worker, hosted provider connection and account/session data external and opt-in; Antigravity CLI != desktop IDE."
     }
   ]
 }

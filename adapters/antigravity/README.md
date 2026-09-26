@@ -5,9 +5,9 @@
 For Antigravity IDE / Antigravity 2.0 use the official global skills root `~/.gemini/config/skills/`; workspace skills live at `<workspace>/.agents/skills/`. Antigravity CLI may use `~/.gemini/antigravity-cli/skills/` instead. Use the installed product's current documentation.
 
 1. Review `SECURITY.md` and `install.sh` before running bundled code.
-2. Clone the repository locally. For the **on-demand setup**, in Bash run `./install.sh "$HOME/.gemini/config/skills" --flat --on-demand`. This installs only the two native bootstrap skills. On Windows, ensure the shell's HOME points to the correct user profile. Install all 143 natively only if you explicitly prefer having all their descriptions visible.
+2. Clone the repository locally. For the **on-demand setup**, in Bash run `./install.sh "$HOME/.gemini/config/skills" --flat --on-demand`. This installs only the two native bootstrap skills. On Windows, ensure the shell's HOME points to the correct user profile. Install all 147 natively only if you explicitly prefer having all their descriptions visible.
 3. Do not use `--force` on unmarked preexisting destinations. If previously installed bundle skills remain, the two-skill mode will refuse to claim success. After review, `--prune-managed` removes only the other marked bundle copies; unrelated skills remain untouched.
-4. Open Antigravity Customizations → Skills and confirm `project-inventory`, `server-triage`, `safe-deployment` and `secure-server-access` are discovered.
+4. Open Antigravity Customizations → Skills and confirm this bundle contributes only the two native bootstraps (`i-have-adhd`, `skill-retrieval-routing`) in strict on-demand mode. Retrieve `project-inventory`, `server-triage`, `safe-deployment` and `secure-server-access` through the separate configured Skill Retrieval MCP, not native discovery.
 5. Merge `global-rule.example.md` into your existing personal `~/.gemini/AGENTS.md` or `GEMINI.md`, rather than overwriting any current rules. Keep each project's detailed instructions and private infrastructure inventory in its private workspace.
 6. Connect server SSH/MCP separately via the native MCP manager. This repository contains **no** credentials or grant of permissions. Start with Default/Ask permissions, not unrestricted Turbo/Always Proceed.
 7. Validate read-only project inventory and diagnosis before authorizing production operations.
@@ -48,6 +48,8 @@ See [skill-retrieval-mcp.md](skill-retrieval-mcp.md) to index the reviewed bundl
 
 The default recommendation is `--on-demand --flat`, which installs only `i-have-adhd` and `skill-retrieval-routing` into native global discovery. Import the entire **source checkout** into the separately installed local Skill Retrieval MCP, keeping its scripts/references/assets available in that checkout. The native and MCP libraries serve different purposes: native bootstrap provides routing and the main communication preference; MCP searches the other skills only when needed.
 
-Do not assume enabling the MCP makes the 141 other skill bodies native or automatically executable. When a retrieved skill cites support files, read them from the source checkout. A user-global rule for `i-have-adhd` is still required for always-on communication across sessions.
+Do not assume enabling the MCP makes the 145 other skill bodies native or automatically executable. When a retrieved skill cites support files, read them from the source checkout. A user-global rule for `i-have-adhd` is still required for always-on communication across sessions.
 
 All seven expansion skills are available via source-checkout retrieval. `design-taste-frontend` is the canonical upstream skill name. See [the portable three-host guide](../multi-host/README.md).
+
+Caveman is a user-invoked optional style, not a replacement for `i-have-adhd`. Claude-Mem's documented `--ide antigravity` installer targets **Antigravity CLI**, not verified desktop IDE hooks; review config, privacy and backups before use. See [multi-host notes](../multi-host/README.md).

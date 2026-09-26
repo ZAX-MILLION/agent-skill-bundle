@@ -67,7 +67,18 @@ The original Taste Skill is named **`design-taste-frontend`** in its own frontma
 
 ## Additional skill discovery catalog
 
-[VoltAgent Awesome Agent Skills](https://github.com/VoltAgent/awesome-agent-skills) is indexed as a **reference-only directory** within the existing `research/agent-skills` workflow. It advertises 1,497+ links, but its Git tree contains no native `SKILL.md` packages. The curated directory is not a security audit and its MIT license does not replace linked authors' licenses. [Review the pinned reference and source-selection rules](research/agent-skills/references/voltagent-catalog.md); nothing from its external links is bulk-installed, and the bundle remains **143** skill directories with only two native bootstrap skills in strict on-demand mode.
+[VoltAgent Awesome Agent Skills](https://github.com/VoltAgent/awesome-agent-skills) is indexed as a **reference-only directory** within the existing `research/agent-skills` workflow. It advertises 1,497+ links, but its Git tree contains no native `SKILL.md` packages. The curated directory is not a security audit and its MIT license does not replace linked authors' licenses. [Review the pinned reference and source-selection rules](research/agent-skills/references/voltagent-catalog.md); nothing from its external links is bulk-installed, and the bundle remains **147** skill directories with only two native bootstrap skills in strict on-demand mode.
+
+## Caveman, Claude-Mem, Humanizer and Marketing Skills
+
+The library now includes four more skill directories:
+
+- `productivity/caveman`: unchanged upstream MIT response-style skill plus its README and scoped root license. Optional manual invocation only; `i-have-adhd` remains the primary communication rule. Caveman's separate compression engine has a BSL-1.1 license and is **not bundled or installed**.
+- `productivity/claude-mem`: locally authored guide for a separately installed Apache-2.0 plugin and memory worker. A `SKILL.md` file cannot capture sessions. Configuration edits, hosted processing and cloud sync require explicit review and approval.
+- `productivity/humanizer`: unchanged original MIT writing skill with license; use when editing prose, not as a blanket rule for code or facts.
+- `marketing/events`: the missing Corey Haines skill, its four references and evaluation file, with a root MIT license overlay. The bundle now has all **50** upstream marketing skill names. Another **21** existing marketing SKILL.md copies differ from upstream; these remain a separate review task, not an automatic overwrite.
+
+See [reviewed source revisions and Git blob pins](registry/vendor-second-wave.json) and [multi-host usage](adapters/multi-host/README.md). Total: **147** skill directories, with only two native bootstraps in strict on-demand mode.
 
 ## Install
 
@@ -100,7 +111,7 @@ The installer copies **only directories containing `SKILL.md`**, along with all 
 ./install.sh "$HOME/.gemini/config/skills" --flat --on-demand
 ```
 
-This installs only `i-have-adhd` and `skill-retrieval-routing` natively, so this bundle contributes only two skill descriptions to startup discovery. The remaining 141 stay in the source checkout and can be searched by the separate local Skill Retrieval MCP. See [the two-stage Antigravity setup](adapters/antigravity/skill-retrieval-mcp.md). Merely running the two-skill installer **does not** install or connect the external MCP runtime.
+This installs only `i-have-adhd` and `skill-retrieval-routing` natively, so this bundle contributes only two skill descriptions to startup discovery. The remaining 145 stay in the source checkout and can be searched by the separate local Skill Retrieval MCP. See [the two-stage Antigravity setup](adapters/antigravity/skill-retrieval-mcp.md). Merely running the two-skill installer **does not** install or connect the external MCP runtime.
 
 If the full bundle is already installed natively, the command stops rather than misleadingly claiming minimal mode. After reviewing the existing installation, run the same command with `--prune-managed` to remove **only other marker-identified bundle copies**. It does not delete unmarked personal or third-party skills.
 
