@@ -199,6 +199,21 @@
       "note": "External optional CLI; local safety adapter only, no runtime or credential material."
     },
     {
+      "id": "ayghri-i-have-adhd",
+      "name": "i-have-adhd by Ayoub Ghriss",
+      "repository": "ayghri/i-have-adhd",
+      "url": "https://github.com/ayghri/i-have-adhd",
+      "default_branch": "main",
+      "categories": [
+        "productivity"
+      ],
+      "type": "upstream",
+      "role": "skill_upstream",
+      "syncable": false,
+      "priority": 100,
+      "note": "Canonical SKILL.md unchanged and upstream root MIT license copied into installable directory. Bundle-specific Antigravity always-on rule separate; no hooks or external plugin executed. Manual-review-only."
+    },
+    {
       "id": "zax-custom",
       "name": "ZAX custom skills",
       "repository": "ZAX-MILLION/agent-skill-bundle",

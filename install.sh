@@ -38,7 +38,7 @@ echo "Installing Agent Skills → $TARGET"
 count=0
 skipped=0
 
-for category in design security process multiplayer wordpress marketing qa operations coding research; do
+for category in design security process multiplayer wordpress marketing qa operations coding research productivity; do
   [ -d "$BUNDLE_DIR/$category" ] || continue
   for skill_dir in "$BUNDLE_DIR/$category"/*/; do
     [ -d "$skill_dir" ] || continue
