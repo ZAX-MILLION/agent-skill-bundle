@@ -1,6 +1,6 @@
 # SPA/Angular UI Bug Patterns (from real audits)
 
-Reusable checks for finding user-facing breakage in Angular/React SPAs (eduAgent demo audit, 2026-08).
+Reusable checks for finding user-facing breakage in Angular/React SPAs.
 
 ## Dead buttons — prove it, don't assume
 A button that "does nothing" may still be triggering something invisible. Prove deadness:

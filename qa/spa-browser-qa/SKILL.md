@@ -81,7 +81,7 @@ When the user needs 10+ screenshots of an authenticated app (sales demo, pitch d
 - **Angular-specific: `wait_until="networkidle"` TIMES OUT.** Angular apps with websockets/long-polling never go idle → `page.goto(..., wait_until="networkidle")` hangs until the 30s timeout. Use `wait_until="domcontentloaded"` + `wait_for_timeout(2500-4000)` instead. This is the #1 silent failure on Angular (PrimeNG/Material) admin panels.
 - **Angular renders hidden template inputs.** A login page can show `document.querySelectorAll('input').count() == 17` because the template holds hidden inputs for other forms. Only ~2 are visible. Select by placeholder (`input[placeholder*="اسم المستخدم"]`) or filter by visibility (`getBoundingClientRect().width > 0 && getComputedStyle(el).display !== 'none'`). Filling `boxes.nth(0/1)` from the raw NodeList may hit the wrong (hidden) fields.
 - **Some sidebar items are BUTTONS, not links** — the menu looks like links but submenus open via click handlers. Dump `a[href*="#/"]` first; then click remaining menu items (by visible text) and read `location.href` after each click to discover the button-driven routes.
-- **Same platform may be reachable at multiple origins** (e.g. `ed.arishuniversity.com` landing vs `mydemo.kenanaschool.com` app). The landing page is marketing; the real app/login is often another subdomain. Ask the user or probe both before assuming the marketing site is the app.
+- **A platform may have separate marketing and application origins.** Identify the authorized test environment and confirm the application URL before testing.
 - Clear toasts/overlays before each shot: `document.querySelectorAll('p-toast, [class*="toast"]').forEach(e=>e.remove())`.
 - Screenshot dir: `/cursor-noise/screenshots/<app>/` with meaningful names (`S01-teacher-home.png`).
 
@@ -107,7 +107,7 @@ Always deliver the honest current-state screenshots (MEDIA: lines, one per image
 
 - **Don't loop on identical failures.** Snapshot timing out twice = switch to console checks. Vision 400ing repeatedly = keep using it only for capture.
 - Dismiss modal dialogs (notification prompts, toasts) after login before interacting.
-- Test accounts created via API are fine for QA — record credentials in the skill's reference file for reuse.
+- Use authorized test accounts and store credentials only in an approved private vault. Never put credentials, browser sessions, account identifiers, or private endpoints in SKILL.md, references, screenshots, Git, or public logs.
 - SPA nav links may render but route nowhere in automation — prefer direct URLs from Phase 2.
 - After any localStorage injection, do a full `browser_navigate` (not just reload) so the app boots fresh with the token.
 
@@ -120,9 +120,6 @@ Always deliver the honest current-state screenshots (MEDIA: lines, one per image
 
 ## Support Files
 
-- `references/cardnite-qa.md` — CardNite (up.zaxbot.xyz) specifics: test account, API endpoints, route map, per-game notes
-- `references/kenana-school-demo.md` — Angular school platform demo: login quirk (aria-busy submit), full route map, data-density findings, working scripts
-- `references/eduagent-kenana-school.md` — eduAgent/CODIATOR school platform (mydemo.kenanaschool.com): 3 accounts (manager/teacher/student), login quirk (17 hidden inputs), full manager route map, course sub-routes, strong-vs-weak page findings, reusable scripts
 - `references/spa-ui-bug-patterns.md` — Angular SPA UI bug patterns: dead-button proof (file-picker hook), raw server errors in localized UIs, silently disabled submits, broken template pipes, i18n half-translation, console-error mining, token-in-WebSocket-URL, hash-nav session-drop handling
 
 For the FULL sales package built from these screenshots (3 presentations + warnings report + QR codes + organized folder), see the `sales-demo-packaging` skill.

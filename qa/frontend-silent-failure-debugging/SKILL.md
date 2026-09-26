@@ -54,4 +54,5 @@ Use when a web app (React SPA especially) shows a **blank/black screen, an empty
 - Always end with: full user-flow re-test (register → protected page → action → refresh) + zero console errors + the fixed bundle deployed.
 
 ## References
-- `references/cardnite-blank-screen-case.md` — full case study: the PublicOnlyRoute infinite-loop, the exact instrumentation sequence that found it, and the import/export E2E debugging (registry append bugs, background-build pipeline).
+
+Keep client-specific incident notes in private project documentation; never publish authentication material, production topology, or account identifiers.

@@ -35,7 +35,7 @@ If login credentials fail: **ASK the user immediately** — do NOT burn attempts
 ## Phase 2 — Cross-tenant isolation (multi-tenant apps)
 - Take tenant A's valid token, swap `X-Tenant-Id` header to tenant B → read AND write into B.
 - Test with BOTH a high-priv token AND a low-priv token (e.g. teacher account) — a low-priv user reaching another tenant is the worst variant.
-- The demo tenant token may reach the REAL production tenant (e.g. mydemo token → ed.arishuniversity.com data). This is the headline finding when present.
+- Check tenant isolation only against authorized, isolated test tenants. Do not publish live tenant identifiers or application vulnerability details in shared skill libraries.
 - **Cleanup is critical**: delete every test record from BOTH tenants; verify with fresh GET counts. Leaving test data in a real tenant is an incident.
 
 ## Phase 3 — Registration, uploads, IDOR
@@ -59,4 +59,5 @@ If login credentials fail: **ASK the user immediately** — do NOT burn attempts
 Findings grouped 🔴 CRITICAL / 🟠 HIGH / 🟡 MEDIUM, each with: the exact probe command, live response evidence (status + sample), impact in plain language, and what "correct" looks like (401 for no token, tenant scoping server-side, etc.). Separately list what PASSED (no enumeration, upload filters, opaque tokens) — balanced reports land better.
 
 ## Support files
-- `references/eduagent-audit-2026-08.md` — full worked example: eduAgent demo (mydemo.kenanaschool.com / api.arishuniversity.com) probes, findings, cleanup verification.
+
+Store assessment evidence, vulnerability details, endpoints, tenant IDs and test credentials only in a restricted private security report, not this public skill bundle.

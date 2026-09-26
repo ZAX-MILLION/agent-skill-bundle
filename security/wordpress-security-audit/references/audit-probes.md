@@ -53,5 +53,4 @@ curl -sI https://DOMAIN/ | grep -iE "x-frame|x-content|x-xss|strict-transport|co
 | No security headers | MED — clickjacking | add_header block |
 | user.url shows old IP | LOW — infra leak | clean user profiles after migration |
 
-## Live example (zaxbot.xyz audit, 2026-08)
-Found: user enum leaked `devmax`, xmlrpc enabled, no brute-force protection, akismet readme.txt 200, zero security headers, readme.html/license.txt exposed. Clean: no .env/.git/backups/debug.log, listing mostly blocked, HTTPS+CF working.
+Keep any real site findings and target identifiers in a private assessment report.

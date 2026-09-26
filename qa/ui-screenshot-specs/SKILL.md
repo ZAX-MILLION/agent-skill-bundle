@@ -7,7 +7,7 @@ description: "Use when the user marks a screenshot (red box) as UI spec."
 
 Use when the user sends a screenshot with a drawn annotation — a red box, arrow, circle, or scribble — marking a region and asks you to place, resize, or restyle a UI element to fill it ("make the draw area in this whole red box"). The annotation IS the spec: size and position the element to the marked bounds, not to your guess.
 
-Applies to non-developer users who communicate visual changes by drawing on screenshots (DEVMAX's established workflow: reference images + marked screenshots instead of text specs).
+Applies to non-developer users who communicate visual changes by drawing on screenshots (reference images and marked screenshots instead of long text specs).
 
 ## Workflow
 
@@ -40,5 +40,5 @@ Applies to non-developer users who communicate visual changes by drawing on scre
 
 ## Related
 
-- CardNite-specific case (draw-panel from red box): see the cardnite skills' references.
+- For project-specific examples, use private project documentation rather than publishing operational details in reusable skills.
 - `image-recognition` skill for Gemini description of what the annotation covers.
