@@ -19,6 +19,7 @@ This directory is the trust layer for Agent Skill Bundle.
 - `mappings.json` — canonical local-path → upstream-path conventions and explicit overrides.
 - `upstream-state.json` — snapshot of checked upstream repository revisions.
 - `skills.json` — last written per-directory Git-tree audit snapshot.
+- `vendor-ponytail.json` — pinned upstream commit and original skill blob hashes; license-overlaid directories are manual-review, not `EXACT`.
 
 ## Source roles
 

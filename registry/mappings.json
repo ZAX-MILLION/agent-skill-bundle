@@ -72,6 +72,60 @@
       "kind": "legacy-derived-skill",
       "sync": "manual-review",
       "note": "Legacy Rivet-derived skill; exact historical upstream path must not be guessed."
+    },
+    {
+      "local_path": "coding/ponytail",
+      "source_id": "dietrichgebert-ponytail",
+      "source_path": "skills/ponytail",
+      "kind": "skill-with-license-overlay",
+      "sync": "manual-review",
+      "attribution": "Dietrich Gebert / Ponytail, MIT",
+      "note": "Original SKILL.md kept byte-for-byte; upstream root LICENSE copied into each installed skill; no automatic exact-tree sync."
+    },
+    {
+      "local_path": "coding/ponytail-review",
+      "source_id": "dietrichgebert-ponytail",
+      "source_path": "skills/ponytail-review",
+      "kind": "skill-with-license-overlay",
+      "sync": "manual-review",
+      "attribution": "Dietrich Gebert / Ponytail, MIT",
+      "note": "Original SKILL.md kept byte-for-byte; upstream root LICENSE copied into each installed skill; no automatic exact-tree sync."
+    },
+    {
+      "local_path": "coding/ponytail-audit",
+      "source_id": "dietrichgebert-ponytail",
+      "source_path": "skills/ponytail-audit",
+      "kind": "skill-with-license-overlay",
+      "sync": "manual-review",
+      "attribution": "Dietrich Gebert / Ponytail, MIT",
+      "note": "Original SKILL.md kept byte-for-byte; upstream root LICENSE copied into each installed skill; no automatic exact-tree sync."
+    },
+    {
+      "local_path": "coding/ponytail-debt",
+      "source_id": "dietrichgebert-ponytail",
+      "source_path": "skills/ponytail-debt",
+      "kind": "skill-with-license-overlay",
+      "sync": "manual-review",
+      "attribution": "Dietrich Gebert / Ponytail, MIT",
+      "note": "Original SKILL.md kept byte-for-byte; upstream root LICENSE copied into each installed skill; no automatic exact-tree sync."
+    },
+    {
+      "local_path": "coding/ponytail-gain",
+      "source_id": "dietrichgebert-ponytail",
+      "source_path": "skills/ponytail-gain",
+      "kind": "skill-with-license-overlay",
+      "sync": "manual-review",
+      "attribution": "Dietrich Gebert / Ponytail, MIT",
+      "note": "Original SKILL.md kept byte-for-byte; upstream root LICENSE copied into each installed skill; no automatic exact-tree sync."
+    },
+    {
+      "local_path": "coding/ponytail-help",
+      "source_id": "dietrichgebert-ponytail",
+      "source_path": "skills/ponytail-help",
+      "kind": "skill-with-license-overlay",
+      "sync": "manual-review",
+      "attribution": "Dietrich Gebert / Ponytail, MIT",
+      "note": "Original SKILL.md kept byte-for-byte; upstream root LICENSE copied into each installed skill; no automatic exact-tree sync."
     }
   ],
   "anthropic_design_skills": [

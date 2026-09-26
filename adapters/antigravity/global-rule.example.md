@@ -6,3 +6,5 @@ For code/config/infrastructure tasks, follow secure-by-default-development and t
 Read-only inspection may proceed within granted permissions. Obtain exact-action approval before production deployments/restarts, DNS changes, database writes/migrations/restores, privilege or credential changes and destructive operations. Never weaken protections for convenience.
 Never display or commit passwords, SSH keys, tokens, full environment files, personal records or private admin hostnames. Prefer scoped dedicated identities.
 Do not report success without evidence. Separate proposed, committed, merged, deployed and live verified. Keep a private per-project handoff.
+
+For coding tasks, use the installed Ponytail skill in full mode by default if the optional rule is enabled. See `ponytail-global-rule.example.md`. Never reduce required security or verification.

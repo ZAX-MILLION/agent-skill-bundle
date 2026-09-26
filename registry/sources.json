@@ -154,6 +154,21 @@
       "priority": 100
     },
     {
+      "id": "dietrichgebert-ponytail",
+      "name": "Ponytail by Dietrich Gebert",
+      "repository": "DietrichGebert/ponytail",
+      "url": "https://github.com/DietrichGebert/ponytail",
+      "default_branch": "main",
+      "categories": [
+        "coding"
+      ],
+      "type": "upstream",
+      "role": "skill_upstream",
+      "syncable": false,
+      "priority": 100,
+      "note": "Six unchanged original SKILL.md files plus per-directory MIT license overlay. Manual review only; not full-tree EXACT. No Claude/Codex hooks."
+    },
+    {
       "id": "zax-custom",
       "name": "ZAX custom skills",
       "repository": "ZAX-MILLION/agent-skill-bundle",

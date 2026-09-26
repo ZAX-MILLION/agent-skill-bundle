@@ -44,13 +44,14 @@ See [`registry/`](registry/README.md), [`CREDITS.md`](CREDITS.md), [`SECURITY.md
 | `design/` | Anthropic + daymade + Hermes/NousResearch; VoltAgent for the design-system collection; Google design.md is a reference spec, not falsely credited as the Hermes skill author |
 | `security/` | Local/custom bundle skills |
 | `qa/` | Local/custom bundle skills |
+| `coding/` | [Ponytail](https://github.com/DietrichGebert/ponytail) by Dietrich Gebert: six MIT-licensed coding skills, review-first |
 | `multiplayer/` | Legacy Rivet-derived skills tracked against current Rivet docs/examples; not claimed as current exact `rivet-dev/skills` mirrors |
 
 Canonical roles live in [`registry/sources.json`](registry/sources.json), and local/upstream path relationships live in [`registry/mappings.json`](registry/mappings.json).
 
 ## Install
 
-The `operations/` category adds 10 original, review-first shared-VPS and release management skills. See the [Antigravity adapter](adapters/antigravity/README.md) for native installation and permissions.
+The `operations/` category adds 10 original, review-first shared-VPS and release management skills. The `coding/` category includes six Ponytail skills with untouched upstream skill text and the MIT license in every installed directory. See [Antigravity adapter](adapters/antigravity/README.md#ponytail-on-antigravity). See the [Antigravity adapter](adapters/antigravity/README.md) for native installation and permissions.
 
 
 The installer copies **only directories containing `SKILL.md`**, along with all scripts, references, examples, templates, and assets. Non-skill collections are skipped.
@@ -142,7 +143,7 @@ python3 scripts/prepare_updates.py --apply
 
 ```text
 agent-skill-bundle/
-├── design/ security/ process/ multiplayer/ wordpress/ marketing/ qa/ operations/
+├── design/ security/ process/ multiplayer/ wordpress/ marketing/ qa/ operations/ coding/
 ├── registry/          # source roles, mappings, revision/audit state
 ├── adapters/          # host-specific compatibility only
 ├── scripts/           # audit, provenance, sync, update preparation

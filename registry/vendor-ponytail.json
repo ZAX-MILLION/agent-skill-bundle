@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "canonical_repository": "DietrichGebert/ponytail",
+  "canonical_url": "https://github.com/DietrichGebert/ponytail",
+  "checked_upstream_commit": "e3ba2aa6f1e6f0bc4d69eb09c9f0d0a93af56156",
+  "checked_upstream_root_tree_sha": "1e6313c25542d1762ea60ec62f6ff220ac835f92",
+  "license": "MIT",
+  "license_upstream_path": "LICENSE",
+  "license_blob_sha": "715d483338cea4365f0d91a27799cf61226d6bcf",
+  "synchronization": "manual-review-only",
+  "executable_hooks_installed": false,
+  "classification": "SKILL_TEXT_EXACT_DIRECTORY_LICENSE_OVERLAY",
+  "skills": [
+    {
+      "local_path": "coding/ponytail",
+      "upstream_path": "skills/ponytail",
+      "source_skill_blob_sha": "02c0712c86277d49d18a77da3a2b825657bf02d1",
+      "source_skill_directory_tree_sha": "cb6e53477eaf04e6daeca22feacb85f9ce20d40c",
+      "added_files": [
+        "LICENSE.txt"
+      ]
+    },
+    {
+      "local_path": "coding/ponytail-review",
+      "upstream_path": "skills/ponytail-review",
+      "source_skill_blob_sha": "e137a855bd87119a4517895a1000a59b0999e1b8",
+      "source_skill_directory_tree_sha": "dc6d9660c4297496a9220de377f6f7df38ab1a53",
+      "added_files": [
+        "LICENSE.txt"
+      ]
+    },
+    {
+      "local_path": "coding/ponytail-audit",
+      "upstream_path": "skills/ponytail-audit",
+      "source_skill_blob_sha": "5582d10335daff5b5947f9b77927fbc97f2047f3",
+      "source_skill_directory_tree_sha": "19744a9490abb0f5d0f18c6e39e3a3eb50f4daa1",
+      "added_files": [
+        "LICENSE.txt"
+      ]
+    },
+    {
+      "local_path": "coding/ponytail-debt",
+      "upstream_path": "skills/ponytail-debt",
+      "source_skill_blob_sha": "ecbc0ca8161b25ced3b4f728398c2ec33988a777",
+      "source_skill_directory_tree_sha": "fe9ea82cad2b42a9c244acc275c9091c414ff528",
+      "added_files": [
+        "LICENSE.txt"
+      ]
+    },
+    {
+      "local_path": "coding/ponytail-gain",
+      "upstream_path": "skills/ponytail-gain",
+      "source_skill_blob_sha": "012e37b6bf31da1ed4bf936ec8aff53974d5291e",
+      "source_skill_directory_tree_sha": "13724e1903f76456164f00ec2a3074848433588f",
+      "added_files": [
+        "LICENSE.txt"
+      ]
+    },
+    {
+      "local_path": "coding/ponytail-help",
+      "upstream_path": "skills/ponytail-help",
+      "source_skill_blob_sha": "ba145c0ebb7c7e5682bb2f36047af3bf2030d470",
+      "source_skill_directory_tree_sha": "b7df7bc32b6e4e8bbde8acb2ef3c97ee7e7638f",
+      "added_files": [
+        "LICENSE.txt"
+      ]
+    }
+  ]
+}
