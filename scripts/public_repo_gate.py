@@ -76,7 +76,7 @@ def main() -> int:
                 results.append((rel,label)); break
         for label, pattern in (("password field",PASSWORD_LINE),("credential assignment",ASSIGNMENT)):
             for found in pattern.finditer(data):
-                if not SAFE.search(found.group(1).strip()) and not re.match(rb"(?i)^re\\.compile\\(", found.group(1).strip()):
+                if not SAFE.search(found.group(1).strip()) and not found.group(1).strip().startswith(b"re.compile("):
                     results.append((rel,label))
                     break
     if results:
