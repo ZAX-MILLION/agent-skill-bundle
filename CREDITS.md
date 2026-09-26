@@ -24,6 +24,8 @@ Third-party work remains credited to its canonical author/project. Original lice
 | 500+ AI Agent Projects by ashishpatel26 | https://github.com/ashishpatel26/500-AI-Agents-Projects | Reference catalog only; listed projects have independent licenses. |
 | Agent Reach by Agent Eyes / Panniantong | https://github.com/Panniantong/Agent-Reach | Optional external CLI, MIT. Original local permission-scoped adapter; no runtime or credentials copied. |
 
+| Skill Retrieval MCP by Zhan Cheng | https://github.com/JayCheng113/skill-retrieval-mcp | Optional MIT-licensed external local MCP service; original, reviewed usage adapter only. Runtime, index, embedding model and external corpus are not redistributed. |
+
 ## Collections and reference sources
 
 These projects are important sources, but they are not falsely presented as authors of unrelated skills:

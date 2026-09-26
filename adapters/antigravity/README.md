@@ -39,3 +39,7 @@ The portable upstream skill is in `productivity/i-have-adhd/`, with its MIT lice
 **Enable by default:** merge the contents of [adhd-primary-rule.md](adhd-primary-rule.md) into the personal global rule on the machine running Antigravity (the same existing `GEMINI.md` or `AGENTS.md` named above). Do not overwrite other rules or publish private personal config. The standalone skill can also be invoked as `/i-have-adhd` where supported. `disable-model-invocation: true` in upstream frontmatter means installing its file alone is not a guarantee of always-on behavior.
 
 If you instead use upstream's native `agy plugin install https://github.com/ayghri/i-have-adhd` route, check for duplicate `i-have-adhd` skills before additionally installing this bundle's copy. An Antigravity CLI plugin and an IDE-global rule may be separate configurations. Verify the actual IDE session displays action-first output; do not claim persistent mode without the global rule.
+
+## Optional local skill retrieval
+
+See [skill-retrieval-mcp.md](skill-retrieval-mcp.md) to index the reviewed bundle using a separate local Python MCP service and connect it only to Antigravity. No extra runtime or third-party dataset is installed by the bundle installer. The i-have-adhd global rule remains the primary communication layer.
