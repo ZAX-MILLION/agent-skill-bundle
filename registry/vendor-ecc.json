@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "review_date": "2026-09-27",
+  "source": "affaan-m/ECC",
+  "reviewed_commit": "e482e579415fde18357cafce70f177ae19fd7f03",
+  "upstream_license": "MIT",
+  "root_license_blob_sha": "b832b6f642312312367c07688dc7426db40a82ed",
+  "relationship": "8 selected exact original SKILL.md bodies plus per-directory root MIT license overlay; metadata-only catalog of remaining canonical skills. No native ECC plugin, agent definitions, commands, hooks, rules, scripts, MCP configuration, executable runtime, or account features installed.",
+  "source_index": "registry/ecc-source-index.json",
+  "source_index_original_count": 292,
+  "skill_pins": {
+    "process/iterative-retrieval/SKILL.md": {
+      "upstream_path": "skills/iterative-retrieval/SKILL.md",
+      "blob_sha": "5b4fbcd58c38701a8ef6a43f80b820f792716982",
+      "license_blob_sha": "b832b6f642312312367c07688dc7426db40a82ed"
+    },
+    "process/architecture-decision-records/SKILL.md": {
+      "upstream_path": "skills/architecture-decision-records/SKILL.md",
+      "blob_sha": "e55fde2e14153e804ffe1c9e0bde9696405f4918",
+      "license_blob_sha": "b832b6f642312312367c07688dc7426db40a82ed"
+    },
+    "coding/agent-harness-construction/SKILL.md": {
+      "upstream_path": "skills/agent-harness-construction/SKILL.md",
+      "blob_sha": "6f828f92298e9c534c9af1e7f0e9832ef7443a2d",
+      "license_blob_sha": "b832b6f642312312367c07688dc7426db40a82ed"
+    },
+    "coding/agent-architecture-audit/SKILL.md": {
+      "upstream_path": "skills/agent-architecture-audit/SKILL.md",
+      "blob_sha": "a3c2caa67b0ca7e5323d4e853d898f599694ff10",
+      "license_blob_sha": "b832b6f642312312367c07688dc7426db40a82ed"
+    },
+    "qa/ai-regression-testing/SKILL.md": {
+      "upstream_path": "skills/ai-regression-testing/SKILL.md",
+      "blob_sha": "e8dac65b1792ead1289090e3db0326ec00c26fbf",
+      "license_blob_sha": "b832b6f642312312367c07688dc7426db40a82ed"
+    },
+    "qa/production-audit/SKILL.md": {
+      "upstream_path": "skills/production-audit/SKILL.md",
+      "blob_sha": "a6d92fa5e91928f2da69c40228a684ce45e3b019",
+      "license_blob_sha": "b832b6f642312312367c07688dc7426db40a82ed"
+    },
+    "productivity/context-budget/SKILL.md": {
+      "upstream_path": "skills/context-budget/SKILL.md",
+      "blob_sha": "1061041c688a059b9056025b1935c8de63b52931",
+      "license_blob_sha": "b832b6f642312312367c07688dc7426db40a82ed"
+    },
+    "operations/codebase-onboarding/SKILL.md": {
+      "upstream_path": "skills/codebase-onboarding/SKILL.md",
+      "blob_sha": "ac70816c9edac808100df8e980dfd15ebd166cee",
+      "license_blob_sha": "b832b6f642312312367c07688dc7426db40a82ed"
+    }
+  }
+}
