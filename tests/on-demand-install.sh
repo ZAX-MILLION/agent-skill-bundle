@@ -56,6 +56,19 @@ minimal="$(find "$tmp/minimal" -mindepth 2 -maxdepth 2 -name SKILL.md | wc -l)"
 [ "$minimal" -eq 2 ] || { echo "FAIL: expected 2 bootstrap skills, got $minimal" >&2; exit 1; }
 [ -f "$tmp/minimal/i-have-adhd/SKILL.md" ]
 [ -f "$tmp/minimal/skill-retrieval-routing/SKILL.md" ]
+
+# Exercise each supported host's *documented* strict-native target in isolation.
+# These are temporary simulated roots, not the owner's actual PC configuration.
+for host in antigravity codex claude-code; do
+  "$root/install.sh" "$tmp/hosts/$host/skills" --flat --on-demand >/dev/null
+  host_count="$(find "$tmp/hosts/$host/skills" -mindepth 2 -maxdepth 2 -name SKILL.md | wc -l)"
+  [ "$host_count" -eq 2 ] || { echo "FAIL: $host exposes $host_count bundle skills" >&2; exit 1; }
+  [ -f "$tmp/hosts/$host/skills/i-have-adhd/SKILL.md" ]
+  [ -f "$tmp/hosts/$host/skills/skill-retrieval-routing/SKILL.md" ]
+  [ ! -e "$tmp/hosts/$host/skills/paul" ]
+  [ ! -e "$tmp/hosts/$host/skills/n8n-instance" ]
+  [ ! -e "$tmp/hosts/$host/skills/context-budget" ]
+done
 [ ! -e "$tmp/minimal/ponytail" ]
 [ ! -e "$tmp/minimal/caveman" ]
 [ ! -e "$tmp/minimal/claude-mem" ]
