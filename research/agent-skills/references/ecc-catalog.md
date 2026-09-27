@@ -6,7 +6,7 @@
 - Exactly **292** canonical source skill paths appear under `skills/<name>/SKILL.md` at this revision. The repo also includes language translations and host-packaging copies, agents, commands, hooks, runtime scripts, rules, and plugin manifests. Those additional files are not interchangeable with portable skill bodies.
 - Full searchable *name/sha* registry: [`registry/ecc-source-index.json`](../../../registry/ecc-source-index.json). It includes exact pinned upstream paths; it is **metadata only**, not a clone of the 292 bodies.
 
-## Eight selected portable workflows
+## Nine selected portable workflows
 
 | Workflow | Local selected path | Use case |
 |---|---|---|
@@ -18,8 +18,9 @@
 | Production audit | `qa/production-audit` | Assess real release/readiness evidence without uploading private code |
 | Context budget | `productivity/context-budget` | Diagnose duplicated instructions, tool schemas and startup context bloat |
 | Codebase onboarding | `operations/codebase-onboarding` | Build a repo architecture map and project instructions |
+| Agent introspection debugging | `process/agent-introspection-debugging` | Capture and diagnose agent loops, tool failures and task drift before retrying |
 
-These eight retain their exact original `SKILL.md` Git blobs, with an original MIT license copy inside each installable directory. See [pinned hashes](../../../registry/vendor-ecc.json). Do not infer full native ECC functionality from their presence: they are instructions, not executables, CLI plugins or hooks.
+These nine retain their exact original `SKILL.md` Git blobs, with an original MIT license copy inside each installable directory. See [pinned hashes](../../../registry/vendor-ecc.json). Do not infer full native ECC functionality from their presence: they are instructions, not executables, CLI plugins or hooks.
 
 ## Safe future additions
 
