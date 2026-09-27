@@ -29,7 +29,7 @@ assert len(bootstrap) == 2 and len(skills) - len(bootstrap) == 172
 third = json.loads((repo / "registry/vendor-third-wave.json").read_text())
 ecc = json.loads((repo / "registry/vendor-ecc.json").read_text())
 externals = json.loads((repo / "registry/external-capabilities.json").read_text())
-by_repo = {e["repository"]: e for e in third["source_revisions"]}
+by_repo = {e["source"]: e for e in third["source_revisions"]}
 assert len(by_repo) == 7
 assert len(third["pinned_git_blob_sha"]) == 100
 
