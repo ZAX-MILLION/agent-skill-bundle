@@ -158,7 +158,7 @@ def stage(args):
     if destination.exists():
         if not args.replace_managed:
             raise ValidationError("target exists; review it and explicitly pass --replace-managed")
-        check_package(destination, selected, require_marker=True)
+        verify_staged(destination, selected)
     if args.dry_run:
         print(f"DRY RUN: reviewed {count} files for {args.skill}; would stage at {destination}")
         return
