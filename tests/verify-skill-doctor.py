@@ -113,10 +113,29 @@ with tempfile.TemporaryDirectory() as td:
         assert result["retrieval_mcp"].startswith("Unverified")
         assert result["execution"].startswith("Unverified")
         assert result["source_vault_count"] == 187
+        assert len(result["per_skill"]) == 187
+        assert result["status_counts"]["Ready"] == 0
+        assert result["per_skill"]["creative/shuohao-skills"]["status"] == "Setup Required"
+        assert result["per_skill"]["process/systematic-debugging"]["status"] == "Unverified"
 
         qargs = SimpleNamespace(vault=ROOT, command="search", query=["shuohao"], limit=8)
         with contextlib.redirect_stdout(io.StringIO()) as stdout:
             doctor.search(qargs)
         assert "creative/shuohao-skills" in stdout.getvalue()
+
+# The checked-in upstream manifest is a complete inventory of 97 source files.
+m = doctor.manifest()
+assert m["source_repository"] == "eternityspring/shuohao-skills"
+assert m["source_revision"] == "ef4ac0c313c7eeb1f918db5f0f0eb319745900bc"
+assert set(doctor.packages()) == {
+    "character-refs", "novel-art", "novel-characters",
+    "novel-outline", "novel-script", "novel-storyboard",
+}
+assert sum(len(p["files"]) for p in m["packages"]) == 97
+assert {f["path"] for f in m["root_notice_files"]} == {"LICENSE", "NOTICE"}
+for pkg in m["packages"]:
+    assert "SKILL.md" in {item["path"] for item in pkg["files"]}
+    assert len({item["path"] for item in pkg["files"]}) == len(pkg["files"])
+    assert all(len(item["sha"]) == 40 and item["size"] >= 0 for item in pkg["files"])
 
 print("PASS: offline discovery, honest status, full-package staging, hashes, license/notice, dry-run, no silent overwrite, tamper rejection")
