@@ -54,6 +54,21 @@ Antigravity **CLI** has a different path from the IDE. Verify each installed hos
 
 For an explicitly chosen full native install, see [`install.sh`](install.sh) and the host adapters. A full install exposes all 187 native skill descriptions and **is not** strict on-demand.
 
+
+### Check discovery and external-package readiness
+
+A router is not a complete executable skill. The offline finder/doctor works without MCP, cloud, or new software installs (provided Python 3 is already available):
+
+\`\`\`bash
+python3 scripts/skill_doctor.py search "character references"
+python3 scripts/skill_doctor.py doctor --json
+\`\`\`
+
+This local fallback finds only reviewed source-vault names/descriptions. **Real automatic host discovery still requires configuring and testing Skill Retrieval MCP separately** in each agent. The doctor reports \`Setup Required\`, \`Missing Dependencies\`, or \`Unverified\` rather than claiming third-party scripts or providers work without an actual test.
+
+For Shuohao, the existing router remains in the bundle; all six original full packages (including scripts, references, examples and binary assets) are pinned in [the complete-package manifest](registry/shuohao-packages.json). After separately obtaining/reviewing the canonical upstream checkout, you can explicitly **dry-run** and stage just one package into a private external vault without executing scripts, configuring MCP, or adding more native startup skills. See [discovery, statuses and opt-in staging](docs/SKILL_DISCOVERY_AND_STATUS.md).
+
+
 ## What's included
 
 | Area | Highlights |
