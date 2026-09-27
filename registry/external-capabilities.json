@@ -121,7 +121,8 @@
       "code_redistributed": false,
       "installation_in_bundle": false,
       "skills_copied": 0,
-      "note": "Six original packages need JS scripts, refs and binary preview assets; this bundle does not ship incomplete copies."
+      "note": "Six original packages need JS scripts, refs and binary preview assets; this bundle does not ship incomplete copies.",
+      "credentials_in_bundle": false
     },
     {
       "name": "Pixel Agents",

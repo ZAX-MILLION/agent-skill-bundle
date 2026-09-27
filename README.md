@@ -111,33 +111,51 @@ The `operations/` category adds 10 original, review-first shared-VPS and release
 
 The installer copies **only directories containing `SKILL.md`**, along with all scripts, references, examples, templates, and assets. Non-skill collections are skipped.
 
-### Claude Code
+### Strict on-demand: Antigravity, Codex and Claude Code (preferred)
+
+Keep **one local source checkout** and install only the two native bootstrap
+skills into the actual skill root for each host you use:
 
 ```bash
-./install.sh ~/.claude/skills
+# Antigravity IDE (not the separate Antigravity CLI)
+./install.sh "$HOME/.gemini/config/skills" --flat --on-demand
+
+# Codex
+./install.sh "$HOME/.codex/skills" --flat --on-demand
+
+# Claude Code
+./install.sh "$HOME/.claude/skills" --flat --on-demand
 ```
 
-### Cursor
+Only `i-have-adhd` and `skill-retrieval-routing` are exposed natively by
+this bundle in each strict-mode target. The remaining **172** stay in the
+checkout, searchable only after the optional local Skill Retrieval MCP is
+separately reviewed, installed, connected and indexed. That index does not
+copy executable scripts or other supporting files: access referenced files
+from the original source checkout. The installer makes **no MCP settings,
+PC configuration or service changes**.
+
+If a target already contains other marked copies from a previous full bundle
+install, strict mode stops. Inspect them first; then `--prune-managed` is an
+explicit opt-in to remove only other marker-identified bundle copies.
+It never deletes unmarked personal or third-party skills. On Windows use
+your actual profile and host-supported path; these examples require Bash.
+See [multi-host setup](adapters/multi-host/README.md) and
+[canonical-source review](docs/REVIEW_2026-09-27.md).
+
+### Optional full native install (not strict on-demand)
+
+For an explicitly chosen full install to Claude Code, Cursor, or a generic
+file-based agent:
 
 ```bash
-./install.sh ~/.cursor/skills
-```
-
-### Generic/file-based host
-
-```bash
+./install.sh "$HOME/.claude/skills"
+./install.sh "$HOME/.cursor/skills"
 ./install.sh /path/to/skills
 ```
 
-### Antigravity: two-skill on-demand mode (preferred)
-
-```bash
-./install.sh "$HOME/.gemini/config/skills" --flat --on-demand
-```
-
-This installs only `i-have-adhd` and `skill-retrieval-routing` natively, so this bundle contributes only two skill descriptions to startup discovery. The remaining 172 stay in the source checkout and can be searched by the separate local Skill Retrieval MCP. See [the two-stage Antigravity setup](adapters/antigravity/skill-retrieval-mcp.md). Merely running the two-skill installer **does not** install or connect the external MCP runtime.
-
-If the full bundle is already installed natively, the command stops rather than misleadingly claiming minimal mode. After reviewing the existing installation, run the same command with `--prune-managed` to remove **only other marker-identified bundle copies**. It does not delete unmarked personal or third-party skills.
+Full mode exposes all 174 native skill descriptions and is **not** the
+recommended minimal-discovery setup.
 
 ### Host requires skills directly under its skills root
 

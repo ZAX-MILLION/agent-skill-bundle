@@ -1,12 +1,20 @@
 # Claude Code adapter
 
-Install the complete skill directories into Claude Code's skills location:
+**Preferred: strict on-demand**. Install only the two native bootstrap
+skills into the active Claude Code skills root:
 
 ```bash
-./install.sh ~/.claude/skills
+./install.sh "$HOME/.claude/skills" --flat --on-demand
 ```
 
-The installer copies each whole directory, not only `SKILL.md`, so referenced scripts, examples, templates and assets remain available.
+The other 172 skills stay in the one local source checkout, with complete
+scripts, references, examples, templates and assets. Discovery requires the
+separately installed and configured local Skill Retrieval MCP; the install
+command alone does not connect it. Do not install a second full copy or native
+ECC/n8n plugin in the same discovery scope without first checking duplicates.
+
+An optional **full native** install is `./install.sh "$HOME/.claude/skills"`
+and exposes all 174 descriptions at startup; it is not strict on-demand.
 
 For any task that creates or modifies application code, configuration, infrastructure, authentication, APIs, data access, dependencies, or deployment, include `security/secure-by-default-development` as the baseline skill and then add the narrow task-specific skill.
 

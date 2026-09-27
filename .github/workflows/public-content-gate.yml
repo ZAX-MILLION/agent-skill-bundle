@@ -15,5 +15,7 @@ jobs:
           persist-credentials: false
       - name: Check public repository contents
         run: python3 scripts/public_repo_gate.py .
+      - name: Verify canonical source and external runtime boundaries
+        run: python3 tests/verify-source-boundaries.py
       - name: Verify complete and on-demand installations
         run: bash tests/on-demand-install.sh
