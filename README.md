@@ -1,5 +1,7 @@
 # Agent Skill Bundle
 
+![Agent Skill Bundle — 174 reviewed skills, two native bootstraps and 172 on-demand entries](docs/images/agent-skill-bundle-hero.svg)
+
 **174 reviewed agent-skill directories. One source vault. Two native bootstrap skills.**
 
 A source-preserving collection of reusable AI agent workflows for **Google Antigravity, OpenAI Codex, Claude Code**, and other file-based Agent Skills hosts. Find the skill you need without loading the entire collection into the agent's native startup discovery.
@@ -23,6 +25,8 @@ A source-preserving collection of reusable AI agent workflows for **Google Antig
 Installing 174 skills natively exposes their descriptions to host discovery. The preferred setup exposes only **two** bootstrap descriptions from this bundle. When a task needs something specific, the separately configured local retrieval service finds the relevant skill; the agent then reads that skill and its supporting files from the **one source checkout**.
 
 This keeps discovery focused. It does **not** mean that all 172 skill bodies are automatically installed, that a skill grants a tool or permission, or that Antigravity/Codex/Claude have identical capabilities.
+
+![Three-step on-demand workflow: two bootstraps, search the reviewed source vault with separately configured MCP, and load the selected complete skill](docs/images/on-demand-workflow.svg)
 
 ## Quick start: strict on-demand
 
