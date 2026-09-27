@@ -1,6 +1,6 @@
 # Agent Skill Bundle
 
-![Agent Skill Bundle — 174 reviewed skills, two native bootstraps and 172 on-demand entries](docs/images/agent-skill-bundle-hero.svg)
+![Animated Agent Skill Bundle reactor — 174 skills, two native bootstraps and 172 on-demand entries](docs/images/agent-skill-bundle-reactor.gif)
 
 **174 reviewed agent-skill directories. One source vault. Two native bootstrap skills.**
 
