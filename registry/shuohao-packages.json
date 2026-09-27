@@ -1,0 +1,657 @@
+{
+  "schema_version": 1,
+  "source_repository": "eternityspring/shuohao-skills",
+  "source_revision": "ef4ac0c313c7eeb1f918db5f0f0eb319745900bc",
+  "license": "Apache-2.0",
+  "root_notice_files": [
+    {
+      "path": "LICENSE",
+      "sha": "ff9ad4530f5716304e042cbac72cecd7c40f0e0e",
+      "size": 11359
+    },
+    {
+      "path": "NOTICE",
+      "sha": "6ea06289faafcd2da68abb798d3cb2fc11b8059a",
+      "size": 714
+    }
+  ],
+  "install_policy": "Explicit user-approved staging of complete packages from a previously reviewed, pinned checkout only. No automatic clone, execution, host config, MCP registration or cloud access.",
+  "packages": [
+    {
+      "name": "character-refs",
+      "source_path": "skills/character-refs",
+      "source_tree_sha": "95b8adbe3c68749a079cc443863ff965e5a2b6cf",
+      "requires_node": 18,
+      "execution_requires": "Host capability/provider depends on workflow; check original README and prerequisites",
+      "files": [
+        {
+          "path": "README.en.md",
+          "sha": "cb744d5bef7a73553d55704e39821da82af638a4",
+          "size": 7265,
+          "mode": "100644"
+        },
+        {
+          "path": "README.md",
+          "sha": "b5edfe8a22c54e41e3c326da1f98b0b25ad010e0",
+          "size": 7778,
+          "mode": "100644"
+        },
+        {
+          "path": "SKILL.md",
+          "sha": "6721e277f4439a566377eacba8c06d1d297fcaeb",
+          "size": 13071,
+          "mode": "100644"
+        },
+        {
+          "path": "assets/report.webp",
+          "sha": "ae1874802a869725cd1531c74943f3d4b2019850",
+          "size": 94858,
+          "mode": "100644"
+        },
+        {
+          "path": "examples/阿禾-intake.json",
+          "sha": "4b670cdf12253616fc083ca0929e84d7199abb7f",
+          "size": 2832,
+          "mode": "100644"
+        },
+        {
+          "path": "examples/阿禾-描述.txt",
+          "sha": "9b9eafafef56b67e2226787e9203a3728134903d",
+          "size": 324,
+          "mode": "100644"
+        },
+        {
+          "path": "references/intake.md",
+          "sha": "1fa4a09a6a7f59386c1e4cbb95b4161682e464e4",
+          "size": 5845,
+          "mode": "100644"
+        },
+        {
+          "path": "references/models.md",
+          "sha": "693f6500c3349281275760c490e01852f3603e67",
+          "size": 5117,
+          "mode": "100644"
+        },
+        {
+          "path": "references/prompting.md",
+          "sha": "17c0f6f5654350cb3f91b07a9cf77b78ebe5430c",
+          "size": 8156,
+          "mode": "100644"
+        },
+        {
+          "path": "references/schema.md",
+          "sha": "3a56af64009bc29f1a08c9cf9831498a5fbd81c5",
+          "size": 4491,
+          "mode": "100644"
+        },
+        {
+          "path": "scripts/character-refs.mjs",
+          "sha": "07f5b3ea1f6f7eede9cb64ffeb286b2a97629fad",
+          "size": 35273,
+          "mode": "100644"
+        },
+        {
+          "path": "scripts/core.mjs",
+          "sha": "971a27971fc59ff95b86a37ac7a224d7d0cbaee0",
+          "size": 32645,
+          "mode": "100644"
+        },
+        {
+          "path": "scripts/i18n.mjs",
+          "sha": "9b813f0b4bd6f599caf2cccf9dd82a856ed4c975",
+          "size": 11536,
+          "mode": "100644"
+        },
+        {
+          "path": "scripts/looks.mjs",
+          "sha": "476d60654bab5aa44e6f3843217228a0b6d2f7dc",
+          "size": 5009,
+          "mode": "100644"
+        },
+        {
+          "path": "scripts/models.mjs",
+          "sha": "371008d7d23a9aff6ba4237ff15b66c371a68aeb",
+          "size": 17149,
+          "mode": "100644"
+        },
+        {
+          "path": "scripts/png.mjs",
+          "sha": "16d9c65fff394e8419c68d0d5d8c083c95625cae",
+          "size": 7050,
+          "mode": "100644"
+        },
+        {
+          "path": "scripts/selftest.mjs",
+          "sha": "23bd2129499b68c46b2aeab704826b23ed08ed8f",
+          "size": 39734,
+          "mode": "100644"
+        }
+      ]
+    },
+    {
+      "name": "novel-art",
+      "source_path": "skills/novel-art",
+      "source_tree_sha": "d2de511dd651a2667c7219e1783589a5211a4697",
+      "requires_node": 18,
+      "execution_requires": "Host capability/provider depends on workflow; check original README and prerequisites",
+      "files": [
+        {
+          "path": "README.en.md",
+          "sha": "f09de68ef0c9474dc2085d76280d5c435b6ee23c",
+          "size": 4726,
+          "mode": "100644"
+        },
+        {
+          "path": "README.md",
+          "sha": "27d29a5bbd676c301f5bab60d0b379aa81898461",
+          "size": 5761,
+          "mode": "100644"
+        },
+        {
+          "path": "SKILL.md",
+          "sha": "e2ab3fafb98a1237906de552f0ee10888fe7de4e",
+          "size": 8297,
+          "mode": "100644"
+        },
+        {
+          "path": "assets/report.webp",
+          "sha": "1bff80eda53af759827a9c167b72f5a9ef02077c",
+          "size": 154436,
+          "mode": "100644"
+        },
+        {
+          "path": "examples/渡口-art.json",
+          "sha": "36ff8426ce4470591d01b9594afe4b069a72da9f",
+          "size": 16839,
+          "mode": "100644"
+        },
+        {
+          "path": "references/prop-pass.md",
+          "sha": "f38e93afd0e9f3b0e4dfb515fc45205a34001a4e",
+          "size": 3527,
+          "mode": "100644"
+        },
+        {
+          "path": "references/report-style.md",
+          "sha": "e45d57778bc663c9f9a9675f76f7509ac6a8d28f",
+          "size": 2512,
+          "mode": "100644"
+        },
+        {
+          "path": "references/scene-pass.md",
+          "sha": "2bcce883053656d3a1b38a53aeb7493d36a2ef9a",
+          "size": 6793,
+          "mode": "100644"
+        },
+        {
+          "path": "references/schema.md",
+          "sha": "1a7a67b458ca8866350cac1dc9012954b86b8555",
+          "size": 5592,
+          "mode": "100644"
+        },
+        {
+          "path": "references/sheet.md",
+          "sha": "8277b707000a357557cd827c978e352b200ab6ca",
+          "size": 3858,
+          "mode": "100644"
+        },
+        {
+          "path": "references/test-fixtures/upstream/README.md",
+          "sha": "85238323304e1abedce12aaeb5e85b38f7f92818",
+          "size": 481,
+          "mode": "100644"
+        },
+        {
+          "path": "references/test-fixtures/upstream/渡口-cast.json",
+          "sha": "e87892f0cf7241849c4ecd3ffd6dac4164f4789a",
+          "size": 42544,
+          "mode": "100644"
+        },
+        {
+          "path": "references/test-fixtures/upstream/渡口-outline.json",
+          "sha": "3d8b67e46fc98fe84eb0ab935fffc713b1066059",
+          "size": 9659,
+          "mode": "100644"
+        },
+        {
+          "path": "scripts/novel-art.mjs",
+          "sha": "8d16b2b1cc5f535a777d62d0ff81f3332d15e70e",
+          "size": 50633,
+          "mode": "100644"
+        },
+        {
+          "path": "scripts/selftest.mjs",
+          "sha": "20082b6c2cbc1882fe250852f5ac07fde8967468",
+          "size": 19878,
+          "mode": "100644"
+        }
+      ]
+    },
+    {
+      "name": "novel-characters",
+      "source_path": "skills/novel-characters",
+      "source_tree_sha": "7ef25ed2e238a8ebbe7839b6d24db51b58d70346",
+      "requires_node": 18,
+      "execution_requires": "Host capability/provider depends on workflow; check original README and prerequisites",
+      "files": [
+        {
+          "path": "README.en.md",
+          "sha": "25d6b06873e3804d7823cd4599428aeeae76968d",
+          "size": 11518,
+          "mode": "100644"
+        },
+        {
+          "path": "README.md",
+          "sha": "af63a7a41cf6c0f870aacee1bd219425efda7258",
+          "size": 10265,
+          "mode": "100644"
+        },
+        {
+          "path": "SKILL.md",
+          "sha": "c23fb5fe36e30315fee51ec512e713c68cad219e",
+          "size": 11764,
+          "mode": "100644"
+        },
+        {
+          "path": "assets/report.webp",
+          "sha": "99b16d806ced63dc97388e00f6f431f1325cedbf",
+          "size": 129052,
+          "mode": "100644"
+        },
+        {
+          "path": "assets/sheet.jpg",
+          "sha": "6fb02339b76c50eff73da4ad0f28b5b372e34800",
+          "size": 169114,
+          "mode": "100644"
+        },
+        {
+          "path": "examples/渡口-cast.json",
+          "sha": "e87892f0cf7241849c4ecd3ffd6dac4164f4789a",
+          "size": 42544,
+          "mode": "100644"
+        },
+        {
+          "path": "examples/渡口-cast.md",
+          "sha": "e452ccc324a8cf69a41fed2ef3737cbbda45a98b",
+          "size": 40248,
+          "mode": "100644"
+        },
+        {
+          "path": "examples/渡口.txt",
+          "sha": "b84a52cc22ec566c31ce2629f6e72e75c7929ae1",
+          "size": 2349,
+          "mode": "100644"
+        },
+        {
+          "path": "references/profile-pass.md",
+          "sha": "8c4d55e0934c118e3abd9aa7356dbf562d6764e4",
+          "size": 18726,
+          "mode": "100644"
+        },
+        {
+          "path": "references/report-style.md",
+          "sha": "b57bb3587102a1d1fe9438f05b508efb3c2b65d8",
+          "size": 8771,
+          "mode": "100644"
+        },
+        {
+          "path": "references/roster-pass.md",
+          "sha": "b99dbd123b3da4c1178058dc12acf66d259d8006",
+          "size": 1944,
+          "mode": "100644"
+        },
+        {
+          "path": "references/schema.md",
+          "sha": "76369923850534e48037c60c96b048ae5c83a3ec",
+          "size": 5992,
+          "mode": "100644"
+        },
+        {
+          "path": "references/sheet.md",
+          "sha": "07fd26a1550c7e3a5aa6aafa211b386c977bd0da",
+          "size": 3912,
+          "mode": "100644"
+        },
+        {
+          "path": "references/test-fixtures/upstream/README.md",
+          "sha": "30bba7e7e185d1fb76d2bf1f1a6cf4e952b96419",
+          "size": 411,
+          "mode": "100644"
+        },
+        {
+          "path": "references/test-fixtures/upstream/渡口-outline.json",
+          "sha": "3d8b67e46fc98fe84eb0ab935fffc713b1066059",
+          "size": 9659,
+          "mode": "100644"
+        },
+        {
+          "path": "scripts/novel-characters.mjs",
+          "sha": "176c46e04965194c915495f379928eacc78e53c3",
+          "size": 85445,
+          "mode": "100644"
+        },
+        {
+          "path": "scripts/selftest.mjs",
+          "sha": "89e1153ee3b0f32762fcea2bf1fd57a4b70f2068",
+          "size": 41973,
+          "mode": "100644"
+        }
+      ]
+    },
+    {
+      "name": "novel-outline",
+      "source_path": "skills/novel-outline",
+      "source_tree_sha": "5acc8d9df42f5403d449f2cf15a52db6bf9b91b0",
+      "requires_node": 18,
+      "execution_requires": "Host capability/provider depends on workflow; check original README and prerequisites",
+      "files": [
+        {
+          "path": "README.en.md",
+          "sha": "26e4aa758b4b0165dd274fcdb92ef06af7bc0237",
+          "size": 7489,
+          "mode": "100644"
+        },
+        {
+          "path": "README.md",
+          "sha": "8867b59278d04b68c850d30cd595e46e4f4176c4",
+          "size": 8969,
+          "mode": "100644"
+        },
+        {
+          "path": "SKILL.md",
+          "sha": "263313c8befe829f61f0a1616b5e01b8a708b606",
+          "size": 8991,
+          "mode": "100644"
+        },
+        {
+          "path": "assets/report.webp",
+          "sha": "f56ba31d3af44a255cecc1ea8989f1a2e0390074",
+          "size": 46594,
+          "mode": "100644"
+        },
+        {
+          "path": "examples/渡口-outline.json",
+          "sha": "3d8b67e46fc98fe84eb0ab935fffc713b1066059",
+          "size": 9659,
+          "mode": "100644"
+        },
+        {
+          "path": "references/episode-pass.md",
+          "sha": "a658671337db3f51109f41ca9fc6d9d17e205723",
+          "size": 1627,
+          "mode": "100644"
+        },
+        {
+          "path": "references/outline-pass.md",
+          "sha": "0b4344c38bf719a8483edf6ca8f13b281f95d1a7",
+          "size": 3515,
+          "mode": "100644"
+        },
+        {
+          "path": "references/report-style.md",
+          "sha": "dc0c8587510623aeb4218369185f0437dbdecb3f",
+          "size": 5311,
+          "mode": "100644"
+        },
+        {
+          "path": "references/schema.md",
+          "sha": "cbe21f035deecad7235249f367d77b5c8166ef32",
+          "size": 7464,
+          "mode": "100644"
+        },
+        {
+          "path": "references/volume-pass.md",
+          "sha": "8bf61cd0f7d1d20020487816a019a0fb0cb644d0",
+          "size": 1392,
+          "mode": "100644"
+        },
+        {
+          "path": "scripts/novel-outline.mjs",
+          "sha": "0fa48e7fe432497f0a3d040d8718d13585ede484",
+          "size": 82516,
+          "mode": "100644"
+        },
+        {
+          "path": "scripts/selftest.mjs",
+          "sha": "474ad12d46a0b99516e5e1d36c1afcdfb5e0b048",
+          "size": 31150,
+          "mode": "100644"
+        }
+      ]
+    },
+    {
+      "name": "novel-script",
+      "source_path": "skills/novel-script",
+      "source_tree_sha": "8e3541375b7c33d03c0dbc8a95bcf0a1da6b5b4f",
+      "requires_node": 18,
+      "execution_requires": "Host capability/provider depends on workflow; check original README and prerequisites",
+      "files": [
+        {
+          "path": "README.en.md",
+          "sha": "5d454e26d5e0db480d888da9fafaef82f9435692",
+          "size": 7375,
+          "mode": "100644"
+        },
+        {
+          "path": "README.md",
+          "sha": "d95fc88082f0e4004f1fd495b6e65c442239fab4",
+          "size": 7605,
+          "mode": "100644"
+        },
+        {
+          "path": "SKILL.md",
+          "sha": "5eebc06e1858c68b59115bc866c2cec926a5a223",
+          "size": 9204,
+          "mode": "100644"
+        },
+        {
+          "path": "assets/report.webp",
+          "sha": "be965afe82b23f2077a8bd316f7ff0819a5a7b1e",
+          "size": 106104,
+          "mode": "100644"
+        },
+        {
+          "path": "examples/渡口-script.json",
+          "sha": "d12b0239221a8e3b297dd2c2f35a117627580297",
+          "size": 38592,
+          "mode": "100644"
+        },
+        {
+          "path": "references/report-style.md",
+          "sha": "e0b0c81a61ece0d86026d420cb98d231f45f995a",
+          "size": 3192,
+          "mode": "100644"
+        },
+        {
+          "path": "references/schema.md",
+          "sha": "8a808ed2be6d006130fd9a9161e3c07d4e77c802",
+          "size": 3589,
+          "mode": "100644"
+        },
+        {
+          "path": "references/script-pass.md",
+          "sha": "b754bf4e9bc8a4bd9cc00d1de71779532bb93a80",
+          "size": 5515,
+          "mode": "100644"
+        },
+        {
+          "path": "references/test-fixtures/upstream/README.md",
+          "sha": "203e1988d56f1f342b58aedd465bf87269d357ab",
+          "size": 542,
+          "mode": "100644"
+        },
+        {
+          "path": "references/test-fixtures/upstream/渡口-art.json",
+          "sha": "36ff8426ce4470591d01b9594afe4b069a72da9f",
+          "size": 16839,
+          "mode": "100644"
+        },
+        {
+          "path": "references/test-fixtures/upstream/渡口-cast.json",
+          "sha": "e87892f0cf7241849c4ecd3ffd6dac4164f4789a",
+          "size": 42544,
+          "mode": "100644"
+        },
+        {
+          "path": "references/test-fixtures/upstream/渡口-outline.json",
+          "sha": "3d8b67e46fc98fe84eb0ab935fffc713b1066059",
+          "size": 9659,
+          "mode": "100644"
+        },
+        {
+          "path": "scripts/novel-script.mjs",
+          "sha": "751f30de3c95a1c8bbfbc1f3a71584f40feb0dad",
+          "size": 53238,
+          "mode": "100644"
+        },
+        {
+          "path": "scripts/selftest.mjs",
+          "sha": "9c04f2d5c933f06d123f2e69c1a16c31640293e3",
+          "size": 18366,
+          "mode": "100644"
+        }
+      ]
+    },
+    {
+      "name": "novel-storyboard",
+      "source_path": "skills/novel-storyboard",
+      "source_tree_sha": "d655157c7eaf9aea074ad990a065774bd701fbeb",
+      "requires_node": 18,
+      "execution_requires": "Host capability/provider depends on workflow; check original README and prerequisites",
+      "files": [
+        {
+          "path": "README.en.md",
+          "sha": "af846c986c6c8273defed49d3bbf43440fcc1e3c",
+          "size": 11821,
+          "mode": "100644"
+        },
+        {
+          "path": "README.md",
+          "sha": "5ed8caf3e6d38c6392973c3b0e200fdb0decccd7",
+          "size": 12274,
+          "mode": "100644"
+        },
+        {
+          "path": "SKILL.md",
+          "sha": "ef4069fce2956c5c61a69ee554cb7320bce995ba",
+          "size": 13780,
+          "mode": "100644"
+        },
+        {
+          "path": "assets/report.webp",
+          "sha": "7ee33961d083d3538647ad27b72fbc0863261946",
+          "size": 190454,
+          "mode": "100644"
+        },
+        {
+          "path": "examples/渡口-storyboard.json",
+          "sha": "603f86ffea83a9453f0d2561a35180701067a642",
+          "size": 51747,
+          "mode": "100644"
+        },
+        {
+          "path": "references/frame.md",
+          "sha": "6c499da6330b4eee035aae532c4bf7c1286f9985",
+          "size": 3566,
+          "mode": "100644"
+        },
+        {
+          "path": "references/h3-prompt.md",
+          "sha": "0b9811729509f2e86c0ef499fe004c105ac100ae",
+          "size": 4094,
+          "mode": "100644"
+        },
+        {
+          "path": "references/report-style.md",
+          "sha": "485bd9d0684cad8d79fb8fa831f4875a01ee211d",
+          "size": 3422,
+          "mode": "100644"
+        },
+        {
+          "path": "references/schema.md",
+          "sha": "8578c4317bd284893ce61368a131ee6afaaee090",
+          "size": 7799,
+          "mode": "100644"
+        },
+        {
+          "path": "references/seedance-prompt.md",
+          "sha": "e3c2262d5e315d9a79110cc583a8c18730d22168",
+          "size": 7466,
+          "mode": "100644"
+        },
+        {
+          "path": "references/shot-writing.md",
+          "sha": "49b3808e33dd501539eb0a5afa31bd221c78c4b3",
+          "size": 6188,
+          "mode": "100644"
+        },
+        {
+          "path": "references/storyboard-pass.md",
+          "sha": "424e58a20d4c15ab5961d8b0f9975001b873f02d",
+          "size": 6557,
+          "mode": "100644"
+        },
+        {
+          "path": "references/test-fixtures/shot-recipes/hands-tell.md",
+          "sha": "05533339372cd845c02bc4d0d899c7284d9ff714",
+          "size": 180,
+          "mode": "100644"
+        },
+        {
+          "path": "references/test-fixtures/shot-recipes/insert-beat.md",
+          "sha": "069436eed1fc88ce7586d7c584af12a6887c617e",
+          "size": 185,
+          "mode": "100644"
+        },
+        {
+          "path": "references/test-fixtures/shot-recipes/ots-shot-reverse.md",
+          "sha": "8b25642d4de31a681f9d05d89fcc40c9ff5ef8ca",
+          "size": 217,
+          "mode": "100644"
+        },
+        {
+          "path": "references/test-fixtures/upstream/README.md",
+          "sha": "4ba4071f0be7bf30457e4aeb4fa4b806b808509f",
+          "size": 612,
+          "mode": "100644"
+        },
+        {
+          "path": "references/test-fixtures/upstream/渡口-art.json",
+          "sha": "36ff8426ce4470591d01b9594afe4b069a72da9f",
+          "size": 16839,
+          "mode": "100644"
+        },
+        {
+          "path": "references/test-fixtures/upstream/渡口-cast.json",
+          "sha": "e87892f0cf7241849c4ecd3ffd6dac4164f4789a",
+          "size": 42544,
+          "mode": "100644"
+        },
+        {
+          "path": "references/test-fixtures/upstream/渡口-outline.json",
+          "sha": "3d8b67e46fc98fe84eb0ab935fffc713b1066059",
+          "size": 9659,
+          "mode": "100644"
+        },
+        {
+          "path": "references/test-fixtures/upstream/渡口-script.json",
+          "sha": "d12b0239221a8e3b297dd2c2f35a117627580297",
+          "size": 38592,
+          "mode": "100644"
+        },
+        {
+          "path": "scripts/novel-storyboard.mjs",
+          "sha": "6f6832172219f9ec2e31dab610f4f54cbda03691",
+          "size": 107423,
+          "mode": "100644"
+        },
+        {
+          "path": "scripts/selftest.mjs",
+          "sha": "42f9f6c3144a80a8a9836c5e91a110415be441ba",
+          "size": 46323,
+          "mode": "100644"
+        }
+      ]
+    }
+  ]
+}

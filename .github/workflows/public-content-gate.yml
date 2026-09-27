@@ -17,5 +17,7 @@ jobs:
         run: python3 scripts/public_repo_gate.py .
       - name: Verify canonical source and external runtime boundaries
         run: python3 tests/verify-source-boundaries.py
+      - name: Verify offline discovery and selective external packages
+        run: python3 tests/verify-skill-doctor.py
       - name: Verify complete and on-demand installations
         run: bash tests/on-demand-install.sh
