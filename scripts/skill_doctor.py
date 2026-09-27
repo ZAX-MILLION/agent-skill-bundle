@@ -180,10 +180,19 @@ def stage(args):
             "skill": selected["name"],
         }, sort_keys=True) + "\n", encoding="utf-8")
         final = target / selected["name"]
+        backup = temporary / "previous-managed"
         if final.exists():
-            # Previously managed copy was validated above; never remove unmarked data.
-            shutil.rmtree(final)
-        out.rename(final)
+            # Replacement is opt-in and only after verifying the existing marker,
+            # complete file hashes and license/notice. Roll back on rename failure.
+            final.rename(backup)
+        try:
+            out.rename(final)
+        except OSError:
+            if backup.exists():
+                backup.rename(final)
+            raise
+        if backup.exists():
+            shutil.rmtree(backup)
         print(f"STAGED: {selected['name']} ({count} reviewed source files + license/notice) at {final}")
         print("Execution unverified. No host/MCP configuration or external script was run.")
     finally:
