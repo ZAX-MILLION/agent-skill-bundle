@@ -115,6 +115,7 @@ The format is a skill directory with `SKILL.md` and optional `scripts/`, `refere
 - [Codex guide](adapters/codex/README.md)
 - [Claude Code guide](adapters/claude-code/README.md)
 - [Generic / other host guide](adapters/generic/README.md)
+- [ChatGPT guide](adapters/chatgpt/README.md) — native Skills for eligible workspaces; optional ADHD-style Custom Instructions for personal accounts.
 - [Complete cross-host setup](adapters/multi-host/README.md)
 
 `i-have-adhd` is the preferred action-first communication style. To make that style persistent across sessions, **merge** the reviewed principles into the existing host-global rules without overwriting project instructions. Caveman and Humanizer remain task-specific options.
