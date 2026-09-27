@@ -5,7 +5,7 @@
   "reviewed_commit": "e482e579415fde18357cafce70f177ae19fd7f03",
   "upstream_license": "MIT",
   "root_license_blob_sha": "b832b6f642312312367c07688dc7426db40a82ed",
-  "relationship": "8 selected exact original SKILL.md bodies plus per-directory root MIT license overlay; metadata-only catalog of remaining canonical skills. No native ECC plugin, agent definitions, commands, hooks, rules, scripts, MCP configuration, executable runtime, or account features installed.",
+  "relationship": "9 selected exact original SKILL.md bodies plus per-directory root MIT license overlay; metadata-only catalog of remaining canonical skills. No native ECC plugin, agent definitions, commands, hooks, rules, scripts, MCP configuration, executable runtime, or account features installed.",
   "source_index": "registry/ecc-source-index.json",
   "source_index_original_count": 292,
   "skill_pins": {
@@ -47,6 +47,11 @@
     "operations/codebase-onboarding/SKILL.md": {
       "upstream_path": "skills/codebase-onboarding/SKILL.md",
       "blob_sha": "ac70816c9edac808100df8e980dfd15ebd166cee",
+      "license_blob_sha": "b832b6f642312312367c07688dc7426db40a82ed"
+    },
+    "process/agent-introspection-debugging/SKILL.md": {
+      "upstream_path": "skills/agent-introspection-debugging/SKILL.md",
+      "blob_sha": "7f40c4579f09b15884e7e4e22635ccd41e1ba1a7",
       "license_blob_sha": "b832b6f642312312367c07688dc7426db40a82ed"
     }
   }

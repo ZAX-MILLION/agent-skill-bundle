@@ -15,7 +15,7 @@ assert len(entries) == index["original_skill_count"] == 292
 names = [x["name"] for x in entries]
 assert len(set(names)) == 292 and all(x["source_path"] == f"skills/{x['name']}/SKILL.md" for x in entries)
 by_path = {x["source_path"]: x["blob_sha"] for x in entries}
-assert len(pins["skill_pins"]) == 8
+assert len(pins["skill_pins"]) == 9
 checks = 0
 for local_path, spec in pins["skill_pins"].items():
     assert by_path[spec["upstream_path"]] == spec["blob_sha"], spec["upstream_path"]

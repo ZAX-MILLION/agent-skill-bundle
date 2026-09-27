@@ -255,6 +255,94 @@
       "kind": "skill-with-license-overlay",
       "sync": "manual-review",
       "note": "Exact upstream files; Apache-2.0 root license overlaid per skill. No installed n8n plugin or MCP service."
+    },
+    {
+      "local_path": "coding/godot-gdscript-patterns",
+      "source_id": "wshobson-godot",
+      "source_path": "plugins/game-development/skills/godot-gdscript-patterns",
+      "kind": "skill",
+      "sync": "manual-review",
+      "note": "Original complete skill directory, pinned in registry/vendor-skillsmp-2026-09-27.json; root MIT license overlaid per installable directory."
+    },
+    {
+      "local_path": "design/ui-ux-pro-max",
+      "source_id": "nextlevelbuilder-ui-ux-pro-max",
+      "source_path": ".claude/skills/ui-ux-pro-max",
+      "kind": "skill",
+      "sync": "manual-review",
+      "note": "Original complete skill directory, pinned in registry/vendor-skillsmp-2026-09-27.json; root MIT license overlaid per installable directory."
+    },
+    {
+      "local_path": "qa/accessibility",
+      "source_id": "addyosmani-web-quality",
+      "source_path": "skills/accessibility",
+      "kind": "skill",
+      "sync": "manual-review",
+      "note": "Original complete skill directory, pinned in registry/vendor-skillsmp-2026-09-27.json; root MIT license overlaid per installable directory."
+    },
+    {
+      "local_path": "qa/best-practices",
+      "source_id": "addyosmani-web-quality",
+      "source_path": "skills/best-practices",
+      "kind": "skill",
+      "sync": "manual-review",
+      "note": "Original complete skill directory, pinned in registry/vendor-skillsmp-2026-09-27.json; root MIT license overlaid per installable directory."
+    },
+    {
+      "local_path": "qa/core-web-vitals",
+      "source_id": "addyosmani-web-quality",
+      "source_path": "skills/core-web-vitals",
+      "kind": "skill",
+      "sync": "manual-review",
+      "note": "Original complete skill directory, pinned in registry/vendor-skillsmp-2026-09-27.json; root MIT license overlaid per installable directory."
+    },
+    {
+      "local_path": "qa/performance",
+      "source_id": "addyosmani-web-quality",
+      "source_path": "skills/performance",
+      "kind": "skill",
+      "sync": "manual-review",
+      "note": "Original complete skill directory, pinned in registry/vendor-skillsmp-2026-09-27.json; root MIT license overlaid per installable directory."
+    },
+    {
+      "local_path": "qa/seo",
+      "source_id": "addyosmani-web-quality",
+      "source_path": "skills/seo",
+      "kind": "skill",
+      "sync": "manual-review",
+      "note": "Original complete skill directory, pinned in registry/vendor-skillsmp-2026-09-27.json; root MIT license overlaid per installable directory."
+    },
+    {
+      "local_path": "qa/web-quality-audit",
+      "source_id": "addyosmani-web-quality",
+      "source_path": "skills/web-quality-audit",
+      "kind": "skill",
+      "sync": "manual-review",
+      "note": "Original complete skill directory, pinned in registry/vendor-skillsmp-2026-09-27.json; root MIT license overlaid per installable directory."
+    },
+    {
+      "local_path": "design/game-economy-designer",
+      "source_id": "alterlab-gameforge",
+      "source_path": "skills/agents/game-economy-designer",
+      "kind": "skill",
+      "sync": "manual-review",
+      "note": "Original complete skill directory, pinned in registry/vendor-skillsmp-2026-09-27.json; root MIT license overlaid per installable directory."
+    },
+    {
+      "local_path": "qa/release-readiness",
+      "source_id": "kindlmann-qa-skills",
+      "source_path": "skills/release-readiness",
+      "kind": "skill",
+      "sync": "manual-review",
+      "note": "Original complete skill directory, pinned in registry/vendor-skillsmp-2026-09-27.json; root MIT license overlaid per installable directory."
+    },
+    {
+      "local_path": "process/agent-introspection-debugging",
+      "source_id": "affaan-m-ecc",
+      "source_path": "skills/agent-introspection-debugging",
+      "kind": "skill",
+      "sync": "manual-review",
+      "note": "Original complete skill directory, pinned in registry/vendor-skillsmp-2026-09-27.json; root MIT license overlaid per installable directory."
     }
   ],
   "anthropic_design_skills": [

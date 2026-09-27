@@ -1,0 +1,625 @@
+{
+  "schema_version": 1,
+  "review_date": "2026-09-27",
+  "discovery": "SkillsMP discovery; canonical GitHub sources are authoritative",
+  "policy": {
+    "original_files_unmodified": true,
+    "full_supporting_files": true,
+    "licenses_scoped_to_each_skill": true,
+    "manual_review_before_update": true,
+    "auto_install_runtime": false,
+    "strict_native_bootstraps": 2
+  },
+  "packages": [
+    {
+      "repository": "wshobson/agents",
+      "reviewed_commit": "9b15b34b0bfc13a815cbfc2366e14ea549e09422",
+      "upstream_license": "MIT",
+      "source_directory": "plugins/game-development/skills/godot-gdscript-patterns",
+      "local_directory": "coding/godot-gdscript-patterns",
+      "relationship": "Complete original skill directory plus unmodified root MIT license overlay; no runtime, host config, or permissions automatically installed.",
+      "root_license_blob_sha": "326f0a55c96e672fedf9d807ca043c00df05ba0e",
+      "files": {
+        "SKILL.md": {
+          "sha": "90377a7ef3db23bd6757a407c56e29225ac5646d",
+          "mode": "100644",
+          "size": 2157
+        },
+        "references/advanced-patterns.md": {
+          "sha": "a803a0201bc62efee78cf921c18f0e97f5ac9219",
+          "mode": "100644",
+          "size": 6400
+        },
+        "references/details.md": {
+          "sha": "eb71e9485a74a901f483ab92472f431ee97f12b7",
+          "mode": "100644",
+          "size": 12392
+        }
+      }
+    },
+    {
+      "repository": "nextlevelbuilder/ui-ux-pro-max-skill",
+      "reviewed_commit": "823b0a14d3539b5d78c0efb614426a4fab5983ec",
+      "upstream_license": "MIT",
+      "source_directory": ".claude/skills/ui-ux-pro-max",
+      "local_directory": "design/ui-ux-pro-max",
+      "relationship": "Complete original skill directory plus unmodified root MIT license overlay; no runtime, host config, or permissions automatically installed.",
+      "root_license_blob_sha": "1e71cbf26660f31903807d099fe902c098fc7e4c",
+      "files": {
+        "SKILL.md": {
+          "sha": "41f8e2fd7f8c568228d0b55186ebe3f7b4007377",
+          "mode": "100644",
+          "size": 15969
+        },
+        "data/app-interface.csv": {
+          "sha": "95e328c807a23be02c9c32c736d0fa19109c6076",
+          "mode": "100644",
+          "size": 11046
+        },
+        "data/catalog-summary.json": {
+          "sha": "f911c3ae48fac5863a5a5e210866ec5cabece164",
+          "mode": "100644",
+          "size": 2392
+        },
+        "data/charts.csv": {
+          "sha": "c6f4f875fd5b34379f24dbb541539492366a1058",
+          "mode": "100644",
+          "size": 23365
+        },
+        "data/colors.csv": {
+          "sha": "5d2bf7389105f8a824b504b57cc93c00dc1d7e0a",
+          "mode": "100644",
+          "size": 37940
+        },
+        "data/data-provenance.json": {
+          "sha": "e41d2e553bdc7e5a8e6d16f5daab565faf372188",
+          "mode": "100644",
+          "size": 36686
+        },
+        "data/google-font-licenses.json": {
+          "sha": "3ac2c34e80665bc902e265c52ab6c27b1654524c",
+          "mode": "100644",
+          "size": 433127
+        },
+        "data/google-fonts.csv": {
+          "sha": "d7f87e3e0159b1caba083b9954793d9852256aa0",
+          "mode": "100644",
+          "size": 747241
+        },
+        "data/icons.csv": {
+          "sha": "cfc3f1eccd7e5aee15d8d70f86d8fa17ba737958",
+          "mode": "100644",
+          "size": 57945
+        },
+        "data/landing.csv": {
+          "sha": "34858160aa2789c49dca274d48bb116d51dd3f0a",
+          "mode": "100644",
+          "size": 25449
+        },
+        "data/motion.csv": {
+          "sha": "8e0ca9ceb0e4cd4832aee60ac74713e1e1830de8",
+          "mode": "100644",
+          "size": 14679
+        },
+        "data/phosphor-icons-upstream.json": {
+          "sha": "ec1d76b8117ccbfdce5df214bf0d993e41a75318",
+          "mode": "100644",
+          "size": 823933
+        },
+        "data/products.csv": {
+          "sha": "9f40f1d1f9743c4a81603076dfbfd115bbb55246",
+          "mode": "100644",
+          "size": 75623
+        },
+        "data/react-performance.csv": {
+          "sha": "425a8e76c6b3bae40e8c633ffbf7ad6222c9f73a",
+          "mode": "100644",
+          "size": 15080
+        },
+        "data/stacks/angular.csv": {
+          "sha": "5a1878dbee2b3c55c6468cbb18699b84d1a8c4d2",
+          "mode": "100644",
+          "size": 19863
+        },
+        "data/stacks/astro.csv": {
+          "sha": "1fd2492420b20a0b311295ab883597fadb8245a6",
+          "mode": "100644",
+          "size": 14591
+        },
+        "data/stacks/avalonia.csv": {
+          "sha": "c67f4117105865587eda9020c57d8c209f3a929a",
+          "mode": "100644",
+          "size": 27327
+        },
+        "data/stacks/flutter.csv": {
+          "sha": "731805c4076bd9f2755ca4bd7def5be6f6df7e9c",
+          "mode": "100644",
+          "size": 14192
+        },
+        "data/stacks/html-tailwind.csv": {
+          "sha": "9089eb0fc821ff0c8d135f8ee503be345e8fcb84",
+          "mode": "100644",
+          "size": 16551
+        },
+        "data/stacks/javafx.csv": {
+          "sha": "744bd80f437f12bfb5bb9c84630a58022604675a",
+          "mode": "100644",
+          "size": 33577
+        },
+        "data/stacks/jetpack-compose.csv": {
+          "sha": "8daa0b8f9a2ca3f0f1711664d9d677cd1c38dd9e",
+          "mode": "100644",
+          "size": 12295
+        },
+        "data/stacks/laravel.csv": {
+          "sha": "ed11b0fba457e02857f996d1542fb0b8e1271756",
+          "mode": "100644",
+          "size": 20163
+        },
+        "data/stacks/nextjs.csv": {
+          "sha": "acdaf097dff26ba0d3b22ab4544bf6169c87afd4",
+          "mode": "100644",
+          "size": 18687
+        },
+        "data/stacks/nuxt-ui.csv": {
+          "sha": "e2aaeca45faa8b987bf94010162b14d458811dde",
+          "mode": "100644",
+          "size": 28700
+        },
+        "data/stacks/nuxtjs.csv": {
+          "sha": "ceab9cf3358d2788af0bd7dc14cb3fab769740d0",
+          "mode": "100644",
+          "size": 23014
+        },
+        "data/stacks/react-native.csv": {
+          "sha": "a5aea45dc1d0341b11ee42076a86db842d4d2a19",
+          "mode": "100644",
+          "size": 14049
+        },
+        "data/stacks/react.csv": {
+          "sha": "fe8f001e695a978733449e04e99d7135af0f1bf3",
+          "mode": "100644",
+          "size": 21166
+        },
+        "data/stacks/shadcn.csv": {
+          "sha": "0e8bedf3084e7a40d6310bcd3011c437efcb1700",
+          "mode": "100644",
+          "size": 23184
+        },
+        "data/stacks/svelte.csv": {
+          "sha": "51684fe70448e15333cd16207db7da8aea0508e6",
+          "mode": "100644",
+          "size": 15078
+        },
+        "data/stacks/swiftui.csv": {
+          "sha": "ea9b95e8922e663b2adf27a7346e2c2f44c7a215",
+          "mode": "100644",
+          "size": 15323
+        },
+        "data/stacks/threejs.csv": {
+          "sha": "f62286320038beabbdc5e11e07ca2818d8e959a4",
+          "mode": "100644",
+          "size": 46769
+        },
+        "data/stacks/uno.csv": {
+          "sha": "9cab32326b4ad3a3cf43451a3c24553a41126cc1",
+          "mode": "100644",
+          "size": 30091
+        },
+        "data/stacks/uwp.csv": {
+          "sha": "04a84ea092a7657fef11e5daa97982be52dc6f59",
+          "mode": "100644",
+          "size": 24692
+        },
+        "data/stacks/vue.csv": {
+          "sha": "83997c515775170f22b638635aae0a67a46dfc87",
+          "mode": "100644",
+          "size": 12813
+        },
+        "data/stacks/winui.csv": {
+          "sha": "107ecead11728a83ec0ea10d815a9d1f43a35792",
+          "mode": "100644",
+          "size": 27890
+        },
+        "data/stacks/wpf.csv": {
+          "sha": "4e88d6750833a74f85ba487cf2b8f4ff6ebd2f4a",
+          "mode": "100644",
+          "size": 24158
+        },
+        "data/styles.csv": {
+          "sha": "d1eb2c216e453005ffa8232ffb94491c183afe3c",
+          "mode": "100644",
+          "size": 149478
+        },
+        "data/typography.csv": {
+          "sha": "70d107d107de30150863c965767320ec33ef29ad",
+          "mode": "100644",
+          "size": 49997
+        },
+        "data/ui-reasoning.csv": {
+          "sha": "8931d4c809f8e22ddac00ce612ce0c35f34a59b6",
+          "mode": "100644",
+          "size": 77360
+        },
+        "data/ux-guidelines.csv": {
+          "sha": "4e7d52b296537a03513b18b2c3f2b946cc802051",
+          "mode": "100644",
+          "size": 27516
+        },
+        "references/pro-rules.md": {
+          "sha": "b2ce233287e37ec9ca13476c4014b922e9d5a0e9",
+          "mode": "100644",
+          "size": 10909
+        },
+        "references/quick-reference.md": {
+          "sha": "7acc7e7540ca6981d878a90aae4455c1638e2385",
+          "mode": "100644",
+          "size": 24526
+        },
+        "scripts/core.py": {
+          "sha": "670fe33070cfe706401da4ff276831257dbf1e25",
+          "mode": "100644",
+          "size": 41236
+        },
+        "scripts/design_system.py": {
+          "sha": "1114088ea5886c7e5b8986fb22aef61acecc83ea",
+          "mode": "100644",
+          "size": 70937
+        },
+        "scripts/reasoning_contract.py": {
+          "sha": "63652a666b130c249ea1e2954316f1ac8a5a73d5",
+          "mode": "100644",
+          "size": 5824
+        },
+        "scripts/search.py": {
+          "sha": "5038aa875a0d39f24dea803a4c73b38f8f56915f",
+          "mode": "100644",
+          "size": 9373
+        },
+        "scripts/tests/fixtures/catalogs/google-api.json": {
+          "sha": "eacf1bb4559875808247df711376e8cc47c4f7c4",
+          "mode": "100644",
+          "size": 1079
+        },
+        "scripts/tests/fixtures/catalogs/google-catalog.json": {
+          "sha": "4eb89d4d3312b670ef70d44563bf2ffd5cf814bb",
+          "mode": "100644",
+          "size": 1772
+        },
+        "scripts/tests/fixtures/catalogs/google-existing.csv": {
+          "sha": "83279e0f218e9725b8a14486a558fa10ff134949",
+          "mode": "100644",
+          "size": 480
+        },
+        "scripts/tests/fixtures/catalogs/google-metadata.json": {
+          "sha": "43edcbec14c4a5e68d373eda8466c235f2ee7e9b",
+          "mode": "100644",
+          "size": 328
+        },
+        "scripts/tests/fixtures/catalogs/google-overrides.json": {
+          "sha": "162fd1830b08dc1a7b8b891f92f16dbb8b7015f2",
+          "mode": "100644",
+          "size": 97
+        },
+        "scripts/tests/fixtures/catalogs/icons-curated.csv": {
+          "sha": "3171bfc7a0a6b3b36745b4f7f0c7743f0afad953",
+          "mode": "100644",
+          "size": 495
+        },
+        "scripts/tests/fixtures/catalogs/phosphor-core.json": {
+          "sha": "be0edd337f2c731af41b8a745d37089172c5dc60",
+          "mode": "100644",
+          "size": 571
+        },
+        "scripts/tests/fixtures/catalogs/phosphor-package.json": {
+          "sha": "ad9e6ef4b835e65a6c0bd0ad9d11f0517fd718c1",
+          "mode": "100644",
+          "size": 370
+        },
+        "scripts/tests/fixtures/catalogs/phosphor-react-exports.json": {
+          "sha": "4a0b4587ce9876acac1904831ea774bbf8c69edf",
+          "mode": "100644",
+          "size": 87
+        },
+        "scripts/tests/fixtures/catalogs/phosphor-react-package.json": {
+          "sha": "a0db183da61e63f3a8f9e3fbfba7405144f41c1e",
+          "mode": "100644",
+          "size": 81
+        },
+        "scripts/tests/fixtures/relevance-baseline.json": {
+          "sha": "0894a44cc154a01d3b2d624a66c30e7ac3e1a3d5",
+          "mode": "100644",
+          "size": 89426
+        },
+        "scripts/tests/fixtures/relevance-cases.json": {
+          "sha": "a1fbb87835bda252ba8ae7f15e7090cee580cb42",
+          "mode": "100644",
+          "size": 36734
+        },
+        "scripts/tests/fixtures/relevance-thresholds.json": {
+          "sha": "4734669839a826bca76f089218e5cccdb36256d6",
+          "mode": "100644",
+          "size": 5079
+        },
+        "scripts/tests/test_catalog_refresh.py": {
+          "sha": "8379cc3a224bb9f3dca2a3ebd561cd92b7e05ae4",
+          "mode": "100644",
+          "size": 19466
+        },
+        "scripts/tests/test_catalog_summary_line_endings.py": {
+          "sha": "056c8e5e7d8ba69c87c31c8ad7bcd32ca3d7223c",
+          "mode": "100644",
+          "size": 2947
+        },
+        "scripts/tests/test_core.py": {
+          "sha": "b30c0ae54c25f38ec91b37a56cda04426b2510a9",
+          "mode": "100644",
+          "size": 16680
+        },
+        "scripts/tests/test_core_data_quality.py": {
+          "sha": "6d36c79b1f9f8c68c4b02f86a09c5e5f9ba410fe",
+          "mode": "100644",
+          "size": 8954
+        },
+        "scripts/tests/test_data_contracts.py": {
+          "sha": "312dc383b3f6548d7200e928c192673a907b5016",
+          "mode": "100644",
+          "size": 19513
+        },
+        "scripts/tests/test_design_system_mode.py": {
+          "sha": "abe615bade2d851d73c04be3d37e39231eb2d6d5",
+          "mode": "100644",
+          "size": 7690
+        },
+        "scripts/tests/test_design_system_stack.py": {
+          "sha": "50f0080300b56f4891014d878edddb781b36d7de",
+          "mode": "100644",
+          "size": 2261
+        },
+        "scripts/tests/test_native_desktop_stack_freshness.py": {
+          "sha": "79e07f4f5f9c88025506cb3d7bb5aad01dbbd339",
+          "mode": "100644",
+          "size": 8375
+        },
+        "scripts/tests/test_relevance_evaluator.py": {
+          "sha": "ed158e2d4e39a342090b29435dee25bcf5c4444f",
+          "mode": "100644",
+          "size": 8430
+        },
+        "scripts/tests/test_skill_script_paths.py": {
+          "sha": "36514964d7ea6edcadc169e0d713c18b1cc0bb09",
+          "mode": "100644",
+          "size": 4305
+        },
+        "scripts/tests/test_style_taxonomy.py": {
+          "sha": "09ec131ea6d609e21aaf81327a2e3ffe1ea59d4c",
+          "mode": "100644",
+          "size": 7425
+        },
+        "scripts/tests/test_text_layout_resilience.py": {
+          "sha": "8db3b873f958b93906abb8f4e4d6ef75a344c76e",
+          "mode": "100644",
+          "size": 5874
+        },
+        "scripts/tests/test_web_stack_freshness.py": {
+          "sha": "a54b0eaaa564fc4e0390537b268eaca46d36d5bd",
+          "mode": "100644",
+          "size": 7701
+        },
+        "scripts/validate_data.py": {
+          "sha": "8b6c7941f6ad3e51cb9d412b11185133e7763001",
+          "mode": "100644",
+          "size": 52230
+        }
+      }
+    },
+    {
+      "repository": "addyosmani/web-quality-skills",
+      "reviewed_commit": "afa8da942115f2961fdbfa80807ea0b232ff6c00",
+      "upstream_license": "MIT",
+      "source_directory": "skills/accessibility",
+      "local_directory": "qa/accessibility",
+      "relationship": "Complete original skill directory plus unmodified root MIT license overlay; no runtime, host config, or permissions automatically installed.",
+      "root_license_blob_sha": "90715bb429f374dcc4e05c35535b049d3c077313",
+      "files": {
+        "SKILL.md": {
+          "sha": "22a244430f890fe44cbd7a50590d5cbf8528c77b",
+          "mode": "100644",
+          "size": 14358
+        },
+        "references/A11Y-PATTERNS.md": {
+          "sha": "6d500efb3eb2c714565e8a39be86feecfcda9ad5",
+          "mode": "100644",
+          "size": 6036
+        },
+        "references/WCAG.md": {
+          "sha": "a0bd65fa7494eda0147c6d7bf82bd57e7f5e72ce",
+          "mode": "100644",
+          "size": 9079
+        }
+      }
+    },
+    {
+      "repository": "addyosmani/web-quality-skills",
+      "reviewed_commit": "afa8da942115f2961fdbfa80807ea0b232ff6c00",
+      "upstream_license": "MIT",
+      "source_directory": "skills/best-practices",
+      "local_directory": "qa/best-practices",
+      "relationship": "Complete original skill directory plus unmodified root MIT license overlay; no runtime, host config, or permissions automatically installed.",
+      "root_license_blob_sha": "90715bb429f374dcc4e05c35535b049d3c077313",
+      "files": {
+        "SKILL.md": {
+          "sha": "54e6c16cd981be84f25804ff7c1bffa4bc5cefa4",
+          "mode": "100644",
+          "size": 12719
+        },
+        "references/SECURITY.md": {
+          "sha": "52a19484fa2f91240af209fc482e7e30d49bee04",
+          "mode": "100644",
+          "size": 6705
+        }
+      }
+    },
+    {
+      "repository": "addyosmani/web-quality-skills",
+      "reviewed_commit": "afa8da942115f2961fdbfa80807ea0b232ff6c00",
+      "upstream_license": "MIT",
+      "source_directory": "skills/core-web-vitals",
+      "local_directory": "qa/core-web-vitals",
+      "relationship": "Complete original skill directory plus unmodified root MIT license overlay; no runtime, host config, or permissions automatically installed.",
+      "root_license_blob_sha": "90715bb429f374dcc4e05c35535b049d3c077313",
+      "files": {
+        "SKILL.md": {
+          "sha": "60343a52d1832f89eb0ebf6722f4d150fe806777",
+          "mode": "100644",
+          "size": 9776
+        },
+        "references/CLS.md": {
+          "sha": "dff8ce27b20642ff01014dcef1228340dd6ec58d",
+          "mode": "100644",
+          "size": 4011
+        },
+        "references/INP.md": {
+          "sha": "29a72e18a4d47b06270ddfffec1175c9b71a67b9",
+          "mode": "100644",
+          "size": 4445
+        },
+        "references/LCP.md": {
+          "sha": "c6e88376b030281cf051d0e6b634a400b4574e47",
+          "mode": "100644",
+          "size": 5078
+        }
+      }
+    },
+    {
+      "repository": "addyosmani/web-quality-skills",
+      "reviewed_commit": "afa8da942115f2961fdbfa80807ea0b232ff6c00",
+      "upstream_license": "MIT",
+      "source_directory": "skills/performance",
+      "local_directory": "qa/performance",
+      "relationship": "Complete original skill directory plus unmodified root MIT license overlay; no runtime, host config, or permissions automatically installed.",
+      "root_license_blob_sha": "90715bb429f374dcc4e05c35535b049d3c077313",
+      "files": {
+        "SKILL.md": {
+          "sha": "913a36c6ad869d530053f20fd05698804cb24e3e",
+          "mode": "100644",
+          "size": 13811
+        },
+        "references/MEASUREMENT.md": {
+          "sha": "1b15702d186016b9f0cf8e77cdff2c2d836e2313",
+          "mode": "100644",
+          "size": 7371
+        },
+        "references/RUM.md": {
+          "sha": "909f5d2c98ed506020b1860d69b1d2aa5674799c",
+          "mode": "100644",
+          "size": 3135
+        }
+      }
+    },
+    {
+      "repository": "addyosmani/web-quality-skills",
+      "reviewed_commit": "afa8da942115f2961fdbfa80807ea0b232ff6c00",
+      "upstream_license": "MIT",
+      "source_directory": "skills/seo",
+      "local_directory": "qa/seo",
+      "relationship": "Complete original skill directory plus unmodified root MIT license overlay; no runtime, host config, or permissions automatically installed.",
+      "root_license_blob_sha": "90715bb429f374dcc4e05c35535b049d3c077313",
+      "files": {
+        "SKILL.md": {
+          "sha": "015c2f589896bcb0b08b5b77e058ca3bedcfe9b7",
+          "mode": "100644",
+          "size": 13977
+        },
+        "references/STRUCTURED-DATA.md": {
+          "sha": "acc8ab7eb6beacf82604d7a2595ecad535094f1b",
+          "mode": "100644",
+          "size": 3339
+        }
+      }
+    },
+    {
+      "repository": "addyosmani/web-quality-skills",
+      "reviewed_commit": "afa8da942115f2961fdbfa80807ea0b232ff6c00",
+      "upstream_license": "MIT",
+      "source_directory": "skills/web-quality-audit",
+      "local_directory": "qa/web-quality-audit",
+      "relationship": "Complete original skill directory plus unmodified root MIT license overlay; no runtime, host config, or permissions automatically installed.",
+      "root_license_blob_sha": "90715bb429f374dcc4e05c35535b049d3c077313",
+      "files": {
+        "SKILL.md": {
+          "sha": "581ec7c5e8e05e6ac93d99d872906595581efc42",
+          "mode": "100644",
+          "size": 10450
+        },
+        "scripts/analyze.sh": {
+          "sha": "62b066467d30ed5fa52fc36130a05699e09dd2bb",
+          "mode": "100755",
+          "size": 3864
+        }
+      }
+    },
+    {
+      "repository": "AlterLab-IEU/AlterLab_GameForge",
+      "reviewed_commit": "5f5148d61986b32299070e87fcd4a1ab3718eacf",
+      "upstream_license": "MIT",
+      "source_directory": "skills/agents/game-economy-designer",
+      "local_directory": "design/game-economy-designer",
+      "relationship": "Complete original skill directory plus unmodified root MIT license overlay; no runtime, host config, or permissions automatically installed.",
+      "root_license_blob_sha": "007f44ed7b623503cf0e074a2e7e6596f27e6bba",
+      "files": {
+        "SKILL.md": {
+          "sha": "d80febdd64290471178ee5948af19058d34c6b6a",
+          "mode": "100644",
+          "size": 37685
+        }
+      }
+    },
+    {
+      "repository": "petrkindlmann/qa-skills",
+      "reviewed_commit": "b3bb61bd268b147476252c6ed5a0440c87b97441",
+      "upstream_license": "MIT",
+      "source_directory": "skills/release-readiness",
+      "local_directory": "qa/release-readiness",
+      "relationship": "Complete original skill directory plus unmodified root MIT license overlay; no runtime, host config, or permissions automatically installed.",
+      "root_license_blob_sha": "b76d5724f2d53cb72d99c754301e3653a703c369",
+      "files": {
+        "SKILL.md": {
+          "sha": "53089d79901b350f3a50865cbc5e19cf77e11c5d",
+          "mode": "100644",
+          "size": 26817
+        },
+        "references/communication-templates.md": {
+          "sha": "267f4813bf50cedda4884f3f2d6c2d8e96153533",
+          "mode": "100644",
+          "size": 925
+        },
+        "references/rollout-automation.md": {
+          "sha": "f8d19ef00aea4f02ec723734f02796a37ee2c07e",
+          "mode": "100644",
+          "size": 2019
+        }
+      }
+    },
+    {
+      "repository": "affaan-m/ECC",
+      "reviewed_commit": "e482e579415fde18357cafce70f177ae19fd7f03",
+      "upstream_license": "MIT",
+      "source_directory": "skills/agent-introspection-debugging",
+      "local_directory": "process/agent-introspection-debugging",
+      "relationship": "Complete original skill directory plus unmodified root MIT license overlay; no runtime, host config, or permissions automatically installed.",
+      "root_license_blob_sha": "b832b6f642312312367c07688dc7426db40a82ed",
+      "files": {
+        "SKILL.md": {
+          "sha": "7f40c4579f09b15884e7e4e22635ccd41e1ba1a7",
+          "mode": "100644",
+          "size": 5627
+        }
+      }
+    }
+  ],
+  "local_skills": [
+    "creative/game-ready-2d-asset-pipeline",
+    "qa/cross-agent-skill-verification"
+  ]
+}

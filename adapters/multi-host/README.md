@@ -1,6 +1,6 @@
 # One reviewed vault — Antigravity, Codex, Claude Code and other agents
 
-**Design:** one authoritative source checkout, two native bootstrap skills per host, one reviewed local Skill Retrieval MCP index, and explicit optional executables. Do not put all 174 instructions in a global prompt. Native skill registries typically expose names/descriptions before loading bodies; this strict mode exposes only two of this bundle's native descriptions.
+**Design:** one authoritative source checkout, two native bootstrap skills per host, one reviewed local Skill Retrieval MCP index, and explicit optional executables. Do not put all 187 instructions in a global prompt. Native skill registries typically expose names/descriptions before loading bodies; this strict mode exposes only two of this bundle's native descriptions.
 
 | Host | Native global skill target | On-demand install |
 |---|---|---|
@@ -61,6 +61,6 @@ All new package bodies remain outside native startup discovery in strict on-dema
 
 ## ECC selectively across all hosts
 
-The eight original [ECC skill bodies](../../registry/vendor-ecc.json) are in the reviewed source checkout and can be retrieved on demand. Use the [ECC index reference](../../research/agent-skills/references/ecc-catalog.md) to discover the other canonical upstream names; names alone are **not** installed instructions or grants of capability. The native ECC installer can modify host rules, workflows, commands, plugins and hooks; do not stack it over this bundle without examining affected paths and avoiding duplicates.
+The nine selected [ECC skill bodies](../../registry/vendor-ecc.json) are in the reviewed source checkout and can be retrieved on demand. Use the [ECC index reference](../../research/agent-skills/references/ecc-catalog.md) to discover the other canonical upstream names; names alone are **not** installed instructions or grants of capability. The native ECC installer can modify host rules, workflows, commands, plugins and hooks; do not stack it over this bundle without examining affected paths and avoiding duplicates.
 
 Map Claude-specific path/tool examples in unchanged source skills to the actual host safely: Antigravity uses its IDE/project scope, Codex uses its documented skill and instruction scope, Claude Code can use its native paths. If the expected tool or lifecycle hook does not exist, report the unsupported portion instead of pretending it ran. `context-budget` estimates are heuristics, not measured token usage. No ECC worker, agent hook, marketplace plugin, account, or paid GitHub App is enabled here.

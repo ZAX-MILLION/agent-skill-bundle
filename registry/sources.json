@@ -417,6 +417,81 @@
       "syncable": false,
       "priority": 100,
       "note": "Eight exact original SKILL.md file bodies with MIT license overlays; manually reviewed. Original 292 source names indexed as metadata only; ECC's plugins, hooks, rules, agents, commands, memory runtime and MCP configuration not copied. Host adapters separate. Do not bulk install or overwrite existing Superpowers."
+    },
+    {
+      "id": "wshobson-godot",
+      "name": "agents",
+      "repository": "wshobson/agents",
+      "url": "https://github.com/wshobson/agents",
+      "default_branch": "main",
+      "categories": [
+        "coding"
+      ],
+      "type": "upstream",
+      "role": "skill_upstream",
+      "syncable": false,
+      "priority": 100,
+      "note": "Pinned full-directory import; subsequent sync requires manual source/script/license review. Reviewed Godot 4 skill directory only; full upstream plugin is not installed."
+    },
+    {
+      "id": "nextlevelbuilder-ui-ux-pro-max",
+      "name": "ui-ux-pro-max-skill",
+      "repository": "nextlevelbuilder/ui-ux-pro-max-skill",
+      "url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
+      "default_branch": "main",
+      "categories": [
+        "design"
+      ],
+      "type": "upstream",
+      "role": "skill_upstream",
+      "syncable": false,
+      "priority": 100,
+      "note": "Pinned full-directory import; subsequent sync requires manual source/script/license review. Full reviewed .claude/skills/ui-ux-pro-max package; script execution requires separate explicit tool approval."
+    },
+    {
+      "id": "addyosmani-web-quality",
+      "name": "web-quality-skills",
+      "repository": "addyosmani/web-quality-skills",
+      "url": "https://github.com/addyosmani/web-quality-skills",
+      "default_branch": "main",
+      "categories": [
+        "qa"
+      ],
+      "type": "upstream",
+      "role": "skill_upstream",
+      "syncable": false,
+      "priority": 100,
+      "note": "Pinned full-directory import; subsequent sync requires manual source/script/license review. Six coordinated source packages; keep original names so cross-skill relative references resolve."
+    },
+    {
+      "id": "alterlab-gameforge",
+      "name": "AlterLab_GameForge",
+      "repository": "AlterLab-IEU/AlterLab_GameForge",
+      "url": "https://github.com/AlterLab-IEU/AlterLab_GameForge",
+      "default_branch": "main",
+      "categories": [
+        "design"
+      ],
+      "type": "upstream",
+      "role": "skill_upstream",
+      "syncable": false,
+      "priority": 100,
+      "note": "Pinned full-directory import; subsequent sync requires manual source/script/license review. Reviewed economy-designer skill only; no agents/plugins or project state installed."
+    },
+    {
+      "id": "kindlmann-qa-skills",
+      "name": "qa-skills",
+      "repository": "petrkindlmann/qa-skills",
+      "url": "https://github.com/petrkindlmann/qa-skills",
+      "default_branch": "main",
+      "categories": [
+        "qa"
+      ],
+      "type": "upstream",
+      "role": "skill_upstream",
+      "syncable": false,
+      "priority": 100,
+      "note": "Pinned full-directory import; subsequent sync requires manual source/script/license review. Reviewed release-readiness skill only; no testing runtime installed."
     }
   ]
 }

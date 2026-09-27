@@ -59,9 +59,24 @@ See [registry/vendor-second-wave.json](registry/vendor-second-wave.json) for sou
 
 | Original project | Relationship |
 |---|---|
-| [ECC — Everything Claude Code, Affaan Mustafa](https://github.com/affaan-m/ECC) | Eight unchanged original `SKILL.md` files from `skills/`, each with a copy of upstream MIT root license; reviewed commit `e482e579415fde18357cafce70f177ae19fd7f03`. The other 284 canonical skill names are tracked in a metadata-only source index; plugin, rules, hooks, agents, commands, memory, executables and GitHub App are not redistributed or installed. |
+| [ECC — Everything Claude Code, Affaan Mustafa](https://github.com/affaan-m/ECC) | Nine unchanged original `SKILL.md` files from `skills/`, each with a copy of upstream MIT root license; reviewed commit `e482e579415fde18357cafce70f177ae19fd7f03`. The other 283 canonical skill names are tracked in a metadata-only source index; plugin, rules, hooks, agents, commands, memory, executables and GitHub App are not redistributed or installed. |
 
 See [ECC pinned original blob hashes](registry/vendor-ecc.json) and [ECC catalog guidance](research/agent-skills/references/ecc-catalog.md). Upstream remains the source of truth; per-host notes are outside the unchanged copied skills.
+
+## SkillsMP-discovered canonical sources (2026-09-27)
+
+The marketplace was used **only for discovery**; original authorship and MIT terms are verified against the following canonical repositories, not assigned to SkillsMP. Eleven complete original directories plus their unchanged root MIT license overlays have been selected.
+
+| Author / canonical repository | Complete package(s) |
+|---|---|
+| [Seth Hobson — wshobson/agents](https://github.com/wshobson/agents) | `coding/godot-gdscript-patterns`: original skill and both references. |
+| [Next Level Builder — UI/UX Pro Max](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) | `design/ui-ux-pro-max`: entire original 73-file package, including data, Python scripts, tests, reference material; no automatic execution or package setup. |
+| [Addy Osmani — web-quality-skills](https://github.com/addyosmani/web-quality-skills) | Six coordinated `qa/` directories with original names: accessibility, best-practices, core-web-vitals, performance, seo and web-quality-audit; full references and original script. |
+| [AlterLab GameForge](https://github.com/AlterLab-IEU/AlterLab_GameForge) | `design/game-economy-designer`: original source skill, not the surrounding agent framework. |
+| [Petr Kindlmann — qa-skills](https://github.com/petrkindlmann/qa-skills) | `qa/release-readiness`: original skill and both references. |
+| [Affaan Mustafa — ECC](https://github.com/affaan-m/ECC) | Additional ninth original skill, `process/agent-introspection-debugging`. |
+
+[Pin record: exact upstream commits, file Git blob hashes and per-package MIT licenses](registry/vendor-skillsmp-2026-09-27.json). **New original bundle-authored work:** `creative/game-ready-2d-asset-pipeline` and `qa/cross-agent-skill-verification`.
 
 ## External references (not redistributed)
 
@@ -86,7 +101,7 @@ These projects are important sources, but they are not falsely presented as auth
 
 ## Local skills
 
-The `security/` and `qa/` categories are maintained locally in this repository unless an individual entry is explicitly remapped later. They are not attributed to WordPress, Anthropic, or another upstream merely because they cover the same topic.
+The `security/` category and locally authored `qa/` entries remain bundle-maintained; selected new `qa/` packages are explicitly mapped to Addy Osmani, Petr Kindlmann, or ECC rather than falsely attributed to the bundle. They are not attributed to WordPress, Anthropic, or another upstream merely because they cover the same topic.
 
 ## Attribution policy
 

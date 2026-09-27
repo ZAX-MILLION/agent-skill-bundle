@@ -17,14 +17,14 @@ skills = sorted(
     p for category in categories
     for p in (repo / category).glob("*/SKILL.md")
 )
-assert len(skills) == 174, f"reviewed baseline changed: {len(skills)} != 174"
+assert len(skills) == 187, f"reviewed baseline changed: {len(skills)} != 187"
 names = [p.parent.name for p in skills]
 assert len(names) == len(set(names)), "duplicate native skill names across categories"
 
 # The two deliberately exposed native descriptions are the entire bootstrap.
 bootstrap = {"i-have-adhd", "skill-retrieval-routing"}
 assert bootstrap <= set(names)
-assert len(bootstrap) == 2 and len(skills) - len(bootstrap) == 172
+assert len(bootstrap) == 2 and len(skills) - len(bootstrap) == 185
 
 third = json.loads((repo / "registry/vendor-third-wave.json").read_text())
 ecc = json.loads((repo / "registry/vendor-ecc.json").read_text())
@@ -53,7 +53,7 @@ assert (repo / "process/diagnosing-superpowers/LICENSE.txt").is_file()
 assert by_repo["obra/superpowers"]["license"] == "MIT"
 
 assert ecc["source"] == "affaan-m/ECC" and ecc["upstream_license"] == "MIT"
-assert len(ecc["skill_pins"]) == 8
+assert len(ecc["skill_pins"]) == 9
 for local in ecc["skill_pins"]:
     path = repo / local
     assert path.is_file() and (path.parent / "LICENSE.txt").is_file(), local
@@ -78,7 +78,7 @@ for name in (
     assert entry["installation_in_bundle"] is False, name
     assert entry["credentials_in_bundle"] is False, name
 assert external["eternityspring/shuohao-skills"]["skills_copied"] == 0
-assert external["affaan-m/ECC"]["selected_portable_skill_bodies"] == 8
+assert external["affaan-m/ECC"]["selected_portable_skill_bodies"] == 9
 assert external["n8n-io/skills"]["access_granted"] is False
 
 # The installer only permits the two roots when --flat --on-demand is selected.
@@ -87,7 +87,7 @@ assert "productivity/i-have-adhd|research/skill-retrieval-routing" in installer
 assert 'if [ "$ON_DEMAND" -eq 1 ] && [ "$count" -ne 2 ]' in installer
 assert '--prune-managed' in installer
 print(
-    "PASS: 174 unique skills, 2 native bootstraps, 14 official n8n, "
-    "15 Superpowers, 8 selected ECC, 4 local guides, "
+    "PASS: 187 unique skills, 2 native bootstraps, 14 official n8n, "
+    "15 Superpowers, 9 selected ECC, 4 local guides, "
     "7 source pins, and external runtime/credential boundaries"
 )

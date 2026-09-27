@@ -7,7 +7,7 @@ trap 'rm -rf -- "$tmp"' EXIT
 
 "$root/install.sh" "$tmp/full" --flat >/dev/null
 full="$(find "$tmp/full" -mindepth 2 -maxdepth 2 -name SKILL.md | wc -l)"
-[ "$full" -eq 174 ] || { echo "FAIL: expected 174 full skills, got $full" >&2; exit 1; }
+[ "$full" -eq 187 ] || { echo "FAIL: expected 187 full skills, got $full" >&2; exit 1; }
 for skill in graphify graft awesome-design design-taste-frontend image-to-code web-design-guidelines agent-skills; do
   [ -f "$tmp/full/$skill/SKILL.md" ] || { echo "FAIL: missing $skill" >&2; exit 1; }
 done
@@ -28,6 +28,7 @@ done
 [ -f "$tmp/full/using-n8n-skills-official/LICENSE.txt" ]
 python3 "$root/tests/verify-third-wave.py" "$root" "$tmp/full"
 python3 "$root/tests/verify-ecc.py" "$root" "$tmp/full"
+python3 "$root/tests/verify-skillsmp-expansion.py" "$root" "$tmp/full"
 
 # Integrity: complete copied upstream files must remain byte-identical to reviewed blobs.
 python3 - "$root" "$tmp/full" <<'PY'
@@ -81,6 +82,10 @@ done
 [ ! -e "$tmp/minimal/n8n-agents-official" ]
 [ ! -e "$tmp/minimal/diagnosing-superpowers" ]
 [ ! -e "$tmp/minimal/context-budget" ]
+[ ! -e "$tmp/minimal/ui-ux-pro-max" ]
+[ ! -e "$tmp/minimal/godot-gdscript-patterns" ]
+[ ! -e "$tmp/minimal/agent-introspection-debugging" ]
+[ ! -e "$tmp/minimal/cross-agent-skill-verification" ]
 [ ! -e "$tmp/minimal/agent-architecture-audit" ]
 [ ! -e "$tmp/minimal/production-audit" ]
 
@@ -103,4 +108,4 @@ printf '%s\n' 'personal data' > "$tmp/full/personal-skill/SKILL.md"
 
 count="$(find "$tmp/full" -mindepth 2 -maxdepth 2 -name SKILL.md | wc -l)"
 [ "$count" -eq 3 ] || { echo "FAIL: expected 2 bootstraps and personal skill, got $count" >&2; exit 1; }
-echo "PASS: 174 full packages (38 beyond original 136), two-skill bootstrap, deliberate migration, unmarked user skill preserved."
+echo "PASS: 187 full packages (51 beyond original 136), two-skill bootstrap, deliberate migration, unmarked user skill preserved."
