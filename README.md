@@ -16,7 +16,7 @@ A source-preserving collection of reusable AI agent workflows for **Google Antig
 | **2** native bootstraps | `i-have-adhd` and `skill-retrieval-routing` in strict on-demand mode. |
 | **172** on-demand entries | Remain in the source checkout; local Skill Retrieval MCP must be configured separately for searchable access. |
 | **3 primary hosts** | Antigravity IDE, Codex, and Claude Code, using the same portable skill content. |
-| **No automatic setup** | No MCP service, cloud account, hooks, plugins, PC settings, credentials, or external executable is installed by this repository's installer. |
+| **Explicit setup only** | The installer copies selected skill directories when you run it; it does not register an MCP service, activate cloud accounts, install external executables, or read credentials. |
 
 ### Why strict on-demand?
 
@@ -84,7 +84,7 @@ The reviewed repositories, licenses, revisions, and distinctions between **origi
 | Reviewed ECC subset and metadata index | Install upstream's full native ECC plugin or host integrations, only after duplicate/hook review |
 | Source and license records | Provide any account, provider key, permission, or cloud service separately |
 
-**Nothing here silently configures your PC, activates a paid/cloud service, changes host rules, or grants access to private projects.** Treat third-party skills and scripts as untrusted until reviewed. Do not run multiple competing native orchestrators or duplicate MCP connections just because their skill guides exist in the vault.
+**The installer writes only the chosen skill directories when explicitly run; it does not silently configure MCP, activate a paid/cloud service, change host rules, or grant access to private projects.** Treat third-party skills and scripts as untrusted until reviewed. Do not run multiple competing native orchestrators or duplicate MCP connections just because their skill guides exist in the vault.
 
 ## Portable, not identical across hosts
 
