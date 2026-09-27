@@ -199,11 +199,27 @@ def stage(args):
         shutil.rmtree(temporary, ignore_errors=True)
 
 
+def node_prerequisite(check_version=False):
+    executable = shutil.which("node")
+    if not executable:
+        return "Missing Dependencies", "Node 18+ not found in PATH"
+    if not check_version:
+        return "Unverified", "complete package found; Node version and execution have not been checked"
+    proc = subprocess.run([executable, "--version"], capture_output=True,
+                          text=True, timeout=5, check=False)
+    match = re.match(r"^v?(\d+)\.", proc.stdout.strip()) if proc.returncode == 0 else None
+    if not match or int(match.group(1)) < 18:
+        return "Missing Dependencies", "Node 18+ required; current version was not compatible or could not be read"
+    return "Unverified", f"Node {proc.stdout.strip()} present; host/provider and full execution still unverified"
+
+
 def doctor(args):
     vault = args.vault.resolve()
     entries = skill_catalog(vault)
     names = [x["name"] for x in entries]
     issues = []
+    if len(entries) != 187:
+        issues.append(f"source vault has {len(entries)} skill directories, expected 187")
     if len(names) != len(set(names)):
         issues.append("duplicate local native skill names")
     host = None
@@ -240,11 +256,8 @@ def doctor(args):
         try:
             # Installed license/notice are copied in addition to original source manifest.
             verify_staged(target, package)
-            node = shutil.which("node")
-            if not node:
-                external[name] = {"status": "Missing Dependencies", "reason": "Node 18+ not found in PATH"}
-            else:
-                external[name] = {"status": "Unverified", "reason": "full source integrity passes; Node version, host tools and actual execution not verified"}
+            status, reason = node_prerequisite(getattr(args, "check_runtime", False))
+            external[name] = {"status": status, "reason": reason}
         except (ValidationError, OSError, ValueError) as exc:
             external[name] = {"status": "Missing Dependencies", "reason": str(exc)}
     output = {
@@ -309,6 +322,7 @@ def main():
     d.add_argument("--vault", type=pathlib.Path, default=ROOT)
     d.add_argument("--host-root", type=pathlib.Path, help="optional host native skills directory")
     d.add_argument("--external-root", type=pathlib.Path, help="optional separate external staged skill vault")
+    d.add_argument("--check-runtime", action="store_true", help="optionally run only node --version; no skill code")
     d.add_argument("--json", action="store_true")
     st = commands.add_parser("stage", help="opt-in complete pinned external skill copy; NO download, install or execution")
     st.add_argument("skill", choices=sorted(packages()))
