@@ -260,8 +260,31 @@ def doctor(args):
             external[name] = {"status": status, "reason": reason}
         except (ValidationError, OSError, ValueError) as exc:
             external[name] = {"status": "Missing Dependencies", "reason": str(exc)}
+    # Source integrity/discovery is distinct from runtime use. A fully present
+    # SKILL.md is not automatically 'Ready' in every host. Routers are marked
+    # Setup Required because their separate product/runtime is not in the vault.
+    runtime_guides = {
+        "creative/shuohao-skills", "creative/openmontage",
+        "process/paul", "automation/n8n-instance",
+        "productivity/claude-mem", "research/skill-retrieval-routing",
+    }
+    per_skill = {
+        item["source"]: {
+            "status": "Setup Required" if item["source"] in runtime_guides else "Unverified",
+            "reason": ("external source/runtime or MCP setup must be checked separately"
+                       if item["source"] in runtime_guides else
+                       "source SKILL.md present; actual host use not tested"),
+        }
+        for item in entries
+    }
+    status_counts = {
+        status: sum(1 for item in per_skill.values() if item["status"] == status)
+        for status in ("Ready", "Setup Required", "Missing Dependencies", "Unverified")
+    }
     output = {
         "source_vault_count": len(entries),
+        "status_counts": status_counts,
+        "per_skill": per_skill,
         "native_mode": "two-bootstrap only; runtime host discovery not verified",
         "native_bootstraps": host if host is not None else "Unverified (provide --host-root)",
         "retrieval_mcp": "Unverified; test the live MCP in each host with list_categories/keyword_search/search_skills/get_skill",
@@ -296,7 +319,9 @@ def verify_staged(directory, package):
 
 
 def pretty_doctor(data):
+    counts = data["status_counts"]
     lines = [f"Vault: {data['source_vault_count']} local skill directories",
+             f"Source status: {counts['Unverified']} unverified, {counts['Setup Required']} setup required; none marked execution-ready",
              "Retrieval MCP: Unverified (test the actual host connection)"]
     native = data["native_bootstraps"]
     if isinstance(native, dict):
