@@ -20,8 +20,8 @@ This directory is the trust layer for Agent Skill Bundle.
 - `upstream-state.json` — snapshot of checked upstream repository revisions.
 - `skills.json` — last written per-directory Git-tree audit snapshot.
 - `vendor-ponytail.json` — pinned upstream commit and original skill blob hashes; license-overlaid directories are manual-review, not `EXACT`.
-- `vendor-ecc.json` / `ecc-source-index.json` — eight source-preserved ECC skill blob pins plus metadata-only index of 292 canonical upstream skill names; no runtime or bulk native import.
-- `vendor-third-wave.json` — 100 pinned official n8n/Superpowers source and license blobs, optional runtime/source boundaries and 166-skill count.
+- `vendor-ecc.json` / `ecc-source-index.json` — nine source-preserved ECC skill blob pins plus metadata-only index of 292 canonical upstream skill names; no runtime or bulk native import.
+- `vendor-skillsmp-2026-09-27.json` — eleven complete canonical MIT source packages, 97 original supporting files, per-package license overlays, and two original local skills. No upstream scripts are executed by verification.\n- `vendor-third-wave.json` — 100 pinned official n8n/Superpowers source and license blobs, optional runtime/source boundaries and 166-skill count.
 - `vendor-second-wave.json` — Caveman, Humanizer and Marketing Events source/blob pins, plus Claude-Mem's local adapter boundary.
 - `portable-expansion.json` — reviewed source revisions for seven portable skills, exact blob hashes of copied upstream SKILL.md files and pinned guidelines.
 - `vendor-i-have-adhd.json` — pinned canonical communication skill and MIT license hashes; Antigravity always-on rule is a separate local adapter.
