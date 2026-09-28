@@ -218,8 +218,8 @@ def doctor(args):
     entries = skill_catalog(vault)
     names = [x["name"] for x in entries]
     issues = []
-    if len(entries) != 187:
-        issues.append(f"source vault has {len(entries)} skill directories, expected 187")
+    if len(entries) != 188:
+        issues.append(f"source vault has {len(entries)} skill directories, expected 188")
     if len(names) != len(set(names)):
         issues.append("duplicate local native skill names")
     host = None
