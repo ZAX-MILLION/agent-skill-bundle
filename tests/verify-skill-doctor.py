@@ -112,8 +112,8 @@ with tempfile.TemporaryDirectory() as td:
         assert result["external"]["novel-art"]["status"] == "Setup Required"
         assert result["retrieval_mcp"].startswith("Unverified")
         assert result["execution"].startswith("Unverified")
-        assert result["source_vault_count"] == 187
-        assert len(result["per_skill"]) == 187
+        assert result["source_vault_count"] == 188
+        assert len(result["per_skill"]) == 188
         assert result["status_counts"]["Ready"] == 0
         assert result["per_skill"]["creative/shuohao-skills"]["status"] == "Setup Required"
         assert result["per_skill"]["process/systematic-debugging"]["status"] == "Unverified"
