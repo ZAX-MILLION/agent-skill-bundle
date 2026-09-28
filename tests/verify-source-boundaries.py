@@ -17,14 +17,14 @@ skills = sorted(
     p for category in categories
     for p in (repo / category).glob("*/SKILL.md")
 )
-assert len(skills) == 187, f"reviewed baseline changed: {len(skills)} != 187"
+assert len(skills) == 188, f"reviewed baseline changed: {len(skills)} != 188"
 names = [p.parent.name for p in skills]
 assert len(names) == len(set(names)), "duplicate native skill names across categories"
 
 # The two deliberately exposed native descriptions are the entire bootstrap.
 bootstrap = {"i-have-adhd", "skill-retrieval-routing"}
 assert bootstrap <= set(names)
-assert len(bootstrap) == 2 and len(skills) - len(bootstrap) == 185
+assert len(bootstrap) == 2 and len(skills) - len(bootstrap) == 186
 
 third = json.loads((repo / "registry/vendor-third-wave.json").read_text())
 ecc = json.loads((repo / "registry/vendor-ecc.json").read_text())
@@ -68,6 +68,15 @@ for relative in routers:
     assert sorted(p.name for p in directory.iterdir()) == ["SKILL.md"], relative
     assert "Original" in (directory / "SKILL.md").read_text(), relative
 
+# video-editor-bassam is a local portable adapter with an integrity verifier only.
+veb = repo / "creative/video-editor-bassam"
+veb_manifest = json.loads((veb / "references/package-manifest.json").read_text())
+assert (veb / "SKILL.md").is_file()
+assert (veb / "scripts/verify_package.py").is_file()
+assert veb_manifest["directory"]["file_count"] == 90
+assert veb_manifest["redistribution"]["original_code_in_bundle"] is False
+assert not (veb / "styles").exists(), "third-party runtime assets must stay external"
+
 external = {e["repository"]: e for e in externals["external_sources"]}
 for name in (
     "ChristopherKahler/paul", "calesthio/OpenMontage",
@@ -87,7 +96,7 @@ assert "productivity/i-have-adhd|research/skill-retrieval-routing" in installer
 assert 'if [ "$ON_DEMAND" -eq 1 ] && [ "$count" -ne 2 ]' in installer
 assert '--prune-managed' in installer
 print(
-    "PASS: 187 unique skills, 2 native bootstraps, 14 official n8n, "
+    "PASS: 188 unique skills, 2 native bootstraps, 14 official n8n, "
     "15 Superpowers, 9 selected ECC, 4 local guides, "
     "7 source pins, and external runtime/credential boundaries"
 )
