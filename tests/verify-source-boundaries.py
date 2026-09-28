@@ -68,8 +68,8 @@ for relative in routers:
     assert sorted(p.name for p in directory.iterdir()) == ["SKILL.md"], relative
     assert "Original" in (directory / "SKILL.md").read_text(), relative
 
-# video-editor-bassam is a local portable adapter with an integrity verifier only.
-veb = repo / "creative/video-editor-bassam"
+# zax-editor is a local portable adapter for the external video-editor-bassam runtime.
+veb = repo / "creative/zax-editor"
 veb_manifest = json.loads((veb / "references/package-manifest.json").read_text())
 assert (veb / "SKILL.md").is_file()
 assert (veb / "scripts/verify_package.py").is_file()
