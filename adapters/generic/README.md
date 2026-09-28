@@ -20,6 +20,7 @@ Common task → category mapping:
 
 - any code/config/infrastructure change → `security/secure-by-default-development` + narrow task skill
 - UI, frontend, documents, design systems → `design/`
+- video/audio editing, motion graphics and media-production routers → `creative/`
 - security review, API probing, WordPress security → `security/`
 - planning, debugging, TDD, code review, verification → `process/`
 - multiplayer state, chat rooms, live cursors → `multiplayer/`
