@@ -49,6 +49,7 @@ See [registry/vendor-second-wave.json](registry/vendor-second-wave.json) for sou
 | [obra Superpowers](https://github.com/obra/superpowers) | Added `diagnosing-superpowers` skill's 20 original files unchanged plus upstream MIT license overlay. Existing 14 Superpowers skill copies remain under separate upstream review. |
 | [PAUL — Chris Kahler](https://github.com/ChristopherKahler/paul) | Original local portable workflow adapter only. No Claude commands/runtime copied. |
 | [OpenMontage — calesthio](https://github.com/calesthio/OpenMontage) | Original local video-workflow guide only. AGPL-3.0 runtime and creative assets not copied. |
+| video-editor-bassam — with.bassam (user-supplied distribution package) | Original local cross-host router + integrity verifier only. Reviewed archive SHA-256 `6298972ab0429d74c2cf5607a535278b3156a8252f1bf007f46e4b808b700234`; original 90-file runtime not redistributed because the supplied guide permits personal/commercial use but does not state a general code-redistribution license. |
 | [shuohao-skills — eternityspring](https://github.com/eternityspring/shuohao-skills) | Original local router to six separately installed original skill packages. No JS executables or binary assets copied. |
 | [Pixel Agents](https://github.com/pixel-agents-hq/pixel-agents) | Reference-only external MIT extension/CLI; not an upstream skill. |
 | [czlonkowski/n8n-mcp](https://github.com/czlonkowski/n8n-mcp) | Reference-only third-party MCP; distinct from official n8n instance-level MCP. |
