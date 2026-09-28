@@ -2,7 +2,7 @@
 
 ![Animated Agent Skill Bundle reactor — illustration of the earlier 174-skill edition](docs/images/agent-skill-bundle-reactor.gif)
 
-**187 reviewed agent-skill directories. One source vault. Two native bootstrap skills.**
+**188 reviewed agent-skill directories. One source vault. Two native bootstrap skills.**
 
 A source-preserving collection of reusable AI agent workflows for **Google Antigravity, OpenAI Codex, Claude Code**, and other file-based Agent Skills hosts. Find the skill you need without loading the entire collection into the agent's native startup discovery.
 
@@ -14,17 +14,17 @@ A source-preserving collection of reusable AI agent workflows for **Google Antig
 
 | | |
 |---|---|
-| **187** skill directories | The complete reviewed source vault, including local adapters. |
+| **188** skill directories | The complete reviewed source vault, including local adapters. |
 | **2** native bootstraps | `i-have-adhd` and `skill-retrieval-routing` in strict on-demand mode. |
-| **185** on-demand entries | Remain in the source checkout; local Skill Retrieval MCP must be configured separately for searchable access. |
+| **186** on-demand entries | Remain in the source checkout; local Skill Retrieval MCP must be configured separately for searchable access. |
 | **3 primary hosts** | Antigravity IDE, Codex, and Claude Code, using the same portable skill content. |
 | **Explicit setup only** | The installer copies selected skill directories when you run it; it does not register an MCP service, activate cloud accounts, install external executables, or read credentials. |
 
 ### Why strict on-demand?
 
-Installing 187 skills natively exposes their descriptions to host discovery. The preferred setup exposes only **two** bootstrap descriptions from this bundle. When a task needs something specific, the separately configured local retrieval service finds the relevant skill; the agent then reads that skill and its supporting files from the **one source checkout**.
+Installing 188 skills natively exposes their descriptions to host discovery. The preferred setup exposes only **two** bootstrap descriptions from this bundle. When a task needs something specific, the separately configured local retrieval service finds the relevant skill; the agent then reads that skill and its supporting files from the **one source checkout**.
 
-This keeps discovery focused. It does **not** mean that all 185 skill bodies are automatically installed, that a skill grants a tool or permission, or that Antigravity/Codex/Claude have identical capabilities.
+This keeps discovery focused. It does **not** mean that all 186 skill bodies are automatically installed, that a skill grants a tool or permission, or that Antigravity/Codex/Claude have identical capabilities.
 
 ![Three-step on-demand workflow: two bootstraps, search the reviewed source vault with separately configured MCP, and load the selected complete skill](docs/images/on-demand-workflow.svg)
 
@@ -52,7 +52,7 @@ Antigravity **CLI** has a different path from the IDE. Verify each installed hos
 
 **Important second step:** the two-skill install does not provide search by itself. Separately review, install, and connect [Skill Retrieval MCP](https://github.com/JayCheng113/skill-retrieval-mcp), index **this source checkout only**, and merge its local MCP entry into each host's existing settings. The MCP index does not replace the source files: scripts, references, templates, images, and licenses remain in the checkout. Follow the [two-stage setup](adapters/antigravity/skill-retrieval-mcp.md) and [multi-host guide](adapters/multi-host/README.md).
 
-For an explicitly chosen full native install, see [`install.sh`](install.sh) and the host adapters. A full install exposes all 187 native skill descriptions and **is not** strict on-demand.
+For an explicitly chosen full native install, see [`install.sh`](install.sh) and the host adapters. A full install exposes all 188 native skill descriptions and **is not** strict on-demand.
 
 
 ### Check discovery and external-package readiness
@@ -88,6 +88,7 @@ For Shuohao, the existing router remains in the bundle; all six original full pa
 - **Official n8n:** 14 full skills including references/examples; no live n8n instance, MCP authorization, workflow trigger, or credentials. The community `czlonkowski/n8n-mcp` server is a separate optional product.
 - **PAUL:** locally authored portable Plan–Apply–Unify guide; upstream's native Claude Code framework and slash commands remain external.
 - **OpenMontage:** local video-workflow guide; the AGPL-3.0 application, models, providers, and media assets remain external.
+- **video-editor-bassam:** local cross-host router plus package-integrity verifier for a separately obtained 90-file Arabic talking-head editing runtime. The original runtime is not redistributed because the supplied materials did not establish a general code-redistribution license.
 - **shuohao-skills:** local router to six external original packages. Their scripts, references, and image assets must be kept together if installed separately.
 - **Pixel Agents:** reference-only visual agent-office/VS Code tooling, not an `SKILL.md` package or an upgrade to the model.
 
@@ -108,7 +109,7 @@ Eleven complete, pinned MIT-licensed upstream skill packages and two **original 
 | `game-ready-2d-asset-pipeline` | Original workflow for transparent, modular, production-ready sprite assets |
 | `cross-agent-skill-verification` | Original workflow to verify discovery and use across Antigravity, Codex and Claude Code |
 
-**Strict on-demand is unchanged:** only `i-have-adhd` and `skill-retrieval-routing` are installed natively. The 185 other skill directories remain in the one checkout until the separate local retrieval service is configured and a relevant skill is requested. No models, paid API, MCP server, host plugin, Python dependency, credential, or production service is installed automatically.
+**Strict on-demand is unchanged:** only `i-have-adhd` and `skill-retrieval-routing` are installed natively. The 186 other skill directories remain in the one checkout until the separate local retrieval service is configured and a relevant skill is requested. No models, paid API, MCP server, host plugin, Python dependency, credential, or production service is installed automatically.
 
 ## Skills are not software
 
@@ -116,7 +117,7 @@ Eleven complete, pinned MIT-licensed upstream skill packages and two **original 
 |---|---|
 | Portable `SKILL.md` workflows and bundled supporting files | Install/configure Skill Retrieval MCP for local search |
 | Original local connection guides | Authorize an n8n instance or install a community MCP server |
-| PAUL, OpenMontage, shuohao, Claude-Mem routing guidance | Install the selected framework, app, plugin, or complete external source |
+| PAUL, OpenMontage, video-editor-bassam, shuohao, Claude-Mem routing guidance | Install the selected framework, app, plugin, or complete external source |
 | Reviewed ECC subset and metadata index | Install upstream's full native ECC plugin or host integrations, only after duplicate/hook review |
 | Source and license records | Provide any account, provider key, permission, or cloud service separately |
 
@@ -166,4 +167,4 @@ python3 scripts/sync_reviewed.py process/writing-skills
 
 Use `--write` with source/audit tools only when intentionally refreshing metadata. [`scripts/prepare_updates.py`](scripts/prepare_updates.py) prepares review branches; it never merges them automatically. The repository's GitHub Actions workflow runs the public-content and installation checks on PRs and main pushes. The separate [server-local update checker](ops/README.md) is optional; no GitHub Actions schedule is required.
 
-**Current baseline:** 187 unique directories, two native bootstrap skills in strict mode; 185 retained in one checked-out source vault. [Selected package pins](registry/vendor-skillsmp-2026-09-27.json) · [Previous source/runtime review](docs/REVIEW_2026-09-27.md).
+**Current baseline:** 188 unique directories, two native bootstrap skills in strict mode; 186 retained in one checked-out source vault. [Selected package pins](registry/vendor-skillsmp-2026-09-27.json) · [Previous source/runtime review](docs/REVIEW_2026-09-27.md).

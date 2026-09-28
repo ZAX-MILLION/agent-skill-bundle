@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "adapter_path": "creative/video-editor-bassam",
+  "source": {
+    "kind": "user-supplied distribution archive",
+    "label": "with.bassam / video-editor-bassam",
+    "public_repository": "not provided in reviewed materials",
+    "reviewed_at": "2026-09-28"
+  },
+  "reviewed_package": {
+    "archive_name": "video-editor-bassam.zip",
+    "archive_size": 4187802,
+    "archive_sha256": "6298972ab0429d74c2cf5607a535278b3156a8252f1bf007f46e4b808b700234",
+    "unpacked_file_count": 90,
+    "unpacked_size": 4540825,
+    "tree_sha256": "d1d5141d9682c5570648ae8bcccdfa0644a7c6cfc764c39c87e46a3a006dcd59"
+  },
+  "licensing_boundary": {
+    "personal_commercial_use_stated_in_supplied_guide": true,
+    "general_code_redistribution_license_found": false,
+    "original_runtime_redistributed": false
+  },
+  "bundle_distribution": {
+    "relationship": "original local cross-host router and integrity verifier",
+    "original_runtime_files_copied": 0,
+    "runtime_installation_automatic": false,
+    "dependencies_installed_automatic": false,
+    "credentials_in_bundle": false,
+    "user_media_in_bundle": false
+  },
+  "execution_status": "Unverified until the reviewed external package and its dependencies run successfully in the active host."
+}

@@ -53,7 +53,7 @@ python3 scripts/skill_doctor.py doctor \
 
 **Windows:** run the equivalent `py -3 scripts/skill_doctor.py ...` if Python is installed; use quoted actual Windows paths. These examples are **not executed by the bundle**, and no Python/Node/Git installation is performed for you. The default stage command will not overwrite an existing directory. `--replace-managed` is opt-in and only accepts a previously verified package with the expected marker, all original file hashes and license/notice. Copy/replace uses a temporary directory and preserves the last valid copy if moving the new copy fails. Do not place user projects or personal media in the public Git repository.
 
-Staging is into a separate **private external source directory**, not the host's native global skill root. Read the staged `SKILL.md` or explicitly add the reviewed external directory to your local retrieval setup after checking for name collisions. The bundle does not automatically register or index this package; the central reviewed bundle count stays **187**. No third-party scripts are invoked by the status or stage commands.
+Staging is into a separate **private external source directory**, not the host's native global skill root. Read the staged `SKILL.md` or explicitly add the reviewed external directory to your local retrieval setup after checking for name collisions. The bundle does not automatically register or index this package; the central reviewed bundle count stays **188**. No third-party scripts are invoked by the status or stage commands.
 
 ### Runtime and workflow prerequisites
 
