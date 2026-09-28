@@ -54,6 +54,6 @@ All seven expansion skills are available via source-checkout retrieval. `design-
 
 Caveman is a user-invoked optional style, not a replacement for `i-have-adhd`. Claude-Mem's documented `--ide antigravity` installer targets **Antigravity CLI**, not verified desktop IDE hooks; review config, privacy and backups before use. See [multi-host notes](../multi-host/README.md).
 
-Official n8n skills, PAUL, OpenMontage, video-editor-bassam and shuohao routers are loaded by source retrieval. The n8n MCP connection must be configured and authorized separately; no n8n instance, media provider or Pixel Agents visual integration was installed or tested on the desktop IDE by merging the repository.
+Official n8n skills, PAUL, OpenMontage, zax-editor and shuohao routers are loaded by source retrieval. The n8n MCP connection must be configured and authorized separately; no n8n instance, media provider or Pixel Agents visual integration was installed or tested on the desktop IDE by merging the repository.
 
 ECC note: nine approved portable source skills are available through on-demand retrieval. Upstream's separate native Antigravity adapter writes project `.agents/rules`, `.agents/workflows`, `.agents/skills` and `.agents/agents`; do **not** run it blindly on a workspace already using the bundle. Review its install-state and path collisions first. The original `context-budget` skill uses Claude paths as examples; inspect actual IDE configuration, not nonexistent assumed paths. See [ECC source reference](../../research/agent-skills/references/ecc-catalog.md).

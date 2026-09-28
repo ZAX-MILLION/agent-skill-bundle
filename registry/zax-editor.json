@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "adapter_path": "creative/video-editor-bassam",
+  "adapter_path": "creative/zax-editor",
   "source": {
     "kind": "user-supplied distribution archive",
     "label": "with.bassam / video-editor-bassam",
@@ -21,7 +21,7 @@
     "original_runtime_redistributed": false
   },
   "bundle_distribution": {
-    "relationship": "original local cross-host router and integrity verifier",
+    "relationship": "ZAX Editor local cross-host router and integrity verifier",
     "original_runtime_files_copied": 0,
     "runtime_installation_automatic": false,
     "dependencies_installed_automatic": false,

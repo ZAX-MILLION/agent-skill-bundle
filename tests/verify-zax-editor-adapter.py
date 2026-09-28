@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Offline tests for the video-editor-bassam portable adapter and verifier."""
+"""Offline tests for the zax-editor portable adapter and verifier."""
 from __future__ import annotations
 
 import contextlib
@@ -12,15 +12,15 @@ import tempfile
 import zipfile
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
-ADAPTER = ROOT / "creative/video-editor-bassam"
-REGISTRY = json.loads((ROOT / "registry/video-editor-bassam.json").read_text(encoding="utf-8"))
+ADAPTER = ROOT / "creative/zax-editor"
+REGISTRY = json.loads((ROOT / "registry/zax-editor.json").read_text(encoding="utf-8"))
 MANIFEST = json.loads((ADAPTER / "references/package-manifest.json").read_text(encoding="utf-8"))
 
 spec = importlib.util.spec_from_file_location("veb_verify", ADAPTER / "scripts/verify_package.py")
 verify = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(verify)
 
-assert REGISTRY["adapter_path"] == "creative/video-editor-bassam"
+assert REGISTRY["adapter_path"] == "creative/zax-editor"
 assert REGISTRY["reviewed_package"]["archive_sha256"] == MANIFEST["archive"]["sha256"]
 assert REGISTRY["reviewed_package"]["unpacked_file_count"] == MANIFEST["directory"]["file_count"] == 90
 assert REGISTRY["reviewed_package"]["tree_sha256"] == MANIFEST["directory"]["tree_sha256"]
@@ -103,4 +103,4 @@ with tempfile.TemporaryDirectory() as td:
     except verify.VerificationError:
         pass
 
-print("PASS: video-editor-bassam adapter registry, integrity verifier, tamper rejection and archive-root safety")
+print("PASS: zax-editor adapter registry, integrity verifier, tamper rejection and archive-root safety")

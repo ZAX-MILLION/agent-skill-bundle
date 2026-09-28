@@ -1,9 +1,9 @@
 ---
-name: video-editor-bassam
-description: Portable cross-agent router for the separately obtained video-editor-bassam Arabic talking-head editing runtime. Use for 9:16 reels, silence cutting, word-timed Arabic captions, light edits, full motion graphics, SFX, and verified MP4/SRT/TXT delivery when the reviewed external package is available locally.
+name: zax-editor
+description: ZAX Editor portable cross-agent router for the separately obtained video-editor-bassam Arabic talking-head editing runtime. Use for 9:16 reels, silence cutting, word-timed Arabic captions, light edits, full motion graphics, SFX, and verified MP4/SRT/TXT delivery when the reviewed external package is available locally.
 ---
 
-# video-editor-bassam — portable external-runtime adapter
+# zax-editor — portable external-runtime adapter
 
 This is a **bundle-authored cross-host adapter**, not a redistributed copy of the original 90-file runtime.
 

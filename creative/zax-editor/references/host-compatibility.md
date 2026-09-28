@@ -1,4 +1,4 @@
-# Host compatibility — video-editor-bassam
+# Host compatibility — zax-editor
 
 The bundle skill is portable. The external video runtime still needs local filesystem and process execution.
 

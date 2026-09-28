@@ -19,7 +19,7 @@ done
 [ -f "$tmp/full/events/LICENSE.txt" ]
 [ -f "$tmp/full/caveman/LICENSE.txt" ]
 [ -f "$tmp/full/humanizer/LICENSE.txt" ]
-for skill in paul diagnosing-superpowers openmontage shuohao-skills video-editor-bassam n8n-instance; do
+for skill in paul diagnosing-superpowers openmontage shuohao-skills zax-editor n8n-instance; do
   [ -f "$tmp/full/$skill/SKILL.md" ] || { echo "FAIL: missing $skill" >&2; exit 1; }
 done
 [ -f "$tmp/full/diagnosing-superpowers/references/redaction-policy.md" ]
