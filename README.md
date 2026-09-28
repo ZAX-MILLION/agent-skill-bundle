@@ -88,7 +88,7 @@ For Shuohao, the existing router remains in the bundle; all six original full pa
 - **Official n8n:** 14 full skills including references/examples; no live n8n instance, MCP authorization, workflow trigger, or credentials. The community `czlonkowski/n8n-mcp` server is a separate optional product.
 - **PAUL:** locally authored portable Plan–Apply–Unify guide; upstream's native Claude Code framework and slash commands remain external.
 - **OpenMontage:** local video-workflow guide; the AGPL-3.0 application, models, providers, and media assets remain external.
-- **video-editor-bassam:** local cross-host router plus package-integrity verifier for a separately obtained 90-file Arabic talking-head editing runtime. The original runtime is not redistributed because the supplied materials did not establish a general code-redistribution license.
+- **zax-editor:** local cross-host router plus package-integrity verifier for the separately obtained 90-file `video-editor-bassam` Arabic talking-head editing runtime. The original runtime is not redistributed because the supplied materials did not establish a general code-redistribution license.
 - **shuohao-skills:** local router to six external original packages. Their scripts, references, and image assets must be kept together if installed separately.
 - **Pixel Agents:** reference-only visual agent-office/VS Code tooling, not an `SKILL.md` package or an upgrade to the model.
 
@@ -117,7 +117,7 @@ Eleven complete, pinned MIT-licensed upstream skill packages and two **original 
 |---|---|
 | Portable `SKILL.md` workflows and bundled supporting files | Install/configure Skill Retrieval MCP for local search |
 | Original local connection guides | Authorize an n8n instance or install a community MCP server |
-| PAUL, OpenMontage, video-editor-bassam, shuohao, Claude-Mem routing guidance | Install the selected framework, app, plugin, or complete external source |
+| PAUL, OpenMontage, zax-editor, shuohao, Claude-Mem routing guidance | Install the selected framework, app, plugin, or complete external source |
 | Reviewed ECC subset and metadata index | Install upstream's full native ECC plugin or host integrations, only after duplicate/hook review |
 | Source and license records | Provide any account, provider key, permission, or cloud service separately |
 
