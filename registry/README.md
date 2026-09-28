@@ -26,6 +26,7 @@ This directory is the trust layer for Agent Skill Bundle.
 - `vendor-second-wave.json` — Caveman, Humanizer and Marketing Events source/blob pins, plus Claude-Mem's local adapter boundary.
 - `portable-expansion.json` — reviewed source revisions for seven portable skills, exact blob hashes of copied upstream SKILL.md files and pinned guidelines.
 - `vendor-i-have-adhd.json` — pinned canonical communication skill and MIT license hashes; Antigravity always-on rule is a separate local adapter.
+- `video-editor-bassam.json` — reviewed hash/size identity and redistribution boundary for the separately obtained video-editor-bassam runtime; the public bundle ships only its local cross-host router and verifier.
 
 ## Source roles
 
