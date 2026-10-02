@@ -1,0 +1,125 @@
+{
+  "schema_version": 1,
+  "review_date": "2026-10-02",
+  "canonical_repository": "owainlewis/blueprint",
+  "reviewed_commit": "3e67383af173de14e1cee1a42e04b9b331afee23",
+  "upstream_license": "MIT",
+  "policy": {
+    "original_skill_text_unmodified": true,
+    "license_overlay": true,
+    "manual_review_before_update": true,
+    "no_runtime_or_host_config_installed": true,
+    "selected_not_bulk_import": true
+  },
+  "selection_reason": "Selected agentic delivery/review workflows that add distinct value without bulk-importing overlapping planning/design skills.",
+  "packages": [
+    {
+      "name": "task-to-pr",
+      "repository": "owainlewis/blueprint",
+      "reviewed_commit": "3e67383af173de14e1cee1a42e04b9b331afee23",
+      "upstream_license": "MIT",
+      "source_directory": "skills/task-to-pr",
+      "local_directory": "process/task-to-pr",
+      "relationship": "Original upstream SKILL.md unchanged; root MIT license copied into the local skill directory. Manual-review-only; no Blueprint runtime/plugin is installed.",
+      "files": {
+        "SKILL.md": {
+          "sha": "14c34904de65405fbd629978d2e9466e2fb9d7be"
+        },
+        "LICENSE.txt": {
+          "source_path": "LICENSE",
+          "sha": "a9b34fbc9fe9472dfc87df0adb2837ff82748a4d"
+        }
+      }
+    },
+    {
+      "name": "test",
+      "repository": "owainlewis/blueprint",
+      "reviewed_commit": "3e67383af173de14e1cee1a42e04b9b331afee23",
+      "upstream_license": "MIT",
+      "source_directory": "skills/test",
+      "local_directory": "process/test",
+      "relationship": "Original upstream SKILL.md unchanged; root MIT license copied into the local skill directory. Manual-review-only; no Blueprint runtime/plugin is installed.",
+      "files": {
+        "SKILL.md": {
+          "sha": "4602705da28fd24f627263e90877a683c925147e"
+        },
+        "LICENSE.txt": {
+          "source_path": "LICENSE",
+          "sha": "a9b34fbc9fe9472dfc87df0adb2837ff82748a4d"
+        }
+      }
+    },
+    {
+      "name": "review",
+      "repository": "owainlewis/blueprint",
+      "reviewed_commit": "3e67383af173de14e1cee1a42e04b9b331afee23",
+      "upstream_license": "MIT",
+      "source_directory": "skills/review",
+      "local_directory": "process/review",
+      "relationship": "Original upstream SKILL.md unchanged; root MIT license copied into the local skill directory. Manual-review-only; no Blueprint runtime/plugin is installed.",
+      "files": {
+        "SKILL.md": {
+          "sha": "3b256fd0fd98d28d0567caeafa538be30c80988f"
+        },
+        "LICENSE.txt": {
+          "source_path": "LICENSE",
+          "sha": "a9b34fbc9fe9472dfc87df0adb2837ff82748a4d"
+        }
+      }
+    },
+    {
+      "name": "factory",
+      "repository": "owainlewis/blueprint",
+      "reviewed_commit": "3e67383af173de14e1cee1a42e04b9b331afee23",
+      "upstream_license": "MIT",
+      "source_directory": "skills/factory",
+      "local_directory": "process/factory",
+      "relationship": "Original upstream SKILL.md unchanged; root MIT license copied into the local skill directory. Manual-review-only; no Blueprint runtime/plugin is installed.",
+      "files": {
+        "SKILL.md": {
+          "sha": "cccb1bf5d845859c400b3472a9e63d82bf398587"
+        },
+        "LICENSE.txt": {
+          "source_path": "LICENSE",
+          "sha": "a9b34fbc9fe9472dfc87df0adb2837ff82748a4d"
+        }
+      }
+    },
+    {
+      "name": "codex-issue-coordinator",
+      "repository": "owainlewis/blueprint",
+      "reviewed_commit": "3e67383af173de14e1cee1a42e04b9b331afee23",
+      "upstream_license": "MIT",
+      "source_directory": "skills/codex-issue-coordinator",
+      "local_directory": "process/codex-issue-coordinator",
+      "relationship": "Original upstream SKILL.md unchanged; root MIT license copied into the local skill directory. Manual-review-only; no Blueprint runtime/plugin is installed.",
+      "files": {
+        "SKILL.md": {
+          "sha": "f48fac499ee5cd53b9df536cf59d8be2a30daf93"
+        },
+        "LICENSE.txt": {
+          "source_path": "LICENSE",
+          "sha": "a9b34fbc9fe9472dfc87df0adb2837ff82748a4d"
+        }
+      }
+    },
+    {
+      "name": "architecture-review",
+      "repository": "owainlewis/blueprint",
+      "reviewed_commit": "3e67383af173de14e1cee1a42e04b9b331afee23",
+      "upstream_license": "MIT",
+      "source_directory": "skills/architecture-review",
+      "local_directory": "process/architecture-review",
+      "relationship": "Original upstream SKILL.md unchanged; root MIT license copied into the local skill directory. Manual-review-only; no Blueprint runtime/plugin is installed.",
+      "files": {
+        "SKILL.md": {
+          "sha": "9a6a2f8e05f6637eca9ac51716a4b89d17ba07aa"
+        },
+        "LICENSE.txt": {
+          "source_path": "LICENSE",
+          "sha": "a9b34fbc9fe9472dfc87df0adb2837ff82748a4d"
+        }
+      }
+    }
+  ]
+}
