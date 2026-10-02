@@ -17,19 +17,20 @@ skills = sorted(
     p for category in categories
     for p in (repo / category).glob("*/SKILL.md")
 )
-assert len(skills) == 195, f"reviewed baseline changed: {len(skills)} != 195"
+assert len(skills) == 200, f"reviewed baseline changed: {len(skills)} != 200"
 names = [p.parent.name for p in skills]
 assert len(names) == len(set(names)), "duplicate native skill names across categories"
 
 # The two deliberately exposed native descriptions are the entire bootstrap.
 bootstrap = {"i-have-adhd", "skill-retrieval-routing"}
 assert bootstrap <= set(names)
-assert len(bootstrap) == 2 and len(skills) - len(bootstrap) == 193
+assert len(bootstrap) == 2 and len(skills) - len(bootstrap) == 198
 
 third = json.loads((repo / "registry/vendor-third-wave.json").read_text())
 ecc = json.loads((repo / "registry/vendor-ecc.json").read_text())
 externals = json.loads((repo / "registry/external-capabilities.json").read_text())
 blueprint = json.loads((repo / "registry/vendor-blueprint.json").read_text())
+emil = json.loads((repo / "registry/vendor-emil-kowalski.json").read_text())
 by_repo = {e["source"]: e for e in third["source_revisions"]}
 assert len(by_repo) == 7
 assert len(third["pinned_git_blob_sha"]) == 100
@@ -67,6 +68,18 @@ for pkg in blueprint["packages"]:
     local = repo / pkg["local_directory"]
     assert (local / "SKILL.md").is_file(), local
     assert (local / "LICENSE.txt").is_file(), local
+
+
+# Five selected Emil Kowalski UI/motion packages are complete and pinned.
+assert emil["canonical_repository"] == "emilkowalski/skills"
+assert emil["reviewed_commit"] == "e8a175de22ae1e49370fc144c1f3bb9aeedf988d"
+assert len(emil["packages"]) == 5
+for pkg in emil["packages"]:
+    local = repo / pkg["local_directory"]
+    assert (local / "SKILL.md").is_file(), local
+    assert (local / "LICENSE.txt").is_file(), local
+    for relative in pkg["files"]:
+        assert (local / relative).is_file(), local / relative
 
 # The bundle-authored adapters are guides, not partial upstream runtime copies.
 routers = (
@@ -109,7 +122,7 @@ assert 'if [ "$MODE" = "on-demand" ] && [ "$count" -ne 2 ]' in installer
 assert 'if [ "$MODE" = "codex-efficient" ] && [ "$count" -ne 12 ]' in installer
 assert '--prune-managed' in installer
 print(
-    "PASS: 195 unique skills, 2 strict bootstraps, 12-skill Codex-efficient profile, "
+    "PASS: 200 unique skills, 2 strict bootstraps, 12-skill Codex-efficient profile, "
     "14 official n8n, 15 Superpowers, 9 selected ECC, 6 selected Blueprint skills, "
-    "and external runtime/credential boundaries"
+    "5 selected Emil Kowalski skills, and external runtime/credential boundaries"
 )
