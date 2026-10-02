@@ -41,6 +41,7 @@ done
 python3 "$root/tests/verify-third-wave.py" "$root" "$tmp/full"
 python3 "$root/tests/verify-ecc.py" "$root" "$tmp/full"
 python3 "$root/tests/verify-skillsmp-expansion.py" "$root" "$tmp/full"
+python3 "$root/tests/verify-emil-kowalski.py" "$root" "$tmp/full"
 
 # Integrity: committed Git blobs must match reviewed pins; installed copies
 # must match the checked-out source bytes. This tolerates Windows CRLF checkout
