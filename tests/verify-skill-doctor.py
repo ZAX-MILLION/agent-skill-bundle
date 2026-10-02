@@ -105,15 +105,15 @@ with tempfile.TemporaryDirectory() as td:
         assert (dest / "SKILL.md").read_text().startswith("---"), "failed stage damaged good package"
 
         # Doctor does not report 'Ready' just because a guide or code copy exists.
-        dargs = SimpleNamespace(vault=ROOT, host_root=None, external_root=None, json=True)
+        dargs = SimpleNamespace(vault=ROOT, host_root=None, external_root=None, json=True, native_profile="strict")
         with contextlib.redirect_stdout(io.StringIO()) as stdout:
             doctor.doctor(dargs)
         result = json.loads(stdout.getvalue())
         assert result["external"]["novel-art"]["status"] == "Setup Required"
         assert result["retrieval_mcp"].startswith("Unverified")
         assert result["execution"].startswith("Unverified")
-        assert result["source_vault_count"] == 188
-        assert len(result["per_skill"]) == 188
+        assert result["source_vault_count"] == 200
+        assert len(result["per_skill"]) == 200
         assert result["status_counts"]["Ready"] == 0
         assert result["per_skill"]["creative/shuohao-skills"]["status"] == "Setup Required"
         assert result["per_skill"]["process/systematic-debugging"]["status"] == "Unverified"

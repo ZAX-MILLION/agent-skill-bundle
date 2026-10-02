@@ -1,16 +1,41 @@
 ---
 name: graft
-description: Maintain a single skills vault across coding agents using reviewed, declarative distribution; inspect status and dry-run before applying changes.
+description: Maintain a single skills vault across coding agents using reviewed declarative distribution; inspect status and dry-run before applying changes.
 ---
 # Graft — optional distribution manager
 
-Source: https://github.com/Mikko-ww/agent-skills-graft at `a5e1564560b06c8bbb682f221b74cb915fa0c559`. Original adapter; no Graft program or external dependency is bundled. Its Python package metadata declares MIT, Python 3.11+, `typer` and `ruamel.yaml`; review upstream licensing/distribution before installing.
+Reviewed source: https://github.com/Mikko-ww/agent-skills-graft at `a5e1564560b06c8bbb682f221b74cb915fa0c559`. Upstream package name is `graft` `0.1.0`, Python 3.11+, MIT, with `typer` and `ruamel.yaml`.
 
-The present bundle's `install.sh --flat [--on-demand]` already provides a tested safe copy workflow. Graft is **optional**, for a user who wants a declarative profile and links from one local vault to multiple agent directories. Do not replace working installs merely because Graft exists.
+This bundle ships only this adapter. The existing bundle `install.sh` already provides a tested copy workflow, including strict on-demand and Codex-efficient profiles.
 
-1. Check whether `graft` is available. If not, explain that this skill is a guide, not a runtime; review the pinned source before installing.
-2. Use `graft status` and `graft apply --dry-run` first; review every target, duplicate name, symlink, overwrite and prune action.
-3. Preserve the bundle's source checkout and the strict two-bootstrap on-demand mode. A Graft profile that installs every skill natively defeats minimal discovery; distribute only the selected bootstrap unless the user opts in to full native installation.
-4. Do not run `graft apply --prune` or import private skills into the public repository without explicit approval. Back up target configurations and preserve unrelated skills.
-5. On Windows or hosts without symlink support, use a reviewed copy-based installation instead; do not assume every editor permits external symlinks.
-6. Verify the actual host's skill list after any change; a successful filesystem copy is not proof of native discovery or runtime execution.
+## When Graft is worth using
+
+Use Graft when the user wants one declarative skill vault distributed across several agents/hosts.
+
+Do **not** run Graft during normal coding turns. It is setup/maintenance tooling, not a per-task requirement.
+
+## Setup
+
+1. Check `graft --help`.
+2. If missing and the user explicitly wants the runtime, use a pinned isolated install after reviewing the source:
+
+```bash
+uv tool install 'git+https://github.com/Mikko-ww/agent-skills-graft.git@a5e1564560b06c8bbb682f221b74cb915fa0c559'
+```
+
+3. Verify with `graft --help` and `graft platforms`.
+4. Do not import private skills into this public repository.
+
+## Safe workflow
+
+1. `graft status`
+2. `graft apply --dry-run`
+3. Review targets, duplicate names, symlinks, copies, overwrites and prune actions.
+4. Only then use `graft apply` when the user has approved the change.
+5. `graft apply --prune` is destructive cleanup and requires explicit approval.
+
+Keep the bundle's strict/on-demand design intact. A Graft profile that exposes every skill natively defeats the context/credit-saving goal.
+
+On Windows or hosts where symlinks are unsuitable, prefer the bundle's reviewed copy installer rather than forcing Graft's symlink model.
+
+A successful filesystem operation is not proof that Codex/Claude/Antigravity discovered or can execute the skill.

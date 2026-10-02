@@ -1,14 +1,15 @@
 {
   "schema_version": 1,
-  "review_date": "2026-09-26",
+  "review_date": "2026-10-02",
   "notes": "Seven new portable root skills. The original Taste and image-to-code SKILL.md blobs are unchanged with copied MIT license; Vercel guideline text snapshot is unchanged, while its parent skill is a locally authored pinned adapter. Graphify/Graft/Awesome Design/Agent Skills are original adapters with separate optional upstream runtimes or references.",
   "skills": [
     {
       "local": "coding/graphify",
       "type": "local_adapter",
       "source": "Graphify-Labs/graphify",
-      "commit": "4139885a1212956cf69a76946fbde0d181ab85e9",
-      "runtime": "graphifyy optional"
+      "commit": "e10df08877f8819a625a1afa38c3297a31fda296",
+      "runtime": "graphifyy optional",
+      "version": "0.9.74"
     },
     {
       "local": "productivity/graft",

@@ -17,6 +17,24 @@ Third-party work remains credited to its canonical author/project. Original lice
 | Ponytail by Dietrich Gebert | https://github.com/DietrichGebert/ponytail | Six portable coding skills, MIT; upstream skill text unchanged, license added inside each distributed skill |
 | i-have-adhd by Ayoub Ghriss | https://github.com/ayghri/i-have-adhd | Original portable communication SKILL.md and MIT license. Antigravity always-on rule is a bundle-specific adapter, not the upstream plugin/hook. |
 
+## Emil Kowalski UI and motion skills (2026-10-03)
+
+| Original project | Used for |
+|---|---|
+| [Emil Kowalski Skills](https://github.com/emilkowalski/skills) | Five selected MIT-licensed UI/motion skill packages copied unchanged with supporting files and scoped root-license overlays: `emil-design-eng`, `mobile-native`, `animate`, `review-animations`, and `find-animation-opportunities`. |
+
+Reviewed commit and blob pins: [registry/vendor-emil-kowalski.json](registry/vendor-emil-kowalski.json).
+
+## Blueprint selected agent workflows (2026-10-02)
+
+| Original project | Used for |
+|---|---|
+| [Blueprint — Owain Lewis](https://github.com/owainlewis/blueprint) | Six unchanged MIT skill bodies with scoped root-license overlays: `task-to-pr`, `test`, `review`, `factory`, `codex-issue-coordinator`, and `architecture-review`. The bundle intentionally does not bulk-import overlapping Blueprint plan/design skills. |
+
+Reviewed commit and blob pins: [registry/vendor-blueprint.json](registry/vendor-blueprint.json).
+
+**Bundle-authored:** `productivity/credit-usage-helper` is original local work for credit/context-aware agent execution; it is not attributed to Blueprint or OpenAI.
+
 ## Additional portable expansion (2026-09-26)
 
 | Canonical upstream | Relationship |

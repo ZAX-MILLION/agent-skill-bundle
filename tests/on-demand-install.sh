@@ -7,9 +7,21 @@ trap 'rm -rf -- "$tmp"' EXIT
 
 "$root/install.sh" "$tmp/full" --flat >/dev/null
 full="$(find "$tmp/full" -mindepth 2 -maxdepth 2 -name SKILL.md | wc -l)"
-[ "$full" -eq 188 ] || { echo "FAIL: expected 188 full skills, got $full" >&2; exit 1; }
+[ "$full" -eq 200 ] || { echo "FAIL: expected 200 full skills, got $full" >&2; exit 1; }
 for skill in graphify graft awesome-design design-taste-frontend image-to-code web-design-guidelines agent-skills; do
   [ -f "$tmp/full/$skill/SKILL.md" ] || { echo "FAIL: missing $skill" >&2; exit 1; }
+done
+for skill in credit-usage-helper task-to-pr test review factory codex-issue-coordinator architecture-review; do
+  [ -f "$tmp/full/$skill/SKILL.md" ] || { echo "FAIL: missing $skill" >&2; exit 1; }
+done
+for skill in emil-design-eng mobile-native animate review-animations find-animation-opportunities; do
+  [ -f "$tmp/full/$skill/SKILL.md" ] || { echo "FAIL: missing Emil skill $skill" >&2; exit 1; }
+  [ -f "$tmp/full/$skill/LICENSE.txt" ] || { echo "FAIL: missing Emil license for $skill" >&2; exit 1; }
+done
+[ -f "$tmp/full/animate/RECIPES.md" ]
+[ -f "$tmp/full/review-animations/STANDARDS.md" ]
+for skill in task-to-pr test review factory codex-issue-coordinator architecture-review; do
+  [ -f "$tmp/full/$skill/LICENSE.txt" ] || { echo "FAIL: missing Blueprint license for $skill" >&2; exit 1; }
 done
 for skill in caveman claude-mem humanizer events; do
   [ -f "$tmp/full/$skill/SKILL.md" ] || { echo "FAIL: missing $skill" >&2; exit 1; }
@@ -29,10 +41,15 @@ done
 python3 "$root/tests/verify-third-wave.py" "$root" "$tmp/full"
 python3 "$root/tests/verify-ecc.py" "$root" "$tmp/full"
 python3 "$root/tests/verify-skillsmp-expansion.py" "$root" "$tmp/full"
+python3 "$root/tests/verify-emil-kowalski.py" "$root" "$tmp/full"
 
-# Integrity: complete copied upstream files must remain byte-identical to reviewed blobs.
-python3 - "$root" "$tmp/full" <<'PY'
-import json, pathlib, subprocess, sys
+# Integrity: committed Git blobs must match reviewed pins; installed copies
+# must match the checked-out source bytes. This tolerates Windows CRLF checkout
+# conversion without weakening the committed provenance check.
+PYTHONPATH="$root/tests${PYTHONPATH:+:$PYTHONPATH}" python3 - "$root" "$tmp/full" <<'PY'
+import json, pathlib, sys
+from git_pin_utils import assert_tracked_pin
+
 repo, target = map(pathlib.Path, sys.argv[1:])
 pinned = json.loads((repo / "registry/vendor-second-wave.json").read_text())
 checks = 0
@@ -40,12 +57,9 @@ for source in pinned["sources"]:
     for relative, expected in source.get("files", {}).items():
         local = repo / source["local_path"] / relative
         copied = target / pathlib.Path(source["local_path"]).name / relative
-        for path in (local, copied):
-            assert path.is_file(), f"missing file: {path}"
-            actual = subprocess.check_output(["git", "hash-object", str(path)], text=True).strip()
-            assert actual == expected, f"source pin mismatch: {path}"
-            checks += 1
-print(f"PASS: {checks} reviewed source and installed blob hashes")
+        assert_tracked_pin(repo, local, expected, copied)
+        checks += 2
+print(f"PASS: {checks} committed-pin/source-install checks")
 PY
 [ -f "$tmp/full/web-design-guidelines/references/pinned-command.md" ]
 [ -f "$tmp/full/awesome-design/references/catalog.md" ]
@@ -57,6 +71,17 @@ minimal="$(find "$tmp/minimal" -mindepth 2 -maxdepth 2 -name SKILL.md | wc -l)"
 [ "$minimal" -eq 2 ] || { echo "FAIL: expected 2 bootstrap skills, got $minimal" >&2; exit 1; }
 [ -f "$tmp/minimal/i-have-adhd/SKILL.md" ]
 [ -f "$tmp/minimal/skill-retrieval-routing/SKILL.md" ]
+
+# Codex-efficient profile: small native set for credit-conscious coding.
+"$root/install.sh" "$tmp/codex-efficient" --flat --codex-efficient >/dev/null
+efficient="$(find "$tmp/codex-efficient" -mindepth 2 -maxdepth 2 -name SKILL.md | wc -l)"
+[ "$efficient" -eq 12 ] || { echo "FAIL: expected 12 Codex-efficient skills, got $efficient" >&2; exit 1; }
+for skill in i-have-adhd skill-retrieval-routing credit-usage-helper ponytail graft graphify secure-by-default-development verification-before-completion task-to-pr test review codex-issue-coordinator; do
+  [ -f "$tmp/codex-efficient/$skill/SKILL.md" ] || { echo "FAIL: Codex-efficient profile missing $skill" >&2; exit 1; }
+done
+[ ! -e "$tmp/codex-efficient/factory" ]
+[ ! -e "$tmp/codex-efficient/architecture-review" ]
+[ ! -e "$tmp/codex-efficient/context-budget" ]
 
 # Exercise each supported host's *documented* strict-native target in isolation.
 # These are temporary simulated roots, not the owner's actual PC configuration.
@@ -108,4 +133,4 @@ printf '%s\n' 'personal data' > "$tmp/full/personal-skill/SKILL.md"
 
 count="$(find "$tmp/full" -mindepth 2 -maxdepth 2 -name SKILL.md | wc -l)"
 [ "$count" -eq 3 ] || { echo "FAIL: expected 2 bootstraps and personal skill, got $count" >&2; exit 1; }
-echo "PASS: 188 full packages (52 beyond original 136), two-skill bootstrap, deliberate migration, unmarked user skill preserved."
+echo "PASS: 200 full packages (64 beyond original 136), two-skill bootstrap, 12-skill Codex-efficient profile, deliberate migration, unmarked user skill preserved."

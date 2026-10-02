@@ -24,6 +24,19 @@ BOOTSTRAPS = {
     "i-have-adhd": "productivity/i-have-adhd",
     "skill-retrieval-routing": "research/skill-retrieval-routing",
 }
+CODEX_EFFICIENT = {
+    **BOOTSTRAPS,
+    "credit-usage-helper": "productivity/credit-usage-helper",
+    "ponytail": "coding/ponytail",
+    "graft": "productivity/graft",
+    "graphify": "coding/graphify",
+    "secure-by-default-development": "security/secure-by-default-development",
+    "verification-before-completion": "process/verification-before-completion",
+    "task-to-pr": "process/task-to-pr",
+    "test": "process/test",
+    "review": "process/review",
+    "codex-issue-coordinator": "process/codex-issue-coordinator",
+}
 MARKER = ".agent-skill-bundle-external.json"
 
 
@@ -218,14 +231,15 @@ def doctor(args):
     entries = skill_catalog(vault)
     names = [x["name"] for x in entries]
     issues = []
-    if len(entries) != 188:
-        issues.append(f"source vault has {len(entries)} skill directories, expected 188")
+    if len(entries) != 200:
+        issues.append(f"source vault has {len(entries)} skill directories, expected 200")
     if len(names) != len(set(names)):
         issues.append("duplicate local native skill names")
     host = None
     if args.host_root:
         host = {}
-        for name, expected_source in BOOTSTRAPS.items():
+        expected_native = CODEX_EFFICIENT if args.native_profile == "codex-efficient" else BOOTSTRAPS
+        for name, expected_source in expected_native.items():
             target = args.host_root / name
             marker = target / ".agent-skill-bundle-source"
             status = "Unverified"
@@ -237,7 +251,7 @@ def doctor(args):
         other_managed = []
         if args.host_root.is_dir():
             for target in args.host_root.iterdir():
-                if not target.is_dir() or target.is_symlink() or target.name in BOOTSTRAPS:
+                if not target.is_dir() or target.is_symlink() or target.name in expected_native:
                     continue
                 marker = target / ".agent-skill-bundle-source"
                 if marker.is_file() and not marker.is_symlink():
@@ -285,7 +299,9 @@ def doctor(args):
         "source_vault_count": len(entries),
         "status_counts": status_counts,
         "per_skill": per_skill,
-        "native_mode": "two-bootstrap only; runtime host discovery not verified",
+        "native_mode": ("12-skill Codex-efficient profile; runtime host discovery not verified"
+                        if args.native_profile == "codex-efficient"
+                        else "two-bootstrap only; runtime host discovery not verified"),
         "native_bootstraps": host if host is not None else "Unverified (provide --host-root)",
         "retrieval_mcp": "Unverified; test the live MCP in each host with list_categories/keyword_search/search_skills/get_skill",
         "external": external,
@@ -346,6 +362,8 @@ def main():
     d = commands.add_parser("doctor", help="read-only status; no claim of live execution")
     d.add_argument("--vault", type=pathlib.Path, default=ROOT)
     d.add_argument("--host-root", type=pathlib.Path, help="optional host native skills directory")
+    d.add_argument("--native-profile", choices=("strict", "codex-efficient"), default="strict",
+                   help="expected bundle-managed native profile when --host-root is supplied")
     d.add_argument("--external-root", type=pathlib.Path, help="optional separate external staged skill vault")
     d.add_argument("--check-runtime", action="store_true", help="optionally run only node --version; no skill code")
     d.add_argument("--json", action="store_true")

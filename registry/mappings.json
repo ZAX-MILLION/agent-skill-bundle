@@ -343,6 +343,105 @@
       "kind": "skill",
       "sync": "manual-review",
       "note": "Original complete skill directory, pinned in registry/vendor-skillsmp-2026-09-27.json; root MIT license overlaid per installable directory."
+    },
+    {
+      "local_path": "process/task-to-pr",
+      "source_id": "owainlewis-blueprint",
+      "source_path": "skills/task-to-pr",
+      "kind": "skill-with-license-overlay",
+      "sync": "manual-review",
+      "attribution": "Owain Lewis / Blueprint, MIT",
+      "note": "Original SKILL.md kept unchanged; upstream root MIT LICENSE copied as LICENSE.txt. Pinned in registry/vendor-blueprint.json."
+    },
+    {
+      "local_path": "process/test",
+      "source_id": "owainlewis-blueprint",
+      "source_path": "skills/test",
+      "kind": "skill-with-license-overlay",
+      "sync": "manual-review",
+      "attribution": "Owain Lewis / Blueprint, MIT",
+      "note": "Original SKILL.md kept unchanged; upstream root MIT LICENSE copied as LICENSE.txt. Pinned in registry/vendor-blueprint.json."
+    },
+    {
+      "local_path": "process/review",
+      "source_id": "owainlewis-blueprint",
+      "source_path": "skills/review",
+      "kind": "skill-with-license-overlay",
+      "sync": "manual-review",
+      "attribution": "Owain Lewis / Blueprint, MIT",
+      "note": "Original SKILL.md kept unchanged; upstream root MIT LICENSE copied as LICENSE.txt. Pinned in registry/vendor-blueprint.json."
+    },
+    {
+      "local_path": "process/factory",
+      "source_id": "owainlewis-blueprint",
+      "source_path": "skills/factory",
+      "kind": "skill-with-license-overlay",
+      "sync": "manual-review",
+      "attribution": "Owain Lewis / Blueprint, MIT",
+      "note": "Original SKILL.md kept unchanged; upstream root MIT LICENSE copied as LICENSE.txt. Pinned in registry/vendor-blueprint.json."
+    },
+    {
+      "local_path": "process/codex-issue-coordinator",
+      "source_id": "owainlewis-blueprint",
+      "source_path": "skills/codex-issue-coordinator",
+      "kind": "skill-with-license-overlay",
+      "sync": "manual-review",
+      "attribution": "Owain Lewis / Blueprint, MIT",
+      "note": "Original SKILL.md kept unchanged; upstream root MIT LICENSE copied as LICENSE.txt. Pinned in registry/vendor-blueprint.json."
+    },
+    {
+      "local_path": "process/architecture-review",
+      "source_id": "owainlewis-blueprint",
+      "source_path": "skills/architecture-review",
+      "kind": "skill-with-license-overlay",
+      "sync": "manual-review",
+      "attribution": "Owain Lewis / Blueprint, MIT",
+      "note": "Original SKILL.md kept unchanged; upstream root MIT LICENSE copied as LICENSE.txt. Pinned in registry/vendor-blueprint.json."
+    },
+    {
+      "local_path": "design/emil-design-eng",
+      "source_id": "emilkowalski-skills",
+      "source_path": "skills/emil-design-eng",
+      "kind": "skill-with-license-overlay",
+      "sync": "manual-review",
+      "attribution": "Emil Kowalski, MIT",
+      "note": "Original upstream skill package copied unchanged; root MIT license copied as LICENSE.txt. Pinned in registry/vendor-emil-kowalski.json."
+    },
+    {
+      "local_path": "design/mobile-native",
+      "source_id": "emilkowalski-skills",
+      "source_path": "skills/mobile-native",
+      "kind": "skill-with-license-overlay",
+      "sync": "manual-review",
+      "attribution": "Emil Kowalski, MIT",
+      "note": "Original upstream skill package copied unchanged; root MIT license copied as LICENSE.txt. Pinned in registry/vendor-emil-kowalski.json."
+    },
+    {
+      "local_path": "design/animate",
+      "source_id": "emilkowalski-skills",
+      "source_path": "skills/animate",
+      "kind": "skill-with-license-overlay",
+      "sync": "manual-review",
+      "attribution": "Emil Kowalski, MIT",
+      "note": "Original upstream skill package copied unchanged; root MIT license copied as LICENSE.txt. Pinned in registry/vendor-emil-kowalski.json."
+    },
+    {
+      "local_path": "design/review-animations",
+      "source_id": "emilkowalski-skills",
+      "source_path": "skills/review-animations",
+      "kind": "skill-with-license-overlay",
+      "sync": "manual-review",
+      "attribution": "Emil Kowalski, MIT",
+      "note": "Original upstream skill package copied unchanged; root MIT license copied as LICENSE.txt. Pinned in registry/vendor-emil-kowalski.json."
+    },
+    {
+      "local_path": "design/find-animation-opportunities",
+      "source_id": "emilkowalski-skills",
+      "source_path": "skills/find-animation-opportunities",
+      "kind": "skill-with-license-overlay",
+      "sync": "manual-review",
+      "attribution": "Emil Kowalski, MIT",
+      "note": "Original upstream skill package copied unchanged; root MIT license copied as LICENSE.txt. Pinned in registry/vendor-emil-kowalski.json."
     }
   ],
   "anthropic_design_skills": [
