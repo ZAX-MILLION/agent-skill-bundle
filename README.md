@@ -14,9 +14,9 @@ A source-preserving collection of reusable AI agent workflows for **Google Antig
 
 | | |
 |---|---|
-| **195** skill directories | The complete reviewed source vault, including local adapters. |
+| **200** skill directories | The complete reviewed source vault, including local adapters. |
 | **2** native bootstraps | `i-have-adhd` and `skill-retrieval-routing` in strict on-demand mode. |
-| **193** entries outside strict native bootstrap | Remain in the source checkout; local Skill Retrieval MCP can retrieve them on demand. |
+| **198** entries outside strict native bootstrap | Remain in the source checkout; local Skill Retrieval MCP can retrieve them on demand. |
 | **3 primary hosts** | Antigravity IDE, Codex, and Claude Code, using the same portable skill content. |
 | **Explicit setup only** | The installer copies selected skill directories when you run it; it does not register an MCP service, activate cloud accounts, install external executables, or read credentials. |
 
@@ -56,7 +56,7 @@ For Codex users who want Ponytail, Graft, Graphify, core security/verification, 
 ./install.sh "$HOME/.codex/skills" --flat --codex-efficient
 ```
 
-This exposes **12** selected skills, not all 195. External Graphify/Graft executables are still separate installs. See [Codex credit-efficient profile](docs/CODEX_EFFICIENT_PROFILE.md).
+This exposes **12** selected skills, not all 200. External Graphify/Graft executables are still separate installs. See [Codex credit-efficient profile](docs/CODEX_EFFICIENT_PROFILE.md).
 
 Antigravity **CLI** has a different path from the IDE. Verify each installed host's documented location; do not duplicate the same skill in multiple discovery roots. The installer refuses to replace an unmarked personal/third-party skill. If a previous full bundle is installed, inspect it first and explicitly choose `--prune-managed` to remove only other marker-identified bundle copies.
 
@@ -181,4 +181,4 @@ python3 scripts/sync_reviewed.py process/writing-skills
 
 Use `--write` with source/audit tools only when intentionally refreshing metadata. [`scripts/prepare_updates.py`](scripts/prepare_updates.py) prepares review branches; it never merges them automatically. The repository's GitHub Actions workflow runs the public-content and installation checks on PRs and main pushes. The separate [server-local update checker](ops/README.md) is optional; no GitHub Actions schedule is required.
 
-**Current baseline:** 200 unique directories, two native bootstrap skills in strict mode; 193 retained in one checked-out source vault. [Selected package pins](registry/vendor-skillsmp-2026-09-27.json) · [Previous source/runtime review](docs/REVIEW_2026-09-27.md).
+**Current baseline:** 200 unique directories, two native bootstrap skills in strict mode; 198 retained in one checked-out source vault. [Selected package pins](registry/vendor-skillsmp-2026-09-27.json) · [Previous source/runtime review](docs/REVIEW_2026-09-27.md).
