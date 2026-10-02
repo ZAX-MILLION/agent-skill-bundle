@@ -3,11 +3,11 @@
 
 Offline: no network, third-party script execution, runtime install, or user config edits.
 """
-import hashlib
 import json
 import pathlib
-import subprocess
 import sys
+
+from git_pin_utils import assert_tracked_pin
 
 repo, installed = map(lambda s: pathlib.Path(s).resolve(), sys.argv[1:3])
 data = json.loads((repo / "registry/vendor-skillsmp-2026-09-27.json").read_text())
@@ -15,10 +15,6 @@ assert data["schema_version"] == 1
 packages = data["packages"]
 assert len(packages) == 11
 assert len({p["local_directory"].split("/")[-1] for p in packages}) == 11
-
-def digest(file):
-    assert file.is_file(), f"missing required package file: {file}"
-    return subprocess.check_output(["git", "hash-object", str(file)], text=True).strip()
 
 checks = 0
 original_count = 0
@@ -32,13 +28,16 @@ for package in packages:
     assert actual == recorded, f"partial/extra package files: {local}, {sorted(actual ^ recorded)}"
     for relative, source in package["files"].items():
         assert source["size"] >= 0
-        for path in (local / relative, copied / relative):
-            assert digest(path) == source["sha"], path
-            checks += 1
+        assert_tracked_pin(repo, local / relative, source["sha"], copied / relative)
+        checks += 2
         original_count += 1
-    for path in (local / "LICENSE.txt", copied / "LICENSE.txt"):
-        assert digest(path) == package["root_license_blob_sha"], path
-        checks += 1
+    assert_tracked_pin(
+        repo,
+        local / "LICENSE.txt",
+        package["root_license_blob_sha"],
+        copied / "LICENSE.txt",
+    )
+    checks += 2
 
 assert original_count == 97, original_count
 assert checks == 216, checks  # (97 original source files + 11 licenses) x two copies
