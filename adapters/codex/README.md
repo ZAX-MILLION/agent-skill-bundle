@@ -20,7 +20,21 @@ Keep a **single local source checkout** and install only the two native bootstra
 ./install.sh "$HOME/.codex/skills" --flat --on-demand
 ```
 
-Check your installed Codex version's skill locations before using the target; project skills can live in `.agents/skills/`. If a full bundle already occupies that target, review it and explicitly use `--prune-managed` to remove only correctly marked bundle copies. Do not remove Codex's own built-in or personal skills. The other 185 skill bodies stay in the local source checkout, indexed by optional Skill Retrieval MCP, not loaded into native discovery. Configure the local MCP in Codex's `~/.codex/config.toml` or MCP manager by **merging**, not replacing, existing servers; see [multi-host guide](../multi-host/README.md). The installer does not install the MCP runtime or edit your config.
+Check your installed Codex version's skill locations before using the target; project skills can live in `.agents/skills/`. If a full bundle already occupies that target, review it and explicitly use `--prune-managed` to remove only correctly marked bundle copies. Do not remove Codex's own built-in or personal skills. The other 193 non-bootstrap skill bodies stay in the local source checkout, indexed by optional Skill Retrieval MCP, not loaded into native discovery. Configure the local MCP in Codex's `~/.codex/config.toml` or MCP manager by **merging**, not replacing, existing servers; see [multi-host guide](../multi-host/README.md). The installer does not install the MCP runtime or edit your config.
+
+## Optional Codex credit-efficient profile
+
+If you explicitly want a small native set for active Codex development instead of strict two-bootstrap mode:
+
+```bash
+./install.sh "$HOME/.codex/skills" --flat --codex-efficient
+```
+
+It exposes 12 reviewed skills: the two bootstraps, `credit-usage-helper`, Ponytail, Graft, Graphify, secure-by-default development, completion verification, and the Blueprint task/test/review/coordinator chain.
+
+This profile is intentionally small. `factory`, `architecture-review`, specialist QA/design skills and the rest of the vault remain on demand.
+
+See [Codex credit-efficient profile](../../docs/CODEX_EFFICIENT_PROFILE.md).
 
 For cross-session action-first communication, merge the reviewed Antigravity `i-have-adhd` *style principles* into your user-global Codex `AGENTS.md`, preserving existing project rules; do not copy Antigravity-specific paths, and verify in a new session. Installing the manually invoked original skill alone does not make it always-on.
 
