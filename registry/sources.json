@@ -507,6 +507,21 @@
       "syncable": false,
       "priority": 100,
       "note": "Six selected original MIT skill bodies copied unchanged with per-directory root license overlay: task-to-pr, test, review, factory, codex-issue-coordinator, architecture-review. Manual-review-only; not a bulk import of overlapping Blueprint skills."
+    },
+    {
+      "id": "emilkowalski-skills",
+      "name": "Emil Kowalski Skills",
+      "repository": "emilkowalski/skills",
+      "url": "https://github.com/emilkowalski/skills",
+      "default_branch": "main",
+      "categories": [
+        "design"
+      ],
+      "type": "upstream",
+      "role": "skill_upstream",
+      "syncable": false,
+      "priority": 100,
+      "note": "Five selected MIT UI/motion skill packages copied unchanged with supporting files and per-directory license overlay. Manual-review-only."
     }
   ]
 }
