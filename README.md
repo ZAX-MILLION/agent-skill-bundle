@@ -2,7 +2,7 @@
 
 ![Animated Agent Skill Bundle reactor — illustration of the earlier 174-skill edition](docs/images/agent-skill-bundle-reactor.gif)
 
-**195 reviewed agent-skill directories. One source vault. Two strict bootstraps + one optional Codex-efficient profile.**
+**200 reviewed agent-skill directories. One source vault. Two strict bootstraps + one optional Codex-efficient profile.**
 
 A source-preserving collection of reusable AI agent workflows for **Google Antigravity, OpenAI Codex, Claude Code**, and other file-based Agent Skills hosts. Find the skill you need without loading the entire collection into the agent's native startup discovery.
 
@@ -22,9 +22,9 @@ A source-preserving collection of reusable AI agent workflows for **Google Antig
 
 ### Why strict on-demand?
 
-Installing 195 skills natively exposes their descriptions to host discovery. The preferred setup exposes only **two** bootstrap descriptions from this bundle. When a task needs something specific, the separately configured local retrieval service finds the relevant skill; the agent then reads that skill and its supporting files from the **one source checkout**.
+Installing 200 skills natively exposes their descriptions to host discovery. The preferred setup exposes only **two** bootstrap descriptions from this bundle. When a task needs something specific, the separately configured local retrieval service finds the relevant skill; the agent then reads that skill and its supporting files from the **one source checkout**.
 
-This keeps discovery focused. It does **not** mean that all 193 non-bootstrap skill bodies are automatically installed, that a skill grants a tool or permission, or that Antigravity/Codex/Claude have identical capabilities.
+This keeps discovery focused. It does **not** mean that all 198 non-bootstrap skill bodies are automatically installed, that a skill grants a tool or permission, or that Antigravity/Codex/Claude have identical capabilities.
 
 ![Three-step on-demand workflow: two bootstraps, search the reviewed source vault with separately configured MCP, and load the selected complete skill](docs/images/on-demand-workflow.svg)
 
@@ -62,7 +62,7 @@ Antigravity **CLI** has a different path from the IDE. Verify each installed hos
 
 **Important second step:** the two-skill install does not provide search by itself. Separately review, install, and connect [Skill Retrieval MCP](https://github.com/JayCheng113/skill-retrieval-mcp), index **this source checkout only**, and merge its local MCP entry into each host's existing settings. The MCP index does not replace the source files: scripts, references, templates, images, and licenses remain in the checkout. Follow the [two-stage setup](adapters/antigravity/skill-retrieval-mcp.md) and [multi-host guide](adapters/multi-host/README.md).
 
-For an explicitly chosen full native install, see [`install.sh`](install.sh) and the host adapters. A full install exposes all 195 native skill descriptions and **is not** strict on-demand.
+For an explicitly chosen full native install, see [`install.sh`](install.sh) and the host adapters. A full install exposes all 200 native skill descriptions and **is not** strict on-demand.
 
 
 ### Check discovery and external-package readiness
@@ -93,6 +93,7 @@ For Shuohao, the existing router remains in the bundle; all six original full pa
 
 ### Selected integrations and their boundaries
 
+- **Emil Kowalski UI/motion skills:** five selected MIT packages are copied unchanged with supporting files and license overlays: `emil-design-eng`, `mobile-native`, `animate`, `review-animations`, and `find-animation-opportunities`. They remain on-demand and do not enlarge the 12-skill Codex-efficient native profile. [Pins](registry/vendor-emil-kowalski.json).
 - **Blueprint (Owain Lewis):** six selected MIT-licensed skill bodies are copied unchanged with license overlays: `task-to-pr`, `test`, `review`, `factory`, `codex-issue-coordinator`, and `architecture-review`. Overlapping Blueprint planning/design skills are intentionally not bulk-imported. [Pins](registry/vendor-blueprint.json).
 - **Credit Usage Helper:** local portable budget-governor skill for minimizing unnecessary context, retries, full-suite reruns and agent fan-out without weakening security/proof.
 
@@ -122,7 +123,7 @@ Eleven complete, pinned MIT-licensed upstream skill packages and two **original 
 | `game-ready-2d-asset-pipeline` | Original workflow for transparent, modular, production-ready sprite assets |
 | `cross-agent-skill-verification` | Original workflow to verify discovery and use across Antigravity, Codex and Claude Code |
 
-**Strict on-demand is unchanged:** only `i-have-adhd` and `skill-retrieval-routing` are installed natively. The 193 other skill directories remain in the one checkout until the separate local retrieval service is configured and a relevant skill is requested. No models, paid API, MCP server, host plugin, Python dependency, credential, or production service is installed automatically.
+**Strict on-demand is unchanged:** only `i-have-adhd` and `skill-retrieval-routing` are installed natively. The 198 other skill directories remain in the one checkout until the separate local retrieval service is configured and a relevant skill is requested. No models, paid API, MCP server, host plugin, Python dependency, credential, or production service is installed automatically.
 
 ## Skills are not software
 
@@ -180,4 +181,4 @@ python3 scripts/sync_reviewed.py process/writing-skills
 
 Use `--write` with source/audit tools only when intentionally refreshing metadata. [`scripts/prepare_updates.py`](scripts/prepare_updates.py) prepares review branches; it never merges them automatically. The repository's GitHub Actions workflow runs the public-content and installation checks on PRs and main pushes. The separate [server-local update checker](ops/README.md) is optional; no GitHub Actions schedule is required.
 
-**Current baseline:** 195 unique directories, two native bootstrap skills in strict mode; 193 retained in one checked-out source vault. [Selected package pins](registry/vendor-skillsmp-2026-09-27.json) · [Previous source/runtime review](docs/REVIEW_2026-09-27.md).
+**Current baseline:** 200 unique directories, two native bootstrap skills in strict mode; 193 retained in one checked-out source vault. [Selected package pins](registry/vendor-skillsmp-2026-09-27.json) · [Previous source/runtime review](docs/REVIEW_2026-09-27.md).
