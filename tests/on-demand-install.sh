@@ -7,9 +7,15 @@ trap 'rm -rf -- "$tmp"' EXIT
 
 "$root/install.sh" "$tmp/full" --flat >/dev/null
 full="$(find "$tmp/full" -mindepth 2 -maxdepth 2 -name SKILL.md | wc -l)"
-[ "$full" -eq 188 ] || { echo "FAIL: expected 188 full skills, got $full" >&2; exit 1; }
+[ "$full" -eq 195 ] || { echo "FAIL: expected 195 full skills, got $full" >&2; exit 1; }
 for skill in graphify graft awesome-design design-taste-frontend image-to-code web-design-guidelines agent-skills; do
   [ -f "$tmp/full/$skill/SKILL.md" ] || { echo "FAIL: missing $skill" >&2; exit 1; }
+done
+for skill in credit-usage-helper task-to-pr test review factory codex-issue-coordinator architecture-review; do
+  [ -f "$tmp/full/$skill/SKILL.md" ] || { echo "FAIL: missing $skill" >&2; exit 1; }
+done
+for skill in task-to-pr test review factory codex-issue-coordinator architecture-review; do
+  [ -f "$tmp/full/$skill/LICENSE.txt" ] || { echo "FAIL: missing Blueprint license for $skill" >&2; exit 1; }
 done
 for skill in caveman claude-mem humanizer events; do
   [ -f "$tmp/full/$skill/SKILL.md" ] || { echo "FAIL: missing $skill" >&2; exit 1; }
@@ -57,6 +63,17 @@ minimal="$(find "$tmp/minimal" -mindepth 2 -maxdepth 2 -name SKILL.md | wc -l)"
 [ "$minimal" -eq 2 ] || { echo "FAIL: expected 2 bootstrap skills, got $minimal" >&2; exit 1; }
 [ -f "$tmp/minimal/i-have-adhd/SKILL.md" ]
 [ -f "$tmp/minimal/skill-retrieval-routing/SKILL.md" ]
+
+# Codex-efficient profile: small native set for credit-conscious coding.
+"$root/install.sh" "$tmp/codex-efficient" --flat --codex-efficient >/dev/null
+efficient="$(find "$tmp/codex-efficient" -mindepth 2 -maxdepth 2 -name SKILL.md | wc -l)"
+[ "$efficient" -eq 12 ] || { echo "FAIL: expected 12 Codex-efficient skills, got $efficient" >&2; exit 1; }
+for skill in i-have-adhd skill-retrieval-routing credit-usage-helper ponytail graft graphify secure-by-default-development verification-before-completion task-to-pr test review codex-issue-coordinator; do
+  [ -f "$tmp/codex-efficient/$skill/SKILL.md" ] || { echo "FAIL: Codex-efficient profile missing $skill" >&2; exit 1; }
+done
+[ ! -e "$tmp/codex-efficient/factory" ]
+[ ! -e "$tmp/codex-efficient/architecture-review" ]
+[ ! -e "$tmp/codex-efficient/context-budget" ]
 
 # Exercise each supported host's *documented* strict-native target in isolation.
 # These are temporary simulated roots, not the owner's actual PC configuration.
@@ -108,4 +125,4 @@ printf '%s\n' 'personal data' > "$tmp/full/personal-skill/SKILL.md"
 
 count="$(find "$tmp/full" -mindepth 2 -maxdepth 2 -name SKILL.md | wc -l)"
 [ "$count" -eq 3 ] || { echo "FAIL: expected 2 bootstraps and personal skill, got $count" >&2; exit 1; }
-echo "PASS: 188 full packages (52 beyond original 136), two-skill bootstrap, deliberate migration, unmarked user skill preserved."
+echo "PASS: 195 full packages (59 beyond original 136), two-skill bootstrap, 12-skill Codex-efficient profile, deliberate migration, unmarked user skill preserved."
