@@ -20,7 +20,7 @@ Keep a **single local source checkout** and install only the two native bootstra
 ./install.sh "$HOME/.codex/skills" --flat --on-demand
 ```
 
-Check your installed Codex version's skill locations before using the target; project skills can live in `.agents/skills/`. If a full bundle already occupies that target, review it and explicitly use `--prune-managed` to remove only correctly marked bundle copies. Do not remove Codex's own built-in or personal skills. The other 193 non-bootstrap skill bodies stay in the local source checkout, indexed by optional Skill Retrieval MCP, not loaded into native discovery. Configure the local MCP in Codex's `~/.codex/config.toml` or MCP manager by **merging**, not replacing, existing servers; see [multi-host guide](../multi-host/README.md). The installer does not install the MCP runtime or edit your config.
+Check your installed Codex version's skill locations before using the target; project skills can live in `.agents/skills/`. If a full bundle already occupies that target, review it and explicitly use `--prune-managed` to remove only correctly marked bundle copies. Do not remove Codex's own built-in or personal skills. The other 198 non-bootstrap skill bodies stay in the local source checkout, indexed by optional Skill Retrieval MCP, not loaded into native discovery. Configure the local MCP in Codex's `~/.codex/config.toml` or MCP manager by **merging**, not replacing, existing servers; see [multi-host guide](../multi-host/README.md). The installer does not install the MCP runtime or edit your config.
 
 ## Optional Codex credit-efficient profile
 
