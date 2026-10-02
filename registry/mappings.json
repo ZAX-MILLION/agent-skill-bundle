@@ -343,6 +343,60 @@
       "kind": "skill",
       "sync": "manual-review",
       "note": "Original complete skill directory, pinned in registry/vendor-skillsmp-2026-09-27.json; root MIT license overlaid per installable directory."
+    },
+    {
+      "local_path": "process/task-to-pr",
+      "source_id": "owainlewis-blueprint",
+      "source_path": "skills/task-to-pr",
+      "kind": "skill-with-license-overlay",
+      "sync": "manual-review",
+      "attribution": "Owain Lewis / Blueprint, MIT",
+      "note": "Original SKILL.md kept unchanged; upstream root MIT LICENSE copied as LICENSE.txt. Pinned in registry/vendor-blueprint.json."
+    },
+    {
+      "local_path": "process/test",
+      "source_id": "owainlewis-blueprint",
+      "source_path": "skills/test",
+      "kind": "skill-with-license-overlay",
+      "sync": "manual-review",
+      "attribution": "Owain Lewis / Blueprint, MIT",
+      "note": "Original SKILL.md kept unchanged; upstream root MIT LICENSE copied as LICENSE.txt. Pinned in registry/vendor-blueprint.json."
+    },
+    {
+      "local_path": "process/review",
+      "source_id": "owainlewis-blueprint",
+      "source_path": "skills/review",
+      "kind": "skill-with-license-overlay",
+      "sync": "manual-review",
+      "attribution": "Owain Lewis / Blueprint, MIT",
+      "note": "Original SKILL.md kept unchanged; upstream root MIT LICENSE copied as LICENSE.txt. Pinned in registry/vendor-blueprint.json."
+    },
+    {
+      "local_path": "process/factory",
+      "source_id": "owainlewis-blueprint",
+      "source_path": "skills/factory",
+      "kind": "skill-with-license-overlay",
+      "sync": "manual-review",
+      "attribution": "Owain Lewis / Blueprint, MIT",
+      "note": "Original SKILL.md kept unchanged; upstream root MIT LICENSE copied as LICENSE.txt. Pinned in registry/vendor-blueprint.json."
+    },
+    {
+      "local_path": "process/codex-issue-coordinator",
+      "source_id": "owainlewis-blueprint",
+      "source_path": "skills/codex-issue-coordinator",
+      "kind": "skill-with-license-overlay",
+      "sync": "manual-review",
+      "attribution": "Owain Lewis / Blueprint, MIT",
+      "note": "Original SKILL.md kept unchanged; upstream root MIT LICENSE copied as LICENSE.txt. Pinned in registry/vendor-blueprint.json."
+    },
+    {
+      "local_path": "process/architecture-review",
+      "source_id": "owainlewis-blueprint",
+      "source_path": "skills/architecture-review",
+      "kind": "skill-with-license-overlay",
+      "sync": "manual-review",
+      "attribution": "Owain Lewis / Blueprint, MIT",
+      "note": "Original SKILL.md kept unchanged; upstream root MIT LICENSE copied as LICENSE.txt. Pinned in registry/vendor-blueprint.json."
     }
   ],
   "anthropic_design_skills": [
