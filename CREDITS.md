@@ -17,6 +17,16 @@ Third-party work remains credited to its canonical author/project. Original lice
 | Ponytail by Dietrich Gebert | https://github.com/DietrichGebert/ponytail | Six portable coding skills, MIT; upstream skill text unchanged, license added inside each distributed skill |
 | i-have-adhd by Ayoub Ghriss | https://github.com/ayghri/i-have-adhd | Original portable communication SKILL.md and MIT license. Antigravity always-on rule is a bundle-specific adapter, not the upstream plugin/hook. |
 
+## Blueprint selected agent workflows (2026-10-02)
+
+| Original project | Used for |
+|---|---|
+| [Blueprint — Owain Lewis](https://github.com/owainlewis/blueprint) | Six unchanged MIT skill bodies with scoped root-license overlays: `task-to-pr`, `test`, `review`, `factory`, `codex-issue-coordinator`, and `architecture-review`. The bundle intentionally does not bulk-import overlapping Blueprint plan/design skills. |
+
+Reviewed commit and blob pins: [registry/vendor-blueprint.json](registry/vendor-blueprint.json).
+
+**Bundle-authored:** `productivity/credit-usage-helper` is original local work for credit/context-aware agent execution; it is not attributed to Blueprint or OpenAI.
+
 ## Additional portable expansion (2026-09-26)
 
 | Canonical upstream | Relationship |
