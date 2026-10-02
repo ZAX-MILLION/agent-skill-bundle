@@ -2,8 +2,9 @@
 """Verify pinned selected ECC source files and metadata-only catalog; no network."""
 import json
 import pathlib
-import subprocess
 import sys
+
+from git_pin_utils import assert_tracked_pin
 
 repo = pathlib.Path(sys.argv[1]).resolve()
 installed = pathlib.Path(sys.argv[2]).resolve()
@@ -20,15 +21,15 @@ checks = 0
 for local_path, spec in pins["skill_pins"].items():
     assert by_path[spec["upstream_path"]] == spec["blob_sha"], spec["upstream_path"]
     name = pathlib.Path(local_path).parent.name
-    for file in (repo / local_path, installed / name / "SKILL.md"):
-        assert file.is_file(), file
-        assert f"name: {name}" in file.read_text().split("---", 2)[1], file
-        digest = subprocess.check_output(["git", "hash-object", str(file)], text=True).strip()
-        assert digest == spec["blob_sha"], file
-        checks += 1
-    for file in (repo / pathlib.Path(local_path).parent / "LICENSE.txt", installed / name / "LICENSE.txt"):
-        assert file.is_file(), file
-        digest = subprocess.check_output(["git", "hash-object", str(file)], text=True).strip()
-        assert digest == spec["license_blob_sha"] == pins["root_license_blob_sha"], file
-        checks += 1
+    source_skill = repo / local_path
+    installed_skill = installed / name / "SKILL.md"
+    assert f"name: {name}" in source_skill.read_text().split("---", 2)[1], source_skill
+    assert_tracked_pin(repo, source_skill, spec["blob_sha"], installed_skill)
+    checks += 2
+
+    source_license = repo / pathlib.Path(local_path).parent / "LICENSE.txt"
+    installed_license = installed / name / "LICENSE.txt"
+    assert spec["license_blob_sha"] == pins["root_license_blob_sha"]
+    assert_tracked_pin(repo, source_license, spec["license_blob_sha"], installed_license)
+    checks += 2
 print(f"PASS: ECC {len(entries)} unique canonical index entries; {len(pins['skill_pins'])} selected complete skill+license packages; {checks} original and installed blob checks")
