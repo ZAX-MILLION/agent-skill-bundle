@@ -17,6 +17,14 @@ Third-party work remains credited to its canonical author/project. Original lice
 | Ponytail by Dietrich Gebert | https://github.com/DietrichGebert/ponytail | Six portable coding skills, MIT; upstream skill text unchanged, license added inside each distributed skill |
 | i-have-adhd by Ayoub Ghriss | https://github.com/ayghri/i-have-adhd | Original portable communication SKILL.md and MIT license. Antigravity always-on rule is a bundle-specific adapter, not the upstream plugin/hook. |
 
+## Emil Kowalski UI and motion skills (2026-10-03)
+
+| Original project | Used for |
+|---|---|
+| [Emil Kowalski Skills](https://github.com/emilkowalski/skills) | Five selected MIT-licensed UI/motion skill packages copied unchanged with supporting files and scoped root-license overlays: `emil-design-eng`, `mobile-native`, `animate`, `review-animations`, and `find-animation-opportunities`. |
+
+Reviewed commit and blob pins: [registry/vendor-emil-kowalski.json](registry/vendor-emil-kowalski.json).
+
 ## Blueprint selected agent workflows (2026-10-02)
 
 | Original project | Used for |
