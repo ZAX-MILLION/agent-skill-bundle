@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "review_date": "2026-10-03",
+  "canonical_repository": "emilkowalski/skills",
+  "reviewed_commit": "e8a175de22ae1e49370fc144c1f3bb9aeedf988d",
+  "upstream_license": "MIT",
+  "root_license_blob_sha": "57b46f1fd11dc62351ea548104a88aa3f659c11b",
+  "policy": {
+    "original_skill_text_unmodified": true,
+    "supporting_files_unmodified": true,
+    "license_overlay": true,
+    "manual_review_before_update": true,
+    "selected_not_bulk_import": true,
+    "native_codex_profile_unchanged": true
+  },
+  "selection_reason": "Selected the five UI/motion skills previously approved for UTOON; mobile/Swift/Expo/Sonner and overlapping skills remain upstream/on-demand only.",
+  "packages": [
+    {
+      "name": "emil-design-eng",
+      "local_directory": "design/emil-design-eng",
+      "source_directory": "skills/emil-design-eng",
+      "files": {
+        "SKILL.md": "62ce902af8dd32c590ea7203e9ab2edb1d6ef81a"
+      }
+    },
+    {
+      "name": "mobile-native",
+      "local_directory": "design/mobile-native",
+      "source_directory": "skills/mobile-native",
+      "files": {
+        "SKILL.md": "94bba21fcb990b850e06effbf5709c96a07446ad"
+      }
+    },
+    {
+      "name": "animate",
+      "local_directory": "design/animate",
+      "source_directory": "skills/animate",
+      "files": {
+        "SKILL.md": "7c3b20c6ed681b2d47c9ca9e3ee0e659ed47d032",
+        "RECIPES.md": "6744891261bdf0bb0473d77f2cc706f2d78b574e"
+      }
+    },
+    {
+      "name": "review-animations",
+      "local_directory": "design/review-animations",
+      "source_directory": "skills/review-animations",
+      "files": {
+        "SKILL.md": "577a64397267ce20960de2202950594d5bd6f9b6",
+        "STANDARDS.md": "863ea12ea94c1f7a47b5f7e1019e976aa82bd4cd"
+      }
+    },
+    {
+      "name": "find-animation-opportunities",
+      "local_directory": "design/find-animation-opportunities",
+      "source_directory": "skills/find-animation-opportunities",
+      "files": {
+        "SKILL.md": "d3b030fbca9abad9220a032f72d425c6b7fa2de8"
+      }
+    }
+  ]
+}
