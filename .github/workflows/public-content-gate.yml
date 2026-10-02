@@ -17,6 +17,8 @@ jobs:
         run: python3 scripts/public_repo_gate.py .
       - name: Verify canonical source and external runtime boundaries
         run: python3 tests/verify-source-boundaries.py
+      - name: Verify CRLF-safe Git blob pins
+        run: python3 tests/verify-git-pin-utils.py
       - name: Verify zax-editor adapter
         run: python3 tests/verify-zax-editor-adapter.py
       - name: Verify offline discovery and selective external packages
