@@ -36,9 +36,13 @@ python3 "$root/tests/verify-third-wave.py" "$root" "$tmp/full"
 python3 "$root/tests/verify-ecc.py" "$root" "$tmp/full"
 python3 "$root/tests/verify-skillsmp-expansion.py" "$root" "$tmp/full"
 
-# Integrity: complete copied upstream files must remain byte-identical to reviewed blobs.
-python3 - "$root" "$tmp/full" <<'PY'
-import json, pathlib, subprocess, sys
+# Integrity: committed Git blobs must match reviewed pins; installed copies
+# must match the checked-out source bytes. This tolerates Windows CRLF checkout
+# conversion without weakening the committed provenance check.
+PYTHONPATH="$root/tests${PYTHONPATH:+:$PYTHONPATH}" python3 - "$root" "$tmp/full" <<'PY'
+import json, pathlib, sys
+from git_pin_utils import assert_tracked_pin
+
 repo, target = map(pathlib.Path, sys.argv[1:])
 pinned = json.loads((repo / "registry/vendor-second-wave.json").read_text())
 checks = 0
@@ -46,12 +50,9 @@ for source in pinned["sources"]:
     for relative, expected in source.get("files", {}).items():
         local = repo / source["local_path"] / relative
         copied = target / pathlib.Path(source["local_path"]).name / relative
-        for path in (local, copied):
-            assert path.is_file(), f"missing file: {path}"
-            actual = subprocess.check_output(["git", "hash-object", str(path)], text=True).strip()
-            assert actual == expected, f"source pin mismatch: {path}"
-            checks += 1
-print(f"PASS: {checks} reviewed source and installed blob hashes")
+        assert_tracked_pin(repo, local, expected, copied)
+        checks += 2
+print(f"PASS: {checks} committed-pin/source-install checks")
 PY
 [ -f "$tmp/full/web-design-guidelines/references/pinned-command.md" ]
 [ -f "$tmp/full/awesome-design/references/catalog.md" ]
