@@ -21,6 +21,7 @@ This directory is the trust layer for Agent Skill Bundle.
 - `skills.json` — last written per-directory Git-tree audit snapshot.
 - `vendor-ponytail.json` — pinned upstream commit and original skill blob hashes; license-overlaid directories are manual-review, not `EXACT`.
 - `vendor-blueprint.json` — six selected unchanged Blueprint skill bodies, reviewed commit/blob pins and MIT license-overlay relationship; no bulk import of overlapping Blueprint skills.
+- `vendor-emil-kowalski.json` — five selected unchanged Emil Kowalski UI/motion skill packages, reviewed commit/blob pins and MIT license-overlay relationship.
 - `vendor-ecc.json` / `ecc-source-index.json` — nine source-preserved ECC skill blob pins plus metadata-only index of 292 canonical upstream skill names; no runtime or bulk native import.
 - `vendor-skillsmp-2026-09-27.json` — eleven complete canonical MIT source packages, 97 original supporting files, per-package license overlays, and two original local skills. No upstream scripts are executed by verification.
 - `vendor-third-wave.json` — 100 pinned official n8n/Superpowers source and license blobs, optional runtime/source boundaries and 166-skill count.
