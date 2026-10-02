@@ -17,18 +17,19 @@ skills = sorted(
     p for category in categories
     for p in (repo / category).glob("*/SKILL.md")
 )
-assert len(skills) == 188, f"reviewed baseline changed: {len(skills)} != 188"
+assert len(skills) == 195, f"reviewed baseline changed: {len(skills)} != 195"
 names = [p.parent.name for p in skills]
 assert len(names) == len(set(names)), "duplicate native skill names across categories"
 
 # The two deliberately exposed native descriptions are the entire bootstrap.
 bootstrap = {"i-have-adhd", "skill-retrieval-routing"}
 assert bootstrap <= set(names)
-assert len(bootstrap) == 2 and len(skills) - len(bootstrap) == 186
+assert len(bootstrap) == 2 and len(skills) - len(bootstrap) == 193
 
 third = json.loads((repo / "registry/vendor-third-wave.json").read_text())
 ecc = json.loads((repo / "registry/vendor-ecc.json").read_text())
 externals = json.loads((repo / "registry/external-capabilities.json").read_text())
+blueprint = json.loads((repo / "registry/vendor-blueprint.json").read_text())
 by_repo = {e["source"]: e for e in third["source_revisions"]}
 assert len(by_repo) == 7
 assert len(third["pinned_git_blob_sha"]) == 100
@@ -57,6 +58,15 @@ assert len(ecc["skill_pins"]) == 9
 for local in ecc["skill_pins"]:
     path = repo / local
     assert path.is_file() and (path.parent / "LICENSE.txt").is_file(), local
+
+# Selected Blueprint workflows are exact source skill text plus a scoped MIT license overlay.
+assert blueprint["canonical_repository"] == "owainlewis/blueprint"
+assert blueprint["reviewed_commit"] == "3e67383af173de14e1cee1a42e04b9b331afee23"
+assert len(blueprint["packages"]) == 6
+for pkg in blueprint["packages"]:
+    local = repo / pkg["local_directory"]
+    assert (local / "SKILL.md").is_file(), local
+    assert (local / "LICENSE.txt").is_file(), local
 
 # The bundle-authored adapters are guides, not partial upstream runtime copies.
 routers = (
@@ -90,13 +100,16 @@ assert external["eternityspring/shuohao-skills"]["skills_copied"] == 0
 assert external["affaan-m/ECC"]["selected_portable_skill_bodies"] == 9
 assert external["n8n-io/skills"]["access_granted"] is False
 
-# The installer only permits the two roots when --flat --on-demand is selected.
+# The installer keeps strict two-bootstrap mode and offers an explicit small Codex profile.
 installer = (repo / "install.sh").read_text()
-assert "productivity/i-have-adhd|research/skill-retrieval-routing" in installer
-assert 'if [ "$ON_DEMAND" -eq 1 ] && [ "$count" -ne 2 ]' in installer
+assert "on-demand:productivity/i-have-adhd" in installer
+assert "on-demand:research/skill-retrieval-routing" in installer
+assert "codex-efficient:productivity/credit-usage-helper" in installer
+assert 'if [ "$MODE" = "on-demand" ] && [ "$count" -ne 2 ]' in installer
+assert 'if [ "$MODE" = "codex-efficient" ] && [ "$count" -ne 12 ]' in installer
 assert '--prune-managed' in installer
 print(
-    "PASS: 188 unique skills, 2 native bootstraps, 14 official n8n, "
-    "15 Superpowers, 9 selected ECC, 4 local guides, "
-    "7 source pins, and external runtime/credential boundaries"
+    "PASS: 195 unique skills, 2 strict bootstraps, 12-skill Codex-efficient profile, "
+    "14 official n8n, 15 Superpowers, 9 selected ECC, 6 selected Blueprint skills, "
+    "and external runtime/credential boundaries"
 )
