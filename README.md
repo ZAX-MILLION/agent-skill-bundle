@@ -8,7 +8,7 @@ A source-preserving collection of reusable AI agent workflows for **Google Antig
 
 > Original authors retain credit. Skills, supporting files, license notices, and reviewed source revisions stay traceable. Host adapters are separate from upstream copies.
 
-[Quick start](#quick-start-strict-on-demand) · [What's included](#whats-included) · [External tools](#skills-are-not-software) · [Security](SECURITY.md) · [Upstream credits](CREDITS.md) · [Source review](docs/REVIEW_2026-09-27.md)
+[DEV MAX one-command projects](#dev-max-one-command-project-bootstrap) · [Quick start](#quick-start-strict-on-demand) · [What's included](#whats-included) · [External tools](#skills-are-not-software) · [Security](SECURITY.md) · [Upstream credits](CREDITS.md) · [Source review](docs/REVIEW_2026-09-27.md)
 
 ## At a glance
 
@@ -19,6 +19,36 @@ A source-preserving collection of reusable AI agent workflows for **Google Antig
 | **186** on-demand entries | Remain in the source checkout; local Skill Retrieval MCP must be configured separately for searchable access. |
 | **3 primary hosts** | Antigravity IDE, Codex, and Claude Code, using the same portable skill content. |
 | **Explicit setup only** | The installer copies selected skill directories when you run it; it does not register an MCP service, activate cloud accounts, install external executables, or read credentials. |
+
+## DEV MAX: one-command project bootstrap
+
+For ADMIN's Antigravity workflow, this repository now also contains a **project-local DEV MAX profile**. It does not change the reviewed 188-skill vault count and does not preload the full vault.
+
+Install the command once:
+
+**Windows PowerShell**
+
+```powershell
+irm https://raw.githubusercontent.com/ZAX-MILLION/agent-skill-bundle/main/install-devmax.ps1 | iex
+```
+
+**macOS / Linux / Git Bash**
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/ZAX-MILLION/agent-skill-bundle/main/install-devmax.sh | bash
+```
+
+Then at the start of any project, run:
+
+```text
+devmax-init
+```
+
+It installs **10 project-local core skills** under `.agents/skills/`, adds a marked DEV MAX block to `AGENTS.md` without deleting existing project rules, and keeps the complete source vault outside the project for specialist retrieval on demand.
+
+Core profile: `i-have-adhd`, `skill-retrieval-routing`, `credit-usage-helper`, `ponytail`, `graft`, `graphify`, `secure-by-default-development`, `verification-before-completion`, `task-to-pr`, and `test`.
+
+The DEV MAX-only helper skills live under `profiles/devmax/`; they are not counted as additional reviewed vault entries. See [DEV MAX project bootstrap](docs/DEV_MAX_PROJECT_BOOTSTRAP.md).
 
 ### Why strict on-demand?
 
