@@ -1,0 +1,19 @@
+{
+  "name": "DEV MAX",
+  "profile_version": 1,
+  "host": "Google Antigravity",
+  "vault_mode": "on-demand",
+  "rules_template": "profiles/devmax/AGENTS.block.md",
+  "core_skills": [
+    {"name": "i-have-adhd", "source": "productivity/i-have-adhd"},
+    {"name": "skill-retrieval-routing", "source": "research/skill-retrieval-routing"},
+    {"name": "credit-usage-helper", "source": "profiles/devmax/skills/credit-usage-helper"},
+    {"name": "ponytail", "source": "coding/ponytail"},
+    {"name": "graft", "source": "productivity/graft"},
+    {"name": "graphify", "source": "coding/graphify"},
+    {"name": "secure-by-default-development", "source": "security/secure-by-default-development"},
+    {"name": "verification-before-completion", "source": "process/verification-before-completion"},
+    {"name": "task-to-pr", "source": "profiles/devmax/skills/task-to-pr"},
+    {"name": "test", "source": "profiles/devmax/skills/test"}
+  ]
+}
