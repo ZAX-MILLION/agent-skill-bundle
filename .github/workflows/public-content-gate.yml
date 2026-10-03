@@ -23,14 +23,5 @@ jobs:
         run: python3 tests/verify-skill-doctor.py
       - name: Verify complete and on-demand installations
         run: bash tests/on-demand-install.sh
-      - name: Verify Agent project project bootstrap
+      - name: Verify agent project bootstrap
         run: bash tests/agent-project-bootstrap.sh
-      - name: Upload source snapshot
-        uses: actions/upload-artifact@v4
-        with:
-          name: agent-skill-bundle
-          path: |
-            .
-            !.git/**
-          include-hidden-files: true
-          retention-days: 1
