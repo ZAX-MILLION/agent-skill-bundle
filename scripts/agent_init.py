@@ -55,7 +55,7 @@ def default_checkout() -> Path:
 def ensure_checkout(source_arg: str | None, no_update: bool, ref: str) -> Path:
     if source_arg:
         source = Path(source_arg).expanduser().resolve()
-        if not (source / "profiles" / "agent-init" / "profile.json").is_file():
+        if not (source / "profiles" / "project-core" / "profile.json").is_file():
             raise BootstrapError(f"not a Project Core bundle checkout: {source}")
         return source
 
@@ -87,7 +87,7 @@ def ensure_checkout(source_arg: str | None, no_update: bool, ref: str) -> Path:
 
 
 def load_profile(source: Path) -> dict[str, Any]:
-    path = source / "profiles" / "agent-init" / "profile.json"
+    path = source / "profiles" / "project-core" / "profile.json"
     data = json.loads(path.read_text(encoding="utf-8"))
     skills = data.get("core_skills")
     if not isinstance(skills, list) or not skills:
