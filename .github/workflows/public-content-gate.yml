@@ -25,3 +25,12 @@ jobs:
         run: bash tests/on-demand-install.sh
       - name: Verify Agent project project bootstrap
         run: bash tests/agent-project-bootstrap.sh
+      - name: Upload source snapshot
+        uses: actions/upload-artifact@v4
+        with:
+          name: agent-skill-bundle
+          path: |
+            .
+            !.git/**
+          include-hidden-files: true
+          retention-days: 1
